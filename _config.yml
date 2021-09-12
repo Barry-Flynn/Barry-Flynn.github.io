@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site（网站）
-title: Hexo # 标题
-subtitle: '' # 副标题
-description: '百里飞洋的个人博客' # 说明、描述
-keywords: # 关键词
-author: 百里飞洋丨Barry Flynn # 作者
+title: 百里飞洋 #丨Barry Flynn # 标题（若主题配置中没有额外定义，将会在导航栏左上角显示）
+subtitle: '个人博客主页' # 副标题（浏览器标签名称上显示）
+description: '百里飞洋（BarryFlynn）的个人博客主页' # 说明、描述（若主题配置中没有额外定义，将会在头像下显示这句话）
+keywords: 百里飞洋,博客 # 关键词
+author: 百里飞洋丨Barry Flynn # 作者（会在头像下显示）
 language: zh-CN # 语言
 timezone: '' # 时区
 
