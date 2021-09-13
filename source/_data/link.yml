@@ -1,24 +1,63 @@
-- class_name: 友情链接
-  class_desc: 那些人，那些事
+- class_name: 友情链接-「我的朋友们」
+  class_desc: 有朋自远方来，不亦乐乎？聚是一团火，散是满天星。 #那些人，那些事
   link_list:
-    - name: Hexo
-      link: https://hexo.io/zh-tw/
-      avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
-      descr: 快速、简单且强大的网誌框架
+    - name: 百里飞洋的博客
+      link: https://barry-flynn.github.io/link/
+      avatar: https://i.loli.net/2021/09/09/5belKgmrkjN8ZQ7.jpg
+      descr: 哈哈，我就是最好的朋友
+      
+    # - name: Hexo
+    #   link: https://hexo.io/zh-tw/
+    #   avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
+    #   descr: 快速、简单且强大的网誌框架
+    # - name: Hexo
+    #   link: https://hexo.io/zh-tw/
+    #   avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
+    #   descr: 快速、简单且强大的网誌框架
 
-- class_name: 网站
-  class_desc: 值得推荐的网站
+- class_name: 网站推荐
+  class_desc: 那些我常用的，以及值得我推荐的网站，不知道血亏！
   link_list:
-    - name: Youtube
-      link: https://www.youtube.com/
-      avatar: https://i.loli.net/2020/05/14/9ZkGg8v3azHJfM1.png
-      descr: 视频网站
-    - name: Weibo
-      link: https://www.weibo.com/
-      avatar: https://i.loli.net/2020/05/14/TLJBum386vcnI1P.png
-      descr: 中国最大社交分享平台
-    - name: Twitter
-      link: https://twitter.com/
-      avatar: https://i.loli.net/2020/05/14/5VyHPQqR6LWF39a.png
-      descr: 社交分享平台
+    - name: 菜鸟教程
+      link: https://www.runoob.com/
+      # avatar: https://static.runoob.com/images/favicon.ico
+      avatar: https://static.runoob.com/images/icon/mobile-icon.png
+      descr: 免费编程基础的学习网站
+    - name: W3school在线教程
+      link: https://www.w3school.com.cn/index.html
+      avatar: https://www.w3school.com.cn/ui2019/logo-96-red.png
+      descr: 免费编程基础的学习网站
+    - name: 哔哩哔哩Bilibili~
+      link: https://www.bilibili.com/
+      avatar: https://static.hdslb.com/mobile/img/512.png
+      descr: 众所周知，B站是学习网站
+    - name: CSDN社区
+      link: https://blog.csdn.net/
+      avatar: https://g.csdnimg.cn/static/logo/favicon32.ico
+      descr: 遇到不会的，搜就完了！
+    - name: 博客园
+      link: https://www.cnblogs.com/
+      avatar: https://common.cnblogs.com/favicon.svg
+      descr: 遇到不会的，搜就完了！
+    # - name: Youtube
+    #   link: https://www.youtube.com/
+    #   avatar: https://i.loli.net/2020/05/14/9ZkGg8v3azHJfM1.png
+    #   descr: 视频网站
+    # - name: Youtube
+    #   link: https://www.youtube.com/
+    #   avatar: https://i.loli.net/2020/05/14/9ZkGg8v3azHJfM1.png
+    #   descr: 视频网站
+    
+    # - name: Youtube
+    #   link: https://www.youtube.com/
+    #   avatar: https://i.loli.net/2020/05/14/9ZkGg8v3azHJfM1.png
+    #   descr: 视频网站
+    # - name: Weibo
+    #   link: https://www.weibo.com/
+    #   avatar: https://i.loli.net/2020/05/14/TLJBum386vcnI1P.png
+    #   descr: 中国最大社交分享平台
+    # - name: Twitter
+    #   link: https://twitter.com/
+    #   avatar: https://i.loli.net/2020/05/14/5VyHPQqR6LWF39a.png
+    #   descr: 社交分享平台
 
