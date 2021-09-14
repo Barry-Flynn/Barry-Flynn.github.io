@@ -2,7 +2,7 @@
 title: 相册Gallery
 date: 2021-09-13 14:43:57
 updated: 
-top_img: https://wx3.sinaimg.cn/mw1024/006UeImely1ghrroikbazj31hm1444h7.jpg
+top_img: https://i.loli.net/2021/09/14/iyjlm7qV839pOn5.jpg
 ---
 
 
