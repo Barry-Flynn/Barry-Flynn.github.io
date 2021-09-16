@@ -2,7 +2,7 @@
 title: 视频Movies
 date: 2021-09-13 14:43:31
 updated:
-top_img: /img/B站主页头图.png
+top_img: https://i.loli.net/2021/09/14/sHj8ouR9QyECZDX.png
 ---
 
 ## 我拍摄/剪辑的视频

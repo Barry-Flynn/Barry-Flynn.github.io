@@ -16,7 +16,15 @@ top_img: https://i.loli.net/2021/09/14/fEFCvxWYg7h5t3A.jpg
 <!--网易云音乐 Heartbeats - Amy Deasismont -->
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=2175282&auto=1&height=66"></iframe>
 
+<!-- 嵌入mp4语句:
+<video id="video" controls="" preload="none" poster="作者(图片地址)">
+<source id="mp4" src="视频地址" type="video/mp4">
+</video>
 
+嵌入mp3语句:
+<audio id="audio" controls="" preload="none">
+<source id="mp3" src="音频地址">
+</audio> -->
 
 <!-- 
 <div id="aplayer-sOskzMml" class="aplayer aplayer-tag-marker" style="margin-bottom:20px;width:100%"><pre class="aplayer-lrc-content">[00:00.10]周杰伦 - 稻香
