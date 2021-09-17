@@ -23,9 +23,7 @@ description:
 
 <b><font color=orange> &emsp;&emsp;&emsp;&emsp;&emsp;《稻香》-周杰伦 </font></b>
 
-<audio id="audio" controls="" preload="none">
-<source id="mp3" src="http://ip.h5.ra01.sycdn.kuwo.cn/b7b927d4b89c2fbf2f570fbfef1c2a13/6142a250/resource/n3/320/74/27/4113470514.mp3">
-</audio>
+<iframe src="//player.bilibili.com/player.html?aid=57379500&bvid=BV1zx411R7ro&cid=163965636&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <!--深灰-->
 <!-- {% note default no-icon %} 
@@ -56,6 +54,24 @@ description:
 <br />
 
 
+
+
+
+
+
+{% note orange no-icon %} 
+<font size=4>**还记得你说家是唯一的城堡
+随着稻香河流继续奔跑
+微微笑
+小时候的梦我知道
+不要哭
+让萤火虫带着你逃跑
+乡间的歌谣永远的依靠
+回家吧
+回到最初的美好**</font>
+*——周杰伦《稻香》
+为 2008 年四川汶川地震而创作*
+{% endnote %}
 
 {% note green no-icon %} 
 <font size=4>**愿中国青年都摆脱冷气，
