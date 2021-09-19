@@ -80,7 +80,7 @@ meta_generator: true # meta生成器：启用
 ## http://momentjs.com/docs/#/displaying/format/
 date_format: YYYY-MM-DD # 日期格式
 time_format: HH:mm:ss # 时间单位格式
-## updated_option supports 'mtime', 'date', 'empty' （更新的选项支持：后边那仨）
+## updated_option supports 'mtime', 'date', 'empty'（更新的选项支持：后边那仨）
 updated_option: 'mtime'
 
 # Pagination（分页）
