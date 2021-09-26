@@ -59,6 +59,18 @@ description:
 
 
 
+
+{% note red no-icon %} 
+<font size=4>**总觉得，
+他会去往一个更大、更宽广的世界，
+借着他的光，
+我也瞥见了广袤的模样。
+我才意识到，
+我也想要前往那里，
+不被落在身后...**</font>
+*——《暗格里的秘密》*
+{% endnote %}
+
 {% note orange no-icon %} 
 <font size=4>**还记得你说家是唯一的城堡
 随着稻香河流继续奔跑
