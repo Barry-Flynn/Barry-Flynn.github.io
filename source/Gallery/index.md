@@ -8,9 +8,12 @@ top_img: https://i.loli.net/2021/09/14/iyjlm7qV839pOn5.jpg
 
 <i class="note-icon fas fa-bullhorn">
 新增图片会更新在最上方
+</i>
+<br />
+<i class="fas fa-exclamation-triangle">
+若加载失败/缓慢，请刷新一下~
 </i><br />
 <br />
-
 
 {% gallery %}
 
@@ -26,6 +29,7 @@ top_img: https://i.loli.net/2021/09/14/iyjlm7qV839pOn5.jpg
 ![](https://.jpg)
 ![](https://.jpg)
 ![](https://.jpg)
+![绿色丛林路.jpg](https://i.loli.net/2021/09/29/IsFturcqSCYBief.jpg)
 ![踏晚霞.jpeg](https://i.loli.net/2021/09/14/zEHMbumUQsXeN5k.jpg)
 ![聚会.jpg](https://i.loli.net/2021/09/14/DiTJZfp94yOHAsr.jpg)
 ![观落日.jpg](https://i.loli.net/2021/09/14/nsKCquNwfZzEFb3.jpg)

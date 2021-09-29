@@ -12,7 +12,7 @@ description:
 </i><br />
 
 <i class="fas fa-guitar">
-播放本页面音乐，体验更佳哦~
+播放左下角或下方音乐，体验更佳哦~
 </i><br />
 
 <i class="note-icon fas fa-bullhorn">
@@ -20,6 +20,11 @@ description:
 </i><br />
 
 ---
+
+<b><font color=orange> &emsp;&emsp;&emsp;&emsp;&emsp;《Heartbeats》-Amy Deasismont </font></b>
+
+<!--网易云音乐 Heartbeats - Amy Deasismont -->
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=2175282&auto=1&height=66"></iframe>
 
 <b><font color=orange> &emsp;&emsp;&emsp;&emsp;&emsp;《稻香》-周杰伦 </font></b>
 
@@ -58,7 +63,10 @@ description:
 
 
 
-
+{% note pink no-icon %} 
+<font size=4>**随着对计算机这个行业了解得越多，越是感觉自己辣鸡。呜呜呜~怎么别人啥都会，俺都听不懂！还有我真得多练练英语了，看文档和写代码的时候天天靠机翻过日子，也太难受了叭！**</font>
+*——百里飞洋（2021-09-29）*
+{% endnote %}
 
 {% note red no-icon %} 
 <font size=4>**总觉得，
