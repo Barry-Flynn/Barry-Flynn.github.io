@@ -11,7 +11,8 @@ top_img: https://i.loli.net/2021/09/14/u59ehnZkbQFoadT.jpg
 
 <!--绿色-->
 {% note green no-icon %}
-关于打赏，请点击：<a href="/about/">关于我</a>
+想了解我，请点击：<a href="/about/">关于我</a>
+打赏时可以<kbd>备注</kbd>你的名字、昵称或者想说的话，后期我会增加到打赏列表中进行<kbd>公示与感谢</kbd>
 感谢以下朋友的支持，小本本记上喽！
 {% endnote %} 
 

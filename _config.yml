@@ -24,7 +24,7 @@ pretty_urls:
 source_dir: source # 源目录
 public_dir: public # 公共目录
 tag_dir: tags # 标签目录
-archive_dir: archives # 档案目录
+archive_dir: archives # 时间归档目录
 category_dir: categories # 类别目录
 code_dir: downloads/code # 代码目录
 i18n_dir: :lang # i18n目录
