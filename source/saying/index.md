@@ -12,23 +12,13 @@ description:
 </i><br />
 
 <i class="fas fa-guitar">
-播放左下角或下方音乐，体验更佳哦~
+播放下方音乐，体验更佳哦~
 </i><br />
 
 <i class="note-icon fas fa-bullhorn">
-新增语录会更新在最上方
+不定时更新ing...
 </i><br />
 
----
-
-<b><font color=orange> &emsp;&emsp;&emsp;&emsp;&emsp;《Heartbeats》-Amy Deasismont </font></b>
-
-<!--网易云音乐 Heartbeats - Amy Deasismont -->
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=2175282&auto=1&height=66"></iframe>
-
-<b><font color=orange> &emsp;&emsp;&emsp;&emsp;&emsp;《稻香》-周杰伦 </font></b>
-
-<iframe src="//player.bilibili.com/player.html?aid=57379500&bvid=BV1zx411R7ro&cid=163965636&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <!--深灰-->
 <!-- {% note default no-icon %} 
@@ -51,15 +41,21 @@ description:
 {% endnote %} -->
 
 
----
 
 
 
-## &emsp;&emsp;&emsp;&emsp;&emsp;不定时更新中...
+## &emsp;&emsp;&emsp;&emsp;&emsp;其实是哔哔空间...
 <br />
 
 
 
+
+
+{% note blue no-icon %} 
+<font size=4>**今天又逛了几个其他大佬的博客，不出所料，又被惊艳了好几次！那炫酷的页面、恰到好处的动效、齐全的功能...嘶哈嘶哈~
+我要学习我要变强冲冲冲！**</font>
+*——百里飞洋（2021-10-04）*
+{% endnote %}
 
 {% note purple  no-icon %} 
 <font size=4>**这段时间晚上都熬到凌晨两三点，心脏有些受不了，那种闷闷的感觉很难受...尼玛，百度一查吓死我吧，不说了，我去写遗书了...
@@ -94,7 +90,10 @@ description:
 回家吧
 回到最初的美好**</font>
 *——周杰伦《稻香》
-为 2008 年四川汶川地震而创作*
+为 2008 年四川汶川大地震而创作*
+
+<b><font color=orange> &emsp;&emsp;&emsp;&emsp;&emsp;《稻香》-周杰伦 </font></b>
+<iframe src="//player.bilibili.com/player.html?aid=57379500&bvid=BV1zx411R7ro&cid=163965636&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 {% endnote %}
 
 {% note green no-icon %} 
@@ -147,7 +146,7 @@ description:
 {% note orange no-icon %} 
 <font size=4>**黄昏将至
 我吃着白米饭，喝着快乐水
-想不通为什么这些身强体壮的士兵为什么会死
+想不通这些身强体壮的士兵为什么会死
 我在深夜惊醒
 突然想起
 他们是为我而死**</font>
