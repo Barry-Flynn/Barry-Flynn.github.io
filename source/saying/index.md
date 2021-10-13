@@ -50,6 +50,10 @@ description:
 
 
 
+{% note green no-icon %} 
+<font size=4>**Talk is cheap, show me your code.**</font>
+*——小螺*
+{% endnote %}
 
 {% note blue no-icon %} 
 <font size=4>**今天又逛了几个其他大佬的博客，不出所料，又被惊艳了好几次！那炫酷的页面、恰到好处的动效、齐全的功能...嘶哈嘶哈~
