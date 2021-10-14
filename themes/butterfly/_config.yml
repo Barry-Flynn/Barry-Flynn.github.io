@@ -315,15 +315,15 @@ comments:
   # Up to two comments system, the first will be shown as default
   # Choose: Disqus/Disqusjs/Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo
   use:
-  # - Twikoo
+   - Twikoo
   # - Valine
   # - Disqus
   text: true # 是否显示评论服务商的名字 Display the comment name next to the button
   # lazyload: The comment system will be load when comment element enters the browser's viewport.
   # If you set it to true, the comment count will be invalid
-  lazyload: false #是否为评论开启lazyload，开启后，只有滚动到评论位置时才会加载评论所需要的资源（开启lazyload后，评论数将不显示）
+  lazyload: true #false #是否为评论开启lazyload，开启后，只有滚动到评论位置时才会加载评论所需要的资源（开启lazyload后，评论数将不显示）
   count: true #false # 是否在文章顶部显示评论数 Display comment count in post's top_img
-  card_post_count: false #true # 是否在首页文章卡片显示评论数 Display comment count in Home Page
+  card_post_count: true #false # 是否在首页文章卡片显示评论数 Display comment count in Home Page
 
 # disqus
 # https://disqus.com/
@@ -414,7 +414,7 @@ facebook_comments:
 # Twikoo 评论
 # https://github.com/imaegoo/twikoo
 twikoo:
-  envId: #https://barry-flynn-s-blog.vercel.app/ #环境地址
+  envId: https://barry-flynn-s-blog.vercel.app/ #环境地址
   region:
   visitor: true #false # 是否显示文章阅读数
   option:
@@ -610,7 +610,7 @@ canvas_nest:
 activate_power_mode:
   enable: true
   colorful: true # open particle animation (冒光特效)
-  shake: true #  open shake (抖動特效)
+  shake: # true  open shake (抖動特效)
   mobile: false
 
 # Mouse click effects: fireworks (鼠標點擊效果: 煙火特效)
@@ -767,7 +767,7 @@ runtimeshow:
 newest_comments: # 最新评论
   enable: true #false
   sort_order: 7 # Don't modify the setting unless you know how it works
-  limit: 6 # 显示的数量
+  limit: 5 # 显示的数量
   storage: 10 # 设置缓存时间 unit: mins, save data to localStorage
   avatar: true # 是否显示头像
 
