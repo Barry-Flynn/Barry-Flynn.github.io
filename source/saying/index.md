@@ -50,6 +50,17 @@ description:
 
 
 
+
+{% note red no-icon %} 
+<font size=4>**人懒惰久了，稍微努力一下，就以为是在拼命。**</font>
+*——雷溪.*
+{% endnote %}
+
+{% note orange no-icon %} 
+<font size=4>**记得向前看，别烂在过去和梦里。**</font>
+*——Augensterm*
+{% endnote %}
+
 {% note green no-icon %} 
 <font size=4>**Talk is cheap, show me your code.**</font>
 *——小螺*
