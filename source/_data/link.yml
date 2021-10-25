@@ -21,15 +21,15 @@
       avatar: https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20201204121004.jpg
       descr: 一只平凡的鸟罢了。
 
-    - name: 静かな森
+    - name: 静かな森（Innei）
       link: https://innei.ren/
-      avatar: https://cdn.innei.ren/avatar.png
+      avatar: https://cdn.timochan.cn/img/avatar.webp
       descr: 致虚极，守静笃。
    
-    - name: 凉城听暖
-      link: https://akui.cool/
-      avatar: https://akui.cool/img/flowers.png
-      descr: 是小阿奎呢
+    # - name: 凉城听暖
+    #   link: https://akui.cool/
+    #   avatar: https://akui.cool/img/flowers.png
+    #   descr: 是小阿奎呢
 
 
     #模板

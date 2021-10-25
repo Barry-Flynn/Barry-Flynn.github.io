@@ -50,6 +50,36 @@ description:
 
 
 
+{% note blue no-icon %} 
+<font size=4>**那些课本上的理论知识有时候真的是，读着读着都不知道自己读的是啥，太干了咽不下去......**</font>
+*——百里飞洋（2021-10-25）*
+{% endnote %}
+
+{% note orange no-icon %} 
+<font size=4>**别订着六七百分的目标，每天却做着三四百分的事。**</font>
+*——萱萱要努力（2021-10-25）*
+{% endnote %}
+
+{% note green no-icon %} 
+<font size=4>**人总是喜欢美化过去，2021怀念2011，2011怀念2001。一辈子就在后悔和怀念中走向死亡。**</font>
+*——B站热评（2021-10-23）*
+{% endnote %}
+
+{% note blue no-icon %} 
+<font size=4>**当你觉得坚持不下去的时候，恰恰是你需要坚持下去的时候。**</font>
+*——佚名*
+{% endnote %}
+
+{% note purple no-icon %} 
+<font size=4>**别在会后悔的事情上浪费时间。**</font>
+*——佚名*
+{% endnote %}
+
+{% note pink no-icon %} 
+<font size=4>**提莫酱真是个贼可爱的娃子。
+这里[@提莫酱](https://www.timochan.cn/about)，真的，不用自卑，没必要。抬头，微笑，做个小太阳！**</font>
+*——百里飞洋（2021.10.19）*
+{% endnote %}
 
 {% note red no-icon %} 
 <font size=4>**人懒惰久了，稍微努力一下，就以为是在拼命。**</font>
