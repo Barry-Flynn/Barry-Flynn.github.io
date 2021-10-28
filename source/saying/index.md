@@ -50,7 +50,12 @@ description:
 
 
 
-{% note blue no-icon %} 
+<!-- {% note pink no-icon %} 
+<font size=4>****</font>
+*——*
+{% endnote %} -->
+
+{% note red no-icon %} 
 <font size=4>**那些课本上的理论知识有时候真的是，读着读着都不知道自己读的是啥，太干了咽不下去......**</font>
 *——百里飞洋（2021-10-25）*
 {% endnote %}

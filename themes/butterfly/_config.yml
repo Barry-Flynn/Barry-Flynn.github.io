@@ -562,7 +562,7 @@ tag_ui: # 留空或 index
 # Website Background (設置網站背景) 设置网站背景
 # can set it to color or image (可設置圖片 或者 顔色)
 # The formal of image: url(http://xxxxxx.com/xxx.jpg)
-background: url(https://i.loli.net/2021/10/27/XacmelOh7FnKvtE.jpg) #炫酷科幻 (8)
+background: url(https://i.loli.net/2021/10/27/XacmelOh7FnKvtE.jpg) #炫酷科幻8
 #url(https://i.loli.net/2021/09/14/6I7RoPjs5nFUe1M.jpg) #高三教室
 #url(https://i.loli.net/2021/09/15/7TgNcJjKMEHuRWa.jpg) #星空
 # background: "#0c4399"
