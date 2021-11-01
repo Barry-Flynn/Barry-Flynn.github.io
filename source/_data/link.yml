@@ -21,11 +21,17 @@
       avatar: https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20201204121004.jpg
       descr: 一只平凡的鸟罢了。
 
-    - name: 静かな森（Innei）
+    - name: 静かな森(Innei)
       link: https://innei.ren/
       avatar: https://cdn.timochan.cn/img/avatar.webp
       descr: 致虚极，守静笃。
    
+    # - name: 保罗的小宇宙
+    #   link: https://paugram.com/
+    #   avatar: https://paugram.com/usr/uploads/avatar.jpg
+    #   #avatar: https://secure.gravatar.com/avatar/d22eb460ecab37fcd7205e6a3c55c228
+    #   descr: Still single, still waiting...
+
     # - name: 凉城听暖
     #   link: https://akui.cool/
     #   avatar: https://akui.cool/img/flowers.png
