@@ -8,6 +8,11 @@ top_img: https://i.loli.net/2021/09/14/M4BV5jxW8kFawqb.png
 ---
 
 
+{% note blue fas fa-bullhorn %} 
+<font size=4>**欢迎来到我的博客小世界！**</font>
+{% endnote %}
+
+![我的次元突破.jpg](https://i.loli.net/2021/10/04/Bu4JFXmdkrUQ8D9.jpg)
 
 
 ## 关于我
@@ -16,19 +21,11 @@ top_img: https://i.loli.net/2021/09/14/M4BV5jxW8kFawqb.png
 - 博客更新看心情，如果我有想分享的长篇内容的话，毕竟博客写作和部署起来稍微麻烦点。但是<kbd><a href="https://space.bilibili.com/349963315">B站</a></kbd>和<kbd><a href="https://weibo.com/6327778914/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1">微博</a></kbd>可能会经常更新些日常或者沙雕内容吧，欢迎去关注一下或者评论捧个场哟！hahaha~
 - 问我长什么样子？伙计，博客相册/视频库有，去找一下叭。[吃瓜.jpg]
 
----
 
-
-## 关于打赏
-- 如果看我博客感到舒服，或者对你有所帮助，想请我喝一瓶<kbd>小可乐</kbd>，或者<kbd>咖啡</kbd>和<kbd>奶茶</kbd>的话，那欢迎前来投喂，咕咚咕咚~嗝~~
-- 其实打不打赏的无所谓，看你心情啦，就算心里默默点个赞或者金额小点儿都是心意嘛！
-- 打赏方式请见<kbd>每篇文章末尾二维码</kbd>，打赏时可以<kbd>备注</kbd>你的名字、昵称或者想说的话，后期我会增加到打赏列表中进行<kbd>公示与感谢</kbd>。（一分一毛一块钱也是爱）
 
 
 
 ---
-
-
 ## 关于博客框架、主题和服务器
 - 目前博客采用的是<kbd>Hexo</kbd>框架，应用的<kbd>Butterfly</kbd>主题，十分感谢这两位的开源作者，让我可以拥有一个很满意的博客网站。也感谢世界千千万开源大佬，让全世界的工程师抛弃政治、文化等因素，去协作完成一个项目，想想都伟大！
 - 目前还没有买域名和服务器，而是把博客部署在了<kbd>GitHubPage</kbd>上。
@@ -47,6 +44,6 @@ top_img: https://i.loli.net/2021/09/14/M4BV5jxW8kFawqb.png
 - 有吗？有吗有吗有吗？[真诚.jpg]
 - 哈哈哈哈哈......
 
----
+
 
 

@@ -1,23 +1,24 @@
 ---
-title: 【高性能】Linpack的安装与调试（一）：安装编译器和并行环境
+title: 【并行计算】Linpack的安装与调试（一）：安装编译器和并行环境
 date: 2021-10-13 17:09:32
 updated:
 top_img: https://i.loli.net/2021/11/01/FyGk2bgaUd9N561.jpg #加密锁
 ---
 
-```
-title: 【高性能】Linpack的安装与调试（一）：安装编译器和并行环境
+<!-- 
+title: 【并行计算】Linpack的安装与调试（一）：安装编译器和并行环境
 date: 2021-10-13 17:09:32
 tags: 
     - Linpack 
     - Linux
     - MPICH
     - 高性能计算
-categories: 
+    - 并行计算
+categories: 【高性能并行计算】
 description: 安装编译器（vim、gcc、g++、gfortran、make），安装并行环境（MPICH）
 cover: false
 top_img: 
-```
+ -->
 
 
 踩了很多坑，
