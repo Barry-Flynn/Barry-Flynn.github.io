@@ -94,6 +94,17 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       translateButtonObject.addEventListener('click', translatePage, false)
     }
+
+    // 自定义右键菜单切换按钮
+    menuTranslateButtonObject = document.getElementById('menu-translate')
+    if (menuTranslateButtonObject) {
+      if (currentEncoding !== targetEncoding) {
+        setTimeout(translateBody, translateDelay)
+        if (targetEncoding === 1) menuTranslateButtonObject.innerHTML = msgToSimplifiedChinese
+        else menuTranslateButtonObject.innerHTML = msgToTraditionalChinese
+      }
+      menuTranslateButtonObject.addEventListener('click', translatePage, false)
+    }
   }
   translateInitialization()
   document.addEventListener('pjax:complete', translateInitialization)

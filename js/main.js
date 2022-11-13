@@ -410,7 +410,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const scrollPercent = (currentTop - headerHeight) / (contentMath)
       const scrollPercentRounded = Math.round(scrollPercent * 100)
       const percentage = (scrollPercentRounded > 100) ? 100 : (scrollPercentRounded <= 0) ? 0 : scrollPercentRounded
-      $cardToc.setAttribute('progress-percentage', percentage)
+      $cardToc.setAttribute('progress-percentage', percentage + '%')
     }
 
     // anchor

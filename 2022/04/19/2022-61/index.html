@@ -1,0 +1,769 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>【碎片笔记】2022年4月~5月 | 百里飞洋</title><meta name="keywords" content="碎片笔记"><meta name="author" content="百里飞洋丨Barry Flynn"><meta name="copyright" content="百里飞洋丨Barry Flynn"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="开发或学习过程中遇到的问题解决方法或奇思妙想">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【碎片笔记】2022年4月~5月">
+<meta property="og:url" content="https://blog.meta-code.top/2022/04/19/2022-61/index.html">
+<meta property="og:site_name" content="百里飞洋">
+<meta property="og:description" content="开发或学习过程中遇到的问题解决方法或奇思妙想">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.meta-code.top/img/friends/Barry-Flynn.jpg">
+<meta property="article:published_time" content="2022-04-19T15:27:37.000Z">
+<meta property="article:modified_time" content="2022-09-07T16:02:41.539Z">
+<meta property="article:author" content="百里飞洋丨Barry Flynn">
+<meta property="article:tag" content="碎片笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.meta-code.top/img/friends/Barry-Flynn.jpg"><link rel="shortcut icon" href="/img/icon/%E7%81%AB%E7%AE%AD.png"><link rel="canonical" href="https://blog.meta-code.top/2022/04/19/2022-61/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/CDN/fontawesome/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/CDN/snackbar/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e21f557d5683e4733d77db5ab8910d7b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":100,"position":"top","messagePrev":"「温馨提示」本文更新已经","messageNext":"天，若内容或图片失效，请留言反馈。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: 百里飞洋丨Barry Flynn","link":"链接: ","source":"来源: 百里飞洋","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#121212","bgDark":"#49b1f5","position":"bottom-right"},
+  source: {
+    jQuery: '/CDN/jquery.min.js',
+    justifiedGallery: {
+      js: '/CDN/justifiedGallery/jquery.justifiedGallery.min.js',
+      css: '/CDN/justifiedGallery/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: '/CDN/photo/jquery.fancybox.min.js',
+      css: '/CDN/photo/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【碎片笔记】2022年4月~5月',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-09-08 00:02:41'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><link rel="stylesheet" href="/css/BF-simple.css"><link rel="stylesheet" href="/css/BF-rightmenu.css"><svg aria-hidden="true" style="position:absolute; overflow:hidden; width:0; height:0"><symbol id="icon-sun" viewBox="0 0 1024 1024"><path d="M960 512l-128 128v192h-192l-128 128-128-128H192v-192l-128-128 128-128V192h192l128-128 128 128h192v192z" fill="#FFD878" p-id="8420"></path><path d="M736 512a224 224 0 1 0-448 0 224 224 0 1 0 448 0z" fill="#FFE4A9" p-id="8421"></path><path d="M512 109.248L626.752 224H800v173.248L914.752 512 800 626.752V800h-173.248L512 914.752 397.248 800H224v-173.248L109.248 512 224 397.248V224h173.248L512 109.248M512 64l-128 128H192v192l-128 128 128 128v192h192l128 128 128-128h192v-192l128-128-128-128V192h-192l-128-128z" fill="#4D5152" p-id="8422"></path><path d="M512 320c105.888 0 192 86.112 192 192s-86.112 192-192 192-192-86.112-192-192 86.112-192 192-192m0-32a224 224 0 1 0 0 448 224 224 0 0 0 0-448z" fill="#4D5152" p-id="8423"></path></symbol><symbol id="icon-moon" viewBox="0 0 1024 1024"><path d="M611.370667 167.082667a445.013333 445.013333 0 0 1-38.4 161.834666 477.824 477.824 0 0 1-244.736 244.394667 445.141333 445.141333 0 0 1-161.109334 38.058667 85.077333 85.077333 0 0 0-65.066666 135.722666A462.08 462.08 0 1 0 747.093333 102.058667a85.077333 85.077333 0 0 0-135.722666 65.024z" fill="#FFB531" p-id="11345"></path><path d="M329.728 274.133333l35.157333-35.157333a21.333333 21.333333 0 1 0-30.165333-30.165333l-35.157333 35.157333-35.114667-35.157333a21.333333 21.333333 0 0 0-30.165333 30.165333l35.114666 35.157333-35.114666 35.157334a21.333333 21.333333 0 1 0 30.165333 30.165333l35.114667-35.157333 35.157333 35.157333a21.333333 21.333333 0 1 0 30.165333-30.165333z" fill="#030835" p-id="11346"></path></symbol></svg><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="centered"><div class="blob-1"></div><div class="blob-2"></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/friends/Barry-Flynn.jpg" onerror="onerror=null;src='/img/others/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">166</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">76</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/Calendar/"><i class="fa-fw fa-solid fa-calendar-check"></i><span> 奋斗日历</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-icons"></i><span> 多媒体</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-headphones-alt"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 找文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 按分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 按标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 按时间</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-medal"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/Reward-list/"><i class="fa-fw fas fa-clipboard-list"></i><span> 打赏榜</span></a></li><li><a class="site-page child" href="/about-website/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 网站声明</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-sign-in-alt"></i><span> 更多</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/project/"><i class="fa-fw fas fa-star"></i><span> 在线小项目</span></a></li><li><a class="site-page child" href="/Code-Templates/"><i class="fa-fw fas fa-code"></i><span> 空代码模板</span></a></li><li><a class="site-page child" href="/tools/"><i class="fa-fw fas fa-tools"></i><span> 常用工具</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-subway"></i><span> 开往&amp;虫洞</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://travellings.link/"><i class="fa-fw fa fa-subway"></i><span> 开往-友链接力</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://foreverblog.cn/go.html"><i class="fa-fw fab fa-stumbleupon-circle"></i><span> 虫洞-十年之约</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/images/hello%20world.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">百里飞洋</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/Calendar/"><i class="fa-fw fa-solid fa-calendar-check"></i><span> 奋斗日历</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-icons"></i><span> 多媒体</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-headphones-alt"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 找文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 按分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 按标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 按时间</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-medal"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/Reward-list/"><i class="fa-fw fas fa-clipboard-list"></i><span> 打赏榜</span></a></li><li><a class="site-page child" href="/about-website/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 网站声明</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-sign-in-alt"></i><span> 更多</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/project/"><i class="fa-fw fas fa-star"></i><span> 在线小项目</span></a></li><li><a class="site-page child" href="/Code-Templates/"><i class="fa-fw fas fa-code"></i><span> 空代码模板</span></a></li><li><a class="site-page child" href="/tools/"><i class="fa-fw fas fa-tools"></i><span> 常用工具</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-subway"></i><span> 开往&amp;虫洞</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://travellings.link/"><i class="fa-fw fa fa-subway"></i><span> 开往-友链接力</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://foreverblog.cn/go.html"><i class="fa-fw fab fa-stumbleupon-circle"></i><span> 虫洞-十年之约</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【碎片笔记】2022年4月~5月</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-04-19T15:27:37.000Z" title="发表于 2022-04-19 23:27:37">2022-04-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-07T16:02:41.539Z" title="更新于 2022-09-08 00:02:41">2022-09-08</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>14分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【碎片笔记】2022年4月~5月"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><!-- 党文轩：dangwenxuan -->
+<!-- 你敢连吗：20030412 -->
+
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.axihe.com/search/html/1157.html">html 禁止缩放</a><br><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0&quot; /&gt;</code></p>
+</li>
+<li><p>安装vant2最高版本的依赖到生产环境：<code>npm i vant@latest-v2 -S</code></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_38737592/article/details/108908061">npm命令常用参数</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#npm常用的安装命令</span></span><br><span class="line">npm i 就是npm install 简写</span><br><span class="line">npm i xxx -D   就是 npm i xxx --save-dev</span><br><span class="line">npm i xxx -S   就是 npm i xxx --save</span><br><span class="line">npm i xxx -g   就是 全局安装</span><br><span class="line">npm i xxx      就是本地安装</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>【命令详解】<br>npm i xxx –save-dev 是把依赖写入进devDependencies对象里面<br>npm i xxx –save 是把依赖写入进dependencies对象里面<br>npm i xxx -g 就是安装到全局下，在命令行的任何地方都可以操作，不会提示“命令不存在等错误”<br>npm i xxxx 就是安装到当前命令行下的目录中，但不会记录在package.json中，npm install时不会自动安装此依赖<br>【作用】<br>devDependencies 是开发环境下的依赖，这里是开发环境下的依赖，上线后非必需，比如：webpack，gulp等压缩打包工具，less-loader 和 less 等CSS预处理工具<br>dependencies 是生产环境下的依赖，项目刚需的依赖在这里，比如UI框架，字体文件等线上必需的东西.<br>一般这个配置在package.json文件中.</p>
+</blockquote>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.jb51.net/article/238570.htm">最新最全的手机号验证正则表达式</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.jb51.net/article/96201.htm">最新手机号码、电话号码正则表达式</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/community/develop/doc/0004028fb30400068df6ec70556000">在Vue中请求微信第三方接口access_token报错</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/doc/offiaccount/Getting_Started/Explanation_of_interface_privileges.html">微信官方文档-接口权限说明</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/login.html">微信开发文档-小程序登录</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c195c20fe32a">vue打包过后的文件如何放到thinkphp框架下</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1728985597188118015&wfr=spider&for=pc">3分钟了解Vue开发小程序的技术原理</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.csdn.net/tags/MtTaEgwsOTU3MjQzLWJsb2cO0O0O.html">VantUI封装自定义Tabbar路由跳转</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yclh/p/15403374.html">params方式带参数的页面跳转</a> - 博客园</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bbsmax.com/A/kvJ3gBBOJg/">VUE路由携带参数的三种方式</a> - bbsmax</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zqlym/p/14710266.html">Vue3.0中setup函数的使用</a> - 博客园</p>
+<blockquote>
+<p>由于我们不能在 setup函数中使用 data 和 methods，所以 Vue 为了避免我们错误的使用，直接将 setup函数中的this修改成了 undefined</p>
+</blockquote>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/snowflak/article/details/117302687">vue 的生命周期函数</a> - CSDN</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cn-oldboy/p/13733683.html">tp5中的app目录中的extra目录的作用是什么？</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000020029029/a-1020000020031290">vue和TP5同域名下怎么部署？？</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/7dd18927dd9a">笔记：TP5框架完整学习笔记</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/flyingpig2016/article/details/52971376">js跳转页面并且进行传递参数</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhaiwenyuan/article/details/72781609">js跳转到新页面传参以及接收参数的方法</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44763569/article/details/118417558">带参跳转新页面，新页面获取url多个参数的办法</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6c8e55fc501b">WeUI 简明入门指南</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/make164492212/article/details/51656638">常用正则表达式—邮箱（Email）</a></p>
+<ul>
+<li>邮箱正则表达式：<code>^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$</code></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/6c67b1d68624c46687bb1eb4.html">js正则校验手机号</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1719534592298400820&wfr=spider&for=pc">常用正则表达式分享 验证用户/密码/网址/邮箱等</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hyunbar/article/details/82757734">使用jquery获取url及url参数的方法</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45846357/article/details/106606007">Ajax请求的五个步骤</a></p>
+</li>
+<li><p>ECharts图像自适应方法：</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">myChart.resize();   <span class="comment">//不加这一行会导致窗口大小变化前不出现图像</span></span><br><span class="line"><span class="built_in">window</span>.onresize = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  myChart.resize();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/fenglin247/article/details/86895913">如何使用JS的排序函数sort()</a></p>
+</li>
+<li><p>maxlength 属性与 <code>&lt;input type=&quot;text&quot;&gt;</code> 或 <code>&lt;input type=&quot;password&quot;&gt;</code> 配合使用,在<code>&lt;input type=&quot;number&quot;&gt;</code> 中是没效果的</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_17627195/article/details/112376567">JS For循环内部延时执行（For循环延时）</a></p>
+</li>
+<li><p>原生JS实现60秒短信倒计时按钮变换效果</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 短信按钮倒计时</span></span><br><span class="line"><span class="keyword">var</span> countdown = <span class="number">60</span>;</span><br><span class="line">settime();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">settime</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> obj = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;SMS_btn&#x27;</span>);</span><br><span class="line">  <span class="comment">// console.log(obj)</span></span><br><span class="line">  <span class="keyword">if</span> (countdown == <span class="number">0</span>) &#123;</span><br><span class="line">    obj.disabled = <span class="literal">false</span></span><br><span class="line">    <span class="comment">// $(&#x27;#SMS_btn&#x27;).css(&#123;</span></span><br><span class="line">    <span class="comment">// 	&#x27;background-color&#x27;: &#x27;#FE8B25&#x27;,</span></span><br><span class="line">    <span class="comment">// &#125;);</span></span><br><span class="line">    obj.innerHTML = <span class="string">&quot;获取&quot;</span>;</span><br><span class="line">    countdown = <span class="number">60</span>;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    obj.disabled = <span class="literal">true</span></span><br><span class="line">    <span class="comment">// $(&#x27;#SMS_btn&#x27;).css(&#123;</span></span><br><span class="line">    <span class="comment">// 	&#x27;background-color&#x27;: &#x27;#4f4f4f75&#x27;,</span></span><br><span class="line">    <span class="comment">// 	&#x27;font-size&#x27;: &#x27;.32rem&#x27;,</span></span><br><span class="line">    <span class="comment">// 	&#x27;width&#x27; : &#x27;2.2rem&#x27;</span></span><br><span class="line">    <span class="comment">// &#125;);</span></span><br><span class="line">    obj.innerHTML = countdown + <span class="string">&quot;秒&quot;</span>;</span><br><span class="line">    <span class="comment">// obj.style.fontSize = &quot;.32rem&quot;;</span></span><br><span class="line">    countdown--;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    settime(obj)</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/fec7a1e5cb0f1f1190b4e7de.html">jq判断checkbox是否选中</a></p>
+<ol>
+<li>方法一：<code>$(&quot;#checkebox&quot;).attr(&#39;checked&#39;);</code></li>
+<li>方法二：<code>$(&quot;#checkebox&quot;).is(&quot;:checked&quot;);</code></li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>JS返回功能<code>onclick=&quot;history.go(-1)&quot;</code></p>
+</li>
+<li><p>JS重定向<code>onclick= &quot;window.location.href=&#39;网址&#39;&quot;</code></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1728690527815987832&wfr=spider&for=pc">电脑删除文件需要管理员权限怎么办</a><br>  试了不管用，最后我是用VScode打开文件夹后删除的，删除时Win10问我是否给vscode权限，点击确定后，vscode提示无法放入回收站，是否直接删除，点击确定，删除成功</p>
+</li>
+<li><p>给文本域<code>&lt;textarea&gt;</code>标签设置只能调整高度不能调整宽度，可以使用css中的<code>resize: vertical;</code>属性和属性值，关于resize属性可以看看<a target="_blank" rel="noopener" href="https://blog.csdn.net/cumt951045/article/details/107764959">这篇博文</a>。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Web_Developer_Tools.html#%E8%B0%83%E8%AF%95%E5%BE%AE%E4%BF%A1%E7%BD%91%E9%A1%B5%E6%8E%88%E6%9D%83">调试微信网页授权（微信网页开发 /web开发者工具）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.hcoder.net/hcwt/docs337.html">微信网页授权说明</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/chencaw/article/details/121355417">vue3打包后css和js的路径不对问题</a></p>
+<ul>
+<li>可参照<a target="_blank" rel="noopener" href="https://cli.vuejs.org/zh/guide/deployment.html#github-pages">官网部署教程</a>在 <code>vue.config.js</code> 中设置 <code>publicPath</code>。如果不设置的话默认打包后页面引用网站“根目录”下的JS文件，打包产物必须放在网站根目录下才能正常显示；如果将打包产物放在根目录下的子目录中，则<code>app.js</code>将不能被正确引用使页面空白，需要配置<code>publicPath</code></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lchuyan/article/details/123929125">Vue-axios使用post请求传递参数</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://xssy5431.blog.csdn.net/article/details/80780264">vue-axios的使用及其get与post网络请求</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44079209/article/details/106675002">vue发送请求GET传参的几种方式</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41764462/article/details/103584462">Vue axios post请求带参请求 详细教程</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/72817372">vue中使用async和await解决异步</a></p>
+</li>
+<li><p>有的时候调整完页面的CSS样式，由于微信浏览器的缓存，打开后一段时间内还会保持之前的样式，这时候就需要清除缓存重新加载页面了。可见：<a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/e9fb46e1aaa11c3421f76694.html">微信内置浏览器清除缓存方法</a></p>
+<ol>
+<li>打开浏览器debug模式。在对话框输入<code>debugmm.qq.com/?forcex5=true</code>，然后点击进入。当看到<code>force use x5 switch is on</code>时即可关闭。</li>
+<li>打开浏览器调试页面。在对话框输入<code>debugtbs.qq.com</code>，然后进入，点击<code>清除本地缓存</code>即可完成清除。</li>
+<li><a target="_blank" rel="noopener" href="https://www.likecs.com/show-1029249.html">这一步</a>是在第二步无效的时候可以使用的。对于Android版微信内置浏览器（X5内核），在微信内打开链接<code>https://debugx5.qq.com</code>，勾选下方的cookie、文件缓存、广告过滤缓存、DNS缓存，点击清除即可。</li>
+</ol>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/microsoft-edge/devtools-guide-chromium/storage/cookies">查看、编辑和删除 Cookie</a>-Microsoft Edge 开发人员文档</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/furuihua/p/12197578.html">php中的Cookie是什么？</a>-博客园</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.runoob.com/php/php-cookies.html">PHP Cookie</a>-菜鸟教程</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lhrdlp/article/details/105173802">cookie与本地存储</a>-CSDN</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/52289284">session与cookie详解</a>-知乎</p>
+</li>
+<li><p>用JQ获取div块中的值：<code>$(&quot;#picked&quot;).text()</code></p>
+<ul>
+<li>用JS获取输入框的值：<code>document.getElementById(&quot;js_input1&quot;).value</code></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/2c8c281dc394c54109252a5f.html">清空SQL表数据</a></p>
+<ol>
+<li><code>truncate</code>：删除所有数据，保留表结构，不能撤销还原（<code>TRUNCATE TABLE 表名</code>）</li>
+<li><code>delete</code>：是逐行删除速度极慢，不适合大量数据删除truncate table</li>
+<li><code>drop</code>：删除表，数据和表结构一起删除，快速</li>
+</ol>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41297324/article/details/107942362">innerHTML与innerText的区别</a>-CSDN</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000011349557">微信支付报错</a>-思否</p>
+<ul>
+<li><code>&#123;errMsg: &quot;editAddress:fail, the permission value is offline verifying&quot;&#125;</code></li>
+</ul>
+</li>
+<li><p>input输入框如果<code>type=&quot;number&quot;</code>，则不支持<code>maxlength=&quot;11&quot;</code>属性，可使用<code>oninput=&quot;value=value.slice(0,11)&quot;</code>来截取指定长度的字符串来达到相同效果</p>
+<ul>
+<li>通过查询<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#htmlattrdefmaxlength">MDN中文文档</a>得知maxlength属性是控制value的最大长度（最多字符数目），maxlength属性对于<code>type=password, search, tel, text, url</code>，这五种生效</li>
+</ul>
+</li>
+<li><p>可以实现对内容进行隐藏的CSS声明：</p>
+<ol>
+<li><code>display：none</code> 不生成盒子，盒子都不生成了，该区域的内容自然就不会显现出来了（对行非盒子模型无效）。</li>
+<li><code>visibility：hidden</code> 对元素内容进行隐藏，视觉上看不到 ，实际还是存在。(input中<code>type=hidden</code>作用相同)</li>
+<li><code>opacity：0</code> 元素透明度为0，视觉上看不到，实际还占用尺寸，当前元素与其后代元素都会被隐藏。</li>
+<li><code>rgba(0,0,0,0)</code> 元素透明度为0，与opacity：0一样，只是rgba的后代元素不会被隐藏。</li>
+<li><code>overflow：hidden</code> 对溢出当前元素区域的内容进行隐藏，并且该元素必须要有高度，并且内容已经超出元素的高度显示了才会进行隐藏。</li>
+</ol>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.csdn.net/tags/OtDaUgwsNTMzODUtYmxvZwO0O0OO0O0O.html">如何存储token比较合适？</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/30267006">关于APP token验证的疑问?</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000004205036">数据库里保持用户昵称唯一的好处在哪里？</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/sel-firstchild.html">CSS :first-child 选择器</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/2985b93b13a6f524ccbff121dd36a32d7375c7c2.html">CSS⽂本超出2⾏就隐藏并且显⽰省略号</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/BUG_Jia/article/details/123139816">VUE路由跳转传参的几种方式以及如何让接收参数</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wen110898/article/details/120520844">Vue生命周期函数详解</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.manongjc.com/detail/24-vrhjubceebcrsxx.html">关于vue.js中created和mounted方法的使用区别</a></p>
+<ul>
+<li>一般可以在created函数中调用ajax获取页面初始化所需的数据</li>
+<li><a target="_blank" rel="noopener" href="https://v3.cn.vuejs.org/api/options-lifecycle-hooks.html#beforecreate">生命周期钩子 | Vue.js</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/sunhuaqiang1/article/details/86702926">Vue进阶（三十六）：created() 详解</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/wen110898/article/details/120520844">Vue生命周期函数详解</a></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.jb51.net/article/198799.htm">vant Grid组件图片icon加载本地图片解决方案</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sunhuaqiang1/article/details/121608535">Vue进阶（贰零肆）：vant van-image无法读取本地图片</a><br>在 <code>.vue</code> 文件中通过相对路径引用本地图片时，需要在图片的链接外包上一层 <code>require()</code>，将图片 URL 转换为 webpack 模块请求，并结合 <code>file-loader</code> 或者 <code>url-loader</code> 进行处理。</p>
+</li>
+<li><p>在 .vue 文件中通过相对路径引用本地图片时，需要在图片的链接外包上一层 require()，将图片 URL 转换为 webpack 模块请求，并结合 file-loader 或者 url-loader 进行处理。对此更详细的解释可以参考 vue-loader 的<a target="_blank" rel="noopener" href="https://vue-loader.vuejs.org/zh/guide/asset-url.html">处理资源路径</a>章节。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 错误写法 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">van-image</span> <span class="attr">src</span>=<span class="string">&quot;./image.png&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 正确写法 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">van-image</span> <span class="attr">:src</span>=<span class="string">&quot;require(&#x27;./image.png&#x27;)&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/ab69b270ed34986ca6189f67.html">jquery怎么设置display属性</a></p>
+<ul>
+<li><code>$(&quot;#check_phone_btn&quot;).css(&#39;display&#39;,&#39;none&#39;)</code></li>
+<li><code>$(&quot;#phone&quot;).css(&#39;text-align&#39;,&#39;center&#39;)</code></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/js-to-top.html">JavaScript 返回顶部实例</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_62601942/article/details/121973535">jq如何监听网页的滚动</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/android-tutorial-intro.html">1.0 Android基础入门教程</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.runoob.com/jsref/prop-element-offsettop.html">HTML DOM offsetTop 属性</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.jb51.net/article/76645.htm">js实现滚动条滚动到页面底部继续加载</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44657868/article/details/113425956">jQuery获取元素距离页面底部的距离，大于0时变为固定定位</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42321292/article/details/112427248">JS中的this详解</a></p>
+</li>
+<li><p>css动画属性使用案例：<code>animation: right .5s;</code></p>
+</li>
+<li><p>当内容宽(高)度超出div,或者同时超出,会自动出现水平(竖直)滚动条：<code>overflow: auto;</code></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.h5w3.com/71835.html">【Vue】“登陆信息”用cookie存还是localStorage存好？</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40979567/article/details/93891171">JS详解Cookie、LocalStorage和SessionStorage</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/b6ab29000422192e453610661ed9ad51f01d54b2.html">token应用(三)01-本地存储token-关闭浏览器后再次打开,需要保持登录状态</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u014756827/article/details/118220184">【Vue】js-cookie插件设置过期时间</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.csdn.net/tags/MtjaYgwsNzQwNzItYmxvZwO0O0OO0O0O.html">js-cookie过期时间设置为小时</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_47353884/article/details/117771309">vue的js-cookie和vue-cookies</a>-两个方便设置cookie的插件</p>
+<ul>
+<li>推荐使用<a target="_blank" rel="noopener" href="https://github.com/js-cookie/js-cookie">js-cookie</a>，因为它的语法比较简洁。</li>
+<li>在vue ui可视化面板安装它的依赖(运行依赖)即可</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/05bb3365bb6e">网页时光机</a>（科学上网）：<a target="_blank" rel="noopener" href="http://web.archive.org/">http://web.archive.org/</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.archive.org/web/web.php">http://www.archive.org/web/web.php</a></li>
+</ul>
+</li>
+<li><p>浏览器本地localhost的 cookies 中以<code>Hm_lvt_</code>等开头的通常是通常是百度联盟或者是一些统计站的Cookie（可能是我本地预览hexo博客时，百度统计存上去的）</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://m.runoob.com/docker/docker-compose.html">Docker Compose</a><br>Compose 是用于定义和运行多容器 Docker 应用程序的工具。通过 Compose，您可以使用 YML 文件来配置应用程序需要的所有服务。然后，使用一个命令，就可以从 YML 文件配置中创建并启动所有服务。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/redis-intro.html">Redis 简介</a><br>Redis 是完全开源的，遵守 BSD 协议，是一个高性能的 key-value 数据库。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/gr07/p/9366871.html">本地存储cookie和localStorage区别特点</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45393094/article/details/104747360">彻底了解Cookie和Session的区别（面试）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/453896424">Token一般存放在哪里？</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43842093/article/details/121888635">cookie、Session、Token、sessionStorage、localStorage简介__Token放在 cookie, sessionStorage 和 localStorage中区别</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://brucecai55520.gitee.io/bruceblog/notes/nodejs/mysql.html#node-%E6%93%8D%E4%BD%9C-mysql">BruceBlog - 数据库和身份认证</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://brucecai55520.gitee.io/bruceblog/notes/vuepress/vuepress.html#%E4%BD%93%E9%AA%8C-vuepress">BruceBlog - VuePress 从 0 开始搭建个人网站</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://jerryzou.com/posts/cookie-and-web-storage/">详说 Cookie, LocalStorage 与 SessionStorage</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/beekim/article/details/120099638">JavaScript中Cookie的使用——设置失效时间</a></p>
+</li>
+<li><p>【☆】<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43647821/article/details/123222013">vue中使用localStorage</a></p>
+</li>
+<li><p>【☆】<a target="_blank" rel="noopener" href="https://www.jb51.net/article/180487.htm">JS localStorage存储对象，sessionStorage存储数组对象操作示例</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/guide/advanced/navigation-guards.html">导航守卫 | Vue Router</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.jb51.net/article/171517.htm">PHP之多条件混合筛选功能的实现方法</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/javascript-window-onload.html">JavaScript window.onload</a><br>方法用于在网页加载完毕后立刻执行的操作，即当 HTML 文档加载完毕后，立刻执行某个方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    Func1();</span><br><span class="line">    Func2();</span><br><span class="line">    Func3();</span><br><span class="line">    .....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43094619/article/details/121115218">data-id和id的区别</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.cnsoftbei.com/">第11届中国软件杯-大学生软件设计大赛</a>-百里二零二二</p>
+<ul>
+<li>主办单位：工业和信息化部、教育部、江苏省人民政府</li>
+<li><a target="_blank" rel="noopener" href="https://wx.vzan.com/live/page/39B6DC3AF86A5A80F260A7A66D718BA1?topicid=1530467645&shauid=undefined&vprid=0&v=1652958190475">A7+A9+B8 赛题解析会（赛题A9请跳转到01:05:09）</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cnsoftbei.com/plus/view.php?aid=729">赛题A9:智能创作平台</a></li>
+<li>标题和摘要对于创作非常重要，但构思一个具有吸引力的标题和从文章抽取或生成符合文章主旨的摘要并非易事。本赛题给定高质量训练数据，参赛者使用人工智能算法，生成契合文章主题内容和有吸引力的优质标题和摘要，并开发出一套智能创作WEB系统，帮助人类提升写作的效率和质量。本赛题主要涉及自然语言处理、自然语言生成、自然语言理解技术。</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_29587015/article/details/112938900">pythonweb前后端怎么开发_python-web-django前后端交互</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av761185198">【哔哩哔哩】今天教你Python web开发：制作学生信息管理系统“网站版”</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/43b47f0b8eff">Python web开发需要掌握什么技能?基础很关键！</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/AyoCross/article/details/56509840">一个初级python web后端开发工程师的面试总结</a></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://t.zoukankan.com/toggle-p-9376997.html">关于微信中的localStorage及使用cookie的解决方案</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.muzhuangnet.com/show/51712.html">javascript怎么修改div内容</a>：<code>document.getElementById(&#39;updateId&#39;).innerHTML = &#39;hello world！&#39;;</code></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/b24f6c829d160ec6bfe5da90.html">jq重填div内容</a>：<code>$(&quot;#id&quot;).html(&quot;重填内容&quot;)</code></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.csdn.net/tags/Mtjakg1sMTk3OTctYmxvZwO0O0OO0O0O.html">for in遍历对象</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明一个对象obj</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>, <span class="attr">c</span>: <span class="number">3</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历对象的属性 声明一个变量prop</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;obj.&quot;</span> + prop + <span class="string">&quot; = &quot;</span> + obj[prop]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 结果：a=1,b=2,c=3</span></span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ycj1091001986/article/details/123053827">js中数组的遍历的几种方法</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 循环遍历数组渲染页面动态列表</span></span><br><span class="line"><span class="keyword">var</span> listStr = <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++)&#123;</span><br><span class="line">    listStr += </span><br><span class="line">    <span class="string">&#x27;&lt;a href=&quot;&quot;&gt;&#x27;</span>+</span><br><span class="line">    <span class="string">&#x27;&lt;span&gt;姓名:&#x27;</span>+ arr[i].name +<span class="string">&#x27;&lt;/span&gt;&#x27;</span>+</span><br><span class="line">    <span class="string">&#x27;&lt;span&gt;年龄:&#x27;</span>+ arr[i].age +<span class="string">&#x27;&lt;/span&gt;&#x27;</span>+</span><br><span class="line">    <span class="string">&#x27;&lt;/a&gt;&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 填入页面中</span></span><br><span class="line">$(<span class="string">&quot;#list_wrap&quot;</span>).html(listStr)</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://www.runoob.com/json/js-json-arrays.html">JSON 数组 | 菜鸟教程</a></p>
+</li>
+<li><p>【☆】<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d458d2d130ed">h5 input type=”search” 使用</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.yebaike.com/22/3335088.html">专科批和高职专科批有什么不同</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.it1352.com/878703.html">用JS获取某个类型的父HTML元素</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.php.cn/js-tutorial-367630.html">如何用 parent() 方法获取某个元素的父元素？parent() 方法案例详解</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.docin.com/p-79765894.html?_t=t">环境化学在环境保护中的作用</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.jb51.net/article/219621.htm">offsetTop用法详解</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.php.cn/website-design-ask-491431.html">jquery怎么往div末尾增加内容</a></p>
+<ul>
+<li><code>append()</code>和<code>appendTo()</code></li>
+<li><code>$(“div”).append(&quot;内容值&quot;)</code></li>
+<li><code>$(&quot;内容值&quot;).appendTo(&quot;div&quot;)</code></li>
+</ul>
+</li>
+<li><p><code>$(&quot;#more_div&quot;).before(str);</code></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.jb51.net/article/76645.htm">js实现滚动条滚动到页面底部继续加载</a></p>
+</li>
+<li><p>jquery元素到窗口顶部的距离:<code>$(&#39;元素&#39;).offset().top - $(window).scrollTop();</code></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.runoob.com/jsref/prop-element-offsettop.html">HTML DOM offsetTop 属性 | 菜鸟教程</a></p>
+</li>
+<li><p><code>$(&#39;#img&#39;).attr(&quot;src&quot;,&quot;/static/img/old/collected.png&quot;);</code></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_38500689/article/details/79563631">前端页面图片加载失败显示默认图片</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 普通方法：不支持动态添加的元素，如果图片一种加载不出会陷入死循环</span></span><br><span class="line">$(<span class="string">&quot;img&quot;</span>).on(<span class="string">&quot;error&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="built_in">this</span>).attr(<span class="string">&quot;src&quot;</span>, <span class="string">&quot;/static/img/LOGO/0.jpg&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这种方法可以避免陷入死循环</span></span><br><span class="line">$(<span class="string">&quot;img&quot;</span>).one(<span class="string">&quot;error&quot;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    $(<span class="built_in">this</span>).attr(<span class="string">&quot;src&quot;</span>, <span class="string">&quot;/static/img/LOGO/0.jpg&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="http://t.zoukankan.com/hellofangfang-p-10916362.html">在Vue中输入框自动获取焦点的三种方式</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.jb51.net/article/191354.htm">在vue中created、mounted等方法使用小结</a></p>
+<ul>
+<li>created：html加载完成之前，执行。执行顺序：父组件-子组件</li>
+<li>mounted：html加载完成后执行。执行顺序：子组件-父组件</li>
+<li>methods：事件方法执行</li>
+<li>watch：watch是去监听一个值的变化，然后执行相对应的函数。</li>
+<li>computed：computed是计算属性，也就是依赖其它的属性计算所得出最后的值</li>
+<li>vue中在mounted中window.onresize不生效</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/b7ddfafb30d4b14e852458fb770bf78a65293a2f.html">Vue如何设置button的disable属性</a></p>
+</li>
+<li><p>关于vue的几个绑定</p>
+<ul>
+<li><code>v-bind:disabled</code>是属性绑定</li>
+<li><code>v-model=&quot;postValue&quot;</code>与``:disabled`的区别</li>
+<li><code>@input=&quot;isPostValueEmpty&quot;</code>是事件(Events)绑定</li>
+</ul>
+</li>
+<li><p>created函数里可以调用methods中的函数吗</p>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">百里飞洋丨Barry Flynn</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.meta-code.top/2022/04/19/2022-61/">https://blog.meta-code.top/2022/04/19/2022-61/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.meta-code.top" target="_blank">百里飞洋</a>！</span></div><div class="post-technical-tips"><span class="post-copyright-meta">技术内容: </span><span class="post-copyright-info">若存在错误或不当之处，还望兄台不吝赐教，期待与您交流！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%A2%8E%E7%89%87%E7%AC%94%E8%AE%B0/">碎片笔记</a></div><div class="post_share"><div class="social-share" data-image="/img/friends/Barry-Flynn.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/CDN/share/share.min.css" media="print" onload="this.media='all'"><script src="/CDN/share/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E5%BE%AE%E4%BF%A1WeChat%E6%89%93%E8%B5%8F%E7%A0%81.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E5%BE%AE%E4%BF%A1%E6%89%93%E8%B5%8F%EF%BC%88%E7%BA%AF%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%89.png" alt="WeChat微信打赏"/></a><div class="post-qr-code-desc">WeChat微信打赏</div></li><li class="reward-item"><a href="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E6%94%AF%E4%BB%98%E5%AE%9DAliPay%E6%89%93%E8%B5%8F%E7%A0%81.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%89%93%E8%B5%8F%EF%BC%88%E7%BA%AF%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%89.png" alt="AliPay支付宝打赏"/></a><div class="post-qr-code-desc">AliPay支付宝打赏</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/04/14/2022-60/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" onerror="onerror=null;src='/img/others/404.gif'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【黑马】Vue全家桶-项目实战（学习打卡08）</div></div></a></div><div class="next-post pull-right"><a href="/2022/05/06/2022-62/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/05/06/OuE8aT.jpg" onerror="onerror=null;src='/img/others/404.gif'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【4K60FPS】华语群星《明天会更好》大合唱</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/09/08/2022-103/" title="【碎片笔记】2022年9月"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-08</div><div class="title">【碎片笔记】2022年9月</div></div></a></div><div><a href="/2022/07/01/2022-75/" title="【碎片笔记】2022年7月"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-01</div><div class="title">【碎片笔记】2022年7月</div></div></a></div><div><a href="/2022/08/02/2022-83/" title="【碎片笔记】2022年8月"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-02</div><div class="title">【碎片笔记】2022年8月</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/friends/Barry-Flynn.jpg" onerror="this.onerror=null;this.src='/img/others/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">百里飞洋丨Barry Flynn</div><div class="author-info__description">星河滚烫，无问西东</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">166</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">76</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://space.bilibili.com/349963315"><i class="fas fa-play-circle"></i><span>关注我吧</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://weibo.com/6327778914/profile?topnav=1&amp;wvr=6" target="_blank" title="微博Weibo"><i class="fab fa-weibo"></i></a><a class="social-icon" href="https://space.bilibili.com/349963315" target="_blank" title="哔哩哔哩Bilibili"><i class="fab fa-youtube"></i></a><a class="social-icon" href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=2158469373@qq.com" target="_blank" title="邮箱Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://github.com/Barry-Flynn" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://gitee.com/Barry-Flynn" target="_blank" title="码云Gitee"><i class="fab fa-gofore"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Hey,欢迎来到我的博客小世界！<br /> 00后程序员&中二小青年 <br /> QQ学习聊天群：<b>534984250</b><br /> 才疏学浅，自说自话，<br /> 欢迎交流玩耍~<br /> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/others/咒术回战.gif" style="border-radius:0.5rem;" /></div></div><div class="card-widget user-weather" id="user-weather"><div class="item-headline"><i class="fas fa-heartbeat"></i><span>今日天气</span></div><div class="item-content"><iframe width="140%" frameborder="0" scrolling="no" hspace="0" src="https://i.tianqi.com/?c=code&a=getcode&id=35&site=34&icon=1"></iframe></div></div><div class="sticky_layout"></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 百里飞洋丨Barry Flynn</div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="http://meta-code.top/"><i class="fas fa-globe-americas"></i>&nbsp;元代码</a>丨<a target="_blank" rel="noopener" href="https://weibo.com/6327778914/profile?topnav=1&wvr=6&is_all=1"><i class="fab fa-weibo"></i>&nbsp;<span>新浪微博</span></a>丨<a target="_blank" rel="noopener" href="https://space.bilibili.com/349963315"><i class="fab fa-youtube"></i>&nbsp;<span>哔哩哔哩</span></a>丨<a href="/about/"><i class="fas fa-meteor"></i>&nbsp;关于我</a><br /> <a href="/Reward-list/">赞助列表</a>丨<a href="/about-website/">网站声明</a>丨<a href="/link/">友情链接</a>丨<a target="_blank" rel="noopener" href="https://tongji.baidu.com/">网站统计</a><br /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41071102000543"><span style="vertical-align:middle;"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/icon/备案图标.png" style="vertical-align:middle;">&nbsp;豫公网安备 41071102000543号</a></span><br /> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><span style="vertical-align:middle;"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/icon/ICP备案.png" style="vertical-align:middle;width:20px;height:20px;">&nbsp;豫ICP备2021034491号</a></span><br /> <span><星河滚烫，无问西东></span><br /> <br /> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/二维码/移动端访问.png" style="width:130px;height:150px;border-radius:20px;display:inline-block;margin:0 5px;"> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/二维码/添加QQ好友.png" style="width:130px;height:150px;border-radius:20px;display:inline-block;margin:0 5px;"><br /></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><a class="icon-V hidden" onclick="switchNightMode()" title="浅色和深色模式转换"><svg width="25" height="25" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon"></use></svg></a><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><a class="rightMenu-item" href="javascript:window.history.back();"><i class="fa-solid fa-arrow-left"></i></a><a class="rightMenu-item" href="javascript:window.location.reload();"><i class="fa-solid fa-arrow-rotate-right"></i></a><a class="rightMenu-item" href="javascript:window.history.forward();"><i class="fa-solid fa-arrow-right"></i></a><a class="rightMenu-item" id="menu-radompage" href="javascript:window.location.href = window.location.origin;"><i class="fa-solid fa-house"></i></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-text"><a class="rightMenu-item" href="javascript:rmf.copySelect();"><i class="fa-solid fa-copy"></i><span>复制</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:rmf.switchDarkMode();"><i class="fa-solid fa-circle-half-stroke"></i><span>昼夜模式</span></a><a class="rightMenu-item" href="javascript:rmf.switchTranslate();" id="menu-translate"><i class="fa-solid fa-earth-asia"></i><span>繁简切换</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/categories/';"><i class="fa-solid fa-book"></i><span>博客分类</span></a><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/tags/';"><i class="fa-solid fa-tags"></i><span>博客标签</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/Reward-list/';"><i class="fa-solid fa-clipboard-list"></i><span>打赏赞助 ❤</span></a><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/about-website/';"><i class="fa-solid fa-envelope-open-text"></i><span>网站声明</span></a></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="/CDN/lazyload.iife.min.js"></script><script src="/CDN/snackbar/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script async="async">var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').style.transition = 'opacity 3s ease 0s'
+    document.getElementById('loading-box').style.opacity = '0'
+    setTimeout(function(){
+      document.getElementById('loading-box').classList.add("loaded")
+    }, 3000);
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').style.transition = '';
+    document.getElementById('loading-box').style.opacity = '1'
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})
+setTimeout(function(){preloader.endLoading();}, 3000);</script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo.meta-code.top/',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo.meta-code.top/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('/CDN/comments/twikoo.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://twikoo.meta-code.top/',
+        region: '',
+        pageSize: 5,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('/CDN/comments/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script src="/js/Barry-Flynn.js?date=20220901"></script><canvas id="universe"></canvas><script src="/js/universe.js"></script><script src="/js/jquery-3.6.0.min.js"></script><script src="/js/rightmenu.js"></script><script src="/js/sun_moon.js" async></script><div class="aplayer no-destroy" data-id="1050282" data-server="netease" data-type="artist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" data-lrctype="0" muted></div><canvas class="fireworks" mobile="false"></canvas><script src="/CDN/effect/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="105, 171, 247" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/CDN/background_effect/canvas-nest.min.js"></script><script src="/CDN/effect/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="/CDN/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="/CDN/aplayer/APlayer.min.js"></script><script src="/CDN/aplayer/Meting.min.js"></script><script src="/CDN/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="/CDN/count/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start -->
+  <script data-pjax src="/CDN/hexo_githubcalendar.js"></script>
+  <script data-pjax>
+        function GithubCalendarConfig(){
+            var git_githubapiurl ="https://github-calendar-api.meta-code.top/api?Barry-Flynn";
+            var git_color =['#ebedf0', '#a2f7af', '#6ce480', '#54ad63', '#469252', '#31753c', '#1f5f2a', '#13531f', '#084111', '#032b09', '#000000'];
+            var git_user ="Barry-Flynn";
+            var parent_div_git = document.getElementById('recent-posts');
+            var git_div_html = '<div class="recent-post-item" style="width:100%;height:auto;padding:10px;"><div id="github_loading" style="width:10%;height:100%;margin:0 auto;display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg></div><div id="github_container"></div></div>';
+            if(parent_div_git && location.pathname =='/'){
+                console.log('已挂载github calendar')
+                // parent_div_git.innerHTML=git_div_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",git_div_html) // 有报错，但不影响使用(支持pjax跳转)
+            };
+            GithubCalendar(git_githubapiurl,git_color,git_user)
+        }
+        if(document.getElementById('recent-posts')){
+            GithubCalendarConfig()
+        }
+    </script>
+    <style>#github_container{min-height:280px}@media screen and (max-width:650px) {#github_container{background-image:;min-height:0px}}</style>
+    <style></style><!-- hexo injector body_end end --></body></html>

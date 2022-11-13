@@ -1,0 +1,641 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>【碎片笔记】2022年7月 | 百里飞洋</title><meta name="keywords" content="碎片笔记"><meta name="author" content="百里飞洋丨Barry Flynn"><meta name="copyright" content="百里飞洋丨Barry Flynn"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="开发或学习过程中遇到的问题解决方法或奇思妙想">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【碎片笔记】2022年7月">
+<meta property="og:url" content="https://blog.meta-code.top/2022/07/01/2022-75/index.html">
+<meta property="og:site_name" content="百里飞洋">
+<meta property="og:description" content="开发或学习过程中遇到的问题解决方法或奇思妙想">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.meta-code.top/img/friends/Barry-Flynn.jpg">
+<meta property="article:published_time" content="2022-06-30T16:55:19.000Z">
+<meta property="article:modified_time" content="2022-09-07T16:03:31.783Z">
+<meta property="article:author" content="百里飞洋丨Barry Flynn">
+<meta property="article:tag" content="碎片笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.meta-code.top/img/friends/Barry-Flynn.jpg"><link rel="shortcut icon" href="/img/icon/%E7%81%AB%E7%AE%AD.png"><link rel="canonical" href="https://blog.meta-code.top/2022/07/01/2022-75/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/CDN/fontawesome/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/CDN/snackbar/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e21f557d5683e4733d77db5ab8910d7b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":100,"position":"top","messagePrev":"「温馨提示」本文更新已经","messageNext":"天，若内容或图片失效，请留言反馈。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: 百里飞洋丨Barry Flynn","link":"链接: ","source":"来源: 百里飞洋","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#121212","bgDark":"#49b1f5","position":"bottom-right"},
+  source: {
+    jQuery: '/CDN/jquery.min.js',
+    justifiedGallery: {
+      js: '/CDN/justifiedGallery/jquery.justifiedGallery.min.js',
+      css: '/CDN/justifiedGallery/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: '/CDN/photo/jquery.fancybox.min.js',
+      css: '/CDN/photo/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【碎片笔记】2022年7月',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-09-08 00:03:31'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><link rel="stylesheet" href="/css/BF-simple.css"><link rel="stylesheet" href="/css/BF-rightmenu.css"><svg aria-hidden="true" style="position:absolute; overflow:hidden; width:0; height:0"><symbol id="icon-sun" viewBox="0 0 1024 1024"><path d="M960 512l-128 128v192h-192l-128 128-128-128H192v-192l-128-128 128-128V192h192l128-128 128 128h192v192z" fill="#FFD878" p-id="8420"></path><path d="M736 512a224 224 0 1 0-448 0 224 224 0 1 0 448 0z" fill="#FFE4A9" p-id="8421"></path><path d="M512 109.248L626.752 224H800v173.248L914.752 512 800 626.752V800h-173.248L512 914.752 397.248 800H224v-173.248L109.248 512 224 397.248V224h173.248L512 109.248M512 64l-128 128H192v192l-128 128 128 128v192h192l128 128 128-128h192v-192l128-128-128-128V192h-192l-128-128z" fill="#4D5152" p-id="8422"></path><path d="M512 320c105.888 0 192 86.112 192 192s-86.112 192-192 192-192-86.112-192-192 86.112-192 192-192m0-32a224 224 0 1 0 0 448 224 224 0 0 0 0-448z" fill="#4D5152" p-id="8423"></path></symbol><symbol id="icon-moon" viewBox="0 0 1024 1024"><path d="M611.370667 167.082667a445.013333 445.013333 0 0 1-38.4 161.834666 477.824 477.824 0 0 1-244.736 244.394667 445.141333 445.141333 0 0 1-161.109334 38.058667 85.077333 85.077333 0 0 0-65.066666 135.722666A462.08 462.08 0 1 0 747.093333 102.058667a85.077333 85.077333 0 0 0-135.722666 65.024z" fill="#FFB531" p-id="11345"></path><path d="M329.728 274.133333l35.157333-35.157333a21.333333 21.333333 0 1 0-30.165333-30.165333l-35.157333 35.157333-35.114667-35.157333a21.333333 21.333333 0 0 0-30.165333 30.165333l35.114666 35.157333-35.114666 35.157334a21.333333 21.333333 0 1 0 30.165333 30.165333l35.114667-35.157333 35.157333 35.157333a21.333333 21.333333 0 1 0 30.165333-30.165333z" fill="#030835" p-id="11346"></path></symbol></svg><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="centered"><div class="blob-1"></div><div class="blob-2"></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/friends/Barry-Flynn.jpg" onerror="onerror=null;src='/img/others/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">166</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">76</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/Calendar/"><i class="fa-fw fa-solid fa-calendar-check"></i><span> 奋斗日历</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-icons"></i><span> 多媒体</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-headphones-alt"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 找文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 按分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 按标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 按时间</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-medal"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/Reward-list/"><i class="fa-fw fas fa-clipboard-list"></i><span> 打赏榜</span></a></li><li><a class="site-page child" href="/about-website/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 网站声明</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-sign-in-alt"></i><span> 更多</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/project/"><i class="fa-fw fas fa-star"></i><span> 在线小项目</span></a></li><li><a class="site-page child" href="/Code-Templates/"><i class="fa-fw fas fa-code"></i><span> 空代码模板</span></a></li><li><a class="site-page child" href="/tools/"><i class="fa-fw fas fa-tools"></i><span> 常用工具</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-subway"></i><span> 开往&amp;虫洞</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://travellings.link/"><i class="fa-fw fa fa-subway"></i><span> 开往-友链接力</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://foreverblog.cn/go.html"><i class="fa-fw fab fa-stumbleupon-circle"></i><span> 虫洞-十年之约</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/images/hello%20world.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">百里飞洋</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/Calendar/"><i class="fa-fw fa-solid fa-calendar-check"></i><span> 奋斗日历</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-icons"></i><span> 多媒体</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-headphones-alt"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 找文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 按分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 按标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 按时间</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-medal"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/Reward-list/"><i class="fa-fw fas fa-clipboard-list"></i><span> 打赏榜</span></a></li><li><a class="site-page child" href="/about-website/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 网站声明</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-sign-in-alt"></i><span> 更多</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/project/"><i class="fa-fw fas fa-star"></i><span> 在线小项目</span></a></li><li><a class="site-page child" href="/Code-Templates/"><i class="fa-fw fas fa-code"></i><span> 空代码模板</span></a></li><li><a class="site-page child" href="/tools/"><i class="fa-fw fas fa-tools"></i><span> 常用工具</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-subway"></i><span> 开往&amp;虫洞</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://travellings.link/"><i class="fa-fw fa fa-subway"></i><span> 开往-友链接力</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://foreverblog.cn/go.html"><i class="fa-fw fab fa-stumbleupon-circle"></i><span> 虫洞-十年之约</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【碎片笔记】2022年7月</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-06-30T16:55:19.000Z" title="发表于 2022-07-01 00:55:19">2022-07-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-07T16:03:31.783Z" title="更新于 2022-09-08 00:03:31">2022-09-08</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>15分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【碎片笔记】2022年7月"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><p><code>color-scheme</code>：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/color-scheme">CSS 属性</a>，允许元素指示它可以轻松呈现的配色方案。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/3df544bd4185">npx是什么？和npm的关系？</a></p>
+<ul>
+<li>npx是一个工具，npm v5.2.0引入的一条命令（npx），一个npm包执行器，旨在提高从npm注册表使用软件包的体验 ，npm使得它非常容易地安装和管理托管在注册表上的依赖项，npx使得使用CLI工具和其他托管在注册表。它大大简化了一些事情。</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://newsn.net/say/npx.html">npx是什么命令？npx和npm有什么区别？</a></p>
+<ul>
+<li><code>npm</code> 侧重于安装或者卸载某个模块的。重在安装，并不具备执行某个模块的功能。</li>
+<li><code>npx</code> 侧重于执行命令的，执行某个模块命令。虽然会自动安装模块，但是重在执行某个命令。</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xbean1028/article/details/106004022/">使用CMD命令tree得到文件夹目录树</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mengduxiu/article/details/103338251">Js中的defer属性和async属性</a></p>
+<ul>
+<li><code>defer</code>：指外部js文件和当前html页面同时加载（异步加载），但只在<strong>当前页面解析完成之后</strong>，执行js代码</li>
+<li><code>async</code>：指外部js文件和当前html页面同时加载（异步加载），在<strong>当前js文件加载完成后</strong>，执行js代码</li>
+</ul>
+</li>
+<li><p>页面黑色纤细滚动条<br>  如果去掉<code>body</code>，将作用于页面上出现的所有滚动条</p>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>::-webkit-scrollbar &#123;</span><br><span class="line">    width: <span class="number">6px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">6px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span>::-webkit-scrollbar-thumb &#123;</span><br><span class="line">    border-radius: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">box-shadow</span>: inset <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgb</span>(<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> / <span class="number">20%</span>);</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#535353</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span>::-webkit-scrollbar-track &#123;</span><br><span class="line">    box-shadow: inset <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgb</span>(<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> / <span class="number">20%</span>);</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#ededed</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35393869/article/details/83444272">.styl格式的CSS样式文件是什么文件</a></p>
+<ul>
+<li><code>Stylus</code> 是一个 基于<code>Node.js</code>的CSS的预处理框架 。可以说是一种新型语言，其本质上做的事情与<code>sass/less</code>等类似。<code>Stylus</code> 比<code>less</code>更强大，而且基于<code>nodejs</code>；比<code>sass</code>更符合我们的思路。</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.codenong.com/js54efd2b0184a/">crossorigin=”anonymous”导致的跨域问题</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/345564689">跨源相关机制综述（三）：crossorigin属性</a><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;http://XXXX.com/bootstrap.min.css&quot;</span> <span class="attr">crossorigin</span>=<span class="string">&quot;anonymous&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>CSS毛玻璃效果（磨砂、模糊、半透明）：</p>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.topsearch</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(<span class="number">135deg</span>,<span class="built_in">rgba</span>(<span class="number">20</span>,<span class="number">20</span>,<span class="number">20</span>,.<span class="number">7</span>),<span class="built_in">rgba</span>(<span class="number">20</span>,<span class="number">20</span>,<span class="number">20</span>,.<span class="number">4</span>));</span><br><span class="line">    backdrop-<span class="attribute">filter</span>: <span class="built_in">blur</span>(<span class="number">5px</span>);    <span class="comment">/* 此行代码 */</span></span><br><span class="line">    <span class="attribute">background-position</span>: center;</span><br><span class="line">    </span><br><span class="line">    <span class="attribute">background-size</span>: cover;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>页面深蓝滚动条</p>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">::-webkit-scrollbar &#123;</span><br><span class="line">    height: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line">::-webkit-scrollbar-thumb &#123;</span><br><span class="line">    background: <span class="number">#324759</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">6px</span>;</span><br><span class="line">&#125;</span><br><span class="line">::-webkit-scrollbar-track &#123;</span><br><span class="line">    background: <span class="number">#161f27</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">6px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>Chrome浏览器的安装包<code>ChromeSetup.exe</code>怎么这么小？</p>
+<ul>
+<li>答：你下载的是<code>在线安装包</code>，不是<code>离线安装包</code></li>
+<li><strong>在线安装</strong>：不存在安装包，一边下载一边安装。要先下载到临时文件夹里的，不过当你安装完以后，下载下来的安装程序会自动删掉，不会留你的电脑上面。在不太好的网络状况下容易出现长时间等待或安装失败的情况。</li>
+<li><strong>离线安装</strong>：也叫做完整安装包，安装包本身包含所有的安装文件。安装包下载全部完成后才会开始安装。不会存在长时间等待的情况。</li>
+<li>Firefox 作为开源软件，Chrome 作为重度依赖开源项目的闭源软件，迭代都很迅速，使用在线包可以确保始终下载到最新的版本。</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/32008852">知乎编辑框如何做到网址转化为链接的?</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.080210.com/38719.html">如何实现csdn、知乎安全中心的站外链接确认页面？GO代码分享</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15127658/2783340">网站为什么使用跳转页面来管理外链</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhang.ge/5086.html">分享最近对网站外链跳转页面代码的一些改善</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42508241/article/details/112412034">js外链跳转_网站外链 | 添加Go界面跳转</a></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lyc_stronger/article/details/51954852">Git的错误error: Failed connect to github.com:443;解决办法</a></p>
+</li>
+<li><p>CSS文字疯狂抖动</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">.shaky &#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    padding: 1px;</span><br><span class="line">    font-size: 15px;</span><br><span class="line">    -webkit-transform-origin: center center;</span><br><span class="line">    -ms-transform-origin: center center;</span><br><span class="line">    transform-origin: center center;</span><br><span class="line">    -webkit-animation-name: shaky-slow;</span><br><span class="line">    -ms-animation-name: shaky-slow;</span><br><span class="line">    animation-name: shaky-slow;</span><br><span class="line">    -webkit-animation-duration: 4s;</span><br><span class="line">    -ms-animation-duration: 4s;</span><br><span class="line">    animation-duration: 4s;</span><br><span class="line">    -webkit-animation-iteration-count: infinite;</span><br><span class="line">    -ms-animation-iteration-count: infinite;</span><br><span class="line">    animation-iteration-count: infinite;</span><br><span class="line">    -webkit-animation-timing-function: ease-in-out;</span><br><span class="line">    -ms-animation-timing-function: ease-in-out;</span><br><span class="line">    animation-timing-function: ease-in-out;</span><br><span class="line">    -webkit-animation-delay: 0s;</span><br><span class="line">    -ms-animation-delay: 0s;</span><br><span class="line">    animation-delay: 0s;</span><br><span class="line">    -webkit-animation-play-state: running;</span><br><span class="line">    -ms-animation-play-state: running;</span><br><span class="line">    animation-play-state: running;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36663518/article/details/120536889">版本号命名规范及原则</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lwdesire/p/15423701.html">软件版本号规范与命名原则</a></li>
+<li><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9C%AC%E5%8F%B7/188753">软件版本号-百度百科</a><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">主版本号 Major_Version_Number</span><br><span class="line">子版本号 Minor_Version_Number</span><br><span class="line">修正版本号 Revision_Numbe</span><br><span class="line">编译版本号 Build_Number</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol>
+<li>项目初版时，版本号为 1.0 或 1.00；</li>
+<li>当项目在进行了局部修改或 bug 修正时，主版本号和子版本号都不变，修正版本号加 1；</li>
+<li>当项目在原有的基础上增加了部分功能时，主版本号不变，子版本号加 1，修正版本号复位为 0，因而可以被忽略掉；</li>
+<li>当项目在进行了重大修改或局部修正累积较多，而导致项目整体发生全局变化时，主版本号加 1；</li>
+<li>编译版本号一般是编译器在编译过程中自动生成的，我们只定义其格式，并不进行人为控制。</li>
+</ol>
+</li>
+<li><p>CSS新用户教程遮罩</p>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">z-index</span>: <span class="number">100</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">39px</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">873.156px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">84px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">43px</span>;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="built_in">rgb</span>(<span class="number">33</span> <span class="number">33</span> <span class="number">33</span> / <span class="number">50%</span>) <span class="number">0px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">5000px</span>;</span><br><span class="line">    <span class="attribute">transition</span>: all <span class="number">0.3s</span> ease-out <span class="number">0s</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/bjxdyl1995/article/details/105964124">使用宝塔面板让服务器快速部署python环境</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_51697449/article/details/120548934">js定时器setTimeout和setInterval用法及区别，清除定时器的使用</a></p>
+</li>
+<li><p>var 是声明变量的一个关键字. <code>var num = 2</code> 此时就已经声明了一个值为2的num变量 但是为什么现在基本不用var而是let 和 const 声明变量呢? 因为var有缺点</p>
+<ol>
+<li>变量提升 var 声明的变量会在作用域顶层进行声明 (因此你在声明变量前console该变量输出undefined 而不是该变量没有定义)</li>
+<li>for 循环使用 var定义初始变量 会造成变量溢出 (明明我只在for 循环之内初始化了迭代变量, 为什么会在for循环之外可以console到)</li>
+</ol>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://blog.xuxiangbo.com/im-69.html">JS 输出日历完整篇</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://blog.xuxiangbo.com/im-76.html">canvas实现刮奖效果和签名面板</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/toorange/p/16375483.html">vue2 到 vue3 setup的语法糖</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000040685876">Vue3 Ref 语法糖，告别 .value 的写法</a></li>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1383924">canvas中的getContext()方法 以及 webgl中的getContext()方法</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6941653752650661895">探索Vue3响应式API之Ref（一）</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/Amnesiac666/article/details/120319075">vue3 - ref函数处理对象类型数据</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/ITxiaodong/article/details/121325317">vue2 中 ref 的使用</a></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/monparadis/article/details/120760302">canvas中getContext(“2d“) 对象的属性和方法</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://qastack.cn/programming/15320052/what-are-all-the-differences-between-src-and-data-src-attributes#:~:text=data-src,%E4%BD%BF%E7%94%A8%E7%9A%84%E9%A2%9D%E5%A4%96%E6%95%B0%E6%8D%AE%E3%80%82">src和data-src属性之间的所有区别是什么？</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/moxiaowohuwei/p/7908877.html">img 的data-src 属性及懒加载</a></p>
+</li>
+<li><p>关于元素隐藏</p>
+<ol>
+<li><code>visibility:hidden</code> 表示所占据的空间位置仍然存在，仅为视觉上的完全透明</li>
+<li><code>display:none</code> 不为被隐藏的对象保留其物理空间</li>
+<li><code>opacity: 0;</code> 表示所占据的空间位置仍然存在，仅为视觉上的完全透明</li>
+</ol>
+</li>
+<li><p>下面的JS输出是？<a target="_blank" rel="noopener" href="https://blog.51cto.com/u_9357435/2073221">为什么？</a><br>  开始执行，结束了，timeout1</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;开始执行&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;timeout1&#x27;</span>)</span><br><span class="line"></span><br><span class="line">&#125;,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;结束了&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/huangpb123/article/details/83692019">postMessage - 跨域消息传递</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_58494037/article/details/119567214">解决解决跨域都有哪些方法？</a></p>
+</li>
+<li><p>对于任意一棵高度为5且有10个节点的二叉树，若采用顺序存储结构保存，每个结点占1个存储单元（仅存放结点的数据信息），则存放该二叉树需要的存储单元数量至少是（  ）</p>
+<ul>
+<li>【<a target="_blank" rel="noopener" href="https://www.136.la/jingpin/show-150726.html">解析</a>】：本二叉树使用顺序存储结构时，为了保证任意性，其1-5层的所有结点（包括空结点）全部都要被存储起来。即考虑成一棵5层的满二叉树，存储单元大小为：1+2+4+8+16=31</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/343319750">2020年计算机408考研计算机网络真题解析</a></p>
+</li>
+<li><p>请阐述react和vue的区别及各自优缺点</p>
+<blockquote>
+<ol>
+<li>react和vue的区别：vue是双向绑定的，采用template；react是单向的，采用jsx。</li>
+<li>Vue的优缺点：简单、快速、强大、对模块友好，但不支持IE8以下。因为是单页面应用，不利于seo优化。</li>
+<li>React的优缺点：速度快、跨浏览器兼容、模块化；但学习曲线陡峭，需要深入的知识来构建应用程序。</li>
+</ol>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/FJGISer/article/details/117715580">Vue与React两个框架的区别和优势对比</a></li>
+</ul>
+</li>
+<li><p>Android中常用的五种布局有：<code>FragmeLayout</code> 框架布局，<code>LinearLayout</code> 线性布局，<code>AbsoluteLayout</code> 绝对布局，<code>RelativeLayout</code> 相对布局，<code>TableLayout</code> 表格布局。</p>
+</li>
+<li><p>不同操作系统上直接运行的文件扩展名：</p>
+<ol>
+<li><code>exe</code>：为Windows操作系统的可执行文件；</li>
+<li><code>rpm</code>：为Linux操作系统的安装文件；</li>
+<li><code>ipa</code>：是iPhone OS中的可执行文件扩展名；</li>
+<li><code>apk</code>：是Android系统中的可执行文件扩展名；</li>
+</ol>
+</li>
+<li><p>Android的4种文件类型Java,class,dex,apk</p>
+<ol>
+<li><code>Java</code>文件（应用程序源文件）：android本身相当一部分都是用java编写而成(基本上架构图里头蓝色的部份都是用Java开发的)，android的应用必须使用java来开发。</li>
+<li><code>Class</code>文件（Java编译后的目标文件）：Android虚拟机Dalvik支持的字节码文件格式Google在新发布的Android平台上使用了自己的Dalvik虚拟机来定义， 这种虚拟机执行的并非Java字节码， 而是另一种字节码： dex格式的字节码。在编译Java代码之后，通过Android平台上的工具可以将Java字节码转换成Dex字节码。虽然Google称Dalvik是为了移动设备定做的，但是业界很多人认为这是为了规避向sun申请Javalicense。这个DalvikVM针对手机程式/CPU做过最佳化，可以同时执行许多VM而不会占用太多Resource。</li>
+<li><code>Dex</code>文件（Android平台上的可执行文件）：Android虚拟机Dalvik支持的字节码文件格式Google在新发布的Android平台上使用了自己的Dalvik虚拟机来定义， 这种虚拟机执行的并非Java字节码， 而是另一种字节码： dex格式的字节码。在编译Java代码之后，通过Android平台上的工具可以将Java字节码转换成Dex字节码。虽然Google称Dalvik是为了移动设备定做的，但是业界很多人认为这是为了规避向sun申请Javalicense。这个DalvikVM针对手机程式/CPU做过最佳化，可以同时执行许多VM而不会占用太多Resource。</li>
+<li><code>Apk</code>文件（Android上的安装文件）：Apk是Android安装包的扩展名，一个Android安装包包含了与某个Android应用程序相关的所有文件。apk文件将AndroidManifest.xml文件、应用程序代码(.dex文件)、资源文件和其他文件打成一个压缩包。一个工程只能打进一个.apk文件。</li>
+</ol>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://info.umeng.com/detail?id=415&cateId=1">一文轻松搞定ANR异常捕获与分析方法</a></p>
+</li>
+<li><p>哪些方法是Android自定义View需要复写(重写)的？<br>  有三个构造方法（一个参数、两个参数、三个参数），其中两个参数的构造方法必须有。</p>
+<ol>
+<li><code>onDraw()</code>方法必须有，是用来绘制View图像的</li>
+<li>如果要改变View 的大小，需要重写<code>onMeasure()</code>方法。</li>
+<li>如果要改变View在父控件中的位置，需要重写<code>onLayout()</code>方法</li>
+</ol>
+</li>
+<li><p>哪些技术可以实现Android的本地数据存储？</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u011578734/article/details/110142722">Android渲染性能——过度绘制</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39001306/article/details/80614286">Android开发—三种动画实现原理及使用</a></p>
+<ol>
+<li><code>Frame Animation</code>（帧动画）：通过顺序播放一系列图像从而产生动画效果，。图片过多时容易造成OOM（Out Of Memory内存用完）异常。</li>
+<li><code>Tween Animation</code>（补间动画，又叫view动画）：是通过对场景里的对象不断做图像变换（透明度、缩放、平移、旋转）从而产生动画效果，是一种渐进式动画，并且View动画支持自定义。</li>
+<li><code>Accribute Animation</code>（属性动画）：这也是在android3.0之后引进的动画，在手机的版本上是android４.0就可以使用这个动画，通过动态的改变对象的属性从而达到动画效果。</li>
+</ol>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/chenjian1797/article/details/100789693">Android实现数据存储5种技术</a></p>
+<ol>
+<li>使用SharedPreferences存储数据</li>
+<li>文件存储数据</li>
+<li>SQLite数据库存储数据</li>
+<li>使用ContentProvider存储数据</li>
+<li>网络存储数据</li>
+</ol>
+</li>
+<li><p>对于任何非空 HTML 文档，调用 <code>document.documentElement</code> 总是会返回一个 <code>&lt;html&gt;</code> 元素，且它一定是该文档的根元素。借助这个只读属性，能方便地获取到任意文档的根元素。（<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/documentElement">来源于MDN文档</a>）</p>
+</li>
+<li><p><code>Document.exitFullscreen()</code> 方法用于让当前文档退出全屏模式（原文表述不准确，详见备注）。调用这个方法会让文档回退到上一个调用<code>Element.requestFullscreen()</code>方法进入全屏模式之前的状态。（<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/exitFullscreen/">来源于MDN文档</a>）</p>
+<blockquote>
+<p>备注： 如果一个元素 A 在请求进入全屏模式之前，已经存在其他元素处于全屏状态，当这个元素 A 退出全屏模式之后，之前的元素仍然处于全屏状态。浏览器内部维护了一个全屏元素栈用于实现这个目的。</p>
+</blockquote>
+</li>
+<li><p>HTML <code>&lt;script&gt;</code> 标签的 <a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/att_script_defer.asp">defer</a> 属性<br>  如果已设置，它规定在页面完成解析时执行脚本，在页面加载之前不会运行脚本：</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;demo_defer.js&quot;</span> <span class="attr">defer</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>自定义函数的使用，几种声明方式示例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showNumber</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 第1种</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showNumber</span>(<span class="params">number, string</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 第2种</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 第3种，fn是一个变量名,表示当前fn就是表示当前函数</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> showNumber = <span class="function">(<span class="params">number</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 第4种，是第二种和第三种的结合，并使用箭头函数的书写形式</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fnObj = <span class="keyword">new</span> <span class="function"><span class="title">Function</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="comment">// 第5种，使用new的方式不常用，凡是使用new的都是object</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ysx77/article/details/74508217">HTML 自定义元素教程</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000011291318/">给了body position:relative后 子元素的margin-top值会影响其他子元素的相对定位的位置是什么原理</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1326941?from=15425">JS设置CSS样式的几种方式</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">&quot;b1&quot;</span>).style.width=<span class="string">&quot;300px&quot;</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="http://t.zoukankan.com/lmjZone-p-8603241.html">页面渲染时js阻塞的解决方法</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://m.php.cn/article/474259.html">js怎么修改css属性</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhidao.baidu.com/question/1860828801356628387.html">JS中如何将yyyy-MM-dd HH:mm:ss格式的字符串转成Date类型</a></p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">&#x27;2019-06-01 12:05:20&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>(a.replace(<span class="string">&#x27;-&#x27;</span>, <span class="string">&#x27;/&#x27;</span>));</span><br><span class="line"><span class="built_in">console</span>.log(time)</span><br></pre></td></tr></table></figure></li>
+<li><p>input datetime-local 时间控件精确到秒</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 只需要添加属性step=&quot;1&quot;，即可精确到秒 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;datetime-local&quot;</span> <span class="attr">step</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="http://t.zoukankan.com/web-wjg-p-7496418.html">js应用中的小细节-时间戳的转换和input输入框有效数字</a></p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//时间戳=&gt;时间</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getLocalTime</span>(<span class="params">nS</span>) </span>&#123;</span><br><span class="line">　　<span class="keyword">var</span> dat = newDate(<span class="built_in">parseInt</span>(nS)*<span class="number">1000</span>).toLocaleString().replace(<span class="regexp">/:d&#123;1,2&#125;$/</span>, <span class="string">&#x27; &#x27;</span>);</span><br><span class="line">    <span class="keyword">var</span> strs = dat.substr(<span class="number">0</span>, <span class="number">9</span>);</span><br><span class="line">    <span class="keyword">return</span> strs.split(<span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(getLocalTime(<span class="number">1366666666</span>))<span class="comment">//返回的是数组[&quot;2013&quot;, &quot;4&quot;, &quot;23&quot;]</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//时间=&gt;时间戳</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">timetamp</span>(<span class="params">y, m, d</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span>(<span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d, ).getTime() / <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(timetamp(<span class="number">2017</span>, <span class="number">8</span>, <span class="number">8</span>))<span class="comment">//输出是10位数的值 1504800000</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//时间戳转换为时间格式 yyyy-MM-dd hh:mm</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getLocalTime</span>(<span class="params">nS</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dat = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="built_in">parseInt</span>(nS) * <span class="number">1000</span>).format(<span class="string">&quot;yyyy-MM-dd hh:mm&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> dat;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> time = getLocalTime(<span class="number">1500666666</span>);</span><br><span class="line"><span class="built_in">Date</span>.prototype.format = <span class="function"><span class="keyword">function</span>(<span class="params">format</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> date = &#123;</span><br><span class="line">        <span class="string">&quot;M+&quot;</span>: <span class="built_in">this</span>.getMonth() + <span class="number">1</span>,</span><br><span class="line">        <span class="string">&quot;d+&quot;</span>: <span class="built_in">this</span>.getDate(),</span><br><span class="line">        <span class="string">&quot;h+&quot;</span>: <span class="built_in">this</span>.getHours(),</span><br><span class="line">        <span class="string">&quot;m+&quot;</span>: <span class="built_in">this</span>.getMinutes(),</span><br><span class="line">        <span class="string">&quot;s+&quot;</span>: <span class="built_in">this</span>.getSeconds(),</span><br><span class="line">        <span class="string">&quot;q+&quot;</span>: <span class="built_in">Math</span>.floor((<span class="built_in">this</span>.getMonth() + <span class="number">3</span>) / <span class="number">3</span>),</span><br><span class="line">        <span class="string">&quot;S+&quot;</span>: <span class="built_in">this</span>.getMilliseconds()</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">if</span>(<span class="regexp">/(y+)/i</span>.test(format)) &#123;</span><br><span class="line">        format = format.replace(<span class="built_in">RegExp</span>.$1, (<span class="built_in">this</span>.getFullYear() + <span class="string">&#x27;&#x27;</span>).substr(<span class="number">4</span> - <span class="built_in">RegExp</span>.$1.length));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> k <span class="keyword">in</span> date) &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">&quot;(&quot;</span> + k + <span class="string">&quot;)&quot;</span>).test(format)) &#123;</span><br><span class="line">            format = format.replace(<span class="built_in">RegExp</span>.$1, <span class="built_in">RegExp</span>.$1.length == <span class="number">1</span> ?</span><br><span class="line">                date[k] : (<span class="string">&quot;00&quot;</span> + date[k]).substr((<span class="string">&quot;&quot;</span> + date[k]).length));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> format;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://zhidao.baidu.com/question/588612913771506125.html">javascript如何清除另一个函数中的setInterval?</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/5b791fb11b47">js复制文本到剪贴板</a></p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//点击文本框复制其内容到剪贴板上方法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">copyToClipboard</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> cinput = <span class="built_in">document</span>.createElement(<span class="string">&#x27;textarea&#x27;</span>); <span class="comment">// 动态创建textarea元素</span></span><br><span class="line">    cinput.value = str; <span class="comment">// 把需要复制的内容赋值到textarea的vlaue上</span></span><br><span class="line">    </span><br><span class="line">    cinput.setAttribute(<span class="string">&#x27;readOnly&#x27;</span>, <span class="string">&#x27;true&#x27;</span>);</span><br><span class="line">    <span class="comment">//注意大小写，不写的话手机端会自动弹出输入框</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(cinput); <span class="comment">// 把创建的textarea元素添加进body元素内</span></span><br><span class="line">    cinput.select(); <span class="comment">// 选择对象</span></span><br><span class="line">    <span class="built_in">document</span>.execCommand(<span class="string">&quot;Copy&quot;</span>); <span class="comment">// 执行浏览器复制命令</span></span><br><span class="line">    cinput.className = <span class="string">&#x27;oInput&#x27;</span>;</span><br><span class="line">    cinput.style.display = <span class="string">&#x27;none&#x27;</span>;</span><br><span class="line">    cinput.style.opacity = <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    alert(<span class="string">&quot;复制成功&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 复制的方法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">copyText</span>(<span class="params">text, callback</span>)</span>&#123; <span class="comment">// text: 要复制的内容， callback: 回调</span></span><br><span class="line">    <span class="keyword">var</span> tag = <span class="built_in">document</span>.createElement(<span class="string">&#x27;textarea&#x27;</span>);</span><br><span class="line">    tag.setAttribute(<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;cp_hgz_input&#x27;</span>);</span><br><span class="line">    tag.value = text;</span><br><span class="line">    <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;body&#x27;</span>)[<span class="number">0</span>].appendChild(tag);</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">&#x27;cp_hgz_input&#x27;</span>).select();</span><br><span class="line">    <span class="built_in">document</span>.execCommand(<span class="string">&#x27;copy&#x27;</span>);</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">&#x27;cp_hgz_input&#x27;</span>).remove();</span><br><span class="line">    <span class="keyword">if</span>(callback) &#123;callback(text)&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013448372/article/details/109569468">JavaScript如何截取字符串的最后一位</a></p>
+</li>
+<li><p>图片作为网站缩略图icon</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;shortcut icon&quot;</span> <span class="attr">type</span>=<span class="string">&quot;image/x-icon&quot;</span> <span class="attr">href</span>=<span class="string">&quot;./logo.png&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">百里飞洋丨Barry Flynn</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.meta-code.top/2022/07/01/2022-75/">https://blog.meta-code.top/2022/07/01/2022-75/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.meta-code.top" target="_blank">百里飞洋</a>！</span></div><div class="post-technical-tips"><span class="post-copyright-meta">技术内容: </span><span class="post-copyright-info">若存在错误或不当之处，还望兄台不吝赐教，期待与您交流！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%A2%8E%E7%89%87%E7%AC%94%E8%AE%B0/">碎片笔记</a></div><div class="post_share"><div class="social-share" data-image="/img/friends/Barry-Flynn.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/CDN/share/share.min.css" media="print" onload="this.media='all'"><script src="/CDN/share/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E5%BE%AE%E4%BF%A1WeChat%E6%89%93%E8%B5%8F%E7%A0%81.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E5%BE%AE%E4%BF%A1%E6%89%93%E8%B5%8F%EF%BC%88%E7%BA%AF%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%89.png" alt="WeChat微信打赏"/></a><div class="post-qr-code-desc">WeChat微信打赏</div></li><li class="reward-item"><a href="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E6%94%AF%E4%BB%98%E5%AE%9DAliPay%E6%89%93%E8%B5%8F%E7%A0%81.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%89%93%E8%B5%8F%EF%BC%88%E7%BA%AF%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%89.png" alt="AliPay支付宝打赏"/></a><div class="post-qr-code-desc">AliPay支付宝打赏</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/06/19/2022-74/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" onerror="onerror=null;src='/img/others/404.gif'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【Hexo博客】添加Butterfly主题昼夜模式转换动画</div></div></a></div><div class="next-post pull-right"><a href="/2022/07/01/2022-76/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" onerror="onerror=null;src='/img/others/404.gif'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">使用dumi构建开发文档</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/09/08/2022-103/" title="【碎片笔记】2022年9月"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-08</div><div class="title">【碎片笔记】2022年9月</div></div></a></div><div><a href="/2022/04/19/2022-61/" title="【碎片笔记】2022年4月~5月"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-19</div><div class="title">【碎片笔记】2022年4月~5月</div></div></a></div><div><a href="/2022/08/02/2022-83/" title="【碎片笔记】2022年8月"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-02</div><div class="title">【碎片笔记】2022年8月</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/friends/Barry-Flynn.jpg" onerror="this.onerror=null;this.src='/img/others/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">百里飞洋丨Barry Flynn</div><div class="author-info__description">星河滚烫，无问西东</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">166</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">76</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://space.bilibili.com/349963315"><i class="fas fa-play-circle"></i><span>关注我吧</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://weibo.com/6327778914/profile?topnav=1&amp;wvr=6" target="_blank" title="微博Weibo"><i class="fab fa-weibo"></i></a><a class="social-icon" href="https://space.bilibili.com/349963315" target="_blank" title="哔哩哔哩Bilibili"><i class="fab fa-youtube"></i></a><a class="social-icon" href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=2158469373@qq.com" target="_blank" title="邮箱Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://github.com/Barry-Flynn" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://gitee.com/Barry-Flynn" target="_blank" title="码云Gitee"><i class="fab fa-gofore"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Hey,欢迎来到我的博客小世界！<br /> 00后程序员&中二小青年 <br /> QQ学习聊天群：<b>534984250</b><br /> 才疏学浅，自说自话，<br /> 欢迎交流玩耍~<br /> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/others/咒术回战.gif" style="border-radius:0.5rem;" /></div></div><div class="card-widget user-weather" id="user-weather"><div class="item-headline"><i class="fas fa-heartbeat"></i><span>今日天气</span></div><div class="item-content"><iframe width="140%" frameborder="0" scrolling="no" hspace="0" src="https://i.tianqi.com/?c=code&a=getcode&id=35&site=34&icon=1"></iframe></div></div><div class="sticky_layout"></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 百里飞洋丨Barry Flynn</div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="http://meta-code.top/"><i class="fas fa-globe-americas"></i>&nbsp;元代码</a>丨<a target="_blank" rel="noopener" href="https://weibo.com/6327778914/profile?topnav=1&wvr=6&is_all=1"><i class="fab fa-weibo"></i>&nbsp;<span>新浪微博</span></a>丨<a target="_blank" rel="noopener" href="https://space.bilibili.com/349963315"><i class="fab fa-youtube"></i>&nbsp;<span>哔哩哔哩</span></a>丨<a href="/about/"><i class="fas fa-meteor"></i>&nbsp;关于我</a><br /> <a href="/Reward-list/">赞助列表</a>丨<a href="/about-website/">网站声明</a>丨<a href="/link/">友情链接</a>丨<a target="_blank" rel="noopener" href="https://tongji.baidu.com/">网站统计</a><br /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41071102000543"><span style="vertical-align:middle;"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/icon/备案图标.png" style="vertical-align:middle;">&nbsp;豫公网安备 41071102000543号</a></span><br /> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><span style="vertical-align:middle;"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/icon/ICP备案.png" style="vertical-align:middle;width:20px;height:20px;">&nbsp;豫ICP备2021034491号</a></span><br /> <span><星河滚烫，无问西东></span><br /> <br /> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/二维码/移动端访问.png" style="width:130px;height:150px;border-radius:20px;display:inline-block;margin:0 5px;"> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/二维码/添加QQ好友.png" style="width:130px;height:150px;border-radius:20px;display:inline-block;margin:0 5px;"><br /></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><a class="icon-V hidden" onclick="switchNightMode()" title="浅色和深色模式转换"><svg width="25" height="25" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon"></use></svg></a><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><a class="rightMenu-item" href="javascript:window.history.back();"><i class="fa-solid fa-arrow-left"></i></a><a class="rightMenu-item" href="javascript:window.location.reload();"><i class="fa-solid fa-arrow-rotate-right"></i></a><a class="rightMenu-item" href="javascript:window.history.forward();"><i class="fa-solid fa-arrow-right"></i></a><a class="rightMenu-item" id="menu-radompage" href="javascript:window.location.href = window.location.origin;"><i class="fa-solid fa-house"></i></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-text"><a class="rightMenu-item" href="javascript:rmf.copySelect();"><i class="fa-solid fa-copy"></i><span>复制</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:rmf.switchDarkMode();"><i class="fa-solid fa-circle-half-stroke"></i><span>昼夜模式</span></a><a class="rightMenu-item" href="javascript:rmf.switchTranslate();" id="menu-translate"><i class="fa-solid fa-earth-asia"></i><span>繁简切换</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/categories/';"><i class="fa-solid fa-book"></i><span>博客分类</span></a><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/tags/';"><i class="fa-solid fa-tags"></i><span>博客标签</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/Reward-list/';"><i class="fa-solid fa-clipboard-list"></i><span>打赏赞助 ❤</span></a><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/about-website/';"><i class="fa-solid fa-envelope-open-text"></i><span>网站声明</span></a></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="/CDN/lazyload.iife.min.js"></script><script src="/CDN/snackbar/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script async="async">var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').style.transition = 'opacity 3s ease 0s'
+    document.getElementById('loading-box').style.opacity = '0'
+    setTimeout(function(){
+      document.getElementById('loading-box').classList.add("loaded")
+    }, 3000);
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').style.transition = '';
+    document.getElementById('loading-box').style.opacity = '1'
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})
+setTimeout(function(){preloader.endLoading();}, 3000);</script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo.meta-code.top/',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo.meta-code.top/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('/CDN/comments/twikoo.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://twikoo.meta-code.top/',
+        region: '',
+        pageSize: 5,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('/CDN/comments/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script src="/js/Barry-Flynn.js?date=20220901"></script><canvas id="universe"></canvas><script src="/js/universe.js"></script><script src="/js/jquery-3.6.0.min.js"></script><script src="/js/rightmenu.js"></script><script src="/js/sun_moon.js" async></script><div class="aplayer no-destroy" data-id="1050282" data-server="netease" data-type="artist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" data-lrctype="0" muted></div><canvas class="fireworks" mobile="false"></canvas><script src="/CDN/effect/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="105, 171, 247" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/CDN/background_effect/canvas-nest.min.js"></script><script src="/CDN/effect/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="/CDN/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="/CDN/aplayer/APlayer.min.js"></script><script src="/CDN/aplayer/Meting.min.js"></script><script src="/CDN/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="/CDN/count/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start -->
+  <script data-pjax src="/CDN/hexo_githubcalendar.js"></script>
+  <script data-pjax>
+        function GithubCalendarConfig(){
+            var git_githubapiurl ="https://github-calendar-api.meta-code.top/api?Barry-Flynn";
+            var git_color =['#ebedf0', '#a2f7af', '#6ce480', '#54ad63', '#469252', '#31753c', '#1f5f2a', '#13531f', '#084111', '#032b09', '#000000'];
+            var git_user ="Barry-Flynn";
+            var parent_div_git = document.getElementById('recent-posts');
+            var git_div_html = '<div class="recent-post-item" style="width:100%;height:auto;padding:10px;"><div id="github_loading" style="width:10%;height:100%;margin:0 auto;display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg></div><div id="github_container"></div></div>';
+            if(parent_div_git && location.pathname =='/'){
+                console.log('已挂载github calendar')
+                // parent_div_git.innerHTML=git_div_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",git_div_html) // 有报错，但不影响使用(支持pjax跳转)
+            };
+            GithubCalendar(git_githubapiurl,git_color,git_user)
+        }
+        if(document.getElementById('recent-posts')){
+            GithubCalendarConfig()
+        }
+    </script>
+    <style>#github_container{min-height:280px}@media screen and (max-width:650px) {#github_container{background-image:;min-height:0px}}</style>
+    <style></style><!-- hexo injector body_end end --></body></html>

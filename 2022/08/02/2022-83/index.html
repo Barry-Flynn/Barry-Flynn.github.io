@@ -1,0 +1,541 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>【碎片笔记】2022年8月 | 百里飞洋</title><meta name="keywords" content="碎片笔记"><meta name="author" content="百里飞洋丨Barry Flynn"><meta name="copyright" content="百里飞洋丨Barry Flynn"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="开发或学习过程中遇到的问题解决方法或奇思妙想">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【碎片笔记】2022年8月">
+<meta property="og:url" content="https://blog.meta-code.top/2022/08/02/2022-83/index.html">
+<meta property="og:site_name" content="百里飞洋">
+<meta property="og:description" content="开发或学习过程中遇到的问题解决方法或奇思妙想">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.meta-code.top/img/friends/Barry-Flynn.jpg">
+<meta property="article:published_time" content="2022-08-02T09:46:28.000Z">
+<meta property="article:modified_time" content="2022-09-07T16:04:07.530Z">
+<meta property="article:author" content="百里飞洋丨Barry Flynn">
+<meta property="article:tag" content="碎片笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.meta-code.top/img/friends/Barry-Flynn.jpg"><link rel="shortcut icon" href="/img/icon/%E7%81%AB%E7%AE%AD.png"><link rel="canonical" href="https://blog.meta-code.top/2022/08/02/2022-83/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/CDN/fontawesome/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/CDN/snackbar/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e21f557d5683e4733d77db5ab8910d7b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":100,"position":"top","messagePrev":"「温馨提示」本文更新已经","messageNext":"天，若内容或图片失效，请留言反馈。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: 百里飞洋丨Barry Flynn","link":"链接: ","source":"来源: 百里飞洋","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#121212","bgDark":"#49b1f5","position":"bottom-right"},
+  source: {
+    jQuery: '/CDN/jquery.min.js',
+    justifiedGallery: {
+      js: '/CDN/justifiedGallery/jquery.justifiedGallery.min.js',
+      css: '/CDN/justifiedGallery/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: '/CDN/photo/jquery.fancybox.min.js',
+      css: '/CDN/photo/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【碎片笔记】2022年8月',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-09-08 00:04:07'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><link rel="stylesheet" href="/css/BF-simple.css"><link rel="stylesheet" href="/css/BF-rightmenu.css"><svg aria-hidden="true" style="position:absolute; overflow:hidden; width:0; height:0"><symbol id="icon-sun" viewBox="0 0 1024 1024"><path d="M960 512l-128 128v192h-192l-128 128-128-128H192v-192l-128-128 128-128V192h192l128-128 128 128h192v192z" fill="#FFD878" p-id="8420"></path><path d="M736 512a224 224 0 1 0-448 0 224 224 0 1 0 448 0z" fill="#FFE4A9" p-id="8421"></path><path d="M512 109.248L626.752 224H800v173.248L914.752 512 800 626.752V800h-173.248L512 914.752 397.248 800H224v-173.248L109.248 512 224 397.248V224h173.248L512 109.248M512 64l-128 128H192v192l-128 128 128 128v192h192l128 128 128-128h192v-192l128-128-128-128V192h-192l-128-128z" fill="#4D5152" p-id="8422"></path><path d="M512 320c105.888 0 192 86.112 192 192s-86.112 192-192 192-192-86.112-192-192 86.112-192 192-192m0-32a224 224 0 1 0 0 448 224 224 0 0 0 0-448z" fill="#4D5152" p-id="8423"></path></symbol><symbol id="icon-moon" viewBox="0 0 1024 1024"><path d="M611.370667 167.082667a445.013333 445.013333 0 0 1-38.4 161.834666 477.824 477.824 0 0 1-244.736 244.394667 445.141333 445.141333 0 0 1-161.109334 38.058667 85.077333 85.077333 0 0 0-65.066666 135.722666A462.08 462.08 0 1 0 747.093333 102.058667a85.077333 85.077333 0 0 0-135.722666 65.024z" fill="#FFB531" p-id="11345"></path><path d="M329.728 274.133333l35.157333-35.157333a21.333333 21.333333 0 1 0-30.165333-30.165333l-35.157333 35.157333-35.114667-35.157333a21.333333 21.333333 0 0 0-30.165333 30.165333l35.114666 35.157333-35.114666 35.157334a21.333333 21.333333 0 1 0 30.165333 30.165333l35.114667-35.157333 35.157333 35.157333a21.333333 21.333333 0 1 0 30.165333-30.165333z" fill="#030835" p-id="11346"></path></symbol></svg><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="centered"><div class="blob-1"></div><div class="blob-2"></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/friends/Barry-Flynn.jpg" onerror="onerror=null;src='/img/others/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">166</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">76</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/Calendar/"><i class="fa-fw fa-solid fa-calendar-check"></i><span> 奋斗日历</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-icons"></i><span> 多媒体</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-headphones-alt"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 找文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 按分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 按标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 按时间</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-medal"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/Reward-list/"><i class="fa-fw fas fa-clipboard-list"></i><span> 打赏榜</span></a></li><li><a class="site-page child" href="/about-website/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 网站声明</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-sign-in-alt"></i><span> 更多</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/project/"><i class="fa-fw fas fa-star"></i><span> 在线小项目</span></a></li><li><a class="site-page child" href="/Code-Templates/"><i class="fa-fw fas fa-code"></i><span> 空代码模板</span></a></li><li><a class="site-page child" href="/tools/"><i class="fa-fw fas fa-tools"></i><span> 常用工具</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-subway"></i><span> 开往&amp;虫洞</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://travellings.link/"><i class="fa-fw fa fa-subway"></i><span> 开往-友链接力</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://foreverblog.cn/go.html"><i class="fa-fw fab fa-stumbleupon-circle"></i><span> 虫洞-十年之约</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/images/hello%20world.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">百里飞洋</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/Calendar/"><i class="fa-fw fa-solid fa-calendar-check"></i><span> 奋斗日历</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-icons"></i><span> 多媒体</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-headphones-alt"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 找文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 按分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 按标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 按时间</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-medal"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/Reward-list/"><i class="fa-fw fas fa-clipboard-list"></i><span> 打赏榜</span></a></li><li><a class="site-page child" href="/about-website/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 网站声明</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-sign-in-alt"></i><span> 更多</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/project/"><i class="fa-fw fas fa-star"></i><span> 在线小项目</span></a></li><li><a class="site-page child" href="/Code-Templates/"><i class="fa-fw fas fa-code"></i><span> 空代码模板</span></a></li><li><a class="site-page child" href="/tools/"><i class="fa-fw fas fa-tools"></i><span> 常用工具</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-subway"></i><span> 开往&amp;虫洞</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://travellings.link/"><i class="fa-fw fa fa-subway"></i><span> 开往-友链接力</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://foreverblog.cn/go.html"><i class="fa-fw fab fa-stumbleupon-circle"></i><span> 虫洞-十年之约</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【碎片笔记】2022年8月</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-08-02T09:46:28.000Z" title="发表于 2022-08-02 17:46:28">2022-08-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-07T16:04:07.530Z" title="更新于 2022-09-08 00:04:07">2022-09-08</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>15分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【碎片笔记】2022年8月"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><p>滚动条不占位 overlay属性</p>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">overflow-y</span>: overlay;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>overflow的值为<code>overlay</code>，它的行为与<code>auto</code>相同的，但是在溢出时出现滚动条的展示方式有区分，overlay是覆在……上面，它是不占位的；</li>
+<li>注意：在Chrome浏览器中受支持；</li>
+<li>若设置后在火狐浏览器中滚动条不生效，再写一个<code>overflow: auto;</code>，火狐浏览器中无法像谷歌浏览器里那样<code>overflow-y: overlay</code>；</li>
+</ol>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_71491195/article/details/125773022">粘性定位（position: sticky；）失效原因</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1765768">探究 position-sticky 失效问题</a></p>
+</li>
+<li><p>如何在CSS中将颜色定义为变量？</p>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">    --<span class="selector-tag">main</span>-<span class="attribute">color</span>:<span class="number">#06c</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#foo</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">var</span>(--main-color);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  也可以在JavaScript /客户端操作CSS变量</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.style.setProperty(<span class="string">&#x27;--main-color&#x27;</span>,<span class="string">&quot;#6c0&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xxssyyyyssxx/article/details/53127416">CSS3选择器</a><br>  属性<code>:root</code>、<code>:not</code>、<code>:empty</code>、<code>:target</code>、<code>first-child</code>、<code>last-child</code>、<code>:nth-child(n)</code>、<code>:nth-last-child(n)</code>、<code>:first-of-type</code>、<code>:nth-of-type(n)</code>、<code>:last-of-type</code>、<code>:nth-last-of-type(n)</code>、<code>:only-child</code>、<code>:only-of-type</code>、<code>:enabled</code>、 <code>:disabled</code>、<code>:checked</code>、<code>::selection</code>、<code>:read-only</code>、<code>:read-write</code>、<code>::before</code> 和 <code>::after</code></p>
+</li>
+<li><p>JS 获取当前页面 URL</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.location.href</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34406086/article/details/91399847">如何压缩JS代码？</a></p>
+<ol>
+<li>使用UglifyJS压缩JS代码</li>
+<li>在webpack里压缩JS代码</li>
+</ol>
+</li>
+<li><p>工具UglifyJS的基本使用</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/uglify-js">npm官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39842528/article/details/81390588">UglifyJS3中文文档(压缩解析js文件)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/fb7b3d300b22">uglifyjs压缩混淆js代码</a><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 全局安装</span></span><br><span class="line">npm install uglify-js -g</span><br><span class="line"><span class="comment">// 压缩文件</span></span><br><span class="line">uglifyjs test.js -o test.min.js -m</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>-o</code>：–output 指定输出文件，默认情况下为命令行<br><code>-m</code>：–mangle 改变变量名称（压缩后成a,b,c,d,e,f之类的变量，默认情况不改变变量名称）<br><code>-c</code>：–compress 让uglifyjs进行代码压缩的参数。可以在-c后边添加一些具体的参数来控制压缩的特性</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42136785/article/details/89230547">js 检测移动端横屏以及竖屏切换</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/xianyulaodi/p/5533185.html">【原】js检测移动端横竖屏</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://xianyulaodi.github.io/2018/02/25/%E5%A6%82%E4%BD%95%E5%86%99%E4%B8%80%E4%B8%AAnpm%E5%8C%85/">如何写一个npm包</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mo911108/article/details/124313770">JS获取本机IP地址的方法</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://pv.sohu.com/cityjson?ie=utf-8">http://pv.sohu.com/cityjson?ie=utf-8</a></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/SJian123/article/details/39177215">js获取IP地址的4种方法</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zqian1994/article/details/79222812">利用JS获取用户当前ip地址</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.itdaan.com/blog/2014/02/08/de63718a767313b43bb501b81c95a5d.html">前端后端获取ip以及位置以及判断客户端</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000015823116">我是如何获取到前端用户的IP，并根据IP来获取地理定位的</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://ly9527.blog.csdn.net/article/details/117019509">js生成二维码的几种方法</a></p>
+</li>
+<li><p>让html页面不缓存js的实现方法之：加随机数</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 每次页面引用的文件名都会变 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.write(<span class="string">&quot;&lt;script type=&#x27;text/javascript&#x27; src=&#x27;./BFUI-dev.js?random=&quot;</span> + <span class="built_in">Math</span>.random() + <span class="string">&quot;&#x27;&gt;&lt;\/script&gt;&quot;</span>);</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>让html页面不缓存js的实现方法之：<a target="_blank" rel="noopener" href="https://m.php.cn/article/476004.html">设置no-cache</a></p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Expires&quot;</span> <span class="attr">content</span>=<span class="string">&quot;0&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Pragma&quot;</span> <span class="attr">content</span>=<span class="string">&quot;no-cache&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Cache-control&quot;</span> <span class="attr">content</span>=<span class="string">&quot;no-cache&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Cache&quot;</span> <span class="attr">content</span>=<span class="string">&quot;no-cache&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>Unicode强制反转代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;h-name&quot;</span>&gt;</span><span class="symbol">&amp;#x202E;</span>军雷<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>CSS文字渐变</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.p</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>);</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#ffa54d</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(<span class="number">90deg</span>,<span class="number">#ffa54d</span>,<span class="number">#f07bc5</span> <span class="number">50%</span>,<span class="number">#43aeff</span>);</span><br><span class="line">    -webkit-<span class="attribute">background-clip</span>: text;</span><br><span class="line">    -webkit-text-fill-<span class="attribute">color</span>: transparent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://www.turing.com/blog/vue-vs-react-which-framework-to-choose/">Vue vs. React：两者之间的相似之处</a></p>
+<ol>
+<li>这两个框架都支持使用 JavaScript 编写前端。</li>
+<li>它们都使用虚拟 DOM。</li>
+<li>React.js 有 Redux，Vue.js 有 Vuex，Vue.js 应用程序的状态管理模式 + 库，使用方式与 Redux 相同。</li>
+<li>从搜索引擎优化应用的角度来看，React 拥有 Next.js，而 Vue 拥有 Nuxt.js </li>
+<li>两个框架都使用组件结构</li>
+</ol>
+</li>
+<li><p>每次推送代码到Gitee的时候都让输入账号密码，但是明明绑定了ssh密钥，如何解决？</p>
+<ol>
+<li>打开项目根目录，找到<code>.git</code>文件夹中的<code>config</code>，用记事本打开</li>
+<li>修改url的地址，从<code>https://gitee.com/用户名/仓库名.git</code>修改成<code>git@gitee.com:用户名/仓库名.git</code>的样式。例如：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[remote &quot;origin&quot;]</span><br><span class="line">    url = git@gitee.com:Barry-Flynn/vue_shop.git</span><br><span class="line">    fetch = +refs/heads/*:refs/remotes/origin/*</span><br></pre></td></tr></table></figure></li>
+<li>【原因剖析】：这是因为当初设置远程仓库时采用的HTTP连接方式（<code>git remote add origin https://gitee.com/码云用户名/仓库名.git</code>），而不是git@git (ssh)的形式，所以即便本地生成了SSH密钥但没有使用到。</li>
+<li>【其他方法】：还有一种方法是“凭证存储”，在项目目录中执行<code>git config --global credential.helper store</code>生成一个文本用来记录你的账号密码，输入一次之后就不用再输了（方法来自<a target="_blank" rel="noopener" href="https://blog.csdn.net/nongweiyilady/article/details/77772602">CSDN博文</a>，我未证实）。显然，这种方法是不安全的，所以更建议采用SSH密钥连接远程仓库。关于凭证存储更多了解可以看一下<a target="_blank" rel="noopener" href="https://blog.csdn.net/DavidFFFFFF/article/details/88849419">这篇博文</a></li>
+</ol>
+</li>
+<li><p>js中如何引入css</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.write(<span class="string">&#x27;&lt;link rel=&quot;stylesheet&quot; href=&quot;main.css&quot;&gt;&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_27674439/article/details/101316754">defer和async的区别</a></p>
+</li>
+<li><p>CSS上浮出现动画，使用JS添加</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">opacity: 1;</span><br><span class="line">animation: 1000ms linear 0s 1 normal both running bottom-up-spring;</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://www.fly63.com/article/detial/8775">前端页面禁止调试debugger方法</a></p>
+<ol>
+<li>打开控制台直接跳转页面<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//debug调试时跳转页面</span></span><br><span class="line"><span class="keyword">var</span> element = <span class="keyword">new</span> Image();</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(element,<span class="string">&#x27;id&#x27;</span>,&#123;<span class="attr">get</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">window</span>.location.href=<span class="string">&quot;https://www.baidu.com&quot;</span>&#125;&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(element);</span><br></pre></td></tr></table></figure></li>
+<li>打开控制台,页面内容显示”检测到非法调试,请关闭后刷新重试!”<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 反调试函数,参数：开关，执行代码</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">endebug</span>(<span class="params">off, code</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!off) &#123;</span><br><span class="line">        ! <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">            <span class="function"><span class="keyword">function</span> <span class="title">n</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">                <span class="function"><span class="keyword">function</span> <span class="title">n</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> u;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="function"><span class="keyword">function</span> <span class="title">o</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="built_in">window</span>.Firebug &amp;&amp; <span class="built_in">window</span>.Firebug.chrome &amp;&amp; <span class="built_in">window</span>.Firebug.chrome.isInitialized ? t(<span class="string">&quot;on&quot;</span>) : (a = <span class="string">&quot;off&quot;</span>, <span class="built_in">console</span>.log(d), <span class="built_in">console</span>.clear(), t(a));</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="function"><span class="keyword">function</span> <span class="title">t</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">                    u !== e &amp;&amp; (u = e, <span class="string">&quot;function&quot;</span> == <span class="keyword">typeof</span> c.onchange &amp;&amp; c.onchange(e));</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="function"><span class="keyword">function</span> <span class="title">r</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                    l || (l = !<span class="number">0</span>, <span class="built_in">window</span>.removeEventListener(<span class="string">&quot;resize&quot;</span>, o), <span class="built_in">clearInterval</span>(f));</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="string">&quot;function&quot;</span> == <span class="keyword">typeof</span> e &amp;&amp; (e = &#123;</span><br><span class="line">                    <span class="attr">onchange</span>: e</span><br><span class="line">                &#125;);</span><br><span class="line">                <span class="keyword">var</span> i = (e = e || &#123;&#125;).delay || <span class="number">500</span>,</span><br><span class="line">                    c = &#123;&#125;;</span><br><span class="line">                c.onchange = e.onchange;</span><br><span class="line">                <span class="keyword">var</span> a, d = <span class="keyword">new</span> Image;</span><br><span class="line">                d.__defineGetter__(<span class="string">&quot;id&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                    a = <span class="string">&quot;on&quot;</span></span><br><span class="line">                &#125;);</span><br><span class="line">                <span class="keyword">var</span> u = <span class="string">&quot;unknown&quot;</span>;</span><br><span class="line">                c.getStatus = n;</span><br><span class="line">                <span class="keyword">var</span> f = <span class="built_in">setInterval</span>(o, i);</span><br><span class="line">                <span class="built_in">window</span>.addEventListener(<span class="string">&quot;resize&quot;</span>, o);</span><br><span class="line">                <span class="keyword">var</span> l;</span><br><span class="line">                <span class="keyword">return</span> c.free = r, c;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">var</span> o = o || &#123;&#125;;</span><br><span class="line">            o.create = n, <span class="string">&quot;function&quot;</span> == <span class="keyword">typeof</span> define ? (define.amd || define.cmd) &amp;&amp; define(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> o</span><br><span class="line">            &#125;) : <span class="string">&quot;undefined&quot;</span> != <span class="keyword">typeof</span> <span class="built_in">module</span> &amp;&amp; <span class="built_in">module</span>.exports ? <span class="built_in">module</span>.exports = o : <span class="built_in">window</span>.jdetects = o</span><br><span class="line">        &#125;(), jdetects.create(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> a = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">var</span> n = <span class="built_in">setInterval</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="string">&quot;on&quot;</span> == e) &#123;</span><br><span class="line">                    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                        <span class="keyword">if</span> (a == <span class="number">0</span>) &#123;</span><br><span class="line">                            a = <span class="number">1</span>;</span><br><span class="line">                            <span class="built_in">setTimeout</span>(code);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;, <span class="number">200</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;, <span class="number">100</span>);</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">endebug(<span class="literal">false</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 非法调试执行的代码(不要使用控制台输出的提醒)</span></span><br><span class="line">    <span class="comment">// document.write(&quot;检测到非法调试,请关闭后刷新重试!&quot;);</span></span><br><span class="line">    <span class="built_in">document</span>.write(<span class="string">&#x27;&lt;h1 style=&quot;font-size:36px;color:red;text-align:center;margin-top:30vh;&quot;&gt;检测到非法调试，请关闭调试后刷新页面进行阅读!&lt;/h1&gt;&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zz_jesse/article/details/116141445">前端生成海报的 N 种方案和优劣对比</a></p>
+</li>
+<li><p>文本段落的第一行缩进<code>text-indent:2em;</code></p>
+</li>
+<li><p>响应容器大小的变化 <code>window.onresize</code> 与 <code>window.addEventListener(&#39;resize&#39;,...)</code></p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如果失效</span></span><br><span class="line"><span class="built_in">window</span>.onresize = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">myChart.resize();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以写成这样</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&#x27;resize&#x27;</span>,<span class="function">() =&gt;</span> myChart.resize(), <span class="literal">false</span>);</span><br></pre></td></tr></table></figure></li>
+<li><p>CSS文字流光特效</p>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#xf-copy</span> &#123;</span><br><span class="line">    <span class="attribute">font-weight</span>: <span class="number">600</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">13px</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#8c888b</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">-webkit-linear-gradient</span>(<span class="number">45deg</span>,<span class="number">#70f7fe</span>,<span class="number">#fbd7c6</span>,<span class="number">#fdefac</span>,<span class="number">#bfb5dd</span>,<span class="number">#bed5f5</span>);</span><br><span class="line">    -moz-linear-gradient(<span class="number">45deg</span>,<span class="selector-id">#70f7fe</span>,<span class="selector-id">#fbd7c6</span>,<span class="selector-id">#fdefac</span>,<span class="selector-id">#bfb5dd</span>,<span class="selector-id">#bed5f5</span>): ;</span><br><span class="line">    ms-linear-gradient(<span class="number">45deg</span>,<span class="selector-id">#70f7fe</span>,<span class="selector-id">#fbd7c6</span>,<span class="selector-id">#fdefac</span>,<span class="selector-id">#bfb5dd</span>,<span class="selector-id">#bed5f5</span>): ;</span><br><span class="line">    <span class="attribute">color</span>: transparent;</span><br><span class="line">    -webkit-<span class="attribute">background-clip</span>: text;</span><br><span class="line">    <span class="attribute">animation</span>: ran <span class="number">20s</span> linear infinite;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://tzy1997.com/articles/xi2mpxmd/">Vue后台管理系统模板推荐</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://tzy1997.com/articles/vu0724se/">20 多个好用的 Vue 组件库</a></p>
+</li>
+<li><p>禁用控制台，来源<a target="_blank" rel="noopener" href="https://tzy1997.com/">https://tzy1997.com/</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">((<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> callbacks = [],</span></span><br><span class="line"><span class="javascript">  timeLimit = <span class="number">50</span>,</span></span><br><span class="line"><span class="javascript">  open = <span class="literal">false</span>;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">setInterval</span>(loop, <span class="number">1</span>);</span></span><br><span class="line"><span class="javascript">  <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="javascript">    <span class="attr">addListener</span>: <span class="function"><span class="keyword">function</span>(<span class="params">fn</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      callbacks.push(fn);</span></span><br><span class="line"><span class="javascript">    &#125;,</span></span><br><span class="line"><span class="javascript">    <span class="attr">cancleListenr</span>: <span class="function"><span class="keyword">function</span>(<span class="params">fn</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      callbacks = callbacks.filter(<span class="function"><span class="keyword">function</span>(<span class="params">v</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> v !== fn;</span></span><br><span class="line"><span class="javascript">      &#125;);</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript">  &#125;;</span></span><br><span class="line"><span class="javascript">  <span class="function"><span class="keyword">function</span> <span class="title">loop</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> startTime = <span class="keyword">new</span> <span class="built_in">Date</span>();</span></span><br><span class="line"><span class="javascript">    <span class="keyword">debugger</span>;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">if</span> (<span class="keyword">new</span> <span class="built_in">Date</span>() - startTime &gt; timeLimit) &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">if</span> (!open) &#123;</span></span><br><span class="line"><span class="javascript">        callbacks.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">fn</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">          fn.call(<span class="literal">null</span>);</span></span><br><span class="line"><span class="javascript">        &#125;);</span></span><br><span class="line"><span class="javascript">      &#125;</span></span><br><span class="line"><span class="javascript">      open = <span class="literal">true</span>;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">window</span>.stop();</span></span><br><span class="line"><span class="javascript">      alert(<span class="string">&#x27;你真坏，请关闭控制台！&#x27;</span>);</span></span><br><span class="line"><span class="javascript">      <span class="built_in">document</span>.body.innerHTML = <span class="string">&quot;&quot;</span>;</span></span><br><span class="line"><span class="javascript">    &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">      open = <span class="literal">false</span>;</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript">  &#125;</span></span><br><span class="line"><span class="javascript">&#125;)()).addListener(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.location.reload();</span></span><br><span class="line"><span class="javascript">&#125;);</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">toDevtools</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">let</span> num = <span class="number">0</span>;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">let</span> devtools = <span class="keyword">new</span> <span class="built_in">Date</span>();</span></span><br><span class="line"><span class="javascript">  devtools.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    num++;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">if</span> (num &gt; <span class="number">1</span>) &#123;</span></span><br><span class="line"><span class="javascript">      alert(<span class="string">&#x27;你真坏，请关闭控制台！&#x27;</span>);</span></span><br><span class="line"><span class="javascript">      <span class="built_in">window</span>.location.href = <span class="string">&quot;about:blank&quot;</span>;</span></span><br><span class="line"><span class="javascript">      blast();</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript">  &#125;;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(<span class="string">&#x27;&#x27;</span>, devtools);</span></span><br><span class="line"><span class="javascript">&#125;</span></span><br><span class="line"><span class="javascript">toDevtools();</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+<p>压缩版：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript">((<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;<span class="keyword">var</span> callbacks = [],timeLimit = <span class="number">50</span>,open = <span class="literal">false</span>;<span class="built_in">setInterval</span>(loop, <span class="number">1</span>);<span class="keyword">return</span> &#123;<span class="attr">addListener</span>: <span class="function"><span class="keyword">function</span>(<span class="params">fn</span>) </span>&#123;callbacks.push(fn);&#125;,<span class="attr">cancleListenr</span>: <span class="function"><span class="keyword">function</span>(<span class="params">fn</span>) </span>&#123;callbacks = callbacks.filter(<span class="function"><span class="keyword">function</span>(<span class="params">v</span>) </span>&#123;<span class="keyword">return</span> v !== fn;&#125;);&#125;&#125;;<span class="function"><span class="keyword">function</span> <span class="title">loop</span>(<span class="params"></span>) </span>&#123;<span class="keyword">var</span> startTime = <span class="keyword">new</span> <span class="built_in">Date</span>();<span class="keyword">debugger</span>;<span class="keyword">if</span> (<span class="keyword">new</span> <span class="built_in">Date</span>() - startTime &gt; timeLimit) &#123;<span class="keyword">if</span> (!open) &#123;callbacks.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">fn</span>) </span>&#123;fn.call(<span class="literal">null</span>);&#125;);&#125;open = <span class="literal">true</span>;<span class="built_in">window</span>.stop();alert(<span class="string">&#x27;你真坏，请关闭控制台！&#x27;</span>);<span class="built_in">document</span>.body.innerHTML = <span class="string">&quot;&quot;</span>;&#125; <span class="keyword">else</span> &#123;open = <span class="literal">false</span>;&#125;&#125;&#125;)()).addListener(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;<span class="built_in">window</span>.location.reload();&#125;);</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">toDevtools</span>(<span class="params"></span>)</span>&#123;<span class="keyword">let</span> num = <span class="number">0</span>;<span class="keyword">let</span> devtools = <span class="keyword">new</span> <span class="built_in">Date</span>();devtools.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;num++;<span class="keyword">if</span> (num &gt; <span class="number">1</span>) &#123;alert(<span class="string">&#x27;你真坏，请关闭控制台！&#x27;</span>);<span class="built_in">window</span>.location.href = <span class="string">&quot;about:blank&quot;</span>;blast();&#125;&#125;;<span class="built_in">console</span>.log(<span class="string">&#x27;&#x27;</span>, devtools);&#125;toDevtools();</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> </span><br></pre></td></tr></table></figure></li>
+<li><p>禁用控制台(需要引入jQuery)，来源<a target="_blank" rel="noopener" href="https://tzy1997.com/">https://tzy1997.com/</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">  <span class="comment">/*</span></span></span><br><span class="line"><span class="comment"><span class="javascript">  * @Descripttion: ethan.js</span></span></span><br><span class="line"><span class="comment"><span class="javascript">  * @version: 1.0.0</span></span></span><br><span class="line"><span class="comment"><span class="javascript">  * @Author: tzy1997</span></span></span><br><span class="line"><span class="comment"><span class="javascript">  * @Date: 2020-12-14 21:26:14</span></span></span><br><span class="line"><span class="comment"><span class="javascript">  * @LastEditors: tzy1997</span></span></span><br><span class="line"><span class="comment"><span class="javascript">  * @LastEditTime: 2022-08-11 23:16:27</span></span></span><br><span class="line"><span class="comment"><span class="javascript">  */</span></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">  <span class="comment">/* 禁止打開控制臺 查看源码等等 */</span></span></span><br><span class="line"><span class="javascript">  <span class="function"><span class="keyword">function</span> <span class="title">forbidden_control</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      $.extend(&#123;</span></span><br><span class="line"><span class="javascript">          <span class="attr">message</span>: <span class="function"><span class="keyword">function</span> (<span class="params">a</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">              <span class="keyword">var</span> b = &#123;</span></span><br><span class="line"><span class="javascript">                  <span class="attr">title</span>: <span class="string">&quot;&quot;</span>,</span></span><br><span class="line"><span class="javascript">                  <span class="attr">message</span>: <span class="string">&quot;操作成功&quot;</span>,</span></span><br><span class="line"><span class="javascript">                  <span class="attr">time</span>: <span class="string">&quot;3000&quot;</span>,</span></span><br><span class="line"><span class="javascript">                  <span class="attr">type</span>: <span class="string">&quot;success&quot;</span>,</span></span><br><span class="line"><span class="javascript">                  <span class="attr">showClose</span>: !<span class="number">0</span>,</span></span><br><span class="line"><span class="javascript">                  <span class="attr">autoClose</span>: !<span class="number">0</span>,</span></span><br><span class="line"><span class="javascript">                  <span class="attr">onClose</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;</span></span><br><span class="line"><span class="javascript">              &#125;;</span></span><br><span class="line"><span class="javascript">              <span class="string">&quot;string&quot;</span> == <span class="keyword">typeof</span> a &amp;&amp; (b.message = a), <span class="string">&quot;object&quot;</span> == <span class="keyword">typeof</span> a &amp;&amp; (b = $.extend(&#123;&#125;, b, a));</span></span><br><span class="line"><span class="javascript">              <span class="keyword">var</span> c, d, e, f = b.showClose ? <span class="string">&#x27;&lt;div class=&quot;c-message--close&quot;&gt;×&lt;/div&gt;&#x27;</span> : <span class="string">&quot;&quot;</span>,</span></span><br><span class="line"><span class="javascript">                  g = <span class="string">&quot;&quot;</span> !== b.title ? <span class="string">&#x27;&lt;h2 class=&quot;c-message__title&quot;&gt;&#x27;</span> + b.title + <span class="string">&quot;&lt;/h2&gt;&quot;</span> : <span class="string">&quot;&quot;</span>,</span></span><br><span class="line"><span class="javascript">                  h = <span class="string">&#x27;&lt;div class=&quot;c-message animated animated-lento slideInRight&quot;&gt;&lt;i class=&quot; c-message--icon c-message--&#x27;</span> + b.type + <span class="string">&#x27;&quot;&gt;&lt;/i&gt;&lt;div class=&quot;el-notification__group&quot;&gt;&#x27;</span> + g + <span class="string">&#x27;&lt;div class=&quot;el-notification__content&quot;&gt;&#x27;</span> + b.message + <span class="string">&quot;&lt;/div&gt;&quot;</span> + f + <span class="string">&quot;&lt;/div&gt;&lt;/div&gt;&quot;</span>,</span></span><br><span class="line"><span class="javascript">                  i = $(<span class="string">&quot;body&quot;</span>),</span></span><br><span class="line"><span class="javascript">                  j = $(h);</span></span><br><span class="line"><span class="javascript">              d = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                  j.addClass(<span class="string">&quot;slideOutRight&quot;</span>), j.one(<span class="string">&quot;webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                      e()</span></span><br><span class="line"><span class="javascript">                  &#125;)</span></span><br><span class="line"><span class="javascript">              &#125;, e = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                  j.remove(), b.onClose(b), <span class="built_in">clearTimeout</span>(c)</span></span><br><span class="line"><span class="javascript">              &#125;, $(<span class="string">&quot;.c-message&quot;</span>).remove(), i.append(j), j.one(<span class="string">&quot;webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                  j.removeClass(<span class="string">&quot;messageFadeInDown&quot;</span>)</span></span><br><span class="line"><span class="javascript">              &#125;), i.on(<span class="string">&quot;click&quot;</span>, <span class="string">&quot;.c-message--close&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">a</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                  d()</span></span><br><span class="line"><span class="javascript">              &#125;), b.autoClose &amp;&amp; (c = <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                  d()</span></span><br><span class="line"><span class="javascript">              &#125;, b.time))</span></span><br><span class="line"><span class="javascript">          &#125;</span></span><br><span class="line"><span class="javascript">      &#125;),</span></span><br><span class="line"><span class="javascript">          <span class="built_in">document</span>.onkeydown = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">              <span class="keyword">if</span> (<span class="number">123</span> == e.keyCode || (e.ctrlKey &amp;&amp; e.shiftKey &amp;&amp; (<span class="number">74</span> === e.keyCode || <span class="number">73</span> === e.keyCode || <span class="number">67</span> === e.keyCode)) || (e.ctrlKey &amp;&amp; <span class="number">85</span> === e.keyCode)) <span class="keyword">return</span> $.message(&#123;</span></span><br><span class="line"><span class="javascript">                  <span class="attr">message</span>: <span class="string">&quot;采用本站js及css请注明来源，禁止商业使用！&quot;</span>,</span></span><br><span class="line"><span class="javascript">                  <span class="attr">title</span>: <span class="string">&quot;你真坏，不能打开控制台喔!&quot;</span>,</span></span><br><span class="line"><span class="javascript">                  <span class="attr">type</span>: <span class="string">&quot;error&quot;</span>,</span></span><br><span class="line"><span class="javascript">                  <span class="attr">autoHide</span>: !<span class="number">1</span>,</span></span><br><span class="line"><span class="javascript">                  <span class="attr">time</span>: <span class="string">&quot;3000&quot;</span></span></span><br><span class="line"><span class="javascript">              &#125;), event.keyCode = <span class="number">0</span>, event.returnValue = !<span class="number">1</span>, !<span class="number">1</span></span></span><br><span class="line"><span class="javascript">          &#125;, <span class="built_in">document</span>.oncontextmenu = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">              <span class="keyword">return</span> $.message(&#123;</span></span><br><span class="line"><span class="javascript">                  <span class="attr">message</span>: <span class="string">&quot;采用本站js及css请注明来源，禁止商业使用！&quot;</span>,</span></span><br><span class="line"><span class="javascript">                  <span class="attr">title</span>: <span class="string">&quot;不能右键/长按喔！&quot;</span>,</span></span><br><span class="line"><span class="javascript">                  <span class="attr">type</span>: <span class="string">&quot;error&quot;</span>,</span></span><br><span class="line"><span class="javascript">                  <span class="attr">autoHide</span>: !<span class="number">1</span>,</span></span><br><span class="line"><span class="javascript">                  <span class="attr">time</span>: <span class="string">&quot;3000&quot;</span></span></span><br><span class="line"><span class="javascript">              &#125;), !<span class="number">1</span></span></span><br><span class="line"><span class="javascript">          &#125;,</span></span><br><span class="line"><span class="javascript">          <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">              <span class="function"><span class="keyword">function</span> <span class="title">e</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                  <span class="keyword">var</span> e = <span class="keyword">new</span> <span class="built_in">Date</span>;</span></span><br><span class="line"><span class="javascript">                  <span class="keyword">if</span> (<span class="keyword">new</span> <span class="built_in">Date</span> - e &gt; <span class="number">0</span>) &#123;</span></span><br><span class="line"><span class="javascript">                      <span class="keyword">try</span> &#123;</span></span><br><span class="line"><span class="javascript">                          <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;html&quot;</span>)[<span class="number">0</span>].innerHTML = <span class="string">&#x27;&lt;div style=&quot;width: 100%;height: 50px;font-size: 30px;text-align: center;font-weight: bold;&quot;&gt;啊这个网站炸了，&lt;a href=&quot;/&quot; style=&quot;color:#4285f4;&quot;&gt;点击返回&lt;/a&gt;试试吧~&lt;/div&gt;&#x27;</span></span></span><br><span class="line"><span class="javascript">                      &#125; <span class="keyword">catch</span> (e) &#123; &#125;</span></span><br><span class="line"><span class="javascript">                      <span class="keyword">return</span> <span class="built_in">document</span>.body.innerHTML = <span class="string">&#x27;&lt;div style=&quot;width: 100%;height: 50px;font-size: 30px;text-align: center;font-weight: bold;&quot;&gt;啊这个网站炸了，&lt;a href=&quot;/&quot; style=&quot;color:#4285f4;&quot;&gt;点击返回&lt;/a&gt;试试吧~&lt;/div&gt;&#x27;</span>, !<span class="number">0</span></span></span><br><span class="line"><span class="javascript">                  &#125;</span></span><br><span class="line"><span class="javascript">                  <span class="keyword">return</span> !<span class="number">1</span></span></span><br><span class="line"><span class="javascript">              &#125;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">              <span class="function"><span class="keyword">function</span> <span class="title">t</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                  <span class="keyword">for</span> (; e();) e()</span></span><br><span class="line"><span class="javascript">              &#125;</span></span><br><span class="line"><span class="javascript">              e() ? t() : <span class="built_in">window</span>.onblur = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                  <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                      t()</span></span><br><span class="line"><span class="javascript">                  &#125;, <span class="number">500</span>)</span></span><br><span class="line"><span class="javascript">              &#125;</span></span><br><span class="line"><span class="javascript">          &#125;(),</span></span><br><span class="line"><span class="javascript">          <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">              <span class="keyword">var</span> e = <span class="regexp">/x/</span>;</span></span><br><span class="line"><span class="javascript">              e.toString = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                  <span class="keyword">try</span> &#123;</span></span><br><span class="line"><span class="javascript">                      <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;html&quot;</span>)[<span class="number">0</span>].innerHTML = <span class="string">&#x27;&lt;div style=&quot;width: 100%;height: 50px;font-size: 30px;text-align: center;font-weight: bold;&quot;&gt;啊这个网站炸了，&lt;a href=&quot;/&quot; style=&quot;color:#4285f4;&quot;&gt;点击返回&lt;/a&gt;试试吧~&lt;/div&gt;&#x27;</span></span></span><br><span class="line"><span class="javascript">                  &#125; <span class="keyword">catch</span> (e) &#123; &#125;</span></span><br><span class="line"><span class="javascript">                  <span class="keyword">return</span> <span class="built_in">document</span>.body.innerHTML = <span class="string">&#x27;&lt;div style=&quot;width: 100%;height: 50px;font-size: 30px;text-align: center;font-weight: bold;&quot;&gt;啊这个网站炸了，&lt;a href=&quot;/&quot; style=&quot;color:#4285f4;&quot;&gt;点击返回&lt;/a&gt;试试吧~&lt;/div&gt;&#x27;</span>, <span class="string">&quot;禁止打开控制台！&quot;</span></span></span><br><span class="line"><span class="javascript">              &#125;</span></span><br><span class="line"><span class="javascript">          &#125;(),</span></span><br><span class="line"><span class="javascript">          <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">              <span class="keyword">var</span> e = <span class="built_in">document</span>.createElement(<span class="string">&quot;div&quot;</span>);</span></span><br><span class="line"><span class="javascript">              <span class="built_in">Object</span>.defineProperty(e, <span class="string">&quot;id&quot;</span>, &#123;</span></span><br><span class="line"><span class="javascript">                  <span class="attr">get</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                      <span class="keyword">try</span> &#123;</span></span><br><span class="line"><span class="javascript">                          <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;html&quot;</span>)[<span class="number">0</span>].innerHTML = <span class="string">&#x27;&lt;div style=&quot;width: 100%;height: 50px;font-size: 30px;text-align: center;font-weight: bold;&quot;&gt;啊这个网站炸了，&lt;a href=&quot;/&quot; style=&quot;color:#4285f4;&quot;&gt;点击返回&lt;/a&gt;试试吧~&lt;/div&gt;&#x27;</span></span></span><br><span class="line"><span class="javascript">                      &#125; <span class="keyword">catch</span> (e) &#123; &#125;</span></span><br><span class="line"><span class="javascript">                      <span class="built_in">document</span>.body.innerHTML = <span class="string">&#x27;&lt;div style=&quot;width: 100%;height: 50px;font-size: 30px;text-align: center;font-weight: bold;&quot;&gt;啊这个网站炸了，&lt;a href=&quot;/&quot; style=&quot;color:#4285f4;&quot;&gt;点击返回&lt;/a&gt;试试吧~&lt;/div&gt;&#x27;</span></span></span><br><span class="line"><span class="javascript">                  &#125;</span></span><br><span class="line"><span class="javascript">              &#125;), <span class="built_in">console</span>.log(e)</span></span><br><span class="line"><span class="javascript">              <span class="built_in">document</span>.body.innerHTML = <span class="string">&#x27;&lt;div style=&quot;width: 100%;height: 50px;font-size: 30px;text-align: center;font-weight: bold;&quot;&gt;啊这个网站炸了，&lt;a href=&quot;/&quot; style=&quot;color:#4285f4;&quot;&gt;点击返回&lt;/a&gt;试试吧~&lt;/div&gt;&#x27;</span></span></span><br><span class="line"><span class="javascript">          &#125;()</span></span><br><span class="line"><span class="javascript">  &#125;</span></span><br><span class="line"><span class="javascript">  forbidden_control();</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://jishuin.proginn.com/p/763bfbd6b9bd">Vue3+Three.js写一个超级炫酷的3D登陆页面</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.muzhuangnet.com/show/54956.html">vue为什么能用require</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42931285/article/details/125735283">vue中引入图片为什么使用require</a></p>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">百里飞洋丨Barry Flynn</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.meta-code.top/2022/08/02/2022-83/">https://blog.meta-code.top/2022/08/02/2022-83/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.meta-code.top" target="_blank">百里飞洋</a>！</span></div><div class="post-technical-tips"><span class="post-copyright-meta">技术内容: </span><span class="post-copyright-info">若存在错误或不当之处，还望兄台不吝赐教，期待与您交流！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%A2%8E%E7%89%87%E7%AC%94%E8%AE%B0/">碎片笔记</a></div><div class="post_share"><div class="social-share" data-image="/img/friends/Barry-Flynn.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/CDN/share/share.min.css" media="print" onload="this.media='all'"><script src="/CDN/share/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E5%BE%AE%E4%BF%A1WeChat%E6%89%93%E8%B5%8F%E7%A0%81.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E5%BE%AE%E4%BF%A1%E6%89%93%E8%B5%8F%EF%BC%88%E7%BA%AF%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%89.png" alt="WeChat微信打赏"/></a><div class="post-qr-code-desc">WeChat微信打赏</div></li><li class="reward-item"><a href="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E6%94%AF%E4%BB%98%E5%AE%9DAliPay%E6%89%93%E8%B5%8F%E7%A0%81.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%89%93%E8%B5%8F%EF%BC%88%E7%BA%AF%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%89.png" alt="AliPay支付宝打赏"/></a><div class="post-qr-code-desc">AliPay支付宝打赏</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/08/01/2022-82/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" onerror="onerror=null;src='/img/others/404.gif'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【Hexo博客】出走半生，归来仍是极简~</div></div></a></div><div class="next-post pull-right"><a href="/2022/08/07/2022-84/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" onerror="onerror=null;src='/img/others/404.gif'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【前端】Web Notifications API 和 Web Push API（通知接口）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/09/08/2022-103/" title="【碎片笔记】2022年9月"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-08</div><div class="title">【碎片笔记】2022年9月</div></div></a></div><div><a href="/2022/04/19/2022-61/" title="【碎片笔记】2022年4月~5月"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-19</div><div class="title">【碎片笔记】2022年4月~5月</div></div></a></div><div><a href="/2022/07/01/2022-75/" title="【碎片笔记】2022年7月"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-01</div><div class="title">【碎片笔记】2022年7月</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/friends/Barry-Flynn.jpg" onerror="this.onerror=null;this.src='/img/others/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">百里飞洋丨Barry Flynn</div><div class="author-info__description">星河滚烫，无问西东</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">166</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">76</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://space.bilibili.com/349963315"><i class="fas fa-play-circle"></i><span>关注我吧</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://weibo.com/6327778914/profile?topnav=1&amp;wvr=6" target="_blank" title="微博Weibo"><i class="fab fa-weibo"></i></a><a class="social-icon" href="https://space.bilibili.com/349963315" target="_blank" title="哔哩哔哩Bilibili"><i class="fab fa-youtube"></i></a><a class="social-icon" href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=2158469373@qq.com" target="_blank" title="邮箱Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://github.com/Barry-Flynn" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://gitee.com/Barry-Flynn" target="_blank" title="码云Gitee"><i class="fab fa-gofore"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Hey,欢迎来到我的博客小世界！<br /> 00后程序员&中二小青年 <br /> QQ学习聊天群：<b>534984250</b><br /> 才疏学浅，自说自话，<br /> 欢迎交流玩耍~<br /> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/others/咒术回战.gif" style="border-radius:0.5rem;" /></div></div><div class="card-widget user-weather" id="user-weather"><div class="item-headline"><i class="fas fa-heartbeat"></i><span>今日天气</span></div><div class="item-content"><iframe width="140%" frameborder="0" scrolling="no" hspace="0" src="https://i.tianqi.com/?c=code&a=getcode&id=35&site=34&icon=1"></iframe></div></div><div class="sticky_layout"></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 百里飞洋丨Barry Flynn</div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="http://meta-code.top/"><i class="fas fa-globe-americas"></i>&nbsp;元代码</a>丨<a target="_blank" rel="noopener" href="https://weibo.com/6327778914/profile?topnav=1&wvr=6&is_all=1"><i class="fab fa-weibo"></i>&nbsp;<span>新浪微博</span></a>丨<a target="_blank" rel="noopener" href="https://space.bilibili.com/349963315"><i class="fab fa-youtube"></i>&nbsp;<span>哔哩哔哩</span></a>丨<a href="/about/"><i class="fas fa-meteor"></i>&nbsp;关于我</a><br /> <a href="/Reward-list/">赞助列表</a>丨<a href="/about-website/">网站声明</a>丨<a href="/link/">友情链接</a>丨<a target="_blank" rel="noopener" href="https://tongji.baidu.com/">网站统计</a><br /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41071102000543"><span style="vertical-align:middle;"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/icon/备案图标.png" style="vertical-align:middle;">&nbsp;豫公网安备 41071102000543号</a></span><br /> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><span style="vertical-align:middle;"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/icon/ICP备案.png" style="vertical-align:middle;width:20px;height:20px;">&nbsp;豫ICP备2021034491号</a></span><br /> <span><星河滚烫，无问西东></span><br /> <br /> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/二维码/移动端访问.png" style="width:130px;height:150px;border-radius:20px;display:inline-block;margin:0 5px;"> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/二维码/添加QQ好友.png" style="width:130px;height:150px;border-radius:20px;display:inline-block;margin:0 5px;"><br /></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><a class="icon-V hidden" onclick="switchNightMode()" title="浅色和深色模式转换"><svg width="25" height="25" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon"></use></svg></a><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><a class="rightMenu-item" href="javascript:window.history.back();"><i class="fa-solid fa-arrow-left"></i></a><a class="rightMenu-item" href="javascript:window.location.reload();"><i class="fa-solid fa-arrow-rotate-right"></i></a><a class="rightMenu-item" href="javascript:window.history.forward();"><i class="fa-solid fa-arrow-right"></i></a><a class="rightMenu-item" id="menu-radompage" href="javascript:window.location.href = window.location.origin;"><i class="fa-solid fa-house"></i></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-text"><a class="rightMenu-item" href="javascript:rmf.copySelect();"><i class="fa-solid fa-copy"></i><span>复制</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:rmf.switchDarkMode();"><i class="fa-solid fa-circle-half-stroke"></i><span>昼夜模式</span></a><a class="rightMenu-item" href="javascript:rmf.switchTranslate();" id="menu-translate"><i class="fa-solid fa-earth-asia"></i><span>繁简切换</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/categories/';"><i class="fa-solid fa-book"></i><span>博客分类</span></a><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/tags/';"><i class="fa-solid fa-tags"></i><span>博客标签</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/Reward-list/';"><i class="fa-solid fa-clipboard-list"></i><span>打赏赞助 ❤</span></a><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/about-website/';"><i class="fa-solid fa-envelope-open-text"></i><span>网站声明</span></a></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="/CDN/lazyload.iife.min.js"></script><script src="/CDN/snackbar/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script async="async">var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').style.transition = 'opacity 3s ease 0s'
+    document.getElementById('loading-box').style.opacity = '0'
+    setTimeout(function(){
+      document.getElementById('loading-box').classList.add("loaded")
+    }, 3000);
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').style.transition = '';
+    document.getElementById('loading-box').style.opacity = '1'
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})
+setTimeout(function(){preloader.endLoading();}, 3000);</script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo.meta-code.top/',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo.meta-code.top/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('/CDN/comments/twikoo.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://twikoo.meta-code.top/',
+        region: '',
+        pageSize: 5,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('/CDN/comments/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script src="/js/Barry-Flynn.js?date=20220901"></script><canvas id="universe"></canvas><script src="/js/universe.js"></script><script src="/js/jquery-3.6.0.min.js"></script><script src="/js/rightmenu.js"></script><script src="/js/sun_moon.js" async></script><div class="aplayer no-destroy" data-id="1050282" data-server="netease" data-type="artist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" data-lrctype="0" muted></div><canvas class="fireworks" mobile="false"></canvas><script src="/CDN/effect/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="105, 171, 247" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/CDN/background_effect/canvas-nest.min.js"></script><script src="/CDN/effect/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="/CDN/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="/CDN/aplayer/APlayer.min.js"></script><script src="/CDN/aplayer/Meting.min.js"></script><script src="/CDN/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="/CDN/count/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start -->
+  <script data-pjax src="/CDN/hexo_githubcalendar.js"></script>
+  <script data-pjax>
+        function GithubCalendarConfig(){
+            var git_githubapiurl ="https://github-calendar-api.meta-code.top/api?Barry-Flynn";
+            var git_color =['#ebedf0', '#a2f7af', '#6ce480', '#54ad63', '#469252', '#31753c', '#1f5f2a', '#13531f', '#084111', '#032b09', '#000000'];
+            var git_user ="Barry-Flynn";
+            var parent_div_git = document.getElementById('recent-posts');
+            var git_div_html = '<div class="recent-post-item" style="width:100%;height:auto;padding:10px;"><div id="github_loading" style="width:10%;height:100%;margin:0 auto;display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg></div><div id="github_container"></div></div>';
+            if(parent_div_git && location.pathname =='/'){
+                console.log('已挂载github calendar')
+                // parent_div_git.innerHTML=git_div_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",git_div_html) // 有报错，但不影响使用(支持pjax跳转)
+            };
+            GithubCalendar(git_githubapiurl,git_color,git_user)
+        }
+        if(document.getElementById('recent-posts')){
+            GithubCalendarConfig()
+        }
+    </script>
+    <style>#github_container{min-height:280px}@media screen and (max-width:650px) {#github_container{background-image:;min-height:0px}}</style>
+    <style></style><!-- hexo injector body_end end --></body></html>
