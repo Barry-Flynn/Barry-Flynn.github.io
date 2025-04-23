@@ -15,8 +15,25 @@
     <atom:link href="https://blog.meta-code.top/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>呜呼！这里是百里飞洋（BarryFlynn）的个人博客网站主页，这里有学习的笔记，有生活的乐趣，有我独一无二的网络记忆。这是独属于我的天地！</description>
-    <pubDate>Sun, 27 Oct 2024 15:28:04 GMT</pubDate>
+    <pubDate>Wed, 23 Apr 2025 02:52:28 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>【开箱验机】只花 6277 拿下 i7-14650HX/RTX4060 笔记本？机械革命 耀世16Pro 安全下车！</title>
+      <link>https://blog.meta-code.top/2025/04/21/2025-1/</link>
+      <guid>https://blog.meta-code.top/2025/04/21/2025-1/</guid>
+      <pubDate>Mon, 21 Apr 2025 15:28:54 GMT</pubDate>
+      
+      <description>我最终还是没有选择“机械革命 极光X”，而是选择了定位稍微高端点的耀世系列产品“机械革命 耀世16Pro”。</description>
+      
+      
+      
+      
+      
+      
+      <comments>https://blog.meta-code.top/2025/04/21/2025-1/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>我也中招了！大量简中博客站点被镜像，并翻译成了繁体中文</title>
@@ -319,25 +336,6 @@
       
       
       <comments>https://blog.meta-code.top/2023/03/19/2023-52/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>【BFUI】解决 Button 组件 disable 属性可能造成的业务漏洞</title>
-      <link>https://blog.meta-code.top/2023/03/12/2023-34/</link>
-      <guid>https://blog.meta-code.top/2023/03/12/2023-34/</guid>
-      <pubDate>Sun, 12 Mar 2023 14:55:26 GMT</pubDate>
-      
-      <description>关于 Button 按钮组件 disable 属性的优化</description>
-      
-      
-      
-      
-      
-      <category domain="https://blog.meta-code.top/tags/BFUI/">BFUI</category>
-      
-      
-      <comments>https://blog.meta-code.top/2023/03/12/2023-34/#disqus_thread</comments>
       
     </item>
     

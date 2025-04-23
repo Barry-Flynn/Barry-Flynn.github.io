@@ -6,7 +6,7 @@
   <link href="https://blog.meta-code.top/atom.xml" rel="self"/>
   
   <link href="https://blog.meta-code.top/"/>
-  <updated>2024-10-27T15:28:04.390Z</updated>
+  <updated>2025-04-23T02:52:28.503Z</updated>
   <id>https://blog.meta-code.top/</id>
   
   <author>
@@ -15,6 +15,21 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【开箱验机】只花 6277 拿下 i7-14650HX/RTX4060 笔记本？机械革命 耀世16Pro 安全下车！</title>
+    <link href="https://blog.meta-code.top/2025/04/21/2025-1/"/>
+    <id>https://blog.meta-code.top/2025/04/21/2025-1/</id>
+    <published>2025-04-21T15:28:54.000Z</published>
+    <updated>2025-04-23T02:52:28.503Z</updated>
+    
+    
+    <summary type="html">我最终还是没有选择“机械革命 极光X”，而是选择了定位稍微高端点的耀世系列产品“机械革命 耀世16Pro”。</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>我也中招了！大量简中博客站点被镜像，并翻译成了繁体中文</title>
@@ -289,23 +304,6 @@
     <category term="前端" scheme="https://blog.meta-code.top/tags/%E5%89%8D%E7%AB%AF/"/>
     
     <category term="CSS" scheme="https://blog.meta-code.top/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【BFUI】解决 Button 组件 disable 属性可能造成的业务漏洞</title>
-    <link href="https://blog.meta-code.top/2023/03/12/2023-34/"/>
-    <id>https://blog.meta-code.top/2023/03/12/2023-34/</id>
-    <published>2023-03-12T14:55:26.000Z</published>
-    <updated>2024-08-23T12:12:17.225Z</updated>
-    
-    
-    <summary type="html">关于 Button 按钮组件 disable 属性的优化</summary>
-    
-    
-    
-    
-    <category term="BFUI" scheme="https://blog.meta-code.top/tags/BFUI/"/>
     
   </entry>
   
