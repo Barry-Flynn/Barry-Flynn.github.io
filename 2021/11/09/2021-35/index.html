@@ -1,0 +1,717 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>【数据库】第4章 数据库安全性 | 百里飞洋</title><meta name="keywords" content="数据库,SQL"><meta name="author" content="百里飞洋 Barry-Flynn"><meta name="copyright" content="百里飞洋 Barry-Flynn"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="数据库安全性概述、数据库安全性控制、视图机制、审计、数据加密、其他安全性保护。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【数据库】第4章 数据库安全性">
+<meta property="og:url" content="https://blog.meta-code.top/2021/11/09/2021-35/index.html">
+<meta property="og:site_name" content="百里飞洋">
+<meta property="og:description" content="数据库安全性概述、数据库安全性控制、视图机制、审计、数据加密、其他安全性保护。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.meta-code.top/img/friends/Barry-Flynn.jpg">
+<meta property="article:published_time" content="2021-11-09T02:21:40.000Z">
+<meta property="article:modified_time" content="2025-05-19T17:05:36.774Z">
+<meta property="article:author" content="百里飞洋 Barry-Flynn">
+<meta property="article:tag" content="数据库">
+<meta property="article:tag" content="SQL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.meta-code.top/img/friends/Barry-Flynn.jpg"><link rel="shortcut icon" href="/img/icon/%E7%81%AB%E7%AE%AD.png"><link rel="canonical" href="https://blog.meta-code.top/2021/11/09/2021-35/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/CDN/fontawesome/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/CDN/snackbar/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e21f557d5683e4733d77db5ab8910d7b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":100,"position":"top","messagePrev":"「温馨提示」本文更新已经","messageNext":"天，若内容或图片失效，请留言反馈。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: 百里飞洋 Barry-Flynn","link":"链接: ","source":"来源: 百里飞洋","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#121212","bgDark":"#49b1f5","position":"bottom-right"},
+  source: {
+    jQuery: '/CDN/jquery.min.js',
+    justifiedGallery: {
+      js: '/CDN/justifiedGallery/jquery.justifiedGallery.min.js',
+      css: '/CDN/justifiedGallery/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: '/CDN/photo/jquery.fancybox.min.js',
+      css: '/CDN/photo/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【数据库】第4章 数据库安全性',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-05-20 01:05:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><link rel="stylesheet" href="/css/BF-simple.css"><link rel="stylesheet" href="/css/BF-rightmenu.css"><link rel="stylesheet" href="https://s1.hdslb.com/bfs/static/jinkela/long/font/regular.css"><svg aria-hidden="true" style="position:absolute; overflow:hidden; width:0; height:0"><symbol id="icon-sun" viewBox="0 0 1024 1024"><path d="M960 512l-128 128v192h-192l-128 128-128-128H192v-192l-128-128 128-128V192h192l128-128 128 128h192v192z" fill="#FFD878" p-id="8420"></path><path d="M736 512a224 224 0 1 0-448 0 224 224 0 1 0 448 0z" fill="#FFE4A9" p-id="8421"></path><path d="M512 109.248L626.752 224H800v173.248L914.752 512 800 626.752V800h-173.248L512 914.752 397.248 800H224v-173.248L109.248 512 224 397.248V224h173.248L512 109.248M512 64l-128 128H192v192l-128 128 128 128v192h192l128 128 128-128h192v-192l128-128-128-128V192h-192l-128-128z" fill="#4D5152" p-id="8422"></path><path d="M512 320c105.888 0 192 86.112 192 192s-86.112 192-192 192-192-86.112-192-192 86.112-192 192-192m0-32a224 224 0 1 0 0 448 224 224 0 0 0 0-448z" fill="#4D5152" p-id="8423"></path></symbol><symbol id="icon-moon" viewBox="0 0 1024 1024"><path d="M611.370667 167.082667a445.013333 445.013333 0 0 1-38.4 161.834666 477.824 477.824 0 0 1-244.736 244.394667 445.141333 445.141333 0 0 1-161.109334 38.058667 85.077333 85.077333 0 0 0-65.066666 135.722666A462.08 462.08 0 1 0 747.093333 102.058667a85.077333 85.077333 0 0 0-135.722666 65.024z" fill="#FFB531" p-id="11345"></path><path d="M329.728 274.133333l35.157333-35.157333a21.333333 21.333333 0 1 0-30.165333-30.165333l-35.157333 35.157333-35.114667-35.157333a21.333333 21.333333 0 0 0-30.165333 30.165333l35.114666 35.157333-35.114666 35.157334a21.333333 21.333333 0 1 0 30.165333 30.165333l35.114667-35.157333 35.157333 35.157333a21.333333 21.333333 0 1 0 30.165333-30.165333z" fill="#030835" p-id="11346"></path></symbol></svg><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="百里飞洋" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="百里飞洋" type="application/rss+xml">
+</head><body><div id="loading-box"><div class="centered"><div class="blob-1"></div><div class="blob-2"></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/friends/Barry-Flynn.jpg" onerror="onerror=null;src='/img/others/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">92</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/Calendar/"><i class="fa-fw fa-solid fa-calendar-check"></i><span> 奋斗日历</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-icons"></i><span> 多媒体</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-headphones-alt"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 找文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 按分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 按标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 按时间</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-medal"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/Reward-list/"><i class="fa-fw fas fa-clipboard-list"></i><span> 打赏榜</span></a></li><li><a class="site-page child" href="/about-website/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 网站声明</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-user-friends"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-subway"></i><span> 开往&amp;虫洞</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><i class="fa-fw fa fa-subway"></i><span> 开往/友链接力</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://foreverblog.cn/go.html"><i class="fa-fw fab fa-stumbleupon-circle"></i><span> 虫洞/十年之约</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://zhblogs.ohyee.cc/?tab=blog_list&amp;page=1&amp;tags=&amp;search=百里飞洋"><i class="fa-fw fas fa-blog"></i><span> 中文博客导航</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2021/09/30/n2HCEeQrMbO6jUw.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">百里飞洋</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/Calendar/"><i class="fa-fw fa-solid fa-calendar-check"></i><span> 奋斗日历</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-icons"></i><span> 多媒体</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-headphones-alt"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 找文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 按分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 按标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 按时间</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-medal"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/Reward-list/"><i class="fa-fw fas fa-clipboard-list"></i><span> 打赏榜</span></a></li><li><a class="site-page child" href="/about-website/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 网站声明</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-user-friends"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-subway"></i><span> 开往&amp;虫洞</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><i class="fa-fw fa fa-subway"></i><span> 开往/友链接力</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://foreverblog.cn/go.html"><i class="fa-fw fab fa-stumbleupon-circle"></i><span> 虫洞/十年之约</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://zhblogs.ohyee.cc/?tab=blog_list&amp;page=1&amp;tags=&amp;search=百里飞洋"><i class="fa-fw fas fa-blog"></i><span> 中文博客导航</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【数据库】第4章 数据库安全性</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-09T02:21:40.000Z" title="发表于 2021-11-09 10:21:40">2021-11-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-05-19T17:05:36.774Z" title="更新于 2025-05-20 01:05:36">2025-05-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E3%80%90%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B%E3%80%91/">【本科课程】</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E3%80%90%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B%E3%80%91/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E3%80%8B/">《数据库系统概论》</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>11分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【数据库】第4章 数据库安全性"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>本文所属《数据库系统原理》分类专栏，相关文章导航请点击<a href="/2021/09/29/2021-5/">《数据库系统原理》目录汇总贴</a></p>
+</blockquote>
+<h1 id="1-数据库安全性概述"><a href="#1-数据库安全性概述" class="headerlink" title="1.数据库安全性概述"></a>1.数据库安全性概述</h1><p><strong>数据库的不安全因素：</strong></p>
+<ol>
+<li><p>非授权用户对数据库的恶意存取和破坏</p>
+</li>
+<li><p>数据库中重要或敏感的数据被泄露</p>
+</li>
+<li><p>安全环境的脆弱性</p>
+</li>
+</ol>
+<p><strong>紫皮书（TCSEC/TDI）从四个方面来描述安全性级别划分的指标：</strong></p>
+<ol>
+<li><p>安全策略</p>
+</li>
+<li><p>责任</p>
+</li>
+<li><p>保证</p>
+</li>
+<li><p>文档</p>
+</li>
+</ol>
+<p><strong>紫皮书（TCSEC/TDI）安全级别划分：</strong></p>
+<p>（按系统可靠或可信程度逐渐增高）</p>
+<pre><code>D
+
+C（C1，C2）
+
+B（B1，B2，B3）
+
+A（A1）
+</code></pre>
+<blockquote>
+<p>各安全级别之间具有一种偏序向下兼容的关系，即较高安全性级别提供的安全保护要包含较低级别的所有保护要求，同时提供更多或更完善的保护能力</p>
+</blockquote>
+<h1 id="2-数据库安全性控制"><a href="#2-数据库安全性控制" class="headerlink" title="2.数据库安全性控制"></a>2.数据库安全性控制</h1><p><strong>数据库安全性控制的常用方法：</strong></p>
+<ol>
+<li><p>用户标识和鉴定</p>
+</li>
+<li><p>存取控制</p>
+</li>
+<li><p>视图</p>
+</li>
+<li><p>审计</p>
+</li>
+<li><p>数据加密</p>
+</li>
+</ol>
+<h2 id="2-1-用户身份鉴别的方法"><a href="#2-1-用户身份鉴别的方法" class="headerlink" title="2.1 用户身份鉴别的方法"></a>2.1 用户身份鉴别的方法</h2><ol>
+<li><p>静态口令鉴别</p>
+<p> 静态口令一般由用户自己设定，这些口令是静态不变的</p>
+</li>
+<li><p>动态口令鉴别</p>
+<p> 口令是动态变化的，每次鉴别时均需使用动态产生的新口令登录数据库管理系统，即采用一次一密的方法</p>
+</li>
+<li><p>生物特征鉴别</p>
+<p> 通过生物特征进行认证的技术，生物特征如指纹、虹膜和掌纹等</p>
+</li>
+<li><p>智能卡鉴别</p>
+<p> 智能卡是一种不可复制的硬件，内置集成电路的芯片，具有硬件加密功能</p>
+</li>
+</ol>
+<h2 id="2-2-存取控制"><a href="#2-2-存取控制" class="headerlink" title="2.2 存取控制"></a>2.2 存取控制</h2><p><strong>存取控制机制主要包括：</strong></p>
+<ol>
+<li><p>定义用户权限</p>
+</li>
+<li><p>合法权限检查</p>
+</li>
+</ol>
+<p>C2级的数据库管理系统支持：自主存取控制；</p>
+<p>B1级的数据库管理系统支持：强制存取控制。</p>
+<h3 id="》自主存取控制"><a href="#》自主存取控制" class="headerlink" title="》自主存取控制"></a>》自主存取控制</h3><p>关系数据库系统中的主要存取权限：</p>
+<table border="1" cellspacing="0">
+<tbody>
+<tr>
+    <td style="border-color:#000000;vertical-align:top;width:97pt;"> <p style="margin-left:0cm;"><strong>对象类型</strong></p> </td>
+    <td style="border-color:#000000;vertical-align:top;width:160pt;"> <p style="margin-left:0cm;"><strong>对象</strong></p> </td>
+    <td style="border-color:#000000;vertical-align:top;width:490pt;"> <p style="margin-left:0cm;"><strong>操 作 类 型</strong></p> </td>
+</tr>
+<tr>
+    <td rowspan="4" style="border-color:#000000;vertical-align:top;width:97pt;"> <p style="margin-left:0cm;"><strong>数据库</strong></p> <p style="margin-left:0cm;"><strong>模式</strong></p> </td>
+    <td style="vertical-align:top;width:160pt;"> <p style="margin-left:0cm;"><strong>模式</strong></p> </td>
+    <td style="vertical-align:top;width:490pt;"> <p style="margin-left:0cm;"><strong>CREATE SCHEMA</strong></p> </td>
+</tr>
+<tr>
+    <td style="vertical-align:top;width:160pt;"> <p style="margin-left:0cm;"><strong>基本表</strong></p> </td>
+    <td style="vertical-align:top;width:490pt;"> <p style="margin-left:0cm;"><strong>CREATE TABLE&#xff0c;ALTER TABLE</strong></p> </td>
+</tr>
+<tr>
+    <td style="vertical-align:top;width:160pt;"> <p style="margin-left:0cm;"><strong>视图</strong></p> </td>
+    <td style="vertical-align:top;width:490pt;"> <p style="margin-left:0cm;"><strong>CREATE VIEW</strong></p> </td>
+</tr>
+<tr>
+    <td style="vertical-align:top;width:160pt;"> <p style="margin-left:0cm;"><strong>索引</strong></p> </td><td style="vertical-align:top;width:490pt;"> <p style="margin-left:0cm;"><strong>CREATE INDEX</strong></p> </td>
+</tr>
+<tr>
+    <td rowspan="2" style="border-color:#000000;vertical-align:top;width:97pt;"> <p style="margin-left:0cm;"><strong>   数据</strong></p> </td>
+    <td style="vertical-align:top;width:160pt;"> <p style="margin-left:0cm;"><strong>基本表和视图</strong></p> </td>
+    <td style="vertical-align:top;width:490pt;"> <p style="margin-left:0cm;"><strong>SELECT&#xff0c;INSERT&#xff0c;UPDATE&#xff0c;DELETE&#xff0c;REFERENCES&#xff0c;</strong></p> <p style="margin-left:0cm;"><strong>ALL PRIVILEGES</strong></p> </td>
+</tr>
+<tr>
+    <td style="vertical-align:top;width:160pt;"> <p style="margin-left:0cm;"><strong>属性列</strong></p> </td>
+    <td style="vertical-align:top;width:490pt;"> <p style="margin-left:0cm;"><strong>SELECT&#xff0c;INSERT&#xff0c;UPDATE&#xff0c; REFERENCES&#xff0c;ALL PRIVILEGES</strong></p> </td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="GRANT授权语句"><a href="#GRANT授权语句" class="headerlink" title="GRANT授权语句"></a>GRANT授权语句</h4><p>GRANT语句的一般格式：</p>
+<p>语义：将对指定操作对象的指定操作权限授予指定的用户</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="operator">&lt;</span>权限<span class="operator">&gt;</span>[,<span class="operator">&lt;</span>权限<span class="operator">&gt;</span>]...</span><br><span class="line"><span class="keyword">ON</span> <span class="operator">&lt;</span>对象类型<span class="operator">&gt;</span> <span class="operator">&lt;</span>对象名<span class="operator">&gt;</span>[,<span class="operator">&lt;</span>对象类型<span class="operator">&gt;</span> <span class="operator">&lt;</span>对象名<span class="operator">&gt;</span>]…</span><br><span class="line"><span class="keyword">TO</span> <span class="operator">&lt;</span>用户<span class="operator">&gt;</span>[,<span class="operator">&lt;</span>用户<span class="operator">&gt;</span>]...</span><br><span class="line">[<span class="keyword">WITH</span> <span class="keyword">GRANT</span> OPTION];</span><br></pre></td></tr></table></figure>
+
+<p>发出GRANT语句的可以是：</p>
+<ol>
+<li><p>数据库管理员</p>
+</li>
+<li><p>数据库对象创建者（即属主Owner）</p>
+</li>
+<li><p>已经拥有该权限的用户</p>
+</li>
+</ol>
+<p>WITH GRANT OPTION子句:</p>
+<p>若指定了：获得权限的用户可以再授予其他用户。（但不允许循环授权）</p>
+<p>没有指定：只能使用，不能传播该权限。</p>
+<h4 id="REVOKE收回语句"><a href="#REVOKE收回语句" class="headerlink" title="REVOKE收回语句"></a>REVOKE收回语句</h4><p>授予的权限可以由数据库管理员或其他授权者用REVOKE语句收回</p>
+<p>REVOKE语句的一般格式为：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">REVOKE</span> <span class="operator">&lt;</span>权限<span class="operator">&gt;</span>[,<span class="operator">&lt;</span>权限<span class="operator">&gt;</span>]...</span><br><span class="line"><span class="keyword">ON</span> <span class="operator">&lt;</span>对象类型<span class="operator">&gt;</span> <span class="operator">&lt;</span>对象名<span class="operator">&gt;</span>[,<span class="operator">&lt;</span>对象类型<span class="operator">&gt;</span><span class="operator">&lt;</span>对象名<span class="operator">&gt;</span>]…</span><br><span class="line"><span class="keyword">FROM</span> <span class="operator">&lt;</span>用户<span class="operator">&gt;</span>[,<span class="operator">&lt;</span>用户<span class="operator">&gt;</span>]...[CASCADE <span class="operator">|</span> RESTRICT];</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="》数据库角色"><a href="#》数据库角色" class="headerlink" title="》数据库角色"></a>》数据库角色</h3><p>数据库角色是被命名的一组与数据库操作相关的权限，角色是权限的集合。可以为一组具有相同权限的用户创建一个角色，简化授权的过程。</p>
+<h4 id="1-角色的创建"><a href="#1-角色的创建" class="headerlink" title="1.角色的创建"></a>1.角色的创建</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span>  ROLE  <span class="operator">&lt;</span>角色名<span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-给角色授权"><a href="#2-给角色授权" class="headerlink" title="2.给角色授权"></a>2.给角色授权</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span>  <span class="operator">&lt;</span>权限<span class="operator">&gt;</span>[,<span class="operator">&lt;</span>权限<span class="operator">&gt;</span>]…</span><br><span class="line"><span class="keyword">ON</span> <span class="operator">&lt;</span>对象类型<span class="operator">&gt;</span>对象名 </span><br><span class="line"><span class="keyword">TO</span> <span class="operator">&lt;</span>角色<span class="operator">&gt;</span>[,<span class="operator">&lt;</span>角色<span class="operator">&gt;</span>]…</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-将一个角色授予其他的角色或用户"><a href="#3-将一个角色授予其他的角色或用户" class="headerlink" title="3.将一个角色授予其他的角色或用户"></a>3.将一个角色授予其他的角色或用户</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span>  <span class="operator">&lt;</span>角色<span class="number">1</span><span class="operator">&gt;</span>[,<span class="operator">&lt;</span>角色<span class="number">2</span><span class="operator">&gt;</span>]…</span><br><span class="line"><span class="keyword">TO</span>  <span class="operator">&lt;</span>角色<span class="number">3</span><span class="operator">&gt;</span>[,<span class="operator">&lt;</span>用户<span class="number">1</span><span class="operator">&gt;</span>]…</span><br><span class="line">[<span class="keyword">WITH</span> ADMIN OPTION]</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-角色权限的收回"><a href="#4-角色权限的收回" class="headerlink" title="4.角色权限的收回"></a>4.角色权限的收回</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">REVOKE</span> <span class="operator">&lt;</span>权限<span class="operator">&gt;</span>[,<span class="operator">&lt;</span>权限<span class="operator">&gt;</span>]…</span><br><span class="line"><span class="keyword">ON</span> <span class="operator">&lt;</span>对象类型<span class="operator">&gt;</span> <span class="operator">&lt;</span>对象名<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">FROM</span> <span class="operator">&lt;</span>角色<span class="operator">&gt;</span>[,<span class="operator">&lt;</span>角色<span class="operator">&gt;</span>]…</span><br></pre></td></tr></table></figure>
+
+<p>用户可以回收角色的权限，从而修改角色拥有的权限。<br>REVOKE执行者是：角色的创建者、拥有在这个（些）角色上的ADMIN OPTION。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">[例<span class="number">4.11</span>] 通过角色来实现将一组权限授予一个用户。</span><br><span class="line"></span><br><span class="line">步骤如下：</span><br><span class="line"></span><br><span class="line">（<span class="number">1</span>）首先创建一个角色 R1</span><br><span class="line"></span><br><span class="line">        <span class="keyword">CREATE</span>  ROLE  R1;</span><br><span class="line"></span><br><span class="line">（<span class="number">2</span>）然后使用<span class="keyword">GRANT</span>语句，使角色R1拥有Student表的  <span class="keyword">SELECT</span>、UPDATE、<span class="keyword">INSERT</span>权限</span><br><span class="line"></span><br><span class="line">       <span class="keyword">GRANT</span> <span class="keyword">SELECT</span>, UPDATE, <span class="keyword">INSERT</span></span><br><span class="line">       <span class="keyword">ON</span> <span class="keyword">TABLE</span> Student</span><br><span class="line">       <span class="keyword">TO</span> R1;</span><br><span class="line"></span><br><span class="line">（<span class="number">3</span>）将这个角色授予王平，张明，赵玲。使他们具有角色R1所包含的全部权限</span><br><span class="line"></span><br><span class="line">       <span class="keyword">GRANT</span>  R1</span><br><span class="line">       <span class="keyword">TO</span> 王平,张明,赵玲;</span><br><span class="line"></span><br><span class="line">（<span class="number">4</span>） 可以一次性通过R1来回收王平的这<span class="number">3</span>个权限</span><br><span class="line"></span><br><span class="line">         <span class="keyword">REVOKE</span>  R1</span><br><span class="line">         <span class="keyword">FROM</span> 王平;</span><br><span class="line"></span><br><span class="line"><span class="comment">-------------------------------------------</span></span><br><span class="line">[例<span class="number">4.12</span>] 角色的权限修改。</span><br><span class="line"><span class="comment">--使角色R1在原来的基础上增加了Student表的DELETE权限</span></span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">DELETE</span></span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">TABLE</span> Student</span><br><span class="line"><span class="keyword">TO</span> R1</span><br><span class="line"></span><br><span class="line"><span class="comment">-------------------------------------------</span></span><br><span class="line">[例<span class="number">4.13</span>] 使R1减少了<span class="keyword">SELECT</span>权限</span><br><span class="line"><span class="keyword">REVOKE</span> <span class="keyword">SELECT</span></span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">TABLE</span> Student</span><br><span class="line"><span class="keyword">FROM</span> R1;</span><br></pre></td></tr></table></figure>
+
+<h3 id="》强制存取控制"><a href="#》强制存取控制" class="headerlink" title="》强制存取控制"></a>》强制存取控制</h3><p>（1）在强制存取控制中，数据库管理系统所管理的全部实体被分为主体和客体两大类</p>
+<p>①主体是系统中的活动实体</p>
+<ul>
+<li>数据库管理系统所管理的实际用户</li>
+<li>代表用户的各进程</li>
+</ul>
+<p>②客体是系统中的被动实体，受主体操纵</p>
+<ul>
+<li>文件、基本表、索引、视图</li>
+</ul>
+<p> （2）敏感度标记（Label）</p>
+<p>对于主体和客体，DBMS为它们每个实例（值）指派一个敏感度标记（Label）,敏感度标记分成若干级别:</p>
+<p>绝密（Top Secret，TS）<br>机密（Secret，S）<br>可信（Confidential，C）<br>公开（Public，P）</p>
+<p>密级次序是：TS&gt;=S&gt;=C&gt;=P</p>
+<p>主体的敏感度标记称为许可证级别（Clearance Level）<br>客体的敏感度标记称为密级（Classification Level）</p>
+<p>（3）强制存取控制规则</p>
+<p> ①仅当主体的许可证级别大于或等于客体的密级时，该主体才能读取相应的客体<br> ②仅当主体的许可证级别小于或等于客体的密级时，该主体才能写相应的客体</p>
+<h2 id="2-3-视图机制"><a href="#2-3-视图机制" class="headerlink" title="2.3 视图机制"></a>2.3 视图机制</h2><p>把要保密的数据对无权存取这些数据的用户隐藏起来，对数据提供一定程度的安全保护</p>
+<p>间接地实现支持存取谓词的用户权限定义</p>
+<h2 id="2-4-审计"><a href="#2-4-审计" class="headerlink" title="2.4 审计"></a>2.4 审计</h2><p>①启用一个专用的审计日志（Audit Log）：将用户对数据库的所有操作记录在上面</p>
+<p>②审计员利用审计日志：监控数据库中的各种行为，找出非法存取数据的人、时间和内容</p>
+<p>③C2以上安全级别的DBMS必须具有审计功能</p>
+<h3 id="AUDIT语句：设置审计功能"><a href="#AUDIT语句：设置审计功能" class="headerlink" title="AUDIT语句：设置审计功能"></a>AUDIT语句：设置审计功能</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[例<span class="number">4.15</span>] 对修改SC表结构或修改SC表数据的操作进行审计</span><br><span class="line"></span><br><span class="line">           AUDIT <span class="keyword">ALTER</span>,UPDATE </span><br><span class="line">           <span class="keyword">ON</span>  SC;</span><br></pre></td></tr></table></figure>
+
+<h3 id="NOAUDIT语句：取消审计功能"><a href="#NOAUDIT语句：取消审计功能" class="headerlink" title="NOAUDIT语句：取消审计功能"></a>NOAUDIT语句：取消审计功能</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[例<span class="number">4.16</span>] 取消对SC表的一切审计</span><br><span class="line"></span><br><span class="line">           NOAUDIT  <span class="keyword">ALTER</span>,UPDATE </span><br><span class="line">           <span class="keyword">ON</span>  SC;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-5-数据加密"><a href="#2-5-数据加密" class="headerlink" title="2.5 数据加密"></a>2.5 数据加密</h2><p>主要包括：</p>
+<ol>
+<li><p>储存加密</p>
+</li>
+<li><p>传输加密</p>
+</li>
+</ol>
+<h2 id="2-6-其他安全性保护"><a href="#2-6-其他安全性保护" class="headerlink" title="2.6 其他安全性保护"></a>2.6 其他安全性保护</h2><ol>
+<li><p>推理控制</p>
+</li>
+<li><p>隐蔽通道</p>
+</li>
+<li><p>数据隐私保护</p>
+</li>
+</ol>
+<hr>
+<h1 id="（小结与习题）"><a href="#（小结与习题）" class="headerlink" title="（小结与习题）"></a>（小结与习题）</h1><p><strong>1 ．什么是数据库的安全性？</strong></p>
+<p>答：数据库的安全性是指保护数据库以防止不合法的使用所造成的数据泄露、更改或破坏。</p>
+<p><strong>2 ．数据库安全性和计算机系统的安全性有什么关系？</strong><br>答：安全性问题不是数据库系统所独有的，所有计算机系统都有这个问题。只是在数据库系统中大量数据集中存放，而且为许多最终用户直接共享，从而使安全性问题更为突出。<br>系统安全保护措施是否有效是数据库系统的主要指标之一。<br>数据库的安全性和计算机系统的安全性，包括操作系统、网络系统的安全性是紧密联系、相互支持的，</p>
+<p><strong>3 .SQL 语言中提供了哪些数据控制（自主存取控制）的语句？请试举几例说明它们的使用方法。</strong></p>
+<p>答：</p>
+<p>SQL 中的自主存取控制是通过GRANT语句和REVOKE语句来实现的。如：</p>
+<pre><code>GRANT SELECT , INSERT ON Student 
+TO 王平
+WITH GRANT  OPTION ;
+</code></pre>
+<p>就将Student 表的SELECT 和INSERT 权限授予了用户王平，后面的“WITH GRANT OPTION ”子句表示用户王平同时也获得了“授权”的权限，即可以把得到的权限继续授予其他用户。<br>REVOKE INSERT ON Student FROM 王平CASCADE ;<br>就将Student 表的INSERT 权限从用户王平处收回，选项CASCADE 表示，如果用户王平将Student 的INSERT 权限又转授给了其他用户，那么这些权限也将从其他用户处收回。</p>
+<p><strong>4 ．试述实现数据库安全性控制的常用方法和技术。</strong></p>
+<p>答：实现数据库安全性控制的常用方法和技术有：<br>( l ）用户标识和鉴别：该方法由系统提供一定的方式让用户标识自己的名字或身份。每次用户要求进入系统时，由系统进行核对，通过鉴定后才提供系统的使用权。<br>( 2 ）存取控制：通过用户权限定义和合法权检查确保只有合法权限的用户访问数据库，所有未被授权的人员无法存取数据。例如CZ 级中的自主存取控制( DAC ) , Bl 级中的强制存取控制（MAC ）。<br>( 3 ）视图机制：为不同的用户定义视图，通过视图机制把要保密的数据对无权存取的用户隐藏起来，从而自动地对数据提供一定程度的安全保护。</p>
+<p>( 4 ）审计：建立审计日志，把用户对数据库的所有操作自动记录下来放入审计日志中，DBA 可以利用审计跟踪的信息，重现导致数据库现有状况的一系列事件，找出非法存取数据的人、时间和内容等。<br>( 5 ）数据加密：对存储和传输的数据进行加密处理，从而使得不知道解密算法的人无法获知数据的内容。</p>
+<p><strong>5．什么是数据库中的自主存取控制方法和强制存取控制方法？</strong></p>
+<p>答：</p>
+<p>自主存取控制方法：定义各个用户对不同数据对象的存取权限。当用户对数据库访问时首先检查用户的存取权限。防止不合法用户对数据库的存取。</p>
+<p>强制存取控制方法：每一个数据对象被（强制地）标以一定的密级，每一个用户也被（强制地）授予某一个级别的许可证。系统规定只有具有某一许可证级别的用户才能存取某一个密级的数据对象。</p>
+<p>**6 .完成下列授权功能： **<br>(1) </p>
+<pre><code>GRANT ALL PRIVILEGES ON Student,Class 
+TO U1
+WITH GRANT OPTION ;
+</code></pre>
+<p>  (2)</p>
+<pre><code>GRANT SELECT,UPDATE(家庭住址),DELETE ON Student TO U2；
+</code></pre>
+<p>  (3)</p>
+<pre><code>GRANT SELECT ON Class TO PUBLIC；
+</code></pre>
+<p>  (4)</p>
+<pre><code>GRANT SELECT,UPDATE ON Student TO R1；
+</code></pre>
+<p>  (5)</p>
+<pre><code>GRANT R1 TO U1 WITH ADMIN OPTION ；
+</code></pre>
+<p><strong>7．请用SQL的GRANT 和REVOKE语句(加上视图机制)完成以下授权定义或存取控制功能:</strong></p>
+<p>( a ）用户王明对两个表有SELECT 权力。</p>
+<pre><code> GRANT SELECT ON 职工,部门
+ TO 王明
+</code></pre>
+<p>( b ）用户李勇对两个表有INSERT 和DELETE 权力。</p>
+<pre><code> GRANT INSERT,DELETE ON 职工,部门
+ TO 李勇
+</code></pre>
+<p>( c ) 每个职工只对自己的记录有SELECT 权力。</p>
+<pre><code> GRANT SELECT ON 职工
+ WHEN USER()=NAME
+ TO ALL;
+</code></pre>
+<p>( d ）用户刘星对职工表有SELECT 权力，对工资字段具有更新权力。</p>
+<pre><code> GRANT SELECT,UPDATE(工资) ON 职工
+ TO 刘星
+</code></pre>
+<p> ( e ）用户张新具有修改这两个表的结构的权力。</p>
+<pre><code> GRANT ALTER TABLE ON 职工,部门
+ TO 张新;
+</code></pre>
+<p> ( f ）用户周平具有对两个表所有权力（读，插，改，删数据），并具有给其他用户授权的权力。</p>
+<pre><code> GRANT ALL PRIVILIGES ON 职工,部门
+ TO 周平
+ WITH GRANT OPTION;
+</code></pre>
+<p>( g ）用户杨兰具有从每个部门职工中SELECT 最高工资、最低工资、平均工资的权力，他不能查看每个人的工资。</p>
+<pre><code> CREATE VIEW 部门工资 AS
+      SELECT 部门.名称,MAX(工资),MIN(工资),AVG(工资)
+      FROM 职工,部门
+      WHERE 职工.部门号=部门.部门号
+      GROUP BY 职工.部门号
+ GRANT SELECT ON 部门工资
+ TO 杨兰;
+</code></pre>
+<p><strong>8 ．把习题8 中（1）—（7）的每一种情况，撤销各用户所授予的权力</strong></p>
+<p>(1) </p>
+<pre><code>REVOKE SELECT ON 职工，部门 FROM 王明；
+</code></pre>
+<p>(2) </p>
+<pre><code>REVOKE INSERT , DELETE ON 职工，部门 FROM 李勇；
+</code></pre>
+<p>(3) </p>
+<pre><code>REOVKE SELECT ON 职工
+WHEN USER ( ) =NAME
+FROM ALI ;
+</code></pre>
+<p>(4) </p>
+<pre><code>REVOKE SELECT , UPDATE ON 职工
+FROM 刘星；
+</code></pre>
+<p>(5) </p>
+<pre><code>REVOKE ALTER TABLE ON 职工，部门
+FROM 张新；
+</code></pre>
+<p>(6) </p>
+<pre><code>REVOKE ALL PRIVILIGES ON 职工，部门
+FROM 周平；
+</code></pre>
+<p>(7) </p>
+<pre><code>REVOKE SELECT ON 部门工资
+FROM 杨兰；
+DROP VIEW 部门工资；
+</code></pre>
+<p><strong>9．理解并解释MAC 机制中主体、客体、敏感度标记的含义。</strong></p>
+<p>答：</p>
+<p>主体是系统中的活动实体，既包括DBMS 所管理的实际用户，也包括代表用户的各进程。<br>客体是系统中的被动实体，是受主体操纵的，包括文件、基表、索引、视图等。<br>对于主体和 客体，DBMS 为它们每个实例（值）指派一个敏感度标记（Label ）。</p>
+<p>敏感度标记被分成若干级别，例如绝密（Top Secret ）、机密（Secret ）· 可信( Confidential ）、公开（PubliC ）等。主体的敏感度标记称为许可证级别（ClearanCe 玫vel ) ，客体的敏感度标记称为密级（Classification Level ）。</p>
+<p><strong>11 ．什么是数据库的审计功能，为什么要提供审计功能？</strong></p>
+<p>答：审计功能是指DBMS 的审计模块在用户对数据库执行操作的同时把所有操作自动记录到系统的审计日志中。<br>因为任何系统的安全保护措施都不是完美无缺的，蓄意盗窃破坏数据的人总可能存在。利用数据库的审计功能，DBA 可以根据审计跟踪的信息，重现导致数据库现有状况的一系列事件，找出非法存取数据的人、时间和内容等。</p>
+<hr>
+<p><strong>课后答案来自CSDN：</strong></p>
+<p>[1] <a target="_blank" rel="noopener" href="https://blog.csdn.net/delete_bug/article/details/105507705">https://blog.csdn.net/delete_bug/article/details/105507705</a></p>
+<p>[2] <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37857921/article/details/103671191">https://blog.csdn.net/qq_37857921/article/details/103671191</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">百里飞洋 Barry-Flynn</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.meta-code.top/2021/11/09/2021-35/">https://blog.meta-code.top/2021/11/09/2021-35/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.meta-code.top" target="_blank">百里飞洋</a>！</span></div><div class="post-technical-tips"><span class="post-copyright-meta">技术内容: </span><span class="post-copyright-info">若存在错误或不当之处，还望兄台不吝赐教，期待与您交流！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><a class="post-meta__tags" href="/tags/SQL/">SQL</a></div><div class="post_share"><div class="social-share" data-image="/img/friends/Barry-Flynn.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/CDN/share/share.min.css" media="print" onload="this.media='all'"><script src="/CDN/share/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E5%BE%AE%E4%BF%A1WeChat%E6%89%93%E8%B5%8F%E7%A0%81.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E5%BE%AE%E4%BF%A1%E6%89%93%E8%B5%8F%EF%BC%88%E7%BA%AF%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%89.png" alt="WeChat微信打赏"/></a><div class="post-qr-code-desc">WeChat微信打赏</div></li><li class="reward-item"><a href="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E6%94%AF%E4%BB%98%E5%AE%9DAliPay%E6%89%93%E8%B5%8F%E7%A0%81.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%89%93%E8%B5%8F%EF%BC%88%E7%BA%AF%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%89.png" alt="AliPay支付宝打赏"/></a><div class="post-qr-code-desc">AliPay支付宝打赏</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/11/07/2021-34/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" onerror="onerror=null;src='/img/others/404.gif'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【小题狂练】SQL语句：查找重复的电子邮箱</div></div></a></div><div class="next-post pull-right"><a href="/2021/11/11/2021-36/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" onerror="onerror=null;src='/img/others/404.gif'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【C语言】函数</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/10/26/2021-23/" title="【数据库】SQL Server 的安装记录"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2021/12/24/TtzrQS.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-26</div><div class="title">【数据库】SQL Server 的安装记录</div></div></a></div><div><a href="/2021/11/07/2021-34/" title="【小题狂练】SQL语句：查找重复的电子邮箱"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-07</div><div class="title">【小题狂练】SQL语句：查找重复的电子邮箱</div></div></a></div><div><a href="/2021/10/29/2021-26/" title="【数据库】第3章 关系数据库标准语言SQL"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-29</div><div class="title">【数据库】第3章 关系数据库标准语言SQL</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/friends/Barry-Flynn.jpg" onerror="this.onerror=null;this.src='/img/others/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">百里飞洋 Barry-Flynn</div><div class="author-info__description">星河滚烫，无问西东</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">92</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://space.bilibili.com/349963315"><i class="fas fa-play-circle"></i><span>关注我吧</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://weibo.com/6327778914" target="_blank" title="微博Weibo"><i class="fab fa-weibo"></i></a><a class="social-icon" href="https://space.bilibili.com/349963315" target="_blank" title="哔哩哔哩Bilibili"><i class="fab fa-youtube"></i></a><a class="social-icon" href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=2158469373@qq.com" target="_blank" title="邮箱Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://github.com/Barry-Flynn" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://gitee.com/Barry-Flynn" target="_blank" title="码云Gitee"><i class="fab fa-gofore"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Hey,欢迎来到我的博客小世界！<br /> 00后程序员&中二小青年 <br /> QQ学习聊天群：<b>534984250</b><br /> 才疏学浅，自说自话，<br /> 欢迎交流玩耍~<br /> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/others/咒术回战.gif" style="border-radius:0.5rem;" /></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8%E6%80%A7%E6%A6%82%E8%BF%B0"><span class="toc-text">1.数据库安全性概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8%E6%80%A7%E6%8E%A7%E5%88%B6"><span class="toc-text">2.数据库安全性控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E7%94%A8%E6%88%B7%E8%BA%AB%E4%BB%BD%E9%89%B4%E5%88%AB%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">2.1 用户身份鉴别的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%AD%98%E5%8F%96%E6%8E%A7%E5%88%B6"><span class="toc-text">2.2 存取控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%80%8B%E8%87%AA%E4%B8%BB%E5%AD%98%E5%8F%96%E6%8E%A7%E5%88%B6"><span class="toc-text">》自主存取控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GRANT%E6%8E%88%E6%9D%83%E8%AF%AD%E5%8F%A5"><span class="toc-text">GRANT授权语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#REVOKE%E6%94%B6%E5%9B%9E%E8%AF%AD%E5%8F%A5"><span class="toc-text">REVOKE收回语句</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%80%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A7%92%E8%89%B2"><span class="toc-text">》数据库角色</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%A7%92%E8%89%B2%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-text">1.角色的创建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%BB%99%E8%A7%92%E8%89%B2%E6%8E%88%E6%9D%83"><span class="toc-text">2.给角色授权</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%B0%86%E4%B8%80%E4%B8%AA%E8%A7%92%E8%89%B2%E6%8E%88%E4%BA%88%E5%85%B6%E4%BB%96%E7%9A%84%E8%A7%92%E8%89%B2%E6%88%96%E7%94%A8%E6%88%B7"><span class="toc-text">3.将一个角色授予其他的角色或用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E7%9A%84%E6%94%B6%E5%9B%9E"><span class="toc-text">4.角色权限的收回</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%80%8B%E5%BC%BA%E5%88%B6%E5%AD%98%E5%8F%96%E6%8E%A7%E5%88%B6"><span class="toc-text">》强制存取控制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E8%A7%86%E5%9B%BE%E6%9C%BA%E5%88%B6"><span class="toc-text">2.3 视图机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E5%AE%A1%E8%AE%A1"><span class="toc-text">2.4 审计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AUDIT%E8%AF%AD%E5%8F%A5%EF%BC%9A%E8%AE%BE%E7%BD%AE%E5%AE%A1%E8%AE%A1%E5%8A%9F%E8%83%BD"><span class="toc-text">AUDIT语句：设置审计功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NOAUDIT%E8%AF%AD%E5%8F%A5%EF%BC%9A%E5%8F%96%E6%B6%88%E5%AE%A1%E8%AE%A1%E5%8A%9F%E8%83%BD"><span class="toc-text">NOAUDIT语句：取消审计功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86"><span class="toc-text">2.5 数据加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-%E5%85%B6%E4%BB%96%E5%AE%89%E5%85%A8%E6%80%A7%E4%BF%9D%E6%8A%A4"><span class="toc-text">2.6 其他安全性保护</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EF%BC%88%E5%B0%8F%E7%BB%93%E4%B8%8E%E4%B9%A0%E9%A2%98%EF%BC%89"><span class="toc-text">（小结与习题）</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 百里飞洋 Barry-Flynn</div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="http://meta-code.top/"><i class="fas fa-globe-americas"></i>&nbsp;元代码</a>丨<a target="_blank" rel="noopener" href="https://weibo.com/6327778914/profile?topnav=1&wvr=6&is_all=1"><i class="fab fa-weibo"></i>&nbsp;<span>新浪微博</span></a>丨<a target="_blank" rel="noopener" href="https://space.bilibili.com/349963315"><i class="fab fa-youtube"></i>&nbsp;<span>哔哩哔哩</span></a>丨<a href="/about/"><i class="fas fa-meteor"></i>&nbsp;关于我</a><br /> <a href="/Reward-list/">赞助列表</a>丨<a href="/about-website/">网站声明</a>丨<a href="/link/">友情链接</a>丨<a href="https://blog.meta-code.top/rss2.xml">RSS订阅</a><br /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41071102000543"><span style="vertical-align:middle;"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/icon/备案图标.png" style="vertical-align:middle;">&nbsp;豫公网安备 41071102000543号</a></span><br /> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><span style="vertical-align:middle;"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/icon/ICP备案.png" style="vertical-align:middle;width:20px;height:20px;">&nbsp;豫ICP备2021034491号</a></span><br /> <span><星河滚烫，无问西东></span><br /> <br /> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/二维码/移动端访问.png" style="width:130px;height:150px;border-radius:20px;display:inline-block;margin:0 5px;"> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/二维码/学习聊天群.png" style="width:130px;height:150px;border-radius:20px;display:inline-block;margin:0 5px;"><br /></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><a class="icon-V hidden" onclick="switchNightMode()" title="浅色和深色模式转换"><svg width="25" height="25" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon"></use></svg></a><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><a class="rightMenu-item" href="javascript:window.history.back();"><i class="fa-solid fa-arrow-left"></i></a><a class="rightMenu-item" href="javascript:window.location.reload();"><i class="fa-solid fa-arrow-rotate-right"></i></a><a class="rightMenu-item" href="javascript:window.history.forward();"><i class="fa-solid fa-arrow-right"></i></a><a class="rightMenu-item" id="menu-radompage" href="javascript:window.location.href = window.location.origin;"><i class="fa-solid fa-house"></i></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-text"><a class="rightMenu-item" href="javascript:rmf.copySelect();"><i class="fa-solid fa-copy"></i><span>复制</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:rmf.switchDarkMode();"><i class="fa-solid fa-circle-half-stroke"></i><span>昼夜模式</span></a><a class="rightMenu-item" href="javascript:rmf.switchTranslate();" id="menu-translate"><i class="fa-solid fa-earth-asia"></i><span>繁简切换</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/categories/';"><i class="fa-solid fa-book"></i><span>博客分类</span></a><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/tags/';"><i class="fa-solid fa-tags"></i><span>博客标签</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/Reward-list/';"><i class="fa-solid fa-clipboard-list"></i><span>打赏赞助 ❤</span></a><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/about-website/';"><i class="fa-solid fa-envelope-open-text"></i><span>网站声明</span></a></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="/CDN/lazyload.iife.min.js"></script><script src="/CDN/snackbar/snackbar.min.js"></script><script async="async">var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').style.transition = 'opacity 3s ease 0s'
+    document.getElementById('loading-box').style.opacity = '0'
+    setTimeout(function(){
+      document.getElementById('loading-box').classList.add("loaded")
+    }, 3000);
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').style.transition = '';
+    document.getElementById('loading-box').style.opacity = '1'
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})
+setTimeout(function(){preloader.endLoading();}, 3000);</script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://hexoblog-twikoo.meta-code.top',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'https://hexoblog-twikoo.meta-code.top',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('/CDN/comments/twikoo_1.6.26.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://hexoblog-twikoo.meta-code.top',
+        region: '',
+        pageSize: 5,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('/CDN/comments/twikoo_1.6.26.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script src="/js/console.js?date=20241027"></script><canvas id="universe"></canvas><script src="/js/universe.js"></script><script src="/js/plugins/jquery-3.6.0.min.js"></script><script src="/js/rightmenu.js"></script><script src="/js/sun_moon.js" async></script><div class="aplayer no-destroy" data-id="1050282" data-server="netease" data-type="artist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" data-lrctype="0" muted></div><canvas class="fireworks" mobile="false"></canvas><script src="/CDN/effect/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="105, 171, 247" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/CDN/background_effect/canvas-nest.min.js"></script><script src="/CDN/effect/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="/CDN/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="/CDN/aplayer/APlayer.min.js"></script><script src="/CDN/aplayer/Meting.min.js"></script><script src="/CDN/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="/CDN/count/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start -->
+  <script data-pjax src="/CDN/hexo_githubcalendar.js"></script>
+  <script data-pjax>
+        function GithubCalendarConfig(){
+            var git_githubapiurl ="https://github-calendar-api.meta-code.top/api?user=Barry-Flynn";
+            var git_color =['#ebedf0', '#a2f7af', '#6ce480', '#54ad63', '#469252', '#31753c', '#1f5f2a', '#13531f', '#084111', '#032b09', '#000000'];
+            var git_user ="Barry-Flynn";
+            var parent_div_git = document.getElementById('recent-posts');
+            var git_div_html = '<div class="recent-post-item" style="width:100%;height:auto;padding:10px;"><div id="github_loading" style="width:10%;height:100%;margin:0 auto;display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg></div><div id="github_container"></div></div>';
+            if(parent_div_git && location.pathname =='/'){
+                console.log("已挂载hexo-github-calendar https://github.com/Barry-Flynn/hexo-github-calendar");
+                // parent_div_git.innerHTML=git_div_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",git_div_html) // 有报错，但不影响使用(支持pjax跳转)
+            };
+            GithubCalendar(git_githubapiurl,git_color,git_user)
+        }
+        if(document.getElementById('recent-posts')){
+            GithubCalendarConfig()
+        }
+    </script>
+    <style>#github_container{min-height:280px}@media screen and (max-width:650px) {#github_container{background-image:;min-height:0px}}</style>
+    <style></style><!-- hexo injector body_end end --></body></html>

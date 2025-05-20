@@ -1,0 +1,543 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>【GitHub】基于Actions和Pages实现项目的自动构建与部署 | 百里飞洋</title><meta name="keywords" content="GitHub,前端,Vue,pnpm,Vite"><meta name="author" content="百里飞洋 Barry-Flynn"><meta name="copyright" content="百里飞洋 Barry-Flynn"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="手上有个前端项目使用的 Vite 来打包，我打算使用免费的 Github Actions 执行 workflows 工作流，实现自动打包，并通过 Github Pages 自动部署打包后的页面。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【GitHub】基于Actions和Pages实现项目的自动构建与部署">
+<meta property="og:url" content="https://blog.meta-code.top/2024/08/15/2024-13/index.html">
+<meta property="og:site_name" content="百里飞洋">
+<meta property="og:description" content="手上有个前端项目使用的 Vite 来打包，我打算使用免费的 Github Actions 执行 workflows 工作流，实现自动打包，并通过 Github Pages 自动部署打包后的页面。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.meta-code.top/img/friends/Barry-Flynn.jpg">
+<meta property="article:published_time" content="2024-08-15T09:06:57.000Z">
+<meta property="article:modified_time" content="2025-05-19T17:05:36.810Z">
+<meta property="article:author" content="百里飞洋 Barry-Flynn">
+<meta property="article:tag" content="GitHub">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="pnpm">
+<meta property="article:tag" content="Vite">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.meta-code.top/img/friends/Barry-Flynn.jpg"><link rel="shortcut icon" href="/img/icon/%E7%81%AB%E7%AE%AD.png"><link rel="canonical" href="https://blog.meta-code.top/2024/08/15/2024-13/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/CDN/fontawesome/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/CDN/snackbar/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e21f557d5683e4733d77db5ab8910d7b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":100,"position":"top","messagePrev":"「温馨提示」本文更新已经","messageNext":"天，若内容或图片失效，请留言反馈。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: 百里飞洋 Barry-Flynn","link":"链接: ","source":"来源: 百里飞洋","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#121212","bgDark":"#49b1f5","position":"bottom-right"},
+  source: {
+    jQuery: '/CDN/jquery.min.js',
+    justifiedGallery: {
+      js: '/CDN/justifiedGallery/jquery.justifiedGallery.min.js',
+      css: '/CDN/justifiedGallery/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: '/CDN/photo/jquery.fancybox.min.js',
+      css: '/CDN/photo/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【GitHub】基于Actions和Pages实现项目的自动构建与部署',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-05-20 01:05:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><link rel="stylesheet" href="/css/BF-simple.css"><link rel="stylesheet" href="/css/BF-rightmenu.css"><link rel="stylesheet" href="https://s1.hdslb.com/bfs/static/jinkela/long/font/regular.css"><svg aria-hidden="true" style="position:absolute; overflow:hidden; width:0; height:0"><symbol id="icon-sun" viewBox="0 0 1024 1024"><path d="M960 512l-128 128v192h-192l-128 128-128-128H192v-192l-128-128 128-128V192h192l128-128 128 128h192v192z" fill="#FFD878" p-id="8420"></path><path d="M736 512a224 224 0 1 0-448 0 224 224 0 1 0 448 0z" fill="#FFE4A9" p-id="8421"></path><path d="M512 109.248L626.752 224H800v173.248L914.752 512 800 626.752V800h-173.248L512 914.752 397.248 800H224v-173.248L109.248 512 224 397.248V224h173.248L512 109.248M512 64l-128 128H192v192l-128 128 128 128v192h192l128 128 128-128h192v-192l128-128-128-128V192h-192l-128-128z" fill="#4D5152" p-id="8422"></path><path d="M512 320c105.888 0 192 86.112 192 192s-86.112 192-192 192-192-86.112-192-192 86.112-192 192-192m0-32a224 224 0 1 0 0 448 224 224 0 0 0 0-448z" fill="#4D5152" p-id="8423"></path></symbol><symbol id="icon-moon" viewBox="0 0 1024 1024"><path d="M611.370667 167.082667a445.013333 445.013333 0 0 1-38.4 161.834666 477.824 477.824 0 0 1-244.736 244.394667 445.141333 445.141333 0 0 1-161.109334 38.058667 85.077333 85.077333 0 0 0-65.066666 135.722666A462.08 462.08 0 1 0 747.093333 102.058667a85.077333 85.077333 0 0 0-135.722666 65.024z" fill="#FFB531" p-id="11345"></path><path d="M329.728 274.133333l35.157333-35.157333a21.333333 21.333333 0 1 0-30.165333-30.165333l-35.157333 35.157333-35.114667-35.157333a21.333333 21.333333 0 0 0-30.165333 30.165333l35.114666 35.157333-35.114666 35.157334a21.333333 21.333333 0 1 0 30.165333 30.165333l35.114667-35.157333 35.157333 35.157333a21.333333 21.333333 0 1 0 30.165333-30.165333z" fill="#030835" p-id="11346"></path></symbol></svg><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="百里飞洋" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="百里飞洋" type="application/rss+xml">
+</head><body><div id="loading-box"><div class="centered"><div class="blob-1"></div><div class="blob-2"></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/friends/Barry-Flynn.jpg" onerror="onerror=null;src='/img/others/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">92</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/Calendar/"><i class="fa-fw fa-solid fa-calendar-check"></i><span> 奋斗日历</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-icons"></i><span> 多媒体</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-headphones-alt"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 找文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 按分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 按标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 按时间</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-medal"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/Reward-list/"><i class="fa-fw fas fa-clipboard-list"></i><span> 打赏榜</span></a></li><li><a class="site-page child" href="/about-website/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 网站声明</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-user-friends"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-subway"></i><span> 开往&amp;虫洞</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><i class="fa-fw fa fa-subway"></i><span> 开往/友链接力</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://foreverblog.cn/go.html"><i class="fa-fw fab fa-stumbleupon-circle"></i><span> 虫洞/十年之约</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://zhblogs.ohyee.cc/?tab=blog_list&amp;page=1&amp;tags=&amp;search=百里飞洋"><i class="fa-fw fas fa-blog"></i><span> 中文博客导航</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/images/hello%20world.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">百里飞洋</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/Calendar/"><i class="fa-fw fa-solid fa-calendar-check"></i><span> 奋斗日历</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-icons"></i><span> 多媒体</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-headphones-alt"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 找文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 按分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 按标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 按时间</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-medal"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/Reward-list/"><i class="fa-fw fas fa-clipboard-list"></i><span> 打赏榜</span></a></li><li><a class="site-page child" href="/about-website/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 网站声明</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-user-friends"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-subway"></i><span> 开往&amp;虫洞</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><i class="fa-fw fa fa-subway"></i><span> 开往/友链接力</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://foreverblog.cn/go.html"><i class="fa-fw fab fa-stumbleupon-circle"></i><span> 虫洞/十年之约</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://zhblogs.ohyee.cc/?tab=blog_list&amp;page=1&amp;tags=&amp;search=百里飞洋"><i class="fa-fw fas fa-blog"></i><span> 中文博客导航</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【GitHub】基于Actions和Pages实现项目的自动构建与部署</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-08-15T09:06:57.000Z" title="发表于 2024-08-15 17:06:57">2024-08-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-05-19T17:05:36.810Z" title="更新于 2025-05-20 01:05:36">2025-05-20</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>13分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【GitHub】基于Actions和Pages实现项目的自动构建与部署"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="00-缘由"><a href="#00-缘由" class="headerlink" title="00 缘由"></a>00 缘由</h2><p>手上有个前端项目使用的 Vite 来打包，我打算使用免费的 Github Actions 执行 workflows 工作流，实现自动打包，并通过 Github Pages 自动部署打包后的页面。</p>
+<p>以前只知道用 Github Pages 部署静态内容，但对 <strong>Github Actions</strong> <sup>[1]</sup> 知之甚少，今天正式认识一下 GitHub workflows，探究之前在别人的项目根目录下总是见到的 <code>.github/workflows/deploy.yml</code> 文件的身份之谜。</p>
+<p>话不多说，开始。</p>
+<hr>
+<h2 id="01-何为-GitHub-Actions-工作流？"><a href="#01-何为-GitHub-Actions-工作流？" class="headerlink" title="01 何为 GitHub Actions 工作流？"></a>01 何为 GitHub Actions 工作流？</h2><p>在 <a target="_blank" rel="noopener" href="https://github.com/actions">GitHub Actions</a> 组织页面，我们可以看到它的自身定位是：</p>
+<blockquote>
+<p>“Automate your GitHub workflows”</p>
+<p>“自动化你的工作流”</p>
+</blockquote>
+<p>GitHub Actions 提供了一种在 GitHub 仓库中直接自动化、定制和执行软件工作流程的方法，从而简化了开发、测试和部署过程<sup>[2]</sup>。</p>
+<h2 id="02-如何使用-GitHub-Actions-？"><a href="#02-如何使用-GitHub-Actions-？" class="headerlink" title="02 如何使用 GitHub Actions ？"></a>02 如何使用 GitHub Actions ？</h2><h3 id="2-1-设置仓库的生成和部署源"><a href="#2-1-设置仓库的生成和部署源" class="headerlink" title="2.1 设置仓库的生成和部署源"></a>2.1 设置仓库的生成和部署源</h3><p>若要为项目仓库配置为使用 GitHub Actions 进行构建和发布，需要执行以下操作<sup>[3]</sup>：</p>
+<ol>
+<li><p>打开 GitHub 的项目仓库。</p>
+</li>
+<li><p>在存储库名称下，单击 “Settings”（设置）。</p>
+<blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s21.ax1x.com/2024/08/15/pA9HqL4.png" alt="2024-13 (1)"></p>
+</blockquote>
+</li>
+<li><p>在边栏的“Code and automation”（代码和自动化）部分中，单击“ Pages”。</p>
+</li>
+<li><p>在“Build and deployment”（生成和部署）的“Source”（源）下，选择“GitHub Actions”。</p>
+<blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s21.ax1x.com/2024/08/15/pA9bAwd.png" alt="2024-13 (2)"></p>
+</blockquote>
+</li>
+<li><p>GitHub 将推荐多个入门工作流（workflows）。 如果已有用于发布站点的工作流，可跳过此步骤。 否则，需选择其中一个选项来创建 GitHub Actions 工作流。 </p>
+</li>
+</ol>
+<h3 id="2-2-寻找合适的-workflows-模板"><a href="#2-2-寻找合适的-workflows-模板" class="headerlink" title="2.2 寻找合适的 workflows 模板"></a>2.2 寻找合适的 workflows 模板</h3><blockquote>
+<p>注意：Vite 官方文档中也提供了提供了一个安装依赖项和使用 npm 构建的工作流程样本，请见 <a target="_blank" rel="noopener" href="https://cn.vitejs.dev/guide/static-deploy#github-pages">部署静态站点：GitHub Pages</a></p>
+</blockquote>
+<p>如果使用推荐的工作流，可以点击上图中“GitHub Actions”按钮下的 <code>browse all workflows</code> 或 <code>create your own</code> 链接。</p>
+<p>如果点击后者 <code>create your own</code> ，GitHub会引导你在该仓库根目录下创建 <code>.github/workflows/</code> 路径，并添加一个以 <code>.yml</code> 为后缀的文件，并且会为你填写了该文件的基本内容，只需基于此完善修改即可。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This is a basic workflow to help you get started with Actions</span></span><br><span class="line"></span><br><span class="line"><span class="attr">name:</span> <span class="string">CI</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Controls when the workflow will run</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="comment"># Triggers the workflow on push or pull request events but only for the &quot;main&quot; branch</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [ <span class="string">&quot;main&quot;</span> ]</span><br><span class="line">  <span class="attr">pull_request:</span></span><br><span class="line">    <span class="attr">branches:</span> [ <span class="string">&quot;main&quot;</span> ]</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Allows you to run this workflow manually from the Actions tab</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># A workflow run is made up of one or more jobs that can run sequentially or in parallel</span></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="comment"># This workflow contains a single job called &quot;build&quot;</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="comment"># The type of runner that the job will run on</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Steps represent a sequence of tasks that will be executed as part of the job</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="comment"># Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v4</span></span><br><span class="line"></span><br><span class="line">      <span class="comment"># Runs a single command using the runners shell</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Run</span> <span class="string">a</span> <span class="string">one-line</span> <span class="string">script</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">echo</span> <span class="string">Hello,</span> <span class="string">world!</span></span><br><span class="line"></span><br><span class="line">      <span class="comment"># Runs a set of commands using the runners shell</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Run</span> <span class="string">a</span> <span class="string">multi-line</span> <span class="string">script</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          echo Add other actions to build,</span></span><br><span class="line"><span class="string">          echo test, and deploy your project.</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+
+<p>没错，GitHub Actions 的工作流就是根据上方这样的文件来执行的。通过按规则编辑它，就能按自己的想法自定义一些你想让它执行的步骤。</p>
+<p>如果点击前者 <code>browse all workflows</code> ，你就可以在下方页面选择要开始的工作流，这些是 GitHub 为应对不同场景下提供的工作流分类模板：</p>
+<blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s21.ax1x.com/2024/08/15/pA9qwCt.png" alt="2024-13 (3)"></p>
+</blockquote>
+<p>上方预设的工作流模板大致分为以下几类：</p>
+<ol>
+<li><strong>Deployment（部署）</strong>：如将 Node.js 部署到 Azure Web 应用、部署到 Amazon ECS、部署至阿里云ACK、腾讯 Kubernetes 引擎等。</li>
+<li><strong>Security（安全）</strong>：如CodeQL 分析、强化扫描、SonarCloud、SonarQube等。</li>
+<li><strong>Continuous integration（持续集成）</strong>：简称为CI，如构建并测试 Node.js 项目、发布 Node.js 包等。</li>
+<li><strong>Automation（自动化）</strong>：如欢迎首次为存储库做出贡献的用户、根据更改的文件标记 pull requests、检查过时的 issues 和 pull requests、手动触发的简单 workflow 等。</li>
+<li><strong>Pages（页面）</strong>：如部署 HTML 静态文件、打包 Jekyll 站点、部署 Astro 站点、打包 Hugo 站点、打包 NuxtJS 站点、打包 Next.js 站点等。</li>
+</ol>
+<p>如果你选择 Continuous integration（持续集成）模板中的 Node.js 工作流，来通过 npm 构建和测试 Node.js 项目，点击对应的 Configure 按钮，即可获得以下工作流文件模板内容：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node</span></span><br><span class="line"><span class="comment"># For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs</span></span><br><span class="line"></span><br><span class="line"><span class="attr">name:</span> <span class="string">Node.js</span> <span class="string">CI</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [ <span class="string">&quot;main&quot;</span> ]</span><br><span class="line">  <span class="attr">pull_request:</span></span><br><span class="line">    <span class="attr">branches:</span> [ <span class="string">&quot;main&quot;</span> ]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">strategy:</span></span><br><span class="line">      <span class="attr">matrix:</span></span><br><span class="line">        <span class="attr">node-version:</span> [<span class="number">18.</span><span class="string">x</span>, <span class="number">20.</span><span class="string">x</span>, <span class="number">22.</span><span class="string">x</span>]</span><br><span class="line">        <span class="comment"># See supported Node.js release schedule at https://nodejs.org/en/about/releases/</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v4</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Use</span> <span class="string">Node.js</span> <span class="string">$&#123;&#123;</span> <span class="string">matrix.node-version</span> <span class="string">&#125;&#125;</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/setup-node@v4</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">node-version:</span> <span class="string">$&#123;&#123;</span> <span class="string">matrix.node-version</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">cache:</span> <span class="string">&#x27;npm&#x27;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">npm</span> <span class="string">ci</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">npm</span> <span class="string">run</span> <span class="string">build</span> <span class="string">--if-present</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">npm</span> <span class="string">test</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>你可以在 workflow 编写页面的右侧，点击 Documentation（文档）选项卡，查看编写规则，并对文件进行适当修改。</p>
+<blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s21.ax1x.com/2024/08/16/pA9zns0.png" alt="2024-13 (4)"></p>
+</blockquote>
+<p>如果这些模板还是无法满足你的需求，你还能在 workflow 编写页面的右侧点击 Marketplace（市场）选项卡，用关键字搜索别人上传的 GitHub Actions 脚本，直接复用即可。</p>
+<blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s21.ax1x.com/2024/08/16/pA9zuLV.png" alt="2024-13 (5)"></p>
+</blockquote>
+<p>比如我要操作的是一个用 Vite 打包的前端项目，并且还想要将打包产物部署到 GitHub Pages，通过搜索 <code>vite</code> 可以找到一个叫做 <a target="_blank" rel="noopener" href="https://github.com/marketplace/actions/vite-github-pages-deployer">Vite Github Pages Deployer</a> 的 Actions，完美解决我的需求，点击 <code>View full Marketplace listing</code> 可以查看对应用法详情。</p>
+<blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s21.ax1x.com/2024/08/16/pA9zMZT.png" alt="2024-13 (6)"></p>
+</blockquote>
+<h3 id="2-3-编写并完善-Actions-文件"><a href="#2-3-编写并完善-Actions-文件" class="headerlink" title="2.3 编写并完善 Actions 文件"></a>2.3 编写并完善 Actions 文件</h3><p>以下是  <a target="_blank" rel="noopener" href="https://github.com/marketplace/actions/vite-github-pages-deployer#2-example-workflow-rocket">Vite Github Pages Deployer</a> 的示例 workflow：</p>
+<ol>
+<li>在此路径创建一个操作文件：<code>./.github/workflows/vite-github-pages-deploy.yml</code>。因此，本质上是<code>.github</code>在项目根目录创建一个文件夹，然后<code>yml</code>在其中创建一个文件。</li>
+<li>复制下面的代码并将其粘贴到您刚刚创建的操作中，然后保存。</li>
+<li>完成。下次推送到<code>master</code>分支时，或者下次从操作选项卡手动运行时，此操作将运行，并且您的项目将部署到 github 页面。</li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Vite</span> <span class="string">Github</span> <span class="string">Pages</span> <span class="string">Deploy</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="comment"># Runs on pushes targeting the default branch</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [<span class="string">&quot;master&quot;</span>, <span class="string">&quot;main&quot;</span>]</span><br><span class="line">  <span class="comment"># Allows you to run this workflow manually from the Actions tab</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages</span></span><br><span class="line"><span class="attr">permissions:</span></span><br><span class="line">  <span class="attr">contents:</span> <span class="string">read</span></span><br><span class="line">  <span class="attr">pages:</span> <span class="string">write</span></span><br><span class="line">  <span class="attr">id-token:</span> <span class="string">write</span></span><br><span class="line"></span><br><span class="line"><span class="attr">concurrency:</span></span><br><span class="line">  <span class="attr">group:</span> <span class="string">&quot;pages&quot;</span></span><br><span class="line">  <span class="attr">cancel-in-progress:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="comment"># Build job</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">demo</span></span><br><span class="line">      <span class="attr">url:</span> <span class="string">$&#123;&#123;</span> <span class="string">steps.deploy_to_pages.outputs.github_pages_url</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Checkout</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Vite</span> <span class="string">Github</span> <span class="string">Pages</span> <span class="string">Deployer</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">skywarth/vite-github-pages-deployer@master</span></span><br><span class="line">        <span class="attr">id:</span> <span class="string">deploy_to_pages</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>以下是其部分可选的输入参数：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Vite</span> <span class="string">Github</span> <span class="string">Pages</span> <span class="string">Deployer</span></span><br><span class="line">  <span class="comment"># You may pin to the exact commit or the version.</span></span><br><span class="line">  <span class="comment"># uses: skywarth/vite-github-pages-deployer@894ef807567d82fa238bd3d47009bd360910e11a</span></span><br><span class="line">  <span class="attr">uses:</span> <span class="string">skywarth/vite-github-pages-deployer@v1.4.0</span></span><br><span class="line">  <span class="attr">with:</span></span><br><span class="line">    <span class="comment"># Public base path string for vite, this affects the routing, history and asset links. Make sure to provide appropriately since Github Pages stores your app in a directory under a subdomain.</span></span><br><span class="line">    <span class="attr">public_base_path:</span> <span class="comment"># optional, default is </span></span><br><span class="line">    <span class="comment"># Which folder do you want your Github Page to use as root directory. Usually it is your build output directory such as ./dist </span></span><br><span class="line">    <span class="attr">build_path:</span> <span class="comment"># optional, default is ./dist</span></span><br><span class="line">    <span class="comment"># Node env that will be used for the installation of dependencies. It is imperative you use an environment that has &#x27;vite&#x27; as dependency. Commonly, that is &#x27;dev&#x27;.</span></span><br><span class="line">    <span class="attr">install_phase_node_env:</span> <span class="comment"># optional, default is dev</span></span><br><span class="line">    <span class="comment"># Node env that will be used for build phase.</span></span><br><span class="line">    <span class="attr">build_phase_node_env:</span> <span class="comment"># optional, default is production</span></span><br><span class="line">    <span class="comment"># Your preference of package manager: &#x27;npm&#x27; and &#x27;yarn&#x27; are possible values.</span></span><br><span class="line">    <span class="attr">package_manager:</span> <span class="comment"># optional, default is npm</span></span><br><span class="line">    <span class="comment"># Desired name for the Deployment environment. It is also the exposed artifact name which contains the build output (dist).</span></span><br><span class="line">    <span class="attr">artifact_name:</span> <span class="comment"># optional, default is github-pages</span></span><br><span class="line">    <span class="comment"># Controls the debug mode, boolean, true is for on. When turned on, it&#x27;ll output certain information on certain steps. Mainly used for development, but use it as you please to inspect your env and variables.</span></span><br><span class="line">    <span class="attr">debug_mode:</span> <span class="comment"># optional, default is false</span></span><br><span class="line">          </span><br></pre></td></tr></table></figure>
+
+<p>根据我要操作的 <a target="_blank" rel="noopener" href="https://github.com/Barry-Flynn/visionOS">visionOS</a> 仓库情况对示例 workflow 进行适当修改，并添加一些可选参数，即可得到：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This workflow will deploy Vite app to github pages using actions.</span></span><br><span class="line"><span class="comment"># For more information see: https://github.com/marketplace/actions/vite-github-pages-deployer</span></span><br><span class="line"></span><br><span class="line"><span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">visionOS</span> <span class="string">site</span> <span class="string">to</span> <span class="string">Github</span> <span class="string">Pages</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Controls when the workflow will run</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="comment"># Runs on pushes targeting the default branch</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [<span class="string">&quot;main&quot;</span>]</span><br><span class="line">  <span class="comment"># Allows you to run this workflow manually from the Actions tab</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages</span></span><br><span class="line"><span class="attr">permissions:</span></span><br><span class="line">  <span class="attr">contents:</span> <span class="string">read</span></span><br><span class="line">  <span class="attr">pages:</span> <span class="string">write</span></span><br><span class="line">  <span class="attr">id-token:</span> <span class="string">write</span></span><br><span class="line"></span><br><span class="line"><span class="attr">concurrency:</span></span><br><span class="line">  <span class="attr">group:</span> <span class="string">&quot;pages&quot;</span></span><br><span class="line">  <span class="attr">cancel-in-progress:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># A workflow run is made up of one or more jobs that can run sequentially or in parallel</span></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="comment"># This workflow contains a single job called &quot;build&quot;</span></span><br><span class="line">  <span class="comment"># Build job</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">  	<span class="comment"># The type of runner that the job will run on</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">    	<span class="comment"># Name could be whatever you wish. It&#x27;ll be visible publicly under the environments tab.</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">demo</span></span><br><span class="line">      <span class="attr">url:</span> <span class="string">$&#123;&#123;</span> <span class="string">steps.deploy_to_pages.outputs.github_pages_url</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Checkout</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Vite</span> <span class="string">Github</span> <span class="string">Pages</span> <span class="string">Deployer</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">skywarth/vite-github-pages-deployer@v1.4.0</span></span><br><span class="line">        <span class="attr">id:</span> <span class="string">deploy_to_pages</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">        	<span class="comment"># Your preference of package manager: &#x27;npm&#x27; and &#x27;yarn&#x27; are possible values.</span></span><br><span class="line">    			<span class="attr">package_manager:</span> <span class="comment"># optional, default is npm</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>上面内容就是我要在 <code>.github/workflows/</code> 目录下要创建的 workflow 文件内容，即 <code>.yml</code> 为后缀的文件。</p>
+<p>该文件命名没有要求，可以叫 <code>vite-github-pages-deploy.yml</code>、<code>deploy.yml</code>、<code>vitejs.yml</code> 等等，只要是保证以 <code>.yml</code> 为后缀即可。GitHub 只要发现 <code>.github/workflows</code> 目录下里面有 <code>.yml</code> 文件，就会自动运行<sup>[4]</sup>。</p>
+<h3 id="2-4-在-Vite-中设置正确的-base"><a href="#2-4-在-Vite-中设置正确的-base" class="headerlink" title="2.4 在 Vite 中设置正确的 base"></a>2.4 在 Vite 中设置正确的 base</h3><p>这是因为项目在部署后（以 <a target="_blank" rel="noopener" href="https://github.com/Barry-Flynn/visionOS">visionOS</a> 仓库为例），GitHub Pages 的访问地址会是 <code>https://barry-flynn.github.io/visionOS</code></p>
+<p>也就是说，不是部署到域名根目录下的，所以要在 <code>vite.config.js</code> 中设置正确的 <code>base</code>，使得页面引用静态资源时不会报错<sup>[5-6]</sup>。</p>
+<p>根据 Vite 文档所言，你可以设置为绝对路径（例如 <code>/visionOS/</code>），也可以设置为 <code>./</code> 相对路径。</p>
+<blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s21.ax1x.com/2024/08/16/pACSyAU.png" alt="2024-13 (7)"></p>
+</blockquote>
+<h2 id="03-补充-Vite-官方工作流程样本"><a href="#03-补充-Vite-官方工作流程样本" class="headerlink" title="03 补充 Vite 官方工作流程样本"></a>03 补充 Vite 官方工作流程样本</h2><p>文章写了一大半了，才发现 Vite 官方文档中也提供了提供了一个安装依赖项和使用 npm 构建的工作流程样本，请见 <a target="_blank" rel="noopener" href="https://cn.vitejs.dev/guide/static-deploy#github-pages">部署静态站点：GitHub Pages</a></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将静态内容部署到 GitHub Pages 的简易工作流程</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">static</span> <span class="string">content</span> <span class="string">to</span> <span class="string">Pages</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="comment"># 仅在推送到默认分支时运行。</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [<span class="string">&#x27;main&#x27;</span>]</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 这个选项可以使你手动在 Action tab 页面触发工作流</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置 GITHUB_TOKEN 的权限，以允许部署到 GitHub Pages。</span></span><br><span class="line"><span class="attr">permissions:</span></span><br><span class="line">  <span class="attr">contents:</span> <span class="string">read</span></span><br><span class="line">  <span class="attr">pages:</span> <span class="string">write</span></span><br><span class="line">  <span class="attr">id-token:</span> <span class="string">write</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 允许一个并发的部署</span></span><br><span class="line"><span class="attr">concurrency:</span></span><br><span class="line">  <span class="attr">group:</span> <span class="string">&#x27;pages&#x27;</span></span><br><span class="line">  <span class="attr">cancel-in-progress:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="comment"># 单次部署的工作描述</span></span><br><span class="line">  <span class="attr">deploy:</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">github-pages</span></span><br><span class="line">      <span class="attr">url:</span> <span class="string">$&#123;&#123;</span> <span class="string">steps.deployment.outputs.page_url</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Checkout</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v4</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Set</span> <span class="string">up</span> <span class="string">Node</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v4</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="number">20</span></span><br><span class="line">          <span class="attr">cache:</span> <span class="string">&#x27;npm&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">dependencies</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">ci</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Build</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">run</span> <span class="string">build</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Setup</span> <span class="string">Pages</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/configure-pages@v4</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Upload</span> <span class="string">artifact</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/upload-pages-artifact@v3</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="comment"># Upload dist folder</span></span><br><span class="line">          <span class="attr">path:</span> <span class="string">&#x27;./dist&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">to</span> <span class="string">GitHub</span> <span class="string">Pages</span></span><br><span class="line">        <span class="attr">id:</span> <span class="string">deployment</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/deploy-pages@v4</span></span><br></pre></td></tr></table></figure>
+
+<p>当然，由于我使用的是 pnpm 管理的依赖，所以需要稍加修改才能用<sup>[8-10]</sup>：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将静态内容部署到 GitHub Pages 的简易工作流程</span></span><br><span class="line"><span class="comment"># https://cn.vitejs.dev/guide/static-deploy#github-pages</span></span><br><span class="line"></span><br><span class="line"><span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">static</span> <span class="string">content</span> <span class="string">to</span> <span class="string">Pages</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="comment"># 仅在推送到默认分支时运行。</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [<span class="string">&#x27;main&#x27;</span>]</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 这个选项可以使你手动在 Action tab 页面触发工作流</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置 GITHUB_TOKEN 的权限，以允许部署到 GitHub Pages</span></span><br><span class="line"><span class="attr">permissions:</span></span><br><span class="line">  <span class="attr">contents:</span> <span class="string">read</span></span><br><span class="line">  <span class="attr">pages:</span> <span class="string">write</span></span><br><span class="line">  <span class="attr">id-token:</span> <span class="string">write</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 允许一个并发的部署</span></span><br><span class="line"><span class="attr">concurrency:</span></span><br><span class="line">  <span class="attr">group:</span> <span class="string">&#x27;pages&#x27;</span></span><br><span class="line">  <span class="attr">cancel-in-progress:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="comment"># 单次部署的工作描述</span></span><br><span class="line">  <span class="attr">deploy:</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">github-pages</span></span><br><span class="line">      <span class="attr">url:</span> <span class="string">$&#123;&#123;</span> <span class="string">steps.deployment.outputs.page_url</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Checkout</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v4</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">pnpm</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">pnpm/action-setup@v4</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">version:</span> <span class="number">9</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Set</span> <span class="string">up</span> <span class="string">Node</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v4</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="number">20</span></span><br><span class="line">          <span class="attr">cache:</span> <span class="string">&#x27;pnpm&#x27;</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">dependencies</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">pnpm</span> <span class="string">install</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Build</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">pnpm</span> <span class="string">run</span> <span class="string">build</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Setup</span> <span class="string">Pages</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/configure-pages@v4</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Upload</span> <span class="string">artifact</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/upload-pages-artifact@v3</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="comment"># Upload dist folder</span></span><br><span class="line">          <span class="attr">path:</span> <span class="string">&#x27;./dist&#x27;</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">to</span> <span class="string">GitHub</span> <span class="string">Pages</span></span><br><span class="line">        <span class="attr">id:</span> <span class="string">deployment</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/deploy-pages@v4</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="04-当-Vue-采用-history-模式的坑"><a href="#04-当-Vue-采用-history-模式的坑" class="headerlink" title="04 当 Vue 采用 history 模式的坑"></a>04 当 Vue 采用 history 模式的坑</h2><p>由于部署成功后，项目的访问地址是 <code>https://barry-flynn.github.io/visionOS/</code>，并且此 Vue 项目路由采用的是 history 模式，这就导致了：</p>
+<ol>
+<li>路由重定向失效</li>
+<li>访问任何子路由都显示 404 页面</li>
+</ol>
+<p>我暂时没有找到解决方式，只找到了知乎的一个话题讨论：</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/64173754/answer/2464674539">怎样为Github pages Hack使用了vue-router history模式的vue应用？</a></p>
+<blockquote>
+<p>Github pages原生不支持单页面应用，没有为前端路由提供支持，并且为了安全，也不支持自定义后台配置。因此，我们没办法直接配置服务来fallback我们的应用。</p>
+</blockquote>
+</li>
+</ul>
+<p>于是我暂时使用的是 hash 路由模式，如果你有解决方案，欢迎你随时与我分享，感谢！</p>
+<hr>
+<h2 id="参考内容-Reference"><a href="#参考内容-Reference" class="headerlink" title="参考内容 Reference"></a><strong>参考内容 Reference</strong></h2><p>[1] <a target="_blank" rel="noopener" href="https://docs.github.com/zh/actions">GitHub Actions 文档</a></p>
+<p>[2] <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/647970282">GitHub Actions 是什么？</a> - 知乎</p>
+<p>[3] <a target="_blank" rel="noopener" href="https://docs.github.com/zh/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89-github-actions-%E5%B7%A5%E4%BD%9C%E6%B5%81%E8%BF%9B%E8%A1%8C%E5%8F%91%E5%B8%83">使用自定义 GitHub Actions 工作流进行发布</a></p>
+<p>[4] <a target="_blank" rel="noopener" href="https://blog.csdn.net/JackieDYH/article/details/125432664">Github-Action-Workflow-概念和基本操作</a> - CSDN</p>
+<p>[5] <a target="_blank" rel="noopener" href="https://cn.vitejs.dev/guide/static-deploy#github-pages">部署静态站点：GitHub Pages</a></p>
+<p>[6] <a target="_blank" rel="noopener" href="https://cn.vitejs.dev/config/shared-options#base">Vite 配置-共享选项：base</a></p>
+<p>[7] <a target="_blank" rel="noopener" href="https://www.cnblogs.com/mq0036/p/18152032">使用GitHub Actions和GitHub pages实现前端项目的自动打包部署</a></p>
+<p>[8] <a target="_blank" rel="noopener" href="https://www.pnpm.cn/continuous-integration#github-actions">pnpm中文网-持续集成：GitHub Actions</a></p>
+<p>[9] <a target="_blank" rel="noopener" href="https://blog.csdn.net/Shiqi_777/article/details/132915964">github action 实现前端项目自动部署(使用pnpm包管理)</a>  - CSDN</p>
+<p>[10] <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_46836671/article/details/140535176">使用github部署Vite打包的项目(使用pnpm包管理)</a>  - CSDN</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">百里飞洋 Barry-Flynn</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.meta-code.top/2024/08/15/2024-13/">https://blog.meta-code.top/2024/08/15/2024-13/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.meta-code.top" target="_blank">百里飞洋</a>！</span></div><div class="post-technical-tips"><span class="post-copyright-meta">技术内容: </span><span class="post-copyright-info">若存在错误或不当之处，还望兄台不吝赐教，期待与您交流！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/GitHub/">GitHub</a><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a><a class="post-meta__tags" href="/tags/Vue/">Vue</a><a class="post-meta__tags" href="/tags/pnpm/">pnpm</a><a class="post-meta__tags" href="/tags/Vite/">Vite</a></div><div class="post_share"><div class="social-share" data-image="/img/friends/Barry-Flynn.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/CDN/share/share.min.css" media="print" onload="this.media='all'"><script src="/CDN/share/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E5%BE%AE%E4%BF%A1WeChat%E6%89%93%E8%B5%8F%E7%A0%81.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E5%BE%AE%E4%BF%A1%E6%89%93%E8%B5%8F%EF%BC%88%E7%BA%AF%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%89.png" alt="WeChat微信打赏"/></a><div class="post-qr-code-desc">WeChat微信打赏</div></li><li class="reward-item"><a href="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E6%94%AF%E4%BB%98%E5%AE%9DAliPay%E6%89%93%E8%B5%8F%E7%A0%81.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%89%93%E8%B5%8F%EF%BC%88%E7%BA%AF%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%89.png" alt="AliPay支付宝打赏"/></a><div class="post-qr-code-desc">AliPay支付宝打赏</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/04/11/2024-11/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" onerror="onerror=null;src='/img/others/404.gif'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【Hexo博客】配置RSS插件，生成 Atom1.0 或 RSS2.0 摘要文件</div></div></a></div><div class="next-post pull-right"><a href="/2024/10/27/2024-15/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" onerror="onerror=null;src='/img/others/404.gif'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">我也中招了！大量简中博客站点被镜像，并翻译成了繁体中文</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/11/08/2022-151/" title="【Vue】解决CORS policy跨域报错问题"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-08</div><div class="title">【Vue】解决CORS policy跨域报错问题</div></div></a></div><div><a href="/2022/02/27/2022-30/" title="【黑马】Vue全家桶-Vue基础：Vue模板语法（学习打卡01）"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-27</div><div class="title">【黑马】Vue全家桶-Vue基础：Vue模板语法（学习打卡01）</div></div></a></div><div><a href="/2022/03/10/2022-36/" title="【黑马】Vue全家桶-Vue基础：Vue常用特性（学习打卡02）"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">【黑马】Vue全家桶-Vue基础：Vue常用特性（学习打卡02）</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/friends/Barry-Flynn.jpg" onerror="this.onerror=null;this.src='/img/others/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">百里飞洋 Barry-Flynn</div><div class="author-info__description">星河滚烫，无问西东</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">92</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://space.bilibili.com/349963315"><i class="fas fa-play-circle"></i><span>关注我吧</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://weibo.com/6327778914" target="_blank" title="微博Weibo"><i class="fab fa-weibo"></i></a><a class="social-icon" href="https://space.bilibili.com/349963315" target="_blank" title="哔哩哔哩Bilibili"><i class="fab fa-youtube"></i></a><a class="social-icon" href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=2158469373@qq.com" target="_blank" title="邮箱Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://github.com/Barry-Flynn" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://gitee.com/Barry-Flynn" target="_blank" title="码云Gitee"><i class="fab fa-gofore"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Hey,欢迎来到我的博客小世界！<br /> 00后程序员&中二小青年 <br /> QQ学习聊天群：<b>534984250</b><br /> 才疏学浅，自说自话，<br /> 欢迎交流玩耍~<br /> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/others/咒术回战.gif" style="border-radius:0.5rem;" /></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#00-%E7%BC%98%E7%94%B1"><span class="toc-text">00 缘由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#01-%E4%BD%95%E4%B8%BA-GitHub-Actions-%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%9F"><span class="toc-text">01 何为 GitHub Actions 工作流？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#02-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-GitHub-Actions-%EF%BC%9F"><span class="toc-text">02 如何使用 GitHub Actions ？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E8%AE%BE%E7%BD%AE%E4%BB%93%E5%BA%93%E7%9A%84%E7%94%9F%E6%88%90%E5%92%8C%E9%83%A8%E7%BD%B2%E6%BA%90"><span class="toc-text">2.1 设置仓库的生成和部署源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%AF%BB%E6%89%BE%E5%90%88%E9%80%82%E7%9A%84-workflows-%E6%A8%A1%E6%9D%BF"><span class="toc-text">2.2 寻找合适的 workflows 模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E7%BC%96%E5%86%99%E5%B9%B6%E5%AE%8C%E5%96%84-Actions-%E6%96%87%E4%BB%B6"><span class="toc-text">2.3 编写并完善 Actions 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E5%9C%A8-Vite-%E4%B8%AD%E8%AE%BE%E7%BD%AE%E6%AD%A3%E7%A1%AE%E7%9A%84-base"><span class="toc-text">2.4 在 Vite 中设置正确的 base</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#03-%E8%A1%A5%E5%85%85-Vite-%E5%AE%98%E6%96%B9%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E6%A0%B7%E6%9C%AC"><span class="toc-text">03 补充 Vite 官方工作流程样本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#04-%E5%BD%93-Vue-%E9%87%87%E7%94%A8-history-%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%9D%91"><span class="toc-text">04 当 Vue 采用 history 模式的坑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E5%86%85%E5%AE%B9-Reference"><span class="toc-text">参考内容 Reference</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 百里飞洋 Barry-Flynn</div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="http://meta-code.top/"><i class="fas fa-globe-americas"></i>&nbsp;元代码</a>丨<a target="_blank" rel="noopener" href="https://weibo.com/6327778914/profile?topnav=1&wvr=6&is_all=1"><i class="fab fa-weibo"></i>&nbsp;<span>新浪微博</span></a>丨<a target="_blank" rel="noopener" href="https://space.bilibili.com/349963315"><i class="fab fa-youtube"></i>&nbsp;<span>哔哩哔哩</span></a>丨<a href="/about/"><i class="fas fa-meteor"></i>&nbsp;关于我</a><br /> <a href="/Reward-list/">赞助列表</a>丨<a href="/about-website/">网站声明</a>丨<a href="/link/">友情链接</a>丨<a href="https://blog.meta-code.top/rss2.xml">RSS订阅</a><br /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41071102000543"><span style="vertical-align:middle;"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/icon/备案图标.png" style="vertical-align:middle;">&nbsp;豫公网安备 41071102000543号</a></span><br /> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><span style="vertical-align:middle;"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/icon/ICP备案.png" style="vertical-align:middle;width:20px;height:20px;">&nbsp;豫ICP备2021034491号</a></span><br /> <span><星河滚烫，无问西东></span><br /> <br /> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/二维码/移动端访问.png" style="width:130px;height:150px;border-radius:20px;display:inline-block;margin:0 5px;"> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/二维码/学习聊天群.png" style="width:130px;height:150px;border-radius:20px;display:inline-block;margin:0 5px;"><br /></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><a class="icon-V hidden" onclick="switchNightMode()" title="浅色和深色模式转换"><svg width="25" height="25" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon"></use></svg></a><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><a class="rightMenu-item" href="javascript:window.history.back();"><i class="fa-solid fa-arrow-left"></i></a><a class="rightMenu-item" href="javascript:window.location.reload();"><i class="fa-solid fa-arrow-rotate-right"></i></a><a class="rightMenu-item" href="javascript:window.history.forward();"><i class="fa-solid fa-arrow-right"></i></a><a class="rightMenu-item" id="menu-radompage" href="javascript:window.location.href = window.location.origin;"><i class="fa-solid fa-house"></i></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-text"><a class="rightMenu-item" href="javascript:rmf.copySelect();"><i class="fa-solid fa-copy"></i><span>复制</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:rmf.switchDarkMode();"><i class="fa-solid fa-circle-half-stroke"></i><span>昼夜模式</span></a><a class="rightMenu-item" href="javascript:rmf.switchTranslate();" id="menu-translate"><i class="fa-solid fa-earth-asia"></i><span>繁简切换</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/categories/';"><i class="fa-solid fa-book"></i><span>博客分类</span></a><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/tags/';"><i class="fa-solid fa-tags"></i><span>博客标签</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/Reward-list/';"><i class="fa-solid fa-clipboard-list"></i><span>打赏赞助 ❤</span></a><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/about-website/';"><i class="fa-solid fa-envelope-open-text"></i><span>网站声明</span></a></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="/CDN/lazyload.iife.min.js"></script><script src="/CDN/snackbar/snackbar.min.js"></script><script async="async">var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').style.transition = 'opacity 3s ease 0s'
+    document.getElementById('loading-box').style.opacity = '0'
+    setTimeout(function(){
+      document.getElementById('loading-box').classList.add("loaded")
+    }, 3000);
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').style.transition = '';
+    document.getElementById('loading-box').style.opacity = '1'
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})
+setTimeout(function(){preloader.endLoading();}, 3000);</script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://hexoblog-twikoo.meta-code.top',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'https://hexoblog-twikoo.meta-code.top',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('/CDN/comments/twikoo_1.6.26.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://hexoblog-twikoo.meta-code.top',
+        region: '',
+        pageSize: 5,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('/CDN/comments/twikoo_1.6.26.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script src="/js/console.js?date=20241027"></script><canvas id="universe"></canvas><script src="/js/universe.js"></script><script src="/js/plugins/jquery-3.6.0.min.js"></script><script src="/js/rightmenu.js"></script><script src="/js/sun_moon.js" async></script><div class="aplayer no-destroy" data-id="1050282" data-server="netease" data-type="artist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" data-lrctype="0" muted></div><canvas class="fireworks" mobile="false"></canvas><script src="/CDN/effect/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="105, 171, 247" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/CDN/background_effect/canvas-nest.min.js"></script><script src="/CDN/effect/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="/CDN/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="/CDN/aplayer/APlayer.min.js"></script><script src="/CDN/aplayer/Meting.min.js"></script><script src="/CDN/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="/CDN/count/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start -->
+  <script data-pjax src="/CDN/hexo_githubcalendar.js"></script>
+  <script data-pjax>
+        function GithubCalendarConfig(){
+            var git_githubapiurl ="https://github-calendar-api.meta-code.top/api?user=Barry-Flynn";
+            var git_color =['#ebedf0', '#a2f7af', '#6ce480', '#54ad63', '#469252', '#31753c', '#1f5f2a', '#13531f', '#084111', '#032b09', '#000000'];
+            var git_user ="Barry-Flynn";
+            var parent_div_git = document.getElementById('recent-posts');
+            var git_div_html = '<div class="recent-post-item" style="width:100%;height:auto;padding:10px;"><div id="github_loading" style="width:10%;height:100%;margin:0 auto;display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg></div><div id="github_container"></div></div>';
+            if(parent_div_git && location.pathname =='/'){
+                console.log("已挂载hexo-github-calendar https://github.com/Barry-Flynn/hexo-github-calendar");
+                // parent_div_git.innerHTML=git_div_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",git_div_html) // 有报错，但不影响使用(支持pjax跳转)
+            };
+            GithubCalendar(git_githubapiurl,git_color,git_user)
+        }
+        if(document.getElementById('recent-posts')){
+            GithubCalendarConfig()
+        }
+    </script>
+    <style>#github_container{min-height:280px}@media screen and (max-width:650px) {#github_container{background-image:;min-height:0px}}</style>
+    <style></style><!-- hexo injector body_end end --></body></html>

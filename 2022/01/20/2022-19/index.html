@@ -1,0 +1,651 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>【千锋】H5大前端-学习打卡03（HTML+CSS） | 百里飞洋</title><meta name="keywords" content="前端,CSS"><meta name="author" content="百里飞洋 Barry-Flynn"><meta name="copyright" content="百里飞洋 Barry-Flynn"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="【两栏布局】如最常见的后台界面，左边侧面菜单导航，右边是自适应宽度的主界面。 方法112&lt;div class&#x3D;&quot;box1&quot;&gt;&lt;&#x2F;div&gt;&lt;div class&#x3D;&quot;box2&quot;&gt;&lt;&#x2F;div&gt;  12345678910111213141516171819* &amp;#123;    margin: 0;    padding">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【千锋】H5大前端-学习打卡03（HTML+CSS）">
+<meta property="og:url" content="https://blog.meta-code.top/2022/01/20/2022-19/index.html">
+<meta property="og:site_name" content="百里飞洋">
+<meta property="og:description" content="【两栏布局】如最常见的后台界面，左边侧面菜单导航，右边是自适应宽度的主界面。 方法112&lt;div class&#x3D;&quot;box1&quot;&gt;&lt;&#x2F;div&gt;&lt;div class&#x3D;&quot;box2&quot;&gt;&lt;&#x2F;div&gt;  12345678910111213141516171819* &amp;#123;    margin: 0;    padding">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.meta-code.top/img/friends/Barry-Flynn.jpg">
+<meta property="article:published_time" content="2022-01-20T15:20:51.000Z">
+<meta property="article:modified_time" content="2025-05-19T17:05:36.788Z">
+<meta property="article:author" content="百里飞洋 Barry-Flynn">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.meta-code.top/img/friends/Barry-Flynn.jpg"><link rel="shortcut icon" href="/img/icon/%E7%81%AB%E7%AE%AD.png"><link rel="canonical" href="https://blog.meta-code.top/2022/01/20/2022-19/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/CDN/fontawesome/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/CDN/snackbar/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e21f557d5683e4733d77db5ab8910d7b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":100,"position":"top","messagePrev":"「温馨提示」本文更新已经","messageNext":"天，若内容或图片失效，请留言反馈。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: 百里飞洋 Barry-Flynn","link":"链接: ","source":"来源: 百里飞洋","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#121212","bgDark":"#49b1f5","position":"bottom-right"},
+  source: {
+    jQuery: '/CDN/jquery.min.js',
+    justifiedGallery: {
+      js: '/CDN/justifiedGallery/jquery.justifiedGallery.min.js',
+      css: '/CDN/justifiedGallery/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: '/CDN/photo/jquery.fancybox.min.js',
+      css: '/CDN/photo/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【千锋】H5大前端-学习打卡03（HTML+CSS）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-05-20 01:05:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><link rel="stylesheet" href="/css/BF-simple.css"><link rel="stylesheet" href="/css/BF-rightmenu.css"><link rel="stylesheet" href="https://s1.hdslb.com/bfs/static/jinkela/long/font/regular.css"><svg aria-hidden="true" style="position:absolute; overflow:hidden; width:0; height:0"><symbol id="icon-sun" viewBox="0 0 1024 1024"><path d="M960 512l-128 128v192h-192l-128 128-128-128H192v-192l-128-128 128-128V192h192l128-128 128 128h192v192z" fill="#FFD878" p-id="8420"></path><path d="M736 512a224 224 0 1 0-448 0 224 224 0 1 0 448 0z" fill="#FFE4A9" p-id="8421"></path><path d="M512 109.248L626.752 224H800v173.248L914.752 512 800 626.752V800h-173.248L512 914.752 397.248 800H224v-173.248L109.248 512 224 397.248V224h173.248L512 109.248M512 64l-128 128H192v192l-128 128 128 128v192h192l128 128 128-128h192v-192l128-128-128-128V192h-192l-128-128z" fill="#4D5152" p-id="8422"></path><path d="M512 320c105.888 0 192 86.112 192 192s-86.112 192-192 192-192-86.112-192-192 86.112-192 192-192m0-32a224 224 0 1 0 0 448 224 224 0 0 0 0-448z" fill="#4D5152" p-id="8423"></path></symbol><symbol id="icon-moon" viewBox="0 0 1024 1024"><path d="M611.370667 167.082667a445.013333 445.013333 0 0 1-38.4 161.834666 477.824 477.824 0 0 1-244.736 244.394667 445.141333 445.141333 0 0 1-161.109334 38.058667 85.077333 85.077333 0 0 0-65.066666 135.722666A462.08 462.08 0 1 0 747.093333 102.058667a85.077333 85.077333 0 0 0-135.722666 65.024z" fill="#FFB531" p-id="11345"></path><path d="M329.728 274.133333l35.157333-35.157333a21.333333 21.333333 0 1 0-30.165333-30.165333l-35.157333 35.157333-35.114667-35.157333a21.333333 21.333333 0 0 0-30.165333 30.165333l35.114666 35.157333-35.114666 35.157334a21.333333 21.333333 0 1 0 30.165333 30.165333l35.114667-35.157333 35.157333 35.157333a21.333333 21.333333 0 1 0 30.165333-30.165333z" fill="#030835" p-id="11346"></path></symbol></svg><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="百里飞洋" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="百里飞洋" type="application/rss+xml">
+</head><body><div id="loading-box"><div class="centered"><div class="blob-1"></div><div class="blob-2"></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/friends/Barry-Flynn.jpg" onerror="onerror=null;src='/img/others/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">92</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/Calendar/"><i class="fa-fw fa-solid fa-calendar-check"></i><span> 奋斗日历</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-icons"></i><span> 多媒体</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-headphones-alt"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 找文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 按分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 按标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 按时间</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-medal"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/Reward-list/"><i class="fa-fw fas fa-clipboard-list"></i><span> 打赏榜</span></a></li><li><a class="site-page child" href="/about-website/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 网站声明</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-user-friends"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-subway"></i><span> 开往&amp;虫洞</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><i class="fa-fw fa fa-subway"></i><span> 开往/友链接力</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://foreverblog.cn/go.html"><i class="fa-fw fab fa-stumbleupon-circle"></i><span> 虫洞/十年之约</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://zhblogs.ohyee.cc/?tab=blog_list&amp;page=1&amp;tags=&amp;search=百里飞洋"><i class="fa-fw fas fa-blog"></i><span> 中文博客导航</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/images/hello%20world.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">百里飞洋</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/Calendar/"><i class="fa-fw fa-solid fa-calendar-check"></i><span> 奋斗日历</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-icons"></i><span> 多媒体</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-headphones-alt"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 找文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 按分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 按标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 按时间</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-medal"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/Reward-list/"><i class="fa-fw fas fa-clipboard-list"></i><span> 打赏榜</span></a></li><li><a class="site-page child" href="/about-website/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 网站声明</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-user-friends"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-subway"></i><span> 开往&amp;虫洞</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><i class="fa-fw fa fa-subway"></i><span> 开往/友链接力</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://foreverblog.cn/go.html"><i class="fa-fw fab fa-stumbleupon-circle"></i><span> 虫洞/十年之约</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://zhblogs.ohyee.cc/?tab=blog_list&amp;page=1&amp;tags=&amp;search=百里飞洋"><i class="fa-fw fas fa-blog"></i><span> 中文博客导航</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【千锋】H5大前端-学习打卡03（HTML+CSS）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-01-20T15:20:51.000Z" title="发表于 2022-01-20 23:20:51">2022-01-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-05-19T17:05:36.788Z" title="更新于 2025-05-20 01:05:36">2025-05-20</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>12分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【千锋】H5大前端-学习打卡03（HTML+CSS）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="【两栏布局】"><a href="#【两栏布局】" class="headerlink" title="【两栏布局】"></a>【两栏布局】</h1><p>如最常见的后台界面，左边侧面菜单导航，右边是自适应宽度的主界面。</p>
+<h2 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box1</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background</span>: blue;</span><br><span class="line">    floot: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box2</span> &#123;</span><br><span class="line">    <span class="comment">/*不要设置宽度*/</span></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background</span>: yellow;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box1</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background</span>: blue;</span><br><span class="line">    floot: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box2</span> &#123;</span><br><span class="line">    <span class="comment">/* width: 100%-200px; 这种方法无效 */</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="built_in">calc</span>(<span class="number">100%</span> - <span class="number">200px</span>); <span class="comment">/* calc()函数 */</span></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background</span>: yellow;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">200px</span>;</span><br><span class="line">    floot: left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>calc()函数的使用</strong><br>运用<code>calc()</code>函数，用于动态计算长度值<br>注意！运算符前后都要保留一个空格，如<code>width: calc(100% - 200px);</code><br>任何长度值都可以使用calc()函数进行计算<br>calc()函数支持“加减乘除”(+ - * /)运算<br>calc()函数使用标准的数学运算优先级规则</p>
+</blockquote>
+<hr>
+<h1 id="【三栏布局】"><a href="#【三栏布局】" class="headerlink" title="【三栏布局】"></a>【三栏布局】</h1><h2 id="方法1-1"><a href="#方法1-1" class="headerlink" title="方法1"></a>方法1</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;center&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.left</span>,<span class="selector-class">.right</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: yellow;</span><br><span class="line">    floot: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">    floot: right;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.center</span> &#123;</span><br><span class="line">    <span class="comment">/*不写宽度，自适应*/</span></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background</span>: blue;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">margin-right</span>:<span class="number">200px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="方法2-1"><a href="#方法2-1" class="headerlink" title="方法2"></a>方法2</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.left</span>,<span class="selector-class">.right</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: yellow;</span><br><span class="line">    floot: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">    floot: right;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.center</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="built_in">calc</span>(<span class="number">100%</span> - <span class="number">400px</span>); <span class="comment">/*宽度*/</span></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background</span>: blue;</span><br><span class="line">    <span class="comment">/* margin-left: 200px; */</span></span><br><span class="line">    <span class="comment">/* margin-right:200px; */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="【上中下布局】"><a href="#【上中下布局】" class="headerlink" title="【上中下布局】"></a>【上中下布局】</h1><p><code>页首</code>、<code>页尾</code>高度固定，<code>中间</code>部分高度自适应。此外中间部分又是<code>左中右</code>三栏布局。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;top&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;middle&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;center&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;bottom&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.top</span>,<span class="selector-class">.bottom</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.middle</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="built_in">calc</span>(<span class="number">100%</span> - <span class="number">100px</span>);</span><br><span class="line">    <span class="attribute">background</span>: yellow;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.left</span>,<span class="selector-class">.right</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">    floot: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.center</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="built_in">calc</span>(<span class="number">100%</span> - <span class="number">200px</span>);</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background</span>: blue;</span><br><span class="line">    floot: left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="【表单标签-进阶】"><a href="#【表单标签-进阶】" class="headerlink" title="【表单标签-进阶】"></a>【表单标签-进阶】</h1><h2 id="1-单选框（radio）"><a href="#1-单选框（radio）" class="headerlink" title="1. 单选框（radio）"></a>1. 单选框（radio）</h2><p>相同 <code>name</code> 值的众多单选框中只能选中一个。</p>
+<ul>
+<li>你的性别是？<br>  <input type="radio" name="sex"> 我是猛男<br>  <input type="radio" name="sex"> 我是仙女</li>
+<li>你喜欢什么水果？<br>  <input type="radio" name="fruits"> 当然是苹果<br>  <input type="radio" name="fruits"> 我选择香蕉<br>  <input type="radio" name="fruits"> 葡萄也不错</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>&gt;</span> 我是猛男</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>&gt;</span> 我是仙女</span><br></pre></td></tr></table></figure>
+
+<p>但是，上方单选框只有前面的圆圈管用，点文字是无效的，解决办法如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">id</span>=<span class="string">&quot;man&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;man&quot;</span>&gt;</span>我是猛男<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">id</span>=<span class="string">&quot;woman&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;woman&quot;</span>&gt;</span>我是仙女<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>你的性别是？<br><input type="radio" name="sex" id="man">
+<label for="man">我是猛男</label>
+<br>
+<input type="radio" name="sex" id="woman">
+<label for="woman">我是仙女</label></li>
+</ul>
+<p>加上<code>id</code>和<code>&lt;label for=&quot;&quot;&gt;</code>标签，此时点击文字也可以进行选择</p>
+<p>如果设置一个默认选好的选项，可以挑一个input标签，加上<code>checked=&quot;checked&quot;</code>属性：</p>
+<p>其中可以不写等号和后面的值，直接简写为<code>checked</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">checked</span>=<span class="string">&quot;checked&quot;</span>&gt;</span>我是猛男</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>&gt;</span>我是仙女</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-复选框（checkbox）"><a href="#2-复选框（checkbox）" class="headerlink" title="2. 复选框（checkbox）"></a>2. 复选框（checkbox）</h2><ul>
+<li>你的爱好有什么？<br><input type="checkbox" name="like"> 抽烟<br><input type="checkbox" name="like"> 喝酒<br><input type="checkbox" name="like"> 烫头</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;like&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>当然，想让文字点击有效，或设置默认选中值，也可以：<br><input type="checkbox" name="like" id="aaa">
+<label for="aaa">吃饭</label>
+<br>
+<input type="checkbox" name="like" id="bbb" checked="checked">
+<label for="bbb">睡觉</label>
+<br>
+<input type="checkbox" name="like" id="ccc" checked>
+<label for="ccc">打豆豆</label></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;like&quot;</span> <span class="attr">id</span>=<span class="string">&quot;aaa&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;aaa&quot;</span>&gt;</span>吃饭<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;like&quot;</span> <span class="attr">id</span>=<span class="string">&quot;bbb&quot;</span> <span class="attr">checked</span>=<span class="string">&quot;checked&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;bbb&quot;</span>&gt;</span>睡觉<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;like&quot;</span> <span class="attr">id</span>=<span class="string">&quot;ccc&quot;</span> <span class="attr">checked</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;ccc&quot;</span>&gt;</span>打豆豆<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这里能看出来<code>checked=&quot;checked&quot;</code>和<code>checked</code>都是一样的</p>
+<h2 id="3-上传文件和隐藏字段（file）"><a href="#3-上传文件和隐藏字段（file）" class="headerlink" title="3. 上传文件和隐藏字段（file）"></a>3. 上传文件和隐藏字段（file）</h2><input type="file" name="" id="">
+<br><br>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;&quot;</span> <span class="attr">id</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意<code>&lt;input type=&quot;image&quot; src=&quot;&quot;&gt;</code>是图片代替<strong>提交按钮</strong>，不是指上传图片</p>
+</blockquote>
+<p>此外页面中还经常会有用户看不到的信息藏在如下标签里：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 隐藏按钮 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">name</span>=<span class="string">&quot;&quot;</span> <span class="attr">id</span>=<span class="string">&quot;&quot;</span> <span class="attr">value</span>=<span class="string">&quot;带给后端的个人信息&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>网页中还会经常有一些禁用的按钮样式：</p>
+<p><button disabled="disabled" style="background:#7878ff; color:white; width:50px; height:30px; border-radius: 5px;">注册</button><br><input type="radio" disabled> 不满意</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 禁用，只读 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">disabled</span>=<span class="string">&quot;disabled&quot;</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">disabled</span>&gt;</span>不满意</span><br></pre></td></tr></table></figure>
+
+<p>他们都是给标签增加了 <code>disabled=&quot;disabled&quot;</code>属性（或简写为 <code>disabled</code>）。</p>
+<p>除了<code>disabled</code>，只读也可用<code>readonly</code>属性：</p>
+<p><input type="text" disabled value="666666"> disabled<br><input type="text" readonly value="888888"> readonly</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">disabled</span> <span class="attr">value</span>=<span class="string">&quot;666666&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">readonly</span> <span class="attr">value</span>=<span class="string">&quot;888888&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-下拉菜单（select）"><a href="#4-下拉菜单（select）" class="headerlink" title="4. 下拉菜单（select）"></a>4. 下拉菜单（select）</h2><select>
+    <option>河南</option>
+    <option>上海</option>
+    <option>北京</option>
+    <option>成都</option>
+    <option>重庆</option>
+</select>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>河南<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>上海<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>北京<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>成都<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>重庆<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>size</code>控制显示行数：</p>
+<select size="3">
+    <option>河南</option>
+    <option>上海</option>
+    <option>北京</option>
+    <option>成都</option>
+    <option>重庆</option>
+</select>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">size</span>=<span class="string">&quot;3&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>河南<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>上海<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>北京<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>成都<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>重庆<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>multiple</code>控制选择个数（按住Ctrl或Shift）：</p>
+<select size="3" multiple>
+    <option>河南</option>
+    <option>上海</option>
+    <option>北京</option>
+    <option>成都</option>
+    <option>重庆</option>
+</select>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">size</span>=<span class="string">&quot;3&quot;</span> <span class="attr">multiple</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>河南<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>上海<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>北京<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>成都<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>重庆<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>每一个<code>&lt;option&gt;&lt;/option&gt;</code>选项都需要加value值，提供给后端。</p>
+<p>若给某一个加上<code>selected</code>属性，指默认选中的选项。</p>
+<h2 id="5-文本域（textarea）"><a href="#5-文本域（textarea）" class="headerlink" title="5. 文本域（textarea）"></a>5. 文本域（textarea）</h2><textarea></textarea>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>常用属性/样式：</p>
+<ol>
+<li><code>cols=&quot;10&quot;</code>显示列数（不常用，一般用CSS）</li>
+<li><code>rows=&quot;20&quot;</code>显示行数（不常用，一般用CSS）</li>
+<li><code>placeholder=&quot;预置提示文字&quot;</code></li>
+<li><code>value=&quot;提前已输入的文字&quot;</code></li>
+<li>CSS样式：<code>resize: ;</code>重新设置大小。vertical（竖直可调节）、horizontal（水平可调节），both（默认），none（常用）</li>
+</ol>
+<h2 id="6-字段集（fieldset）"><a href="#6-字段集（fieldset）" class="headerlink" title="6. 字段集（fieldset）"></a>6. 字段集（fieldset）</h2><fieldset>
+    <legend>性别</legend>
+    <input type="radio" name="sex" checked="checked"> 我是猛男
+    <br />
+    <input type="radio" name="sex"> 我是仙女
+</fieldset><br />
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">fieldset</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">legend</span>&gt;</span>性别<span class="tag">&lt;/<span class="name">legend</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">checked</span>=<span class="string">&quot;checked&quot;</span>&gt;</span> 我是猛男</span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>&gt;</span> 我是仙女</span><br><span class="line"><span class="tag">&lt;/<span class="name">fieldset</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其中<code>&lt;legend&gt;性别&lt;/legend&gt;</code>标题可以通过CSS的<code>text-align:left/center/right;</code>属性改变位置。</p>
+<p>其他标签<code>&lt;fieldset&gt;</code>、<code>&lt;legend&gt;</code>、<code>&lt;input&gt;</code>的样式也能通过CSS改变。</p>
+<hr>
+<h1 id="【HTML5】"><a href="#【HTML5】" class="headerlink" title="【HTML5】"></a>【HTML5】</h1><h2 id="1-基础和语法"><a href="#1-基础和语法" class="headerlink" title="1. 基础和语法"></a>1. 基础和语法</h2><p>简述：</p>
+<ol>
+<li>一些标签不用写结束标记（<code>br</code>,<code>hr</code>,<code>img</code>,<code>link</code>,<code>meta</code>）</li>
+<li>一些标签可省略结束标记（<code>li</code>,<code>dt</code>,<code>dd</code>,<code>p</code>,<code>option</code>）</li>
+<li>一些标签可省略全部标记（<code>html</code>,<code>head</code>,<code>body</code>,<code>colgroup</code>,<code>tbody</code>）</li>
+<li>属性值可使用双引号，也能使用单引号。</li>
+</ol>
+<h2 id="2-新增语义化标签"><a href="#2-新增语义化标签" class="headerlink" title="2. 新增语义化标签"></a>2. 新增语义化标签</h2><p>section元素，表示页面中的一个内容区块<br>article元素，表示一块与上下文无关的独立的内容<br>aside元素，在article之外的，与article内容相关的辅助信息<br>header元素，表示页面中一个内容区块或整个页面的标题<br>footer元素，表示页面中一个内容区块或整个页面的脚注<br>nav元素，表示页面中导航链接部分<br>figure元素，表示一段独立的流内容，使用figcation元素为其添加标题（第一个或最后一个子元素的位置）<br>main元素，表示页面的主要内容（IE不兼容）<br>hgroup标题的一个分组</p>
+<blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2022/02/12/H06WHP.png" alt="H06WHP.png"><br><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2022/02/12/H0ckHx.gif" alt="H0ckHx.gif"></p>
+</blockquote>
+<h2 id="3-新增音频标签"><a href="#3-新增音频标签" class="headerlink" title="3. 新增音频标签"></a>3. 新增音频标签</h2><p><audio src="" controls></audio></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">controls</span>&gt;</span><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>控制栏：<code>controls</code>或<code>controls=&quot;controls&quot;</code> </li>
+<li>循环：<code>loop</code></li>
+<li>自动播放：<code>autoplay</code></li>
+<li>静音播放：<code>muted</code></li>
+</ol>
+<h2 id="4-新增视频标签"><a href="#4-新增视频标签" class="headerlink" title="4. 新增视频标签"></a>4. 新增视频标签</h2><p><video src="" controls></video></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">controls</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>控制栏：<code>controls</code>或<code>controls=&quot;controls&quot;</code> </li>
+<li>循环：<code>loop</code></li>
+<li>自动播放：<code>autoplay</code></li>
+<li>静音播放：<code>muted</code></li>
+<li>海报（视频封面）：<code>poster=&quot;&quot;</code></li>
+<li>CSS样式：宽和高</li>
+</ol>
+<h2 id="5-增强表单"><a href="#5-增强表单" class="headerlink" title="5. 增强表单"></a>5. 增强表单</h2><h3 id="（1）input新增type属性"><a href="#（1）input新增type属性" class="headerlink" title="（1）input新增type属性"></a>（1）input新增type属性</h3><p>颜色选择 <input type="color"><br><br>唤起拨号盘 <input type="tel"><br><br>滑动条 <input type="range"><br><br>数值 <input type="number"><br><br>URL类型 <input type="url"><br><br>日期 <input type="date"><br><br>月份类型 <input type="month"><br><br>周类型 <input type="week"><br><br>时间类型 <input type="time"><br><br>选取时间 <input type="datetime-local"><br></p>
+<p><code>type=&quot;color&quot;</code> 生成一个颜色选择的表单<br><code>type=&quot;tel&quot;</code> 唤起拨号盘表单<br><code>type=&quot;search&quot;</code> 产生一个搜索意义的表单<br><code>type=&quot;range&quot;</code>  产生一个滑动条表单（min=”100” max=”200” value=”100” step=”10”）<br><code>type=&quot;number&quot;</code>  产生一个数值表单（min=”0” max=”10” value=”5” step=”2”）<br><code>type=&quot;email&quot;</code> 限制用户必须输入Email类型<br><code>type=&quot;url&quot;</code> 限制用户必须输入URL类型<br><code>type=&quot;date&quot;</code> 限制用户必须输入日期<br><code>type=&quot;month&quot;</code> 限制用户必须输入月份类型<br><code>type=&quot;week&quot;</code> 限制用户必须输入周类型<br><code>type=&quot;time&quot;</code> 限制用户必须输入时间类型<br><code>type=&quot;datetime-local&quot;</code> 选取本地时间</p>
+<blockquote>
+<p>在页面中要放在form表单中，并且每个input标签都要有name值</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;&quot;</span> <span class="attr">name</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">&gt;<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="（2）datalist选项列表"><a href="#（2）datalist选项列表" class="headerlink" title="（2）datalist选项列表"></a>（2）datalist选项列表</h3><p>也叫数据列表，类似于下拉列表：</p>
+<input id="myName" list="names" placeholder="大家经常叫我啥名？" />
+<datalist id="names">
+  <option value="百里飞洋">
+  <option value="帅爸比">
+  <option value="靓仔">
+  <option value="小帅哥">
+  <option value="小张">
+</datalist><br/><br/>
+
+<blockquote>
+<p>其实输入“帅”的话会筛选出“帅爸比”和“小帅哥”这两个选项，类似于“模糊搜索”的查询功能，可以配合后端使用。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;myName&quot;</span> <span class="attr">list</span>=<span class="string">&quot;names&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;大家经常叫我啥名？&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">datalist</span> <span class="attr">id</span>=<span class="string">&quot;names&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;百里飞洋&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;帅爸比&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;靓仔&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;小帅哥&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;小张&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">datalist</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>提示：option元素永远都要设置value属性</p>
+</blockquote>
+<h3 id="（3）新增属性"><a href="#（3）新增属性" class="headerlink" title="（3）新增属性"></a>（3）新增属性</h3><ul>
+<li><p><code>autofocus</code>属性：<br>给文本框、选择框、或者按钮控件加上该属性，当页面打开时，该控件自动获得国标焦点，一个页面只能有一个。</p>
+</li>
+<li><p><code>required</code>属性：<br>验证输入不能为空，必填项，否则会阻断提交。</p>
+</li>
+<li><p><code>multiple</code>属性：<br>可以输入一个或多个值，每个值之间用逗号分开。<br>例如：<code>&lt;input type=&quot;email&quot; multiple&gt;</code>，还可以用于file（多文件上传）。</p>
+</li>
+<li><p><code>pattern</code>属性:<br>将属性值设为某个格式的正则表达式，在提交时会检查其内容是否符合给定格式。<br>例如：<code>&lt;input pattern=&quot;[0-9][A-Z]&#123;3&#125;&quot; title=&quot;输入内容&quot; placehoder=&quot;输入一个数和三个大写字母&quot;&gt;</code></p>
+</li>
+</ul>
+<p>更多新增属性请查看相应教学网站。</p>
+<hr>
+<h1 id="【CSS3】"><a href="#【CSS3】" class="headerlink" title="【CSS3】"></a>【CSS3】</h1><ul>
+<li><p><strong>渐进增强</strong>：针对低版本浏览器进行构建页面，保证最基本的功能。然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。</p>
+</li>
+<li><p><strong>优雅降级</strong>：一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。</p>
+</li>
+</ul>
+<blockquote>
+<p>【区别】：<br>    1. “优雅降级”从复杂的现状开始，并试图减少用户体验的供给。<br>    2. “渐进增强”是从一个非常基础的、能够起作用的版本开始。并不断扩充，以适应未来环境的需求。</p>
+</blockquote>
+<h2 id="1-选择器"><a href="#1-选择器" class="headerlink" title="1. 选择器"></a>1. 选择器</h2><p>本文未完成，剩余视频课程请见：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV17z4y1D7Yj?p=109">https://www.bilibili.com/video/BV17z4y1D7Yj?p=109</a></p>
+<h2 id="2-文本-盒子阴影"><a href="#2-文本-盒子阴影" class="headerlink" title="2. 文本/盒子阴影"></a>2. 文本/盒子阴影</h2><h2 id="3-边框样式"><a href="#3-边框样式" class="headerlink" title="3. 边框样式"></a>3. 边框样式</h2><h2 id="4-字体引入"><a href="#4-字体引入" class="headerlink" title="4. 字体引入"></a>4. 字体引入</h2><h2 id="5-怪异盒"><a href="#5-怪异盒" class="headerlink" title="5. 怪异盒"></a>5. 怪异盒</h2><h2 id="6-弹性盒"><a href="#6-弹性盒" class="headerlink" title="6. 弹性盒"></a>6. 弹性盒</h2><h2 id="7-折行与行间距"><a href="#7-折行与行间距" class="headerlink" title="7. 折行与行间距"></a>7. 折行与行间距</h2><hr>
+<h1 id="【弹性盒布局】"><a href="#【弹性盒布局】" class="headerlink" title="【弹性盒布局】"></a>【弹性盒布局】</h1><h1 id="【移动端布局】"><a href="#【移动端布局】" class="headerlink" title="【移动端布局】"></a>【移动端布局】</h1><h1 id="【多列布局】"><a href="#【多列布局】" class="headerlink" title="【多列布局】"></a>【多列布局】</h1><h1 id="【响应式布局】"><a href="#【响应式布局】" class="headerlink" title="【响应式布局】"></a>【响应式布局】</h1><h1 id="【单位转换】"><a href="#【单位转换】" class="headerlink" title="【单位转换】"></a>【单位转换】</h1><h2 id="em-和-rem"><a href="#em-和-rem" class="headerlink" title="em 和 rem"></a>em 和 rem</h2><h2 id="vw-和-vh"><a href="#vw-和-vh" class="headerlink" title="vw 和 vh"></a>vw 和 vh</h2><h1 id="【渐变】"><a href="#【渐变】" class="headerlink" title="【渐变】"></a>【渐变】</h1><h1 id="【动画过渡】"><a href="#【动画过渡】" class="headerlink" title="【动画过渡】"></a>【动画过渡】</h1><h1 id="【平移-缩放-旋转-倾斜】"><a href="#【平移-缩放-旋转-倾斜】" class="headerlink" title="【平移/缩放/旋转/倾斜】"></a>【平移/缩放/旋转/倾斜】</h1><h1 id="【关键帧动画】"><a href="#【关键帧动画】" class="headerlink" title="【关键帧动画】"></a>【关键帧动画】</h1><h1 id="【3D平移-旋转-缩放】"><a href="#【3D平移-旋转-缩放】" class="headerlink" title="【3D平移/旋转/缩放】"></a>【3D平移/旋转/缩放】</h1><h1 id="【网格布局】"><a href="#【网格布局】" class="headerlink" title="【网格布局】"></a>【网格布局】</h1><hr>
+<p><strong>特别感谢：</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV17z4y1D7Yj">千锋HTML5前端开发教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45457515/article/details/98307074">H5新增语义化标签以及属性 - CSDN</a></li>
+</ul>
+<!-- <script>function pass(){var i=1;var result=prompt('\u6b64\u6587\u7ae0\u662f\u79c1\u5bc6\u5185\u5bb9\uff0c\u8bf7\u8f93\u5165\u5bc6\u7801\uff1a','');while(i<3){if(result==='2022-01-20'){alert('\u5bc6\u7801\u8f93\u5165\u6b63\u786e\uff01');break}i++;var result=prompt('\u5bc6\u7801\u9519\u8bef\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01\u0028\u4f60\u8fd8\u6709'+(4-i)+'\u6b21\u673a\u4f1a\u0029')}if(result!=='2022-01-20'&&i===3){alert('\u5bc6\u7801\u9519\u8bef\u5df2\u8fbe\u5230\u0033\u6b21\uff01\u0028\u771f\u60f3\u770b\u7684\u8bdd\u662f\u53ef\u4ee5\u8054\u7cfb\u4f5c\u8005\u7684\u002e\u002e\u002e\u0029');location.reload()}return''}pass();</script> --></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">百里飞洋 Barry-Flynn</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.meta-code.top/2022/01/20/2022-19/">https://blog.meta-code.top/2022/01/20/2022-19/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.meta-code.top" target="_blank">百里飞洋</a>！</span></div><div class="post-technical-tips"><span class="post-copyright-meta">技术内容: </span><span class="post-copyright-info">若存在错误或不当之处，还望兄台不吝赐教，期待与您交流！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a><a class="post-meta__tags" href="/tags/CSS/">CSS</a></div><div class="post_share"><div class="social-share" data-image="/img/friends/Barry-Flynn.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/CDN/share/share.min.css" media="print" onload="this.media='all'"><script src="/CDN/share/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E5%BE%AE%E4%BF%A1WeChat%E6%89%93%E8%B5%8F%E7%A0%81.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E5%BE%AE%E4%BF%A1%E6%89%93%E8%B5%8F%EF%BC%88%E7%BA%AF%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%89.png" alt="WeChat微信打赏"/></a><div class="post-qr-code-desc">WeChat微信打赏</div></li><li class="reward-item"><a href="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E6%94%AF%E4%BB%98%E5%AE%9DAliPay%E6%89%93%E8%B5%8F%E7%A0%81.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%89%93%E8%B5%8F%EF%BC%88%E7%BA%AF%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%89.png" alt="AliPay支付宝打赏"/></a><div class="post-qr-code-desc">AliPay支付宝打赏</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/01/18/2022-14/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" onerror="onerror=null;src='/img/others/404.gif'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【青训营02】深入 CSS</div></div></a></div><div class="next-post pull-right"><a href="/2022/02/03/2022-21/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" onerror="onerror=null;src='/img/others/404.gif'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【前端】文字设置高亮彩色背景条</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/01/16/2022-12/" title="【千锋】H5大前端-学习打卡02（CSS）"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-16</div><div class="title">【千锋】H5大前端-学习打卡02（CSS）</div></div></a></div><div><a href="/2022/01/17/2022-13/" title="【青训营02】了解 CSS"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-17</div><div class="title">【青训营02】了解 CSS</div></div></a></div><div><a href="/2022/01/18/2022-14/" title="【青训营02】深入 CSS"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-18</div><div class="title">【青训营02】深入 CSS</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/friends/Barry-Flynn.jpg" onerror="this.onerror=null;this.src='/img/others/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">百里飞洋 Barry-Flynn</div><div class="author-info__description">星河滚烫，无问西东</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">92</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://space.bilibili.com/349963315"><i class="fas fa-play-circle"></i><span>关注我吧</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://weibo.com/6327778914" target="_blank" title="微博Weibo"><i class="fab fa-weibo"></i></a><a class="social-icon" href="https://space.bilibili.com/349963315" target="_blank" title="哔哩哔哩Bilibili"><i class="fab fa-youtube"></i></a><a class="social-icon" href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=2158469373@qq.com" target="_blank" title="邮箱Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://github.com/Barry-Flynn" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://gitee.com/Barry-Flynn" target="_blank" title="码云Gitee"><i class="fab fa-gofore"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Hey,欢迎来到我的博客小世界！<br /> 00后程序员&中二小青年 <br /> QQ学习聊天群：<b>534984250</b><br /> 才疏学浅，自说自话，<br /> 欢迎交流玩耍~<br /> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/others/咒术回战.gif" style="border-radius:0.5rem;" /></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%90%E4%B8%A4%E6%A0%8F%E5%B8%83%E5%B1%80%E3%80%91"><span class="toc-text">【两栏布局】</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%951"><span class="toc-text">方法1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%952"><span class="toc-text">方法2</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%90%E4%B8%89%E6%A0%8F%E5%B8%83%E5%B1%80%E3%80%91"><span class="toc-text">【三栏布局】</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%951-1"><span class="toc-text">方法1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%952-1"><span class="toc-text">方法2</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%90%E4%B8%8A%E4%B8%AD%E4%B8%8B%E5%B8%83%E5%B1%80%E3%80%91"><span class="toc-text">【上中下布局】</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%90%E8%A1%A8%E5%8D%95%E6%A0%87%E7%AD%BE-%E8%BF%9B%E9%98%B6%E3%80%91"><span class="toc-text">【表单标签-进阶】</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%8D%95%E9%80%89%E6%A1%86%EF%BC%88radio%EF%BC%89"><span class="toc-text">1. 单选框（radio）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%A4%8D%E9%80%89%E6%A1%86%EF%BC%88checkbox%EF%BC%89"><span class="toc-text">2. 复选框（checkbox）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%92%8C%E9%9A%90%E8%97%8F%E5%AD%97%E6%AE%B5%EF%BC%88file%EF%BC%89"><span class="toc-text">3. 上传文件和隐藏字段（file）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95%EF%BC%88select%EF%BC%89"><span class="toc-text">4. 下拉菜单（select）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%96%87%E6%9C%AC%E5%9F%9F%EF%BC%88textarea%EF%BC%89"><span class="toc-text">5. 文本域（textarea）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%AD%97%E6%AE%B5%E9%9B%86%EF%BC%88fieldset%EF%BC%89"><span class="toc-text">6. 字段集（fieldset）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%90HTML5%E3%80%91"><span class="toc-text">【HTML5】</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%9F%BA%E7%A1%80%E5%92%8C%E8%AF%AD%E6%B3%95"><span class="toc-text">1. 基础和语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%96%B0%E5%A2%9E%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE"><span class="toc-text">2. 新增语义化标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%96%B0%E5%A2%9E%E9%9F%B3%E9%A2%91%E6%A0%87%E7%AD%BE"><span class="toc-text">3. 新增音频标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%96%B0%E5%A2%9E%E8%A7%86%E9%A2%91%E6%A0%87%E7%AD%BE"><span class="toc-text">4. 新增视频标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%A2%9E%E5%BC%BA%E8%A1%A8%E5%8D%95"><span class="toc-text">5. 增强表单</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%881%EF%BC%89input%E6%96%B0%E5%A2%9Etype%E5%B1%9E%E6%80%A7"><span class="toc-text">（1）input新增type属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%882%EF%BC%89datalist%E9%80%89%E9%A1%B9%E5%88%97%E8%A1%A8"><span class="toc-text">（2）datalist选项列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E6%96%B0%E5%A2%9E%E5%B1%9E%E6%80%A7"><span class="toc-text">（3）新增属性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%90CSS3%E3%80%91"><span class="toc-text">【CSS3】</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">1. 选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%96%87%E6%9C%AC-%E7%9B%92%E5%AD%90%E9%98%B4%E5%BD%B1"><span class="toc-text">2. 文本&#x2F;盒子阴影</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%BE%B9%E6%A1%86%E6%A0%B7%E5%BC%8F"><span class="toc-text">3. 边框样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%AD%97%E4%BD%93%E5%BC%95%E5%85%A5"><span class="toc-text">4. 字体引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%80%AA%E5%BC%82%E7%9B%92"><span class="toc-text">5. 怪异盒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%BC%B9%E6%80%A7%E7%9B%92"><span class="toc-text">6. 弹性盒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%8A%98%E8%A1%8C%E4%B8%8E%E8%A1%8C%E9%97%B4%E8%B7%9D"><span class="toc-text">7. 折行与行间距</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%90%E5%BC%B9%E6%80%A7%E7%9B%92%E5%B8%83%E5%B1%80%E3%80%91"><span class="toc-text">【弹性盒布局】</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%90%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%83%E5%B1%80%E3%80%91"><span class="toc-text">【移动端布局】</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%90%E5%A4%9A%E5%88%97%E5%B8%83%E5%B1%80%E3%80%91"><span class="toc-text">【多列布局】</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%90%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80%E3%80%91"><span class="toc-text">【响应式布局】</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%90%E5%8D%95%E4%BD%8D%E8%BD%AC%E6%8D%A2%E3%80%91"><span class="toc-text">【单位转换】</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#em-%E5%92%8C-rem"><span class="toc-text">em 和 rem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vw-%E5%92%8C-vh"><span class="toc-text">vw 和 vh</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%90%E6%B8%90%E5%8F%98%E3%80%91"><span class="toc-text">【渐变】</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%90%E5%8A%A8%E7%94%BB%E8%BF%87%E6%B8%A1%E3%80%91"><span class="toc-text">【动画过渡】</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%90%E5%B9%B3%E7%A7%BB-%E7%BC%A9%E6%94%BE-%E6%97%8B%E8%BD%AC-%E5%80%BE%E6%96%9C%E3%80%91"><span class="toc-text">【平移&#x2F;缩放&#x2F;旋转&#x2F;倾斜】</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%90%E5%85%B3%E9%94%AE%E5%B8%A7%E5%8A%A8%E7%94%BB%E3%80%91"><span class="toc-text">【关键帧动画】</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%903D%E5%B9%B3%E7%A7%BB-%E6%97%8B%E8%BD%AC-%E7%BC%A9%E6%94%BE%E3%80%91"><span class="toc-text">【3D平移&#x2F;旋转&#x2F;缩放】</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%90%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80%E3%80%91"><span class="toc-text">【网格布局】</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 百里飞洋 Barry-Flynn</div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="http://meta-code.top/"><i class="fas fa-globe-americas"></i>&nbsp;元代码</a>丨<a target="_blank" rel="noopener" href="https://weibo.com/6327778914/profile?topnav=1&wvr=6&is_all=1"><i class="fab fa-weibo"></i>&nbsp;<span>新浪微博</span></a>丨<a target="_blank" rel="noopener" href="https://space.bilibili.com/349963315"><i class="fab fa-youtube"></i>&nbsp;<span>哔哩哔哩</span></a>丨<a href="/about/"><i class="fas fa-meteor"></i>&nbsp;关于我</a><br /> <a href="/Reward-list/">赞助列表</a>丨<a href="/about-website/">网站声明</a>丨<a href="/link/">友情链接</a>丨<a href="https://blog.meta-code.top/rss2.xml">RSS订阅</a><br /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41071102000543"><span style="vertical-align:middle;"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/icon/备案图标.png" style="vertical-align:middle;">&nbsp;豫公网安备 41071102000543号</a></span><br /> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><span style="vertical-align:middle;"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/icon/ICP备案.png" style="vertical-align:middle;width:20px;height:20px;">&nbsp;豫ICP备2021034491号</a></span><br /> <span><星河滚烫，无问西东></span><br /> <br /> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/二维码/移动端访问.png" style="width:130px;height:150px;border-radius:20px;display:inline-block;margin:0 5px;"> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/二维码/学习聊天群.png" style="width:130px;height:150px;border-radius:20px;display:inline-block;margin:0 5px;"><br /></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><a class="icon-V hidden" onclick="switchNightMode()" title="浅色和深色模式转换"><svg width="25" height="25" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon"></use></svg></a><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><a class="rightMenu-item" href="javascript:window.history.back();"><i class="fa-solid fa-arrow-left"></i></a><a class="rightMenu-item" href="javascript:window.location.reload();"><i class="fa-solid fa-arrow-rotate-right"></i></a><a class="rightMenu-item" href="javascript:window.history.forward();"><i class="fa-solid fa-arrow-right"></i></a><a class="rightMenu-item" id="menu-radompage" href="javascript:window.location.href = window.location.origin;"><i class="fa-solid fa-house"></i></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-text"><a class="rightMenu-item" href="javascript:rmf.copySelect();"><i class="fa-solid fa-copy"></i><span>复制</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:rmf.switchDarkMode();"><i class="fa-solid fa-circle-half-stroke"></i><span>昼夜模式</span></a><a class="rightMenu-item" href="javascript:rmf.switchTranslate();" id="menu-translate"><i class="fa-solid fa-earth-asia"></i><span>繁简切换</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/categories/';"><i class="fa-solid fa-book"></i><span>博客分类</span></a><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/tags/';"><i class="fa-solid fa-tags"></i><span>博客标签</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/Reward-list/';"><i class="fa-solid fa-clipboard-list"></i><span>打赏赞助 ❤</span></a><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/about-website/';"><i class="fa-solid fa-envelope-open-text"></i><span>网站声明</span></a></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="/CDN/lazyload.iife.min.js"></script><script src="/CDN/snackbar/snackbar.min.js"></script><script async="async">var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').style.transition = 'opacity 3s ease 0s'
+    document.getElementById('loading-box').style.opacity = '0'
+    setTimeout(function(){
+      document.getElementById('loading-box').classList.add("loaded")
+    }, 3000);
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').style.transition = '';
+    document.getElementById('loading-box').style.opacity = '1'
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})
+setTimeout(function(){preloader.endLoading();}, 3000);</script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://hexoblog-twikoo.meta-code.top',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'https://hexoblog-twikoo.meta-code.top',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('/CDN/comments/twikoo_1.6.26.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://hexoblog-twikoo.meta-code.top',
+        region: '',
+        pageSize: 5,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('/CDN/comments/twikoo_1.6.26.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script src="/js/console.js?date=20241027"></script><canvas id="universe"></canvas><script src="/js/universe.js"></script><script src="/js/plugins/jquery-3.6.0.min.js"></script><script src="/js/rightmenu.js"></script><script src="/js/sun_moon.js" async></script><div class="aplayer no-destroy" data-id="1050282" data-server="netease" data-type="artist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" data-lrctype="0" muted></div><canvas class="fireworks" mobile="false"></canvas><script src="/CDN/effect/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="105, 171, 247" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/CDN/background_effect/canvas-nest.min.js"></script><script src="/CDN/effect/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="/CDN/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="/CDN/aplayer/APlayer.min.js"></script><script src="/CDN/aplayer/Meting.min.js"></script><script src="/CDN/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="/CDN/count/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start -->
+  <script data-pjax src="/CDN/hexo_githubcalendar.js"></script>
+  <script data-pjax>
+        function GithubCalendarConfig(){
+            var git_githubapiurl ="https://github-calendar-api.meta-code.top/api?user=Barry-Flynn";
+            var git_color =['#ebedf0', '#a2f7af', '#6ce480', '#54ad63', '#469252', '#31753c', '#1f5f2a', '#13531f', '#084111', '#032b09', '#000000'];
+            var git_user ="Barry-Flynn";
+            var parent_div_git = document.getElementById('recent-posts');
+            var git_div_html = '<div class="recent-post-item" style="width:100%;height:auto;padding:10px;"><div id="github_loading" style="width:10%;height:100%;margin:0 auto;display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg></div><div id="github_container"></div></div>';
+            if(parent_div_git && location.pathname =='/'){
+                console.log("已挂载hexo-github-calendar https://github.com/Barry-Flynn/hexo-github-calendar");
+                // parent_div_git.innerHTML=git_div_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",git_div_html) // 有报错，但不影响使用(支持pjax跳转)
+            };
+            GithubCalendar(git_githubapiurl,git_color,git_user)
+        }
+        if(document.getElementById('recent-posts')){
+            GithubCalendarConfig()
+        }
+    </script>
+    <style>#github_container{min-height:280px}@media screen and (max-width:650px) {#github_container{background-image:;min-height:0px}}</style>
+    <style></style><!-- hexo injector body_end end --></body></html>

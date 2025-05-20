@@ -1,0 +1,578 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>【前端】常用加解密技术与使用方法 | 百里飞洋</title><meta name="keywords" content="前端"><meta name="author" content="百里飞洋 Barry-Flynn"><meta name="copyright" content="百里飞洋 Barry-Flynn"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本文将介绍几种最常用的 JavaScript 加密和解密方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【前端】常用加解密技术与使用方法">
+<meta property="og:url" content="https://blog.meta-code.top/2023/05/18/2023-102/index.html">
+<meta property="og:site_name" content="百里飞洋">
+<meta property="og:description" content="本文将介绍几种最常用的 JavaScript 加密和解密方法">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.meta-code.top/img/friends/Barry-Flynn.jpg">
+<meta property="article:published_time" content="2023-05-18T04:46:44.000Z">
+<meta property="article:modified_time" content="2025-05-19T17:05:36.806Z">
+<meta property="article:author" content="百里飞洋 Barry-Flynn">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.meta-code.top/img/friends/Barry-Flynn.jpg"><link rel="shortcut icon" href="/img/icon/%E7%81%AB%E7%AE%AD.png"><link rel="canonical" href="https://blog.meta-code.top/2023/05/18/2023-102/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/CDN/fontawesome/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/CDN/snackbar/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e21f557d5683e4733d77db5ab8910d7b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":100,"position":"top","messagePrev":"「温馨提示」本文更新已经","messageNext":"天，若内容或图片失效，请留言反馈。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: 百里飞洋 Barry-Flynn","link":"链接: ","source":"来源: 百里飞洋","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#121212","bgDark":"#49b1f5","position":"bottom-right"},
+  source: {
+    jQuery: '/CDN/jquery.min.js',
+    justifiedGallery: {
+      js: '/CDN/justifiedGallery/jquery.justifiedGallery.min.js',
+      css: '/CDN/justifiedGallery/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: '/CDN/photo/jquery.fancybox.min.js',
+      css: '/CDN/photo/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【前端】常用加解密技术与使用方法',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-05-20 01:05:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><link rel="stylesheet" href="/css/BF-simple.css"><link rel="stylesheet" href="/css/BF-rightmenu.css"><link rel="stylesheet" href="https://s1.hdslb.com/bfs/static/jinkela/long/font/regular.css"><svg aria-hidden="true" style="position:absolute; overflow:hidden; width:0; height:0"><symbol id="icon-sun" viewBox="0 0 1024 1024"><path d="M960 512l-128 128v192h-192l-128 128-128-128H192v-192l-128-128 128-128V192h192l128-128 128 128h192v192z" fill="#FFD878" p-id="8420"></path><path d="M736 512a224 224 0 1 0-448 0 224 224 0 1 0 448 0z" fill="#FFE4A9" p-id="8421"></path><path d="M512 109.248L626.752 224H800v173.248L914.752 512 800 626.752V800h-173.248L512 914.752 397.248 800H224v-173.248L109.248 512 224 397.248V224h173.248L512 109.248M512 64l-128 128H192v192l-128 128 128 128v192h192l128 128 128-128h192v-192l128-128-128-128V192h-192l-128-128z" fill="#4D5152" p-id="8422"></path><path d="M512 320c105.888 0 192 86.112 192 192s-86.112 192-192 192-192-86.112-192-192 86.112-192 192-192m0-32a224 224 0 1 0 0 448 224 224 0 0 0 0-448z" fill="#4D5152" p-id="8423"></path></symbol><symbol id="icon-moon" viewBox="0 0 1024 1024"><path d="M611.370667 167.082667a445.013333 445.013333 0 0 1-38.4 161.834666 477.824 477.824 0 0 1-244.736 244.394667 445.141333 445.141333 0 0 1-161.109334 38.058667 85.077333 85.077333 0 0 0-65.066666 135.722666A462.08 462.08 0 1 0 747.093333 102.058667a85.077333 85.077333 0 0 0-135.722666 65.024z" fill="#FFB531" p-id="11345"></path><path d="M329.728 274.133333l35.157333-35.157333a21.333333 21.333333 0 1 0-30.165333-30.165333l-35.157333 35.157333-35.114667-35.157333a21.333333 21.333333 0 0 0-30.165333 30.165333l35.114666 35.157333-35.114666 35.157334a21.333333 21.333333 0 1 0 30.165333 30.165333l35.114667-35.157333 35.157333 35.157333a21.333333 21.333333 0 1 0 30.165333-30.165333z" fill="#030835" p-id="11346"></path></symbol></svg><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="百里飞洋" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="百里飞洋" type="application/rss+xml">
+</head><body><div id="loading-box"><div class="centered"><div class="blob-1"></div><div class="blob-2"></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/friends/Barry-Flynn.jpg" onerror="onerror=null;src='/img/others/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">92</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/Calendar/"><i class="fa-fw fa-solid fa-calendar-check"></i><span> 奋斗日历</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-icons"></i><span> 多媒体</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-headphones-alt"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 找文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 按分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 按标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 按时间</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-medal"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/Reward-list/"><i class="fa-fw fas fa-clipboard-list"></i><span> 打赏榜</span></a></li><li><a class="site-page child" href="/about-website/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 网站声明</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-user-friends"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-subway"></i><span> 开往&amp;虫洞</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><i class="fa-fw fa fa-subway"></i><span> 开往/友链接力</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://foreverblog.cn/go.html"><i class="fa-fw fab fa-stumbleupon-circle"></i><span> 虫洞/十年之约</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://zhblogs.ohyee.cc/?tab=blog_list&amp;page=1&amp;tags=&amp;search=百里飞洋"><i class="fa-fw fas fa-blog"></i><span> 中文博客导航</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/images/hello%20world.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">百里飞洋</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/Calendar/"><i class="fa-fw fa-solid fa-calendar-check"></i><span> 奋斗日历</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-icons"></i><span> 多媒体</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-headphones-alt"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 找文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 按分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 按标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 按时间</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-medal"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/Reward-list/"><i class="fa-fw fas fa-clipboard-list"></i><span> 打赏榜</span></a></li><li><a class="site-page child" href="/about-website/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 网站声明</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-user-friends"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-subway"></i><span> 开往&amp;虫洞</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><i class="fa-fw fa fa-subway"></i><span> 开往/友链接力</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://foreverblog.cn/go.html"><i class="fa-fw fab fa-stumbleupon-circle"></i><span> 虫洞/十年之约</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://zhblogs.ohyee.cc/?tab=blog_list&amp;page=1&amp;tags=&amp;search=百里飞洋"><i class="fa-fw fas fa-blog"></i><span> 中文博客导航</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【前端】常用加解密技术与使用方法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-05-18T04:46:44.000Z" title="发表于 2023-05-18 12:46:44">2023-05-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-05-19T17:05:36.806Z" title="更新于 2025-05-20 01:05:36">2025-05-20</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>15分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【前端】常用加解密技术与使用方法"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>当今互联网世界中，数据安全是至关重要的。为了保护用户的隐私和保密信息，开发人员必须采取适当的安全措施。在前端开发中，加密和解密技术是一种常见的数据安全措施，本文将介绍几种最常用的 JavaScript 加密和解密方法。</p>
+<p><strong>友情提示</strong>：本文借助 ChatGPT 和 NewBing 辅助撰写，部分技术细节可能存在错误之处，使用具体某个库时请查看官方文档，本文所有代码仅为示例展示。</p>
+<h2 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h2><p>加密算法分为对称加密算法和非对称加密算法两种。</p>
+<ul>
+<li><p><strong>对称加密算法</strong>采用对称密码编码技术，加/解密使用<strong>相同密钥</strong>进行，效率较高。常见的对称加密算法有AES、DES、3DES等。</p>
+</li>
+<li><p><strong>非对称加密</strong>基于密钥交换协议，拥有<strong>公开密钥和私有密钥</strong>，使用公钥加密后需使用对应私钥才能进行解密。常见的非对称加密算法有RSA、DSA和ECC等。</p>
+</li>
+</ul>
+<h2 id="前端常用加解密技术"><a href="#前端常用加解密技术" class="headerlink" title="前端常用加解密技术"></a>前端常用加解密技术</h2><h3 id="Base64-加解密"><a href="#Base64-加解密" class="headerlink" title="Base64 加解密"></a>Base64 加解密</h3><p>Base64 是一种常用的加密技术，可以将任意类型的数据编码为 ASCII 字符，以便在不同系统之间安全地传输数据。JavaScript 中提供了内置的 <code>btoa()</code> 和 <code>atob() </code>方法，可用于将数据编码为 Base64 或从 Base64 解码。</p>
+<h4 id="简单示例"><a href="#简单示例" class="headerlink" title="简单示例"></a>简单示例</h4><p>下面是使用这两个方法进行 Base64 加解密的示例代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 加密</span></span><br><span class="line"><span class="keyword">let</span> message = <span class="string">&quot;Hello World!&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> encoded = btoa(message);</span><br><span class="line"><span class="built_in">console</span>.log(encoded); <span class="comment">// &quot;SGVsbG8gV29ybGQh&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 解密</span></span><br><span class="line"><span class="keyword">let</span> decoded = atob(encoded);</span><br><span class="line"><span class="built_in">console</span>.log(decoded); <span class="comment">// &quot;Hello World!&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，<code>btoa()</code> 方法和 <code>atob()</code> 方法只支持 ASCII 码范围内的字符串进行加解密，如果要处理含有非 ASCII 字符的字符串（如中文等），则需要使用一些第三方库或自己实现 Base64 算法。比如，直接使用 <code>btoa()</code> 加密中文内容，会报错 <code> DOMException: Failed to execute &#39;btoa&#39; on &#39;Window&#39;: The string to be encoded contains characters outside of the Latin1 range.</code> </p>
+<h4 id="实现中文加解密"><a href="#实现中文加解密" class="headerlink" title="实现中文加解密"></a>实现中文加解密</h4><p>这时我们可以结合 <code>encodeURIComponent()</code> 和 <code>decodeURIComponent()</code> 可以处理一些 Unicode 字符（如中文等），但这种方法不是真正的 Base64 加密解密，只是一种 hack 做法。具体来说，使用 <code>encodeURIComponent()</code> 方法将字符串转换成可被 URL 安全传输的编码字符串，然后对编码后的字符串进行 <code>btoa()</code> 方法的 Base64 编码。解密时先使用 <code>atob()</code> 方法进行 Base64 解码，然后再使用 <code>decodeURIComponent()</code> 方法对解码后的字符串进行 URL 解码，得到原始的 Unicode 字符串。下面是使用 <code>encodeURIComponent()</code> 和 <code>decodeURIComponent()</code> 结合 <code>btoa()</code> 和 <code>atob()</code> 实现 Base64 加解密的示例代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 加密</span></span><br><span class="line"><span class="keyword">let</span> message = <span class="string">&quot;你好！&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> encoded = btoa(<span class="built_in">encodeURIComponent</span>(message));</span><br><span class="line"><span class="built_in">console</span>.log(encoded); <span class="comment">// &quot;JUU0JUJEJUEwJUU1JUE1JUJEJUVGJUJDJTgx&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 解密</span></span><br><span class="line"><span class="keyword">let</span> decoded = <span class="built_in">decodeURIComponent</span>(atob(encoded));</span><br><span class="line"><span class="built_in">console</span>.log(decoded); <span class="comment">// &quot;你好！&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>其实，上述使用 <code>encodeURIComponent()</code> 对 <code>你好！</code> 转换得到的是 URL 编码字符串 <code>%E4%BD%A0%E5%A5%BD%EF%BC%81</code>，然后对该字符串进行了 <code>btoa()</code> 方法的 Base64 编码，解码同理，所以本质上并不是直接对中文字符串进行 Base64 加密解密。</p>
+<h4 id="使用第三方-Base64-库"><a href="#使用第三方-Base64-库" class="headerlink" title="使用第三方 Base64 库"></a>使用第三方 Base64 库</h4><p><code>btoa()</code> 和 <code>atob()</code> 方法只能处理 ASCII 码范围内的字符，对于 Unicode 码范围内的字符（如中文等）则不能正确处理。</p>
+<p>如果要处理中文内容，可以使用一些第三方的 Base64 库，例如 <code>js-base64</code>、<code>base64-js</code> 等。下面是使用 <code>js-base64</code> 库进行 Base64 编解码的示例代码：</p>
+<ol>
+<li>安装 <code>js-base64</code> 库：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install js-base64</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>在代码中引入 <code>js-base64</code> 库：</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Base64 &#125; <span class="keyword">from</span> <span class="string">&#x27;js-base64&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>使用 <code>js-base64</code> 进行 Base64 编解码：</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Base64 加密</span></span><br><span class="line"><span class="keyword">const</span> plainText = <span class="string">&quot;你好，ChatAi！&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> encodedText = Base64.encode(plainText);</span><br><span class="line"><span class="built_in">console</span>.log(encodedText); <span class="comment">// &quot;5L2g5aW977yMQUIh&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Base64 解密</span></span><br><span class="line"><span class="keyword">const</span> decodedText = Base64.decode(encodedText);</span><br><span class="line"><span class="built_in">console</span>.log(decodedText); <span class="comment">// &quot;你好，ChatAi！&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>在上面的示例中，我们首先引入了 <code>js-base64</code> 库，然后分别使用 <code>Base64.encode()</code> 方法进行 Base64 加密，使用 <code>Base64.decode()</code> 方法进行 Base64 解密。这些方法可以正确处理中文等 Unicode 字符。</p>
+<h3 id="MD5-加密（不可逆）"><a href="#MD5-加密（不可逆）" class="headerlink" title="MD5 加密（不可逆）"></a>MD5 加密（不可逆）</h3><p>MD5 是一种不可逆的哈希函数。所谓不可逆，是在加密过程中，将原始数据按照特定的规则运算后生成一段固定长度的摘要信息（也叫作哈希值，通常是一个 32 位的字符串），并且是不可逆推的。也就是说，给定一个 MD5 加密后的结果，无法根据该结果还原出原始数据。因为 MD5 加密算法是单向的，它将明文通过哈希函数转换为哈希值，而在哈希值上是无法推算出原数据的。</p>
+<p>MD5 加密主要用于生成数据的哈希值，以便验证数据的完整性和唯一性，以及对密码等敏感信息进行加密存储，通常用于密码验证和防篡改。但是，由于现在的计算机速度越来越快，MD5 的加密强度也越来越弱，因此在实际应用中，可能需要结合其他安全机制来保障数据的安全性。</p>
+<p>JavaScript 中没有内置的 MD5 方法，前端可以借助第三方 JavaScript 库来实现 MD5 加密功能，常用的有 CryptoJS、SparkMD5、md5.js 等。</p>
+<h4 id="CryptoJS-库"><a href="#CryptoJS-库" class="headerlink" title="CryptoJS 库"></a>CryptoJS 库</h4><p>这里以 <a target="_blank" rel="noopener" href="https://github.com/brix/crypto-js">CryptoJS</a> 为例，介绍如何使用 JavaScript 实现 MD5 加密。</p>
+<ol>
+<li><p>下载库文件并引入：</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 引入 CryptoJS 库</span><br><span class="line">// npm install crypto-js</span><br><span class="line">// const CryptoJS = require(&quot;crypto-js&quot;);</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>调用 <code>CryptoJS.MD5()</code> 方法进行加密：</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 加密</span></span><br><span class="line"><span class="keyword">let</span> message = <span class="string">&quot;Hello World!&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> encrypted = CryptoJS.MD5(message).toString();</span><br><span class="line"><span class="built_in">console</span>.log(encrypted); <span class="comment">// &quot;65a8e27d8879283831b664bd8b7f0ad4&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>验证密码，一般交给后端：</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 验证密码</span></span><br><span class="line"><span class="keyword">let</span> pass1word = <span class="string">&quot;myPass1word&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> hashedPassword = <span class="string">&quot;c019b8a60ee6ce9b7a36f655e026d7c2&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> isValid = CryptoJS.MD5(password).toString() === hashedPassword;</span><br><span class="line"><span class="built_in">console</span>.log(isValid); <span class="comment">// true</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>在上面的示例中，我们首先引入 CryptoJS 库，然后使用 <code>CryptoJS.MD5()</code> 方法对明文字符串进行 MD5 加密，得到加密后的字符串 <code>md5Hash</code>。需要注意的是，<code>CryptoJS.MD5()</code> 返回的是一个 <code>WordArray</code> 对象，需要使用 <code>toString()</code> 方法将其转换为字符串。</p>
+<p>此外，<code>CryptoJS</code> 还提供了一系列其他的哈希函数，比如 SHA1、SHA256 等，可以根据实际需求选择使用。详情可查看官方文档 ：<a target="_blank" rel="noopener" href="https://cryptojs.gitbook.io/docs/">CryptoJS (gitbook.io)</a></p>
+<h4 id="md5-js-库"><a href="#md5-js-库" class="headerlink" title="md5.js 库"></a>md5.js 库</h4><p><a target="_blank" rel="noopener" href="https://github.com/blueimp/JavaScript-MD5">md5.js</a> 是另外一个常用的 JavaScript 库，可以在前端实现 MD5 加密功能。下面介绍如何使用 <code>md5.js</code> 库进行 MD5 加密。</p>
+<ol>
+<li><p>下载库文件并引入：</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 引入 md5.js 库</span><br><span class="line">// npm install blueimp-md5</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>调用 <code>md5()</code> 方法进行加密：</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> plainText = <span class="string">&#x27;Hello, ChatAi!&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> md5Hash = md5(plainText);</span><br><span class="line"><span class="built_in">console</span>.log(md5Hash); <span class="comment">// &quot;5df8866adfdec2eea5d34cb5ba326e4a&quot;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>在上面的示例中，我们首先引入 <code>md5.js</code> 库，然后使用 <code>md5()</code> 方法对明文字符串进行 MD5 加密，得到加密后的字符串 <code>md5Hash</code>。需要注意的是，<code>md5.js</code> 中的 <code>md5()</code> 方法与 <code>CryptoJS.MD5()</code> 方法一样，都只能对字符串进行 MD5 加密，如果需要处理二进制数据或文件，需要使用专门的 MD5 库。</p>
+<h4 id="SparkMD5-库"><a href="#SparkMD5-库" class="headerlink" title="SparkMD5 库"></a>SparkMD5 库</h4><p><a target="_blank" rel="noopener" href="https://github.com/satazor/js-spark-md5">SparkMD5</a> 是另一个比较常用的 JavaScript 库，可以在前端实现 MD5 加密功能，并且具有较好的加密速度。下面介绍如何使用 <code>SparkMD5</code> 库进行 MD5 加密。</p>
+<ol>
+<li><p>下载库文件并引入：</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 引入 SparkMD5 库</span><br><span class="line">// npm install spark-md5</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/spark-md5/3.0.0/spark-md5.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>调用 <code>sparkMD5.hash()</code> 方法进行加密：</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> plainText = <span class="string">&#x27;Hello, ChatAi!&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> md5Hash = sparkMD5.hash(plainText);</span><br><span class="line"><span class="built_in">console</span>.log(md5Hash); <span class="comment">// &quot;5df8866adfdec2eea5d34cb5ba326e4a&quot;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>在上面的示例中，我们首先引入 <code>SparkMD5</code> 库，然后使用 <code>sparkMD5.hash()</code> 方法对明文字符串进行 MD5 加密，得到加密后的字符串 <code>md5Hash</code>。</p>
+<p>实际上，<code>SparkMD5</code> 库是支持处理文件的，官方文档中有提到“Hash a file incrementally”。下面是使用 <code>SparkMD5</code> 库进行文件 MD5 加密的示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fileInput = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#fileInput&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> reader = <span class="keyword">new</span> FileReader();</span><br><span class="line"><span class="keyword">const</span> spark = <span class="keyword">new</span> SparkMD5.ArrayBuffer();</span><br><span class="line"></span><br><span class="line">fileInput.addEventListener(<span class="string">&#x27;change&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> file = fileInput.files[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">  reader.readAsArrayBuffer(file);</span><br><span class="line">  reader.onload = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    spark.append(e.target.result);</span><br><span class="line">    <span class="keyword">const</span> md5Hash = spark.end();</span><br><span class="line">    <span class="built_in">console</span>.log(md5Hash); <span class="comment">// &quot;5df8866adfdec2eea5d34cb5ba326e4a&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>在上面的示例中，我们使用 <code>FileReader</code> 对象读取文件内容，并使用 <code>SparkMD5.ArrayBuffer()</code> 创建一个 <code>SparkMD5</code> 实例。然后在加载完成文件内容后，通过调用 <code>append()</code> 方法将文件内容传递给 <code>SparkMD5</code> 实例进行处理，最后调用 <code>end()</code> 方法得到加密后的字符串。</p>
+<p>需要注意的是，这里使用 <code>ArrayBuffer</code> 作为中间数据格式进行处理，而不是直接传递文件的二进制数据或 Blob 对象。这是因为在 JavaScript 中读取文件通常采用的是异步方式，如果直接传递二进制数据或 Blob 对象，可能会导致加密结果不正确或文件未完整读取等问题。因此需要先将文件内容读取到 <code>ArrayBuffer</code> 中，在进行 MD5 加密处理。</p>
+<h3 id="SHA1-加密（不可逆）"><a href="#SHA1-加密（不可逆）" class="headerlink" title="SHA1 加密（不可逆）"></a>SHA1 加密（不可逆）</h3><p>SHA1（Secure Hash Algorithm 1）是一种密码散列函数，美国国家安全局设计，并由美国国家标准技术研究所（NIST）发布为联邦资料处理标准（FIPS）。SHA-1可以生成一个被称为消息摘要的160位（20字节）散列值，散列值通常的呈现形式为40个十六进制数。SHA-1是一种不可逆的加密算法，目前是最牢靠的加密算法之一。</p>
+<p>前端可以借助第三方 JavaScript 库来实现 SHA1 加密功能，常用的有 CryptoJS、sjcl 等。</p>
+<h4 id="CryptoJS-库-1"><a href="#CryptoJS-库-1" class="headerlink" title="CryptoJS 库"></a>CryptoJS 库</h4><p>这里以 <a target="_blank" rel="noopener" href="https://github.com/brix/crypto-js">CryptoJS</a> 为例，介绍如何使用 JavaScript 实现 SHA1 加密。</p>
+<ol>
+<li><p>下载库文件并引入：</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 引入 CryptoJS 库</span><br><span class="line">// npm install crypto-js</span><br><span class="line">// const CryptoJS = require(&quot;crypto-js&quot;);</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>调用 <code>CryptoJS.SHA1()</code> 方法进行加密：</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> plainText = <span class="string">&#x27;Hello, ChatAi!&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> sha1Hash = CryptoJS.SHA1(plainText).toString();</span><br><span class="line"><span class="built_in">console</span>.log(sha1Hash); <span class="comment">// &quot;71c8b8f69f15466c8217eeda4c52fa5275e932cb&quot;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>在上面的示例中，我们首先引入 CryptoJS 库，然后使用 <code>CryptoJS.SHA1()</code> 方法对明文字符串进行 SHA1 加密，得到加密后的字符串 <code>sha1Hash</code>。需要注意的是，<code>CryptoJS.SHA1()</code> 返回的是一个 <code>WordArray</code> 对象，需要使用 <code>toString()</code> 方法将其转换为字符串。</p>
+<p>此外，<code>CryptoJS</code> 还提供了一系列其他的哈希函数，比如 SHA256、MD5 等，可以根据实际需求选择使用。</p>
+<h4 id="其他库"><a href="#其他库" class="headerlink" title="其他库"></a>其他库</h4><p>你还可以使用  <a target="_blank" rel="noopener" href="https://github.com/Caligatio/jsSHA">jsSHA</a> 库进行SHA1加密。jsSHA是一个用 JS+TS 实现完整 SHA 系列加密算法的加密库，包括：SHA1; SHA-224/256/384/512; SHA3-224/256/384/512; SHAKE128/256; cSHAKE128/256; KMAC128/256。</p>
+<p>你也可以使用 <a target="_blank" rel="noopener" href="https://github.com/bitwiseshiftleft/sjcl">SJCL</a> 库进行SHA1加密。SJCL是斯坦福大学计算机安全实验室创立的项目，旨在创建一个安全、快速、短小精悍、易使用、跨浏览器的JavaScript加密库。</p>
+<h3 id="AES-DES-加解密"><a href="#AES-DES-加解密" class="headerlink" title="AES/DES 加解密"></a>AES/DES 加解密</h3><p>AES（Advanced Encryption Standard）和DES（Data Encryption Standard）都是对称加密算法，其中AES是一种更安全的加密算法。</p>
+<p>DES全称为Data Encryption Standard，即数据加密标准，是一种使用密钥加密的块算法，1977年被美国联邦政府的国家标准局确定为联邦资料处理标准（FIPS），并授权在非密级政府通信中使用，随后该算法在国际上广泛流传开来。需要注意的是，在某些文献中，作为算法的DES称为数据加密算法（Data Encryption Algorithm,DEA），已与作为标准的DES区分开来。DES 这种古老的算法还是作为简单的加密算法在被使用，因为它已经是可以破解的，所以对于安全性有较高要求的应用场景基本还是使用的RSA</p>
+<h4 id="CryptoJS-库-2"><a href="#CryptoJS-库-2" class="headerlink" title="CryptoJS 库"></a>CryptoJS 库</h4><p>你可以使用 <a target="_blank" rel="noopener" href="https://github.com/brix/crypto-js">CryptoJS</a> 库进行 AES/DES 加解密。CryptoJS是一个纯JavaScript编写的加密库，支持 AES、DES、Triple DES、Rabbit、RC4 等常见的加密算法，同时还支持 MD5、SHA1、SHA2、SHA3、RIPEMD-160 等哈希算法。</p>
+<p>这里是一个使用CryptoJS进行AES加解密的例子：<a target="_blank" rel="noopener" href="https://juejin.cn/post/7074863196959408158">https://juejin.cn/post/7074863196959408158</a></p>
+<p>这里是一个使用CryptoJS进行DES加解密的例子：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_21271511/article/details/110432602">https://blog.csdn.net/qq_21271511/article/details/110432602</a></p>
+<h2 id="使用总结"><a href="#使用总结" class="headerlink" title="使用总结"></a>使用总结</h2><p>时代在不断进步，计算机技术也在不断发展，很多加解密技术也随着时间的浪潮逐渐变得没有发明之初那么安全。</p>
+<p>比如 MD5 加密，理论上来说，MD5加密是不可逆的，但是它并不是绝对安全的。由于MD5算法输出长度固定为128位，而输入长度是不确定的，因此理论上存在多个不同的输入对应相同的输出，这种现象被称为碰撞。攻击者可以通过构造特定的输入来产生与目标输出相同的MD5值，从而破解MD5加密。</p>
+<p>此外，攻击者还可以使用彩虹表攻击来破解MD5加密。彩虹表是一种预先计算好的数据表，它包含了大量常用密码和它们对应的MD5值。攻击者可以通过查找彩虹表来快速找到与目标MD5值对应的原始密码。</p>
+<p>因此，尽管MD5加密理论上来说是不可逆的，但它并不是绝对安全的。在安全性要求较高的场合，建议使用更安全的哈希算法，如 SHA-256 或 SHA-3。</p>
+<hr>
+<h2 id="【2023-01-14】文章补充说明"><a href="#【2023-01-14】文章补充说明" class="headerlink" title="【2023-01-14】文章补充说明"></a>【2023-01-14】文章补充说明</h2><h3 id="加密、编码和哈希运算的概念区分"><a href="#加密、编码和哈希运算的概念区分" class="headerlink" title="加密、编码和哈希运算的概念区分"></a>加密、编码和哈希运算的概念区分</h3><p>上月底，好厚米 <code>@提莫酱</code> 在QQ上对我这篇水文做了激烈的吐槽，今天我修正一下本文的部分知识性错误。</p>
+<p>在本文中，我的描述有些混淆了<code>加密</code>、<code>编码</code>和<code>哈希</code>三种不同的概念。虽然它们在处理数据时有一些相似之处，但它们的目的和使用场景是不同的。</p>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>目的/使用场景</th>
+<th>可逆</th>
+<th>补充</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>加密<br />(Encryption)</td>
+<td>用于保护数据的安全性</td>
+<td>是</td>
+<td>这是一种可以逆转的过程，<br />意味着你可以从加密的数据中恢复原始数据，这通常需要一个密钥。<br />AES和RSA是加密算法的例子。</td>
+</tr>
+<tr>
+<td>编码<br />(Encoding)</td>
+<td>用于数据的传输或存储</td>
+<td>是</td>
+<td>这是一种可以逆转的过程，<br />用于将数据转换为另一种格式，通常用于数据的传输或存储。<br />Base64是一种编码方式。</td>
+</tr>
+<tr>
+<td>哈希<br />(Hashing)</td>
+<td>用于将任意长度的数据转换为固定长度的输出</td>
+<td>否</td>
+<td>这是一种不可逆的过程，<br />用于将任意长度的数据转换为固定长度的输出，会导致数据信息量的丢失。<br />哈希函数设计的目的是使得输出值在输入值发生微小变化时也会发生大的变化，这使得哈希函数在密码学中有很多应用，如数据完整性检查和密码存储。MD5和SHA系列是哈希函数的例子。</td>
+</tr>
+</tbody></table>
+<p>因此，将Base64编码和MD5哈希归类为加密方式是不准确的。它们都有各自的用途和场景，但不能提供加密所需的安全性。</p>
+<h3 id="RSA、AES两种加密算法的安全性"><a href="#RSA、AES两种加密算法的安全性" class="headerlink" title="RSA、AES两种加密算法的安全性"></a>RSA、AES两种加密算法的安全性</h3><p>此外，本文在描述 RSA 和 AES 两种加密算法的安全性上有笼统和不准确的地方。</p>
+<p>RSA和AES都是加密算法，但它们的工作方式和安全性有所不同。</p>
+<table>
+<thead>
+<tr>
+<th>加密算法</th>
+<th>AES<br />（Advanced Encryption Standard）</th>
+<th>RSA<br />（<em>Rivest、Shamir、Adleman</em>三位数学家的缩写）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对称性</td>
+<td>一种<strong>对称</strong>加密算法，它使用同一个密钥进行加密和解密</td>
+<td>一种<strong>非对称</strong>加密算法，它使用两个密钥：一个公钥用于加密，一个私钥用于解密</td>
+</tr>
+<tr>
+<td>安全性</td>
+<td>AES的安全性主要取决于<strong>密钥的复杂性</strong>，而不是长度。因此，即使AES的密钥长度较短（例如256位），只要密钥足够复杂，它的安全性也可以与更长的RSA密钥相媲美。</td>
+<td>主要取决于<strong>密钥的长度</strong>。一般来说，密钥越长，安全性越高。然而，RSA的计算复杂度也随着密钥长度的增加而增加，这可能会影响到性能。</td>
+</tr>
+</tbody></table>
+<p>因此，尽管RSA 1024位的密钥长度比AES 256位的密钥长度要长，但在实际的安全性上，AES 256可能更高。这是因为AES的加密过程更复杂，更难以破解。所以<strong>非对称加密并不一定比对称加密的加密强度高</strong>。</p>
+<h3 id="补充总结，接受批评"><a href="#补充总结，接受批评" class="headerlink" title="补充总结，接受批评"></a>补充总结，接受批评</h3><p>因此，当我们在处理数据时，需要根据具体的需求和场景来选择合适的方法。</p>
+<p>到底是使用可逆的<strong>编码方式</strong>、挑选可信的<strong>加解密算法</strong>，还是选择不可逆的<strong>哈希运算</strong>。我们不能简单地将所有的处理方法都归类为加密，因为这可能会导致我们在处理数据时忽视了一些重要的安全性考虑。</p>
+<p>最后文末再次感谢好厚米 <code>@提莫酱</code> 喽，我想， <strong>撰写发布、互动纠错、补充更正</strong> 这个流程，正是我当初搭建博客的目的之一。另外，以后再撰写公开文章的时候，我觉得需要进行更多一点的求知验证，以免再产出类似低质混乱的文章误人子弟。</p>
+<hr>
+<p><strong>【参考内容】</strong></p>
+<p>[1] <a target="_blank" rel="noopener" href="https://juejin.cn/post/7213604320233816122">常见的js加密/js解密方法 - 掘金</a></p>
+<p>[2] <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43699107/article/details/117329786">前端常用的几种加密与解密 - CSDN博客</a></p>
+<p>[3] <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_47000934/article/details/126033334">前端加密解密 &amp;&amp; crypto-js - CSDN博客</a></p>
+<p>[4] <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4c236d83ea04">前端js几种加密/解密方法 - 简书</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">百里飞洋 Barry-Flynn</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.meta-code.top/2023/05/18/2023-102/">https://blog.meta-code.top/2023/05/18/2023-102/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.meta-code.top" target="_blank">百里飞洋</a>！</span></div><div class="post-technical-tips"><span class="post-copyright-meta">技术内容: </span><span class="post-copyright-info">若存在错误或不当之处，还望兄台不吝赐教，期待与您交流！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a></div><div class="post_share"><div class="social-share" data-image="/img/friends/Barry-Flynn.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/CDN/share/share.min.css" media="print" onload="this.media='all'"><script src="/CDN/share/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E5%BE%AE%E4%BF%A1WeChat%E6%89%93%E8%B5%8F%E7%A0%81.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E5%BE%AE%E4%BF%A1%E6%89%93%E8%B5%8F%EF%BC%88%E7%BA%AF%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%89.png" alt="WeChat微信打赏"/></a><div class="post-qr-code-desc">WeChat微信打赏</div></li><li class="reward-item"><a href="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E6%94%AF%E4%BB%98%E5%AE%9DAliPay%E6%89%93%E8%B5%8F%E7%A0%81.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%89%93%E8%B5%8F%EF%BC%88%E7%BA%AF%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%89.png" alt="AliPay支付宝打赏"/></a><div class="post-qr-code-desc">AliPay支付宝打赏</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/04/10/2023-91/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" onerror="onerror=null;src='/img/others/404.gif'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【蓝桥杯】第14届 Web 应用开发省赛真题解析</div></div></a></div><div class="next-post pull-right"><a href="/2023/07/03/2023-114/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2023/07/04/pCskfF1.png" onerror="onerror=null;src='/img/others/404.gif'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【阿里云】对象存储 OSS 产品评测</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/12/07/2021-48/" title="【VScode】实时预览插件Live Server"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2021/12/24/TtxZNt.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-07</div><div class="title">【VScode】实时预览插件Live Server</div></div></a></div><div><a href="/2021/12/11/2021-51/" title="【前端】学习路线及课程资源"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2021/12/24/TtvpLj.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-11</div><div class="title">【前端】学习路线及课程资源</div></div></a></div><div><a href="/2021/12/08/2021-50/" title="【VScode】通过JavaScript连接并插入前端参数到SQL Server数据库"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-08</div><div class="title">【VScode】通过JavaScript连接并插入前端参数到SQL Server数据库</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/friends/Barry-Flynn.jpg" onerror="this.onerror=null;this.src='/img/others/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">百里飞洋 Barry-Flynn</div><div class="author-info__description">星河滚烫，无问西东</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">92</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://space.bilibili.com/349963315"><i class="fas fa-play-circle"></i><span>关注我吧</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://weibo.com/6327778914" target="_blank" title="微博Weibo"><i class="fab fa-weibo"></i></a><a class="social-icon" href="https://space.bilibili.com/349963315" target="_blank" title="哔哩哔哩Bilibili"><i class="fab fa-youtube"></i></a><a class="social-icon" href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=2158469373@qq.com" target="_blank" title="邮箱Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://github.com/Barry-Flynn" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://gitee.com/Barry-Flynn" target="_blank" title="码云Gitee"><i class="fab fa-gofore"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Hey,欢迎来到我的博客小世界！<br /> 00后程序员&中二小青年 <br /> QQ学习聊天群：<b>534984250</b><br /> 才疏学浅，自说自话，<br /> 欢迎交流玩耍~<br /> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/others/咒术回战.gif" style="border-radius:0.5rem;" /></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95"><span class="toc-text">加密算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%8A%A0%E8%A7%A3%E5%AF%86%E6%8A%80%E6%9C%AF"><span class="toc-text">前端常用加解密技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Base64-%E5%8A%A0%E8%A7%A3%E5%AF%86"><span class="toc-text">Base64 加解密</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E7%A4%BA%E4%BE%8B"><span class="toc-text">简单示例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E4%B8%AD%E6%96%87%E5%8A%A0%E8%A7%A3%E5%AF%86"><span class="toc-text">实现中文加解密</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9-Base64-%E5%BA%93"><span class="toc-text">使用第三方 Base64 库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MD5-%E5%8A%A0%E5%AF%86%EF%BC%88%E4%B8%8D%E5%8F%AF%E9%80%86%EF%BC%89"><span class="toc-text">MD5 加密（不可逆）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CryptoJS-%E5%BA%93"><span class="toc-text">CryptoJS 库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#md5-js-%E5%BA%93"><span class="toc-text">md5.js 库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SparkMD5-%E5%BA%93"><span class="toc-text">SparkMD5 库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SHA1-%E5%8A%A0%E5%AF%86%EF%BC%88%E4%B8%8D%E5%8F%AF%E9%80%86%EF%BC%89"><span class="toc-text">SHA1 加密（不可逆）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CryptoJS-%E5%BA%93-1"><span class="toc-text">CryptoJS 库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%BA%93"><span class="toc-text">其他库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AES-DES-%E5%8A%A0%E8%A7%A3%E5%AF%86"><span class="toc-text">AES&#x2F;DES 加解密</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CryptoJS-%E5%BA%93-2"><span class="toc-text">CryptoJS 库</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93"><span class="toc-text">使用总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%80%902023-01-14%E3%80%91%E6%96%87%E7%AB%A0%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E"><span class="toc-text">【2023-01-14】文章补充说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E5%AF%86%E3%80%81%E7%BC%96%E7%A0%81%E5%92%8C%E5%93%88%E5%B8%8C%E8%BF%90%E7%AE%97%E7%9A%84%E6%A6%82%E5%BF%B5%E5%8C%BA%E5%88%86"><span class="toc-text">加密、编码和哈希运算的概念区分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RSA%E3%80%81AES%E4%B8%A4%E7%A7%8D%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%E7%9A%84%E5%AE%89%E5%85%A8%E6%80%A7"><span class="toc-text">RSA、AES两种加密算法的安全性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%E6%80%BB%E7%BB%93%EF%BC%8C%E6%8E%A5%E5%8F%97%E6%89%B9%E8%AF%84"><span class="toc-text">补充总结，接受批评</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 百里飞洋 Barry-Flynn</div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="http://meta-code.top/"><i class="fas fa-globe-americas"></i>&nbsp;元代码</a>丨<a target="_blank" rel="noopener" href="https://weibo.com/6327778914/profile?topnav=1&wvr=6&is_all=1"><i class="fab fa-weibo"></i>&nbsp;<span>新浪微博</span></a>丨<a target="_blank" rel="noopener" href="https://space.bilibili.com/349963315"><i class="fab fa-youtube"></i>&nbsp;<span>哔哩哔哩</span></a>丨<a href="/about/"><i class="fas fa-meteor"></i>&nbsp;关于我</a><br /> <a href="/Reward-list/">赞助列表</a>丨<a href="/about-website/">网站声明</a>丨<a href="/link/">友情链接</a>丨<a href="https://blog.meta-code.top/rss2.xml">RSS订阅</a><br /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41071102000543"><span style="vertical-align:middle;"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/icon/备案图标.png" style="vertical-align:middle;">&nbsp;豫公网安备 41071102000543号</a></span><br /> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><span style="vertical-align:middle;"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/icon/ICP备案.png" style="vertical-align:middle;width:20px;height:20px;">&nbsp;豫ICP备2021034491号</a></span><br /> <span><星河滚烫，无问西东></span><br /> <br /> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/二维码/移动端访问.png" style="width:130px;height:150px;border-radius:20px;display:inline-block;margin:0 5px;"> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/二维码/学习聊天群.png" style="width:130px;height:150px;border-radius:20px;display:inline-block;margin:0 5px;"><br /></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><a class="icon-V hidden" onclick="switchNightMode()" title="浅色和深色模式转换"><svg width="25" height="25" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon"></use></svg></a><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><a class="rightMenu-item" href="javascript:window.history.back();"><i class="fa-solid fa-arrow-left"></i></a><a class="rightMenu-item" href="javascript:window.location.reload();"><i class="fa-solid fa-arrow-rotate-right"></i></a><a class="rightMenu-item" href="javascript:window.history.forward();"><i class="fa-solid fa-arrow-right"></i></a><a class="rightMenu-item" id="menu-radompage" href="javascript:window.location.href = window.location.origin;"><i class="fa-solid fa-house"></i></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-text"><a class="rightMenu-item" href="javascript:rmf.copySelect();"><i class="fa-solid fa-copy"></i><span>复制</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:rmf.switchDarkMode();"><i class="fa-solid fa-circle-half-stroke"></i><span>昼夜模式</span></a><a class="rightMenu-item" href="javascript:rmf.switchTranslate();" id="menu-translate"><i class="fa-solid fa-earth-asia"></i><span>繁简切换</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/categories/';"><i class="fa-solid fa-book"></i><span>博客分类</span></a><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/tags/';"><i class="fa-solid fa-tags"></i><span>博客标签</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/Reward-list/';"><i class="fa-solid fa-clipboard-list"></i><span>打赏赞助 ❤</span></a><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/about-website/';"><i class="fa-solid fa-envelope-open-text"></i><span>网站声明</span></a></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="/CDN/lazyload.iife.min.js"></script><script src="/CDN/snackbar/snackbar.min.js"></script><script async="async">var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').style.transition = 'opacity 3s ease 0s'
+    document.getElementById('loading-box').style.opacity = '0'
+    setTimeout(function(){
+      document.getElementById('loading-box').classList.add("loaded")
+    }, 3000);
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').style.transition = '';
+    document.getElementById('loading-box').style.opacity = '1'
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})
+setTimeout(function(){preloader.endLoading();}, 3000);</script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://hexoblog-twikoo.meta-code.top',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'https://hexoblog-twikoo.meta-code.top',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('/CDN/comments/twikoo_1.6.26.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://hexoblog-twikoo.meta-code.top',
+        region: '',
+        pageSize: 5,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('/CDN/comments/twikoo_1.6.26.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script src="/js/console.js?date=20241027"></script><canvas id="universe"></canvas><script src="/js/universe.js"></script><script src="/js/plugins/jquery-3.6.0.min.js"></script><script src="/js/rightmenu.js"></script><script src="/js/sun_moon.js" async></script><div class="aplayer no-destroy" data-id="1050282" data-server="netease" data-type="artist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" data-lrctype="0" muted></div><canvas class="fireworks" mobile="false"></canvas><script src="/CDN/effect/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="105, 171, 247" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/CDN/background_effect/canvas-nest.min.js"></script><script src="/CDN/effect/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="/CDN/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="/CDN/aplayer/APlayer.min.js"></script><script src="/CDN/aplayer/Meting.min.js"></script><script src="/CDN/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="/CDN/count/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start -->
+  <script data-pjax src="/CDN/hexo_githubcalendar.js"></script>
+  <script data-pjax>
+        function GithubCalendarConfig(){
+            var git_githubapiurl ="https://github-calendar-api.meta-code.top/api?user=Barry-Flynn";
+            var git_color =['#ebedf0', '#a2f7af', '#6ce480', '#54ad63', '#469252', '#31753c', '#1f5f2a', '#13531f', '#084111', '#032b09', '#000000'];
+            var git_user ="Barry-Flynn";
+            var parent_div_git = document.getElementById('recent-posts');
+            var git_div_html = '<div class="recent-post-item" style="width:100%;height:auto;padding:10px;"><div id="github_loading" style="width:10%;height:100%;margin:0 auto;display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg></div><div id="github_container"></div></div>';
+            if(parent_div_git && location.pathname =='/'){
+                console.log("已挂载hexo-github-calendar https://github.com/Barry-Flynn/hexo-github-calendar");
+                // parent_div_git.innerHTML=git_div_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",git_div_html) // 有报错，但不影响使用(支持pjax跳转)
+            };
+            GithubCalendar(git_githubapiurl,git_color,git_user)
+        }
+        if(document.getElementById('recent-posts')){
+            GithubCalendarConfig()
+        }
+    </script>
+    <style>#github_container{min-height:280px}@media screen and (max-width:650px) {#github_container{background-image:;min-height:0px}}</style>
+    <style></style><!-- hexo injector body_end end --></body></html>

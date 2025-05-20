@@ -1,0 +1,504 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>【数据库】第1章 绪论丨小结与习题 | 百里飞洋</title><meta name="keywords" content="数据库"><meta name="author" content="百里飞洋 Barry-Flynn"><meta name="copyright" content="百里飞洋 Barry-Flynn"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="数据库第一章课后习题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【数据库】第1章 绪论丨小结与习题">
+<meta property="og:url" content="https://blog.meta-code.top/2021/10/27/2021-24/index.html">
+<meta property="og:site_name" content="百里飞洋">
+<meta property="og:description" content="数据库第一章课后习题">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.meta-code.top/img/friends/Barry-Flynn.jpg">
+<meta property="article:published_time" content="2021-10-26T16:25:15.000Z">
+<meta property="article:modified_time" content="2025-05-19T17:05:36.772Z">
+<meta property="article:author" content="百里飞洋 Barry-Flynn">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.meta-code.top/img/friends/Barry-Flynn.jpg"><link rel="shortcut icon" href="/img/icon/%E7%81%AB%E7%AE%AD.png"><link rel="canonical" href="https://blog.meta-code.top/2021/10/27/2021-24/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/CDN/fontawesome/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/CDN/snackbar/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e21f557d5683e4733d77db5ab8910d7b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":100,"position":"top","messagePrev":"「温馨提示」本文更新已经","messageNext":"天，若内容或图片失效，请留言反馈。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: 百里飞洋 Barry-Flynn","link":"链接: ","source":"来源: 百里飞洋","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#121212","bgDark":"#49b1f5","position":"bottom-right"},
+  source: {
+    jQuery: '/CDN/jquery.min.js',
+    justifiedGallery: {
+      js: '/CDN/justifiedGallery/jquery.justifiedGallery.min.js',
+      css: '/CDN/justifiedGallery/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: '/CDN/photo/jquery.fancybox.min.js',
+      css: '/CDN/photo/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【数据库】第1章 绪论丨小结与习题',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2025-05-20 01:05:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><link rel="stylesheet" href="/css/BF-simple.css"><link rel="stylesheet" href="/css/BF-rightmenu.css"><link rel="stylesheet" href="https://s1.hdslb.com/bfs/static/jinkela/long/font/regular.css"><svg aria-hidden="true" style="position:absolute; overflow:hidden; width:0; height:0"><symbol id="icon-sun" viewBox="0 0 1024 1024"><path d="M960 512l-128 128v192h-192l-128 128-128-128H192v-192l-128-128 128-128V192h192l128-128 128 128h192v192z" fill="#FFD878" p-id="8420"></path><path d="M736 512a224 224 0 1 0-448 0 224 224 0 1 0 448 0z" fill="#FFE4A9" p-id="8421"></path><path d="M512 109.248L626.752 224H800v173.248L914.752 512 800 626.752V800h-173.248L512 914.752 397.248 800H224v-173.248L109.248 512 224 397.248V224h173.248L512 109.248M512 64l-128 128H192v192l-128 128 128 128v192h192l128 128 128-128h192v-192l128-128-128-128V192h-192l-128-128z" fill="#4D5152" p-id="8422"></path><path d="M512 320c105.888 0 192 86.112 192 192s-86.112 192-192 192-192-86.112-192-192 86.112-192 192-192m0-32a224 224 0 1 0 0 448 224 224 0 0 0 0-448z" fill="#4D5152" p-id="8423"></path></symbol><symbol id="icon-moon" viewBox="0 0 1024 1024"><path d="M611.370667 167.082667a445.013333 445.013333 0 0 1-38.4 161.834666 477.824 477.824 0 0 1-244.736 244.394667 445.141333 445.141333 0 0 1-161.109334 38.058667 85.077333 85.077333 0 0 0-65.066666 135.722666A462.08 462.08 0 1 0 747.093333 102.058667a85.077333 85.077333 0 0 0-135.722666 65.024z" fill="#FFB531" p-id="11345"></path><path d="M329.728 274.133333l35.157333-35.157333a21.333333 21.333333 0 1 0-30.165333-30.165333l-35.157333 35.157333-35.114667-35.157333a21.333333 21.333333 0 0 0-30.165333 30.165333l35.114666 35.157333-35.114666 35.157334a21.333333 21.333333 0 1 0 30.165333 30.165333l35.114667-35.157333 35.157333 35.157333a21.333333 21.333333 0 1 0 30.165333-30.165333z" fill="#030835" p-id="11346"></path></symbol></svg><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="百里飞洋" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="百里飞洋" type="application/rss+xml">
+</head><body><div id="loading-box"><div class="centered"><div class="blob-1"></div><div class="blob-2"></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/friends/Barry-Flynn.jpg" onerror="onerror=null;src='/img/others/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">92</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/Calendar/"><i class="fa-fw fa-solid fa-calendar-check"></i><span> 奋斗日历</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-icons"></i><span> 多媒体</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-headphones-alt"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 找文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 按分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 按标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 按时间</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-medal"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/Reward-list/"><i class="fa-fw fas fa-clipboard-list"></i><span> 打赏榜</span></a></li><li><a class="site-page child" href="/about-website/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 网站声明</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-user-friends"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-subway"></i><span> 开往&amp;虫洞</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><i class="fa-fw fa fa-subway"></i><span> 开往/友链接力</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://foreverblog.cn/go.html"><i class="fa-fw fab fa-stumbleupon-circle"></i><span> 虫洞/十年之约</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://zhblogs.ohyee.cc/?tab=blog_list&amp;page=1&amp;tags=&amp;search=百里飞洋"><i class="fa-fw fas fa-blog"></i><span> 中文博客导航</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2021/09/30/n2HCEeQrMbO6jUw.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">百里飞洋</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/Calendar/"><i class="fa-fw fa-solid fa-calendar-check"></i><span> 奋斗日历</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-icons"></i><span> 多媒体</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-headphones-alt"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 找文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 按分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 按标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 按时间</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-medal"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/Reward-list/"><i class="fa-fw fas fa-clipboard-list"></i><span> 打赏榜</span></a></li><li><a class="site-page child" href="/about-website/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 网站声明</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-user-friends"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-subway"></i><span> 开往&amp;虫洞</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><i class="fa-fw fa fa-subway"></i><span> 开往/友链接力</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://foreverblog.cn/go.html"><i class="fa-fw fab fa-stumbleupon-circle"></i><span> 虫洞/十年之约</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://zhblogs.ohyee.cc/?tab=blog_list&amp;page=1&amp;tags=&amp;search=百里飞洋"><i class="fa-fw fas fa-blog"></i><span> 中文博客导航</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【数据库】第1章 绪论丨小结与习题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-10-26T16:25:15.000Z" title="发表于 2021-10-27 00:25:15">2021-10-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-05-19T17:05:36.772Z" title="更新于 2025-05-20 01:05:36">2025-05-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E3%80%90%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B%E3%80%91/">【本科课程】</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E3%80%90%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B%E3%80%91/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E3%80%8B/">《数据库系统概论》</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【数据库】第1章 绪论丨小结与习题"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>本文所属《数据库系统原理》分类专栏，相关文章导航请点击<a href="/2021/09/29/2021-5/">《数据库系统原理》目录汇总贴</a></p>
+</blockquote>
+<ul>
+<li><strong>1、试述数据、数据库、数据库系统、数据库管理系统的概念。</strong></li>
+</ul>
+<p>（1）数据是描述事物的符号记录。<br>（2）数据库是长期储存在计算机内的、有组织的、可共享的数据集合。<br>（3）数据库系统是指在计算机系统中引入数据库后的系统构成，一般由数据库、数据库管理系统（及其开发工具）、应用系统、数据库管理员构成。<br>（4）数据库管理系统是位于用户与操作系统之间的一层数据管理软件，用于科学地组织和存储数据、高效地获取和维护数据。</p>
+<ul>
+<li><strong>2、使用数据库系统有什么好处？</strong></li>
+</ul>
+<p>使用数据库系统可以大大提高应用开发的效率，方便用户使用，减轻数据库系统管理人员维护负担。</p>
+<ul>
+<li><strong>3、试述文件系统与数据库系统的区别和联系。</strong></li>
+</ul>
+<p>（1）区别：文件系统面向某一应用程序，共享性差，冗余度大，数据独立性差，记录内有结构，整体无结构，由应用程序自己控制。数据库系统面向现实世界，共享性高，冗余度小，具有较高的物理独立性和一定的逻辑独立性，整体结构化，用数据模型描述，由数据库管理系统提供数据的安全性、完整性、并发控制和恢复能力。<br>（2）联系：文件系统与数据库系统都是计算机系统中管理数据的软件。解析文件系统是操作系统的重要组成部分；而 DBMS 是独立于操作系统的软件。但是 DBMS 是在操作系统的基础上实现的；数据库中数据的组织和存储是通过操作系统中的文件系统来实现的。</p>
+<ul>
+<li><strong>4、举出适合用文件系统而不是数据库系统的例子，以及适合用数据库系统的应用例子。</strong></li>
+</ul>
+<p>（1）适用于文件系统而不是数据库系统的应用例子有数据的备份、软件或应用程序使用过程中的临时数据存储。<br>（2）适用于数据库系统而非文件系统的应用例子，几乎所有企业或部门的信息系统都以数据库系统为基础，都使用数据库。一个工厂的管理信息系统（其中会包括许多子系统，如库存管理系统、物资采购系统、作业调度系统、设备管理系统、人事管理系统等），学校的学生管理系统，人事管理系统，图书馆的图书管理系统，都适合用数据库系统。</p>
+<ul>
+<li><strong>5、试述数据库系统的特点。</strong></li>
+</ul>
+<p>（1）数据结构化数据库系统实现整体数据的结构化。<br>（2）数据的共享性高，冗余度低，易扩充。<br>（3）数据独立性高数据独立性包括数据的物理独立性和数据的逻辑独立性。<br>（4）数据由 DBMS 统一管理和控制数据库的共享是并发的共享。</p>
+<ul>
+<li><strong>6、数据库管理系统的主要功能有哪些？</strong></li>
+</ul>
+<p>数据库管理系统的主要功能有数据库定义功能、数据存取功能、数据库运行管理、数据库的建立和维护功能。</p>
+<ul>
+<li><strong>7、什么是概念模型？试述概念模型的作用。</strong> </li>
+</ul>
+<p>概念模型，也称信息模型，是按用户的观点来对数据和信息建模，主要用于数据库设计。概念模型实际上是现实世界到机器世界的一个中间层次。概念模型用于信息世界的建模，是现实世界到信息世界的第一层抽象，是数据库设计人员进行数据库设计的有力工具，也是数据库设计人员和用户之间进行交流的语言。</p>
+<ul>
+<li><strong>8、定义并解释概念模型中以下术语：实体、实体型、实体集、实体之间的联系。</strong></li>
+</ul>
+<p>（1）实体是客观存在并可以相互区分的事物。<br>（2）实体型是具有相同属性的实体具有相同的特征和性质，用实体名及其属性名集合来抽象和刻画同类实体。<br>（3）实体集是同型实体的集合；<br>（4）实体之间的联系：通常是指不同实体型的实体集之间的联系，实体之间的联系有一对一、一对多和多对多等多种类型。</p>
+<ul>
+<li><strong>9、试述数据模型的概念、数据模型的作用和数据模型的三个要素。</strong></li>
+</ul>
+<p>（1）数据模型是对现实世界数据特征的抽象。<br>（2）数据模型的作用是用来描述数据、组织数据和对数据进行操作。<br>（3）数据模型的三个要素是数据结构、数据操作、数据的完整性约束条件。</p>
+<ul>
+<li><strong>10、试述层次模型的概念，举出三个层次模型的实例。</strong></li>
+</ul>
+<p>（1）层次模型用树形结构来表示各类实体以及实体间的联系，在数据库中定义满足的基本层次联系的集合为层次模型：有且只有一个结点没有双亲结点，即根结点；根以外的其他结点有且只有一个双亲结点。<br>（2）实例：教员学生层次数据库模型、行政机构层次数据库模型、行政区域层次数据库模型。</p>
+<ul>
+<li><strong>11、试述网状模型的概念，举出三个网状模型的实例。</strong></li>
+</ul>
+<p>（1）满足下面两个条件的基本层次联系集合为网状模型。允许一个以上的结点无双亲；一个结点可以有多于一个的双亲。<br>（2）实例：学生选课网状数据库模型、教师选教室网状数据模型、学生选教室网址数据模型。</p>
+<ul>
+<li><strong>12、试述网状、层次数据库的优缺点。</strong></li>
+</ul>
+<p>（1）层次模型：<br>优点主要有：模型简单，对具有一对多层次关系的部门描述非常自然、直观，容易理解，这是层次数据库的突出优点；用层次模型的应用系统性能好，特别是对于那些实体间联系是固定的且预先定义好的应用，采用层次模型来实现，其性能优于关系模型；层次数据模型提供了良好的完整性支持。</p>
+<p>缺点主要有：现实世界中很多联系是非层次性的，如多对多联系、一个结点具有多个双亲等，层次模型不能自然地表示这类联系，只能通过引入冗余数据或引入虚拟结点来解决；对插入和删除操作的限制比较多；查询子女结点必须通过双亲结点。</p>
+<p>（2）网状数据模型：<br>优点主要有：能够更为直接地描述现实世界，如一个结点可以有多个双亲；具有良好的性能，存取效率较高。</p>
+<p>网状数据模型的缺点主要有：结构比较复杂，而且随着应用环境的扩大，数据库的结构就变得越来越复杂，不利于最终用户掌握；其 DDL、DML 语言复杂，用户不容易使用。由于记录之间联系是通过存取路径实现的，应用程序在访问数据时必须选择适当的存取路径。因此，用户必须了解系统结构的细节，加重了编写应用程序的负担。</p>
+<ul>
+<li><strong>13、试述关系模型的概念，定义并解释以下术语：关系，属性，域，元组，码，分量，关系模式。</strong></li>
+</ul>
+<p>（1）关系模型由关系数据结构、关系操作集合和关系完整性约束三部分组成。在用户观点下，关系模型中数据的逻辑结构是一张二维表，它由行和列组成。<br>（2）关系：一个关系对应通常说的一张表。<br>（3）属性：表中的一列即为一个属性。<br>（4）域：属性的取值范围。<br>（5）元组：表中的一行即为一个元组。<br>（6）主码：表中的某个属性组，它可以惟一确定一个元组。<br>（7）分量：元组中的一个属性值。<br>（8）关系模式：对关系的描述，一般表示为关系名（属性 1 ，属性 2 ， … ，属性 n )。</p>
+<ul>
+<li><strong>14、试述关系数据库的特点。</strong></li>
+</ul>
+<p>（1）关系模型与非关系模型不同，它是建立在严格的数学概念的基础上的。<br>（2）关系模型的概念单一，无论实体还是实体之间的联系都用关系表示，操作的对象和操作的结果都是关系。<br>（3）关系模型的存取路径对用户透明，从而具有更高的数据独立性、更好的安全保密性，也简化了程序员的工作和数据库开发建立的工作。</p>
+<ul>
+<li><strong>15、试述数据库系统三级模式结构，这种结构的优点是什么？</strong></li>
+</ul>
+<p>（1）数据库系统的三级模式结构由外模式、模式和内模式组成。<br>（2）外模式:亦称子模式或用户模式，是数据库用户能够看见和使用的局部数据的逻辑结构和特征的描述，是数据库用户的数据视图，是与某一应用有关的数据的逻辑表示。<br>（3）模式:亦称逻辑模式，是数据库中全体数据的逻辑结构和特征的描述，是所有用户的公共数据视图。模式描述的是数据的全局逻辑结构。外模式涉及的是数据的局部逻辑结构，通常是模式的子集。<br>（4）内模式:亦称存储模式，是对数据的物理结构和存储方式的描述。<br>（5）优点：为了能够在内部实现这三个抽象层次的联系和转换，数据库系统在这三级模式之间提供了两层映像：外模式／模式映像和模式／内模式映像。正是这两层映像保证了数据库系统中的数据能够具有较高的逻辑独立性和物理独立性。</p>
+<ul>
+<li><strong>16、定义并解释以下术语：模式，外模式，内模式，数据定义语言，数据操纵语言。</strong></li>
+</ul>
+<p>（1）模式：也称逻辑模式，是数据库中全体数据的逻辑结构和特征的描述，是所有用户的公共数据视图。他是数据库系统模式结构的中间层，既不设计数据的物理储存细节和硬件环境，又与具体的应用程序、所使用的应用开发工具及高级程序设计语言无关。<br>（2）外模式：也称子模式或用户模式，它是数据库用户能够看见和使用的局部数据的逻辑结构和特征的描述，是数据库用户的数据视图，是与某一应用有关的数据的逻辑表示。<br>（3）内模式：也称存储模式，一个数据库只有一个内模式。它是数据物理结构和存放方式的描述，是数据在数据库内部的组织方式。<br>（4）数据定义语言：用来定义数据库的模式、外模式和内模式的语言。<br>（5）数据操纵语言：用来对数据库中的数据进行查询、插入、删除和修改的语句。</p>
+<ul>
+<li><strong>17、什么叫数据与程序的物理独立性？什么叫数据与程序的逻辑独立性？为什么数据库系统具有数据与程序的独立性？</strong></li>
+</ul>
+<p>（1）数据与程序的物理独立性:当数据库的存储结构改变了,由数据库管理员对模式/内模式映像作相应改变,可以使模式保持不变,从而应用程序也不必改变,这就是数据与程序的物理独立性,简称数据的物理独立性。<br>（2）数据与程序的逻辑独立性:当数据的逻辑结构即模式改变时,由数据库管理员对各个外模式/模式的映像作相应改变,可以使外模式保持不变,从而应用程序不必修改,这就是数据与程序的逻辑独立性，简称数据的逻辑独立性。<br>（3）数据库管理系统DBMS在三级模式之间提供的两级映像保证了数据库系统中的数据能够具有较高的逻辑独立性和物理独立性。</p>
+<ul>
+<li><strong>18、试述数据库系统的组成。</strong></li>
+</ul>
+<p>数据库系统一般由数据库、数据库管理系统（及其开发工具）、应用系统、数据库管理员和用户构成。</p>
+<ul>
+<li><strong>19、数据库管理员、系统分析员、数据库设计人员、应用程序员的职责是什么？</strong></li>
+</ul>
+<p>（1）数据库管理员的职责：决定数据库中的信息内容和结构、决定数据库的存储结构和存取策略、定义数据的安全性要求和完整性约束条件监控数据库的使用和运行、数据库的改进和重组、重构。<br>（2）系统分析员负责应用系统的需求分析和规范说明，系统分析员要和用户及 DBA 相结合，确定系统的硬件、软件配置，并参与数据库系统的概要设计。数据库设计人员负责数据库中数据的确定、数据库各级模式的设计。<br>（3）数据库设计人员必须参加用户需求调查和系统分析，然后进行数据库设计。在很多情况下，数据库设计人员就由数据库管理员担任。<br>（4）应用程序员负责设计和编写应用系统的程序模块，并进行调试和安装。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">百里飞洋 Barry-Flynn</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.meta-code.top/2021/10/27/2021-24/">https://blog.meta-code.top/2021/10/27/2021-24/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.meta-code.top" target="_blank">百里飞洋</a>！</span></div><div class="post-technical-tips"><span class="post-copyright-meta">技术内容: </span><span class="post-copyright-info">若存在错误或不当之处，还望兄台不吝赐教，期待与您交流！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></div><div class="post_share"><div class="social-share" data-image="/img/friends/Barry-Flynn.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/CDN/share/share.min.css" media="print" onload="this.media='all'"><script src="/CDN/share/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E5%BE%AE%E4%BF%A1WeChat%E6%89%93%E8%B5%8F%E7%A0%81.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E5%BE%AE%E4%BF%A1%E6%89%93%E8%B5%8F%EF%BC%88%E7%BA%AF%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%89.png" alt="WeChat微信打赏"/></a><div class="post-qr-code-desc">WeChat微信打赏</div></li><li class="reward-item"><a href="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E6%94%AF%E4%BB%98%E5%AE%9DAliPay%E6%89%93%E8%B5%8F%E7%A0%81.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%89%93%E8%B5%8F%EF%BC%88%E7%BA%AF%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%89.png" alt="AliPay支付宝打赏"/></a><div class="post-qr-code-desc">AliPay支付宝打赏</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/10/26/2021-23/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2021/12/24/TtzrQS.jpg" onerror="onerror=null;src='/img/others/404.gif'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【数据库】SQL Server 的安装记录</div></div></a></div><div class="next-post pull-right"><a href="/2021/10/28/2021-25/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" onerror="onerror=null;src='/img/others/404.gif'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【数据库】第2章 关系数据库</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/10/25/2021-22/" title="【数据库】第1章 绪论丨（第4节）数据库系统的组成"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-25</div><div class="title">【数据库】第1章 绪论丨（第4节）数据库系统的组成</div></div></a></div><div><a href="/2021/10/25/2021-21/" title="【数据库】第1章 绪论丨（第3节）数据库系统的结构"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-25</div><div class="title">【数据库】第1章 绪论丨（第3节）数据库系统的结构</div></div></a></div><div><a href="/2021/10/26/2021-23/" title="【数据库】SQL Server 的安装记录"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2021/12/24/TtzrQS.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-26</div><div class="title">【数据库】SQL Server 的安装记录</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/friends/Barry-Flynn.jpg" onerror="this.onerror=null;this.src='/img/others/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">百里飞洋 Barry-Flynn</div><div class="author-info__description">星河滚烫，无问西东</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">92</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://space.bilibili.com/349963315"><i class="fas fa-play-circle"></i><span>关注我吧</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://weibo.com/6327778914" target="_blank" title="微博Weibo"><i class="fab fa-weibo"></i></a><a class="social-icon" href="https://space.bilibili.com/349963315" target="_blank" title="哔哩哔哩Bilibili"><i class="fab fa-youtube"></i></a><a class="social-icon" href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=2158469373@qq.com" target="_blank" title="邮箱Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://github.com/Barry-Flynn" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://gitee.com/Barry-Flynn" target="_blank" title="码云Gitee"><i class="fab fa-gofore"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Hey,欢迎来到我的博客小世界！<br /> 00后程序员&中二小青年 <br /> QQ学习聊天群：<b>534984250</b><br /> 才疏学浅，自说自话，<br /> 欢迎交流玩耍~<br /> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/others/咒术回战.gif" style="border-radius:0.5rem;" /></div></div><div class="sticky_layout"></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 百里飞洋 Barry-Flynn</div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="http://meta-code.top/"><i class="fas fa-globe-americas"></i>&nbsp;元代码</a>丨<a target="_blank" rel="noopener" href="https://weibo.com/6327778914/profile?topnav=1&wvr=6&is_all=1"><i class="fab fa-weibo"></i>&nbsp;<span>新浪微博</span></a>丨<a target="_blank" rel="noopener" href="https://space.bilibili.com/349963315"><i class="fab fa-youtube"></i>&nbsp;<span>哔哩哔哩</span></a>丨<a href="/about/"><i class="fas fa-meteor"></i>&nbsp;关于我</a><br /> <a href="/Reward-list/">赞助列表</a>丨<a href="/about-website/">网站声明</a>丨<a href="/link/">友情链接</a>丨<a href="https://blog.meta-code.top/rss2.xml">RSS订阅</a><br /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41071102000543"><span style="vertical-align:middle;"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/icon/备案图标.png" style="vertical-align:middle;">&nbsp;豫公网安备 41071102000543号</a></span><br /> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><span style="vertical-align:middle;"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/icon/ICP备案.png" style="vertical-align:middle;width:20px;height:20px;">&nbsp;豫ICP备2021034491号</a></span><br /> <span><星河滚烫，无问西东></span><br /> <br /> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/二维码/移动端访问.png" style="width:130px;height:150px;border-radius:20px;display:inline-block;margin:0 5px;"> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/二维码/学习聊天群.png" style="width:130px;height:150px;border-radius:20px;display:inline-block;margin:0 5px;"><br /></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><a class="icon-V hidden" onclick="switchNightMode()" title="浅色和深色模式转换"><svg width="25" height="25" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon"></use></svg></a><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><a class="rightMenu-item" href="javascript:window.history.back();"><i class="fa-solid fa-arrow-left"></i></a><a class="rightMenu-item" href="javascript:window.location.reload();"><i class="fa-solid fa-arrow-rotate-right"></i></a><a class="rightMenu-item" href="javascript:window.history.forward();"><i class="fa-solid fa-arrow-right"></i></a><a class="rightMenu-item" id="menu-radompage" href="javascript:window.location.href = window.location.origin;"><i class="fa-solid fa-house"></i></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-text"><a class="rightMenu-item" href="javascript:rmf.copySelect();"><i class="fa-solid fa-copy"></i><span>复制</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:rmf.switchDarkMode();"><i class="fa-solid fa-circle-half-stroke"></i><span>昼夜模式</span></a><a class="rightMenu-item" href="javascript:rmf.switchTranslate();" id="menu-translate"><i class="fa-solid fa-earth-asia"></i><span>繁简切换</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/categories/';"><i class="fa-solid fa-book"></i><span>博客分类</span></a><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/tags/';"><i class="fa-solid fa-tags"></i><span>博客标签</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/Reward-list/';"><i class="fa-solid fa-clipboard-list"></i><span>打赏赞助 ❤</span></a><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/about-website/';"><i class="fa-solid fa-envelope-open-text"></i><span>网站声明</span></a></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="/CDN/lazyload.iife.min.js"></script><script src="/CDN/snackbar/snackbar.min.js"></script><script async="async">var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').style.transition = 'opacity 3s ease 0s'
+    document.getElementById('loading-box').style.opacity = '0'
+    setTimeout(function(){
+      document.getElementById('loading-box').classList.add("loaded")
+    }, 3000);
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').style.transition = '';
+    document.getElementById('loading-box').style.opacity = '1'
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})
+setTimeout(function(){preloader.endLoading();}, 3000);</script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://hexoblog-twikoo.meta-code.top',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'https://hexoblog-twikoo.meta-code.top',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('/CDN/comments/twikoo_1.6.26.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://hexoblog-twikoo.meta-code.top',
+        region: '',
+        pageSize: 5,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('/CDN/comments/twikoo_1.6.26.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script src="/js/console.js?date=20241027"></script><canvas id="universe"></canvas><script src="/js/universe.js"></script><script src="/js/plugins/jquery-3.6.0.min.js"></script><script src="/js/rightmenu.js"></script><script src="/js/sun_moon.js" async></script><div class="aplayer no-destroy" data-id="1050282" data-server="netease" data-type="artist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" data-lrctype="0" muted></div><canvas class="fireworks" mobile="false"></canvas><script src="/CDN/effect/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="105, 171, 247" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/CDN/background_effect/canvas-nest.min.js"></script><script src="/CDN/effect/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="/CDN/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="/CDN/aplayer/APlayer.min.js"></script><script src="/CDN/aplayer/Meting.min.js"></script><script src="/CDN/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="/CDN/count/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start -->
+  <script data-pjax src="/CDN/hexo_githubcalendar.js"></script>
+  <script data-pjax>
+        function GithubCalendarConfig(){
+            var git_githubapiurl ="https://github-calendar-api.meta-code.top/api?user=Barry-Flynn";
+            var git_color =['#ebedf0', '#a2f7af', '#6ce480', '#54ad63', '#469252', '#31753c', '#1f5f2a', '#13531f', '#084111', '#032b09', '#000000'];
+            var git_user ="Barry-Flynn";
+            var parent_div_git = document.getElementById('recent-posts');
+            var git_div_html = '<div class="recent-post-item" style="width:100%;height:auto;padding:10px;"><div id="github_loading" style="width:10%;height:100%;margin:0 auto;display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg></div><div id="github_container"></div></div>';
+            if(parent_div_git && location.pathname =='/'){
+                console.log("已挂载hexo-github-calendar https://github.com/Barry-Flynn/hexo-github-calendar");
+                // parent_div_git.innerHTML=git_div_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",git_div_html) // 有报错，但不影响使用(支持pjax跳转)
+            };
+            GithubCalendar(git_githubapiurl,git_color,git_user)
+        }
+        if(document.getElementById('recent-posts')){
+            GithubCalendarConfig()
+        }
+    </script>
+    <style>#github_container{min-height:280px}@media screen and (max-width:650px) {#github_container{background-image:;min-height:0px}}</style>
+    <style></style><!-- hexo injector body_end end --></body></html>

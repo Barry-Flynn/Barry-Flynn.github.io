@@ -1,0 +1,583 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>【并行计算】Linpack的安装与调试（一）：安装编译器和并行环境 | 百里飞洋</title><meta name="keywords" content="Linux,Linpack,MPICH,高性能计算,并行计算"><meta name="author" content="百里飞洋 Barry-Flynn"><meta name="copyright" content="百里飞洋 Barry-Flynn"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="安装编译器（vim、gcc、g++、gfortran、make），安装并行环境（MPICH）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【并行计算】Linpack的安装与调试（一）：安装编译器和并行环境">
+<meta property="og:url" content="https://blog.meta-code.top/2021/10/13/2021-18/index.html">
+<meta property="og:site_name" content="百里飞洋">
+<meta property="og:description" content="安装编译器（vim、gcc、g++、gfortran、make），安装并行环境（MPICH）">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.meta-code.top/img/friends/Barry-Flynn.jpg">
+<meta property="article:published_time" content="2021-10-13T09:09:32.000Z">
+<meta property="article:modified_time" content="2025-05-19T17:05:36.771Z">
+<meta property="article:author" content="百里飞洋 Barry-Flynn">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Linpack">
+<meta property="article:tag" content="MPICH">
+<meta property="article:tag" content="高性能计算">
+<meta property="article:tag" content="并行计算">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.meta-code.top/img/friends/Barry-Flynn.jpg"><link rel="shortcut icon" href="/img/icon/%E7%81%AB%E7%AE%AD.png"><link rel="canonical" href="https://blog.meta-code.top/2021/10/13/2021-18/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/CDN/fontawesome/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/CDN/snackbar/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e21f557d5683e4733d77db5ab8910d7b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":100,"position":"top","messagePrev":"「温馨提示」本文更新已经","messageNext":"天，若内容或图片失效，请留言反馈。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: 百里飞洋 Barry-Flynn","link":"链接: ","source":"来源: 百里飞洋","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#121212","bgDark":"#49b1f5","position":"bottom-right"},
+  source: {
+    jQuery: '/CDN/jquery.min.js',
+    justifiedGallery: {
+      js: '/CDN/justifiedGallery/jquery.justifiedGallery.min.js',
+      css: '/CDN/justifiedGallery/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: '/CDN/photo/jquery.fancybox.min.js',
+      css: '/CDN/photo/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【并行计算】Linpack的安装与调试（一）：安装编译器和并行环境',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-05-20 01:05:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><link rel="stylesheet" href="/css/BF-simple.css"><link rel="stylesheet" href="/css/BF-rightmenu.css"><link rel="stylesheet" href="https://s1.hdslb.com/bfs/static/jinkela/long/font/regular.css"><svg aria-hidden="true" style="position:absolute; overflow:hidden; width:0; height:0"><symbol id="icon-sun" viewBox="0 0 1024 1024"><path d="M960 512l-128 128v192h-192l-128 128-128-128H192v-192l-128-128 128-128V192h192l128-128 128 128h192v192z" fill="#FFD878" p-id="8420"></path><path d="M736 512a224 224 0 1 0-448 0 224 224 0 1 0 448 0z" fill="#FFE4A9" p-id="8421"></path><path d="M512 109.248L626.752 224H800v173.248L914.752 512 800 626.752V800h-173.248L512 914.752 397.248 800H224v-173.248L109.248 512 224 397.248V224h173.248L512 109.248M512 64l-128 128H192v192l-128 128 128 128v192h192l128 128 128-128h192v-192l128-128-128-128V192h-192l-128-128z" fill="#4D5152" p-id="8422"></path><path d="M512 320c105.888 0 192 86.112 192 192s-86.112 192-192 192-192-86.112-192-192 86.112-192 192-192m0-32a224 224 0 1 0 0 448 224 224 0 0 0 0-448z" fill="#4D5152" p-id="8423"></path></symbol><symbol id="icon-moon" viewBox="0 0 1024 1024"><path d="M611.370667 167.082667a445.013333 445.013333 0 0 1-38.4 161.834666 477.824 477.824 0 0 1-244.736 244.394667 445.141333 445.141333 0 0 1-161.109334 38.058667 85.077333 85.077333 0 0 0-65.066666 135.722666A462.08 462.08 0 1 0 747.093333 102.058667a85.077333 85.077333 0 0 0-135.722666 65.024z" fill="#FFB531" p-id="11345"></path><path d="M329.728 274.133333l35.157333-35.157333a21.333333 21.333333 0 1 0-30.165333-30.165333l-35.157333 35.157333-35.114667-35.157333a21.333333 21.333333 0 0 0-30.165333 30.165333l35.114666 35.157333-35.114666 35.157334a21.333333 21.333333 0 1 0 30.165333 30.165333l35.114667-35.157333 35.157333 35.157333a21.333333 21.333333 0 1 0 30.165333-30.165333z" fill="#030835" p-id="11346"></path></symbol></svg><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="百里飞洋" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="百里飞洋" type="application/rss+xml">
+</head><body><div id="loading-box"><div class="centered"><div class="blob-1"></div><div class="blob-2"></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/friends/Barry-Flynn.jpg" onerror="onerror=null;src='/img/others/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">92</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/Calendar/"><i class="fa-fw fa-solid fa-calendar-check"></i><span> 奋斗日历</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-icons"></i><span> 多媒体</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-headphones-alt"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 找文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 按分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 按标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 按时间</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-medal"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/Reward-list/"><i class="fa-fw fas fa-clipboard-list"></i><span> 打赏榜</span></a></li><li><a class="site-page child" href="/about-website/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 网站声明</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-user-friends"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-subway"></i><span> 开往&amp;虫洞</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><i class="fa-fw fa fa-subway"></i><span> 开往/友链接力</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://foreverblog.cn/go.html"><i class="fa-fw fab fa-stumbleupon-circle"></i><span> 虫洞/十年之约</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://zhblogs.ohyee.cc/?tab=blog_list&amp;page=1&amp;tags=&amp;search=百里飞洋"><i class="fa-fw fas fa-blog"></i><span> 中文博客导航</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/images/hello%20world.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">百里飞洋</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/Calendar/"><i class="fa-fw fa-solid fa-calendar-check"></i><span> 奋斗日历</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-icons"></i><span> 多媒体</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-headphones-alt"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 找文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 按分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 按标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 按时间</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-medal"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/Reward-list/"><i class="fa-fw fas fa-clipboard-list"></i><span> 打赏榜</span></a></li><li><a class="site-page child" href="/about-website/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 网站声明</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-user-friends"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-subway"></i><span> 开往&amp;虫洞</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><i class="fa-fw fa fa-subway"></i><span> 开往/友链接力</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://foreverblog.cn/go.html"><i class="fa-fw fab fa-stumbleupon-circle"></i><span> 虫洞/十年之约</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://zhblogs.ohyee.cc/?tab=blog_list&amp;page=1&amp;tags=&amp;search=百里飞洋"><i class="fa-fw fas fa-blog"></i><span> 中文博客导航</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【并行计算】Linpack的安装与调试（一）：安装编译器和并行环境</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-10-13T09:09:32.000Z" title="发表于 2021-10-13 17:09:32">2021-10-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-05-19T17:05:36.771Z" title="更新于 2025-05-20 01:05:36">2025-05-20</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>18分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【并行计算】Linpack的安装与调试（一）：安装编译器和并行环境"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>踩了很多坑，<br>网上教程每个人写的都不一样，<br>装错又卸载，卸载又重装，<br>老师也不教，直接布置任务下来，<br>有经验的同学也不知道我报错是因为什么，<br>好几个同学都压力大退课了。<br>头疼又难受，想吐，<br>做梦都在Linux上装软件，<br>都快魔怔了，写篇总结文吧。</p>
+<blockquote>
+<p>本文全过程在Ubuntu系统下进行</p>
+</blockquote>
+<hr>
+<h1 id="编译器的安装"><a href="#编译器的安装" class="headerlink" title="编译器的安装"></a>编译器的安装</h1><p>安装vim，gcc，g++，gfortran，make<br>是的，如果没有安装过，那就全安装一遍。</p>
+<pre><code>sudo apt install vim
+您希望继续执行吗？ [Y/n] y
+
+sudo apt install gcc
+您希望继续执行吗？ [Y/n] y
+
+sudo apt install g++
+您希望继续执行吗？ [Y/n] y
+
+sudo apt install gfortran
+您希望继续执行吗？ [Y/n] y
+
+sudo apt install make
+</code></pre>
+<hr>
+<h1 id="并行环境-mpich-的安装"><a href="#并行环境-mpich-的安装" class="headerlink" title="并行环境(mpich)的安装"></a>并行环境(mpich)的安装</h1><ul>
+<li>常用的MPI并行环境有：MPICH、LAM-MPI、openmpi、Intel的MPI等。</li>
+<li>如果CPU是Intel的产品，提议使用Intel的MPI。</li>
+<li>这里使用MPICH。</li>
+</ul>
+<p><strong>安装目标：</strong><br>将 <code>mpich</code> 安装到 <code>/usr/local/mpich</code> 文件夹</p>
+<p><strong>下载mpich安装包：</strong><br>我以<code>mpich-3.4.2.tar.gz</code>版本为例<br>下载地址：<a target="_blank" rel="noopener" href="http://www.mpich.org/downloads/">www.mpich.org/downloads/</a><br>默认下载到家目录的“下载”目录中</p>
+<p><strong>安装步骤：</strong></p>
+<hr>
+<p><strong>进入源代码压缩包所在目录</strong></p>
+<pre><code>~$ cd 下载
+</code></pre>
+<h2 id="解压安装包：tar命令"><a href="#解压安装包：tar命令" class="headerlink" title="解压安装包：tar命令"></a>解压安装包：tar命令</h2><pre><code>~/下载$ sudo tar -zxvf  mpich-3.4.2.tar.gz
+</code></pre>
+<blockquote>
+<p>命令详解：<br><a target="_blank" rel="noopener" href="https://www.linuxcool.com/tar">tar命令 – 打包和备份的归档工具</a><br>参数<code>-z</code>：通过gzip指令压缩/解压缩文件，文件名最好为*.tar.gz<br>参数<code>-x</code>：从归档文件中提取文件<br>参数<code>-v</code>：显示操作过程<br>参数<code>-f</code>：指定备份文件</p>
+</blockquote>
+<p><strong>进入解压文件夹</strong></p>
+<pre><code>~/下载$ cd mpich-3.4.2
+</code></pre>
+<p><strong>显示目录内容</strong></p>
+<pre><code>~/下载/mpich-3.4.2$ ls
+</code></pre>
+<blockquote>
+<p>命令详解：<br><a target="_blank" rel="noopener" href="https://www.linuxcool.com/ls">ls命令 – 显示指定工作目录下的内容及属性信息</a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">aclocal.m4     configure     examples     mpich-doxygen.in   test</span><br><span class="line">autogen.sh     configure.ac  maint        README             www</span><br><span class="line">CHANGES        contrib       Makefile.am  README.envvar</span><br><span class="line">confdb         CONTRIBUTING  Makefile.in  RELEASE_NOTES</span><br><span class="line">config.log     COPYRIGHT     man          src</span><br><span class="line">config.system  doc           modules      subsys_include.m4</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="配置：configure命令"><a href="#配置：configure命令" class="headerlink" title="配置：configure命令"></a>配置：configure命令</h2><pre><code>~/下载/mpich-3.4.2$ sudo ./configure --prefix=/usr/local/mpich
+</code></pre>
+<blockquote>
+<p>命令详解：<br><code>configure</code>：是一个shell脚本，它在源文件的根目录中。他的作用是检查你的系统中是否有编译这个程序依赖的其它库之类的东西。<br><code>prefix 参数</code>：指定目标安装路径，必须指定，否则不知道默认安装到哪里，不方便以后的管理（类似windows的安装路径）。prefix后的路径随意； 另外“ ./configure ”中“ ./ ”——表示当前目录，这个是相对路径。</p>
+</blockquote>
+<ul>
+<li><p>若未进行第一步的“编译器的安装”，可能会出现以下报错，<br>（如遇到请先安装第一步的编译器，再执行./configure命令）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">barryflynn@barryflynn:/usr/mpich/mpich-3.4.2$ sudo ./configure --prefix=/usr/mpich</span><br><span class="line">[sudo] barryflynn 的密码： </span><br><span class="line">Configuring MPICH version 3.4.2 with  &#x27;--prefix=/usr/mpich&#x27;</span><br><span class="line">Running on system: Linux barryflynn 5.11.0-34-generic #36~20.04.1-Ubuntu SMP Fri Aug 27 08:06:32 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux</span><br><span class="line">checking build system type... x86_64-unknown-linux-gnu</span><br><span class="line">checking host system type... x86_64-unknown-linux-gnu</span><br><span class="line">checking target system type... x86_64-unknown-linux-gnu</span><br><span class="line">checking for gcc... no</span><br><span class="line">checking for cc... no</span><br><span class="line">checking for cl.exe... no</span><br><span class="line">configure: error: in `/usr/mpich/mpich-3.4.2&#x27;:</span><br><span class="line">configure: error: no acceptable C compiler found in $PATH</span><br><span class="line">See `config.log&#x27; for more details</span><br><span class="line"></span><br><span class="line">------------------翻译----------------------</span><br><span class="line"></span><br><span class="line">使用“--prefix=/usr/MPICH”配置MPICH版本3.4.2</span><br><span class="line">在系统上运行：Linux barryflynn 5.11.0-34-generic#36~20.04.1-Ubuntu SMP Fri Aug 27 08:06:32 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux</span><br><span class="line">正在检查生成系统类型。。。x86_64-unknown-linux-gnu</span><br><span class="line">正在检查主机系统类型。。。x86_64-unknown-linux-gnu</span><br><span class="line">正在检查目标系统类型。。。x86_64-unknown-linux-gnu</span><br><span class="line">正在检查gcc。。。不</span><br><span class="line">正在检查抄送。。。不</span><br><span class="line">正在检查cl.exe。。。不</span><br><span class="line">配置：错误：在“/usr/mpich/mpich-3.4.2”中：</span><br><span class="line">配置：错误：在$PATH中找不到可接受的C编译器</span><br><span class="line">有关详细信息，请参阅“config.log” </span><br></pre></td></tr></table></figure></li>
+<li><p>如果进最后进程代码报错是这样的：<br>（展开后直接看最后那部分跟你的是否一样）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br></pre></td><td class="code"><pre><span class="line">Configuring MPICH version 3.4.2 with  &#x27;--prefix=/usr/local/mpich&#x27;</span><br><span class="line">Running on system: Linux barryflynn 5.11.0-34-generic #36~20.04.1-Ubuntu SMP Fri Aug 27 08:06:32 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux</span><br><span class="line">checking build system type... x86_64-unknown-linux-gnu</span><br><span class="line">checking host system type... x86_64-unknown-linux-gnu</span><br><span class="line">checking target system type... x86_64-unknown-linux-gnu</span><br><span class="line">checking for gcc... gcc</span><br><span class="line">checking whether the C compiler works... yes</span><br><span class="line">checking for C compiler default output file name... a.out</span><br><span class="line">checking for suffix of executables... </span><br><span class="line">checking whether we are cross compiling... no</span><br><span class="line">checking for suffix of object files... o</span><br><span class="line">checking whether we are using the GNU C compiler... yes</span><br><span class="line">checking whether gcc accepts -g... yes</span><br><span class="line">checking for gcc option to accept ISO C89... none needed</span><br><span class="line">checking whether gcc understands -c and -o together... yes</span><br><span class="line">checking for gcc option to accept ISO C99... none needed</span><br><span class="line">checking how to run the C preprocessor... gcc -E</span><br><span class="line">checking for grep that handles long lines and -e... /usr/bin/grep</span><br><span class="line">checking for egrep... /usr/bin/grep -E</span><br><span class="line">checking for ANSI C header files... yes</span><br><span class="line">checking for sys/types.h... yes</span><br><span class="line">checking for sys/stat.h... yes</span><br><span class="line">checking for stdlib.h... yes</span><br><span class="line">checking for string.h... yes</span><br><span class="line">checking for memory.h... yes</span><br><span class="line">checking for strings.h... yes</span><br><span class="line">checking for inttypes.h... yes</span><br><span class="line">checking for stdint.h... yes</span><br><span class="line">checking for unistd.h... yes</span><br><span class="line">checking minix/config.h usability... no</span><br><span class="line">checking minix/config.h presence... no</span><br><span class="line">checking for minix/config.h... no</span><br><span class="line">checking whether it is safe to define __EXTENSIONS__... yes</span><br><span class="line">checking for a BSD-compatible install... /usr/bin/install -c</span><br><span class="line">checking whether build environment is sane... yes</span><br><span class="line">checking for a thread-safe mkdir -p... /usr/bin/mkdir -p</span><br><span class="line">checking for gawk... no</span><br><span class="line">checking for mawk... mawk</span><br><span class="line">checking whether make sets $(MAKE)... yes</span><br><span class="line">checking for style of include used by make... GNU</span><br><span class="line">checking whether make supports nested variables... yes</span><br><span class="line">checking dependency style of gcc... gcc3</span><br><span class="line">checking whether to enable maintainer-specific portions of Makefiles... yes</span><br><span class="line">checking for ar... ar</span><br><span class="line">checking the archiver (ar) interface... ar</span><br><span class="line">checking how to print strings... printf</span><br><span class="line">checking for a sed that does not truncate output... /usr/bin/sed</span><br><span class="line">checking for fgrep... /usr/bin/grep -F</span><br><span class="line">checking for ld used by gcc... /usr/bin/ld</span><br><span class="line">checking if the linker (/usr/bin/ld) is GNU ld... yes</span><br><span class="line">checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B</span><br><span class="line">checking the name lister (/usr/bin/nm -B) interface... BSD nm</span><br><span class="line">checking whether ln -s works... yes</span><br><span class="line">checking the maximum length of command line arguments... 1572864</span><br><span class="line">checking how to convert x86_64-unknown-linux-gnu file names to x86_64-unknown-linux-gnu format... func_convert_file_noop</span><br><span class="line">checking how to convert x86_64-unknown-linux-gnu file names to toolchain format... func_convert_file_noop</span><br><span class="line">checking for /usr/bin/ld option to reload object files... -r</span><br><span class="line">checking for objdump... objdump</span><br><span class="line">checking how to recognize dependent libraries... pass_all</span><br><span class="line">checking for dlltool... no</span><br><span class="line">checking how to associate runtime and link libraries... printf %s\n</span><br><span class="line">checking for archiver @FILE support... @</span><br><span class="line">checking for strip... strip</span><br><span class="line">checking for ranlib... ranlib</span><br><span class="line">checking command to parse /usr/bin/nm -B output from gcc object... ok</span><br><span class="line">checking for sysroot... no</span><br><span class="line">checking for a working dd... /usr/bin/dd</span><br><span class="line">checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1</span><br><span class="line">checking for mt... mt</span><br><span class="line">checking if mt is a manifest tool... no</span><br><span class="line">checking for dlfcn.h... yes</span><br><span class="line">checking for objdir... .libs</span><br><span class="line">checking if gcc supports -fno-rtti -fno-exceptions... no</span><br><span class="line">checking for gcc option to produce PIC... -fPIC -DPIC</span><br><span class="line">checking if gcc PIC flag -fPIC -DPIC works... yes</span><br><span class="line">checking if gcc static flag -static works... yes</span><br><span class="line">checking if gcc supports -c -o file.o... yes</span><br><span class="line">checking if gcc supports -c -o file.o... (cached) yes</span><br><span class="line">checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes</span><br><span class="line">checking whether -lc should be explicitly linked in... no</span><br><span class="line">checking dynamic linker characteristics... GNU/Linux ld.so</span><br><span class="line">checking how to hardcode library paths into programs... immediate</span><br><span class="line">checking whether stripping libraries is possible... yes</span><br><span class="line">checking if libtool supports shared libraries... yes</span><br><span class="line">checking whether to build shared libraries... yes</span><br><span class="line">checking whether to build static libraries... yes</span><br><span class="line">checking whether make supports nested variables... (cached) yes</span><br><span class="line">checking for g++... g++</span><br><span class="line">checking whether we are using the GNU C++ compiler... yes</span><br><span class="line">checking whether g++ accepts -g... yes</span><br><span class="line">checking dependency style of g++... gcc3</span><br><span class="line">checking how to run the C++ preprocessor... g++ -E</span><br><span class="line">checking for ld used by g++... /usr/bin/ld -m elf_x86_64</span><br><span class="line">checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes</span><br><span class="line">checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes</span><br><span class="line">checking for g++ option to produce PIC... -fPIC -DPIC</span><br><span class="line">checking if g++ PIC flag -fPIC -DPIC works... yes</span><br><span class="line">checking if g++ static flag -static works... yes</span><br><span class="line">checking if g++ supports -c -o file.o... yes</span><br><span class="line">checking if g++ supports -c -o file.o... (cached) yes</span><br><span class="line">checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes</span><br><span class="line">checking dynamic linker characteristics... (cached) GNU/Linux ld.so</span><br><span class="line">checking how to hardcode library paths into programs... immediate</span><br><span class="line">checking for gfortran... gfortran</span><br><span class="line">checking whether we are using the GNU Fortran compiler... yes</span><br><span class="line">checking whether gfortran accepts -g... yes</span><br><span class="line">checking if libtool supports shared libraries... yes</span><br><span class="line">checking whether to build shared libraries... yes</span><br><span class="line">checking whether to build static libraries... yes</span><br><span class="line">checking for gfortran option to produce PIC... -fPIC</span><br><span class="line">checking if gfortran PIC flag -fPIC works... yes</span><br><span class="line">checking if gfortran static flag -static works... yes</span><br><span class="line">checking if gfortran supports -c -o file.o... yes</span><br><span class="line">checking if gfortran supports -c -o file.o... (cached) yes</span><br><span class="line">checking whether the gfortran linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes</span><br><span class="line">checking dynamic linker characteristics... (cached) GNU/Linux ld.so</span><br><span class="line">checking how to hardcode library paths into programs... immediate</span><br><span class="line">checking whether we are using the GNU Fortran 77 compiler... yes</span><br><span class="line">checking whether gfortran accepts -g... yes</span><br><span class="line">checking if libtool supports shared libraries... yes</span><br><span class="line">checking whether to build shared libraries... yes</span><br><span class="line">checking whether to build static libraries... yes</span><br><span class="line">checking for gfortran option to produce PIC... -fPIC</span><br><span class="line">checking if gfortran PIC flag -fPIC works... yes</span><br><span class="line">checking if gfortran static flag -static works... yes</span><br><span class="line">checking if gfortran supports -c -o file.o... yes</span><br><span class="line">checking if gfortran supports -c -o file.o... (cached) yes</span><br><span class="line">checking whether the gfortran linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes</span><br><span class="line">checking dynamic linker characteristics... (cached) GNU/Linux ld.so</span><br><span class="line">checking how to hardcode library paths into programs... immediate</span><br><span class="line">configure: RUNNING PREREQ FOR CH4 DEVICE</span><br><span class="line">checking rdma/fabric.h usability... no</span><br><span class="line">checking rdma/fabric.h presence... no</span><br><span class="line">checking for rdma/fabric.h... no</span><br><span class="line">checking for fi_getinfo in -lfabric... no</span><br><span class="line">checking ucp/api/ucp.h usability... no</span><br><span class="line">checking ucp/api/ucp.h presence... no</span><br><span class="line">checking for ucp/api/ucp.h... no</span><br><span class="line">checking for ucp_config_read in -lucp... no</span><br><span class="line">configure: error: no ch4 netmod selected</span><br><span class="line"></span><br><span class="line">  The default ch4 device could not detect a preferred network</span><br><span class="line">  library. Supported options are ofi (libfabric) and ucx:</span><br><span class="line"></span><br><span class="line">    --with-device=ch4:ofi or --with-device=ch4:ucx</span><br><span class="line"></span><br><span class="line">  Configure will use an embedded copy of libfabric or ucx if one is</span><br><span class="line">  not found in the user environment. An installation can be specified</span><br><span class="line">  by adding</span><br><span class="line"></span><br><span class="line">    --with-libfabric=&lt;path/to/install&gt; or --with-ucx=&lt;path/to/install&gt;</span><br><span class="line"></span><br><span class="line">  to the configuration.</span><br><span class="line"></span><br><span class="line">  The previous MPICH default device (ch3) is also available and</span><br><span class="line">  supported with option:</span><br><span class="line"></span><br><span class="line">    --with-device=ch3</span><br><span class="line">    </span><br><span class="line">barryflynn@barryflynn:~/下载/mpich-3.4.2$ </span><br></pre></td></tr></table></figure>
+<p>那你ls一下，肯定没有名为Makefile的文件，说明没有configure成功，</p>
+<pre><code>  ~/下载/mpich-3.4.2$ ls
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">aclocal.m4  config.system  COPYRIGHT    Makefile.in       README.envvar      www</span><br><span class="line">autogen.sh  configure      doc          man               RELEASE_NOTES</span><br><span class="line">CHANGES     configure.ac   examples     modules           src</span><br><span class="line">confdb      contrib        maint        mpich-doxygen.in  subsys_include.m4</span><br><span class="line">config.log  CONTRIBUTING   Makefile.am  README            test</span><br></pre></td></tr></table></figure>
+<p>那么按照上边报错代码的结尾，加上<code>--with-device=ch4:ofi</code></p>
+<pre><code>  ~/下载/mpich-3.4.2$ sudo ./configure --prefix=/usr/local/mpich --with-device=ch4:ofi
+</code></pre>
+<p>然后飘过大坨大坨代码…..</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">config.status: creating Makefile</span><br><span class="line">config.status: creating include/Makefile</span><br><span class="line">config.status: creating src/Makefile</span><br><span class="line">config.status: creating dtpoolsconf.h</span><br><span class="line">config.status: executing depfiles commands</span><br><span class="line">config.status: executing libtool commands</span><br><span class="line">***</span><br><span class="line">*** device: ch4</span><br><span class="line">*** netmods: ofi</span><br><span class="line">*** shm: auto</span><br><span class="line">***</span><br><span class="line">Configuration completed.</span><br></pre></td></tr></table></figure>
+<p>最后看到<code>Configuration completed.</code>代表配置完成。<br>现在查看一下目录：</p>
+<pre><code>  ~/下载/mpich-3.4.2$ ls
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">aclocal.m4  config.status  COPYRIGHT  Makefile       mpich-doxygen.in   test</span><br><span class="line">autogen.sh  config.system  doc        Makefile.am    README             www</span><br><span class="line">CHANGES     configure      examples   Makefile.in    README.envvar</span><br><span class="line">confdb      configure.ac   lib        man            RELEASE_NOTES</span><br><span class="line">config.log  contrib        libtool    modules        src</span><br><span class="line">config.lt   CONTRIBUTING   maint      mpich-doxygen  subsys_include.m4</span><br></pre></td></tr></table></figure>
+<p>可以看到现在有Makefile 了，配置成功。</p>
+</li>
+</ul>
+<hr>
+<h2 id="编译：make命令"><a href="#编译：make命令" class="headerlink" title="编译：make命令"></a>编译：make命令</h2><pre><code>~/下载/mpich-3.4.2$ sudo make
+</code></pre>
+<p>时间可能会很长，慢慢等待。</p>
+<hr>
+<h2 id="安装：make-install命令"><a href="#安装：make-install命令" class="headerlink" title="安装：make install命令"></a>安装：make install命令</h2><pre><code>~/下载/mpich-3.4.2$ sudo make install
+</code></pre>
+<hr>
+<h2 id="设置环境变量：export-PATH"><a href="#设置环境变量：export-PATH" class="headerlink" title="设置环境变量：export PATH"></a>设置环境变量：export PATH</h2><p>安装好了之后，还需要告诉系统mpi库的路径地址，这样当你调用mpi的命令时，系统才知道你在干什么。在用户的根目录（即：家目录 <code>~</code> ）下，有一个<code>.bashrc</code>的文本文件（默认使用的是bash，如果是zsh等自行查阅资料）。这个文件可以理解为，每次打开终端时都会加载的启动项。</p>
+<pre><code>vim ~/.bashrc
+</code></pre>
+<p>通过之前安装的vim编译器打开当前用户下所对应的.bashrc文件，<br>按a进入插入模式，<br>在其中加入一行（建议用方向键滑到最下，添加到最下面一行）:</p>
+<pre><code>export PATH=&quot;/usr/local/mpich/bin:$PATH&quot; 
+</code></pre>
+<p>添加完后Esc退出插入模式，最后一行输入 <code>：wq</code> 保存退出。</p>
+<p>保存退出之后 ，使用source这一命令执行一下就把新加的命令执行了。</p>
+<pre><code>source ~/.bashrc
+</code></pre>
+<hr>
+<p>之后，用which来检验下配置的环境变量是否正确。</p>
+<pre><code>which mpicc
+</code></pre>
+<p>若返回了类似下面这样的路径，就行了</p>
+<pre><code>/usr/local/mpich/bin/mpicc
+</code></pre>
+<p>再执行命令：</p>
+<pre><code>which mpif90
+</code></pre>
+<p>若返回了类似下面这样的路径，就行了</p>
+<pre><code>/usr/local/mpich/bin/mpif90
+</code></pre>
+<p>如果执行<code>which mpicc</code>和<code>which mpif90</code>后没有返回路径，说明环境变量路径配置错误，请重新<code>vim ~/.bashrc</code>回去检查修改</p>
+<hr>
+<p>进入当初安装包解压后的文件夹的<code>examples</code>目录下，去测试一下hello是否能顺利运行。</p>
+<pre><code>cd ~/下载/mpich-3.4.2/examples
+</code></pre>
+<p>先编译一下</p>
+<pre><code>mpicc -o hellow hellow.c
+</code></pre>
+<p>再运行试试：</p>
+<pre><code>mpirun -np 4 ./hellow
+</code></pre>
+<p>若出现如下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Hello world from process 1 of 4</span><br><span class="line">Hello world from process 0 of 4</span><br><span class="line">Hello world from process 2 of 4</span><br><span class="line">Hello world from process 3 of 4</span><br></pre></td></tr></table></figure>
+<p>代表并行环境MPICH安装成功。</p>
+<blockquote>
+<p>如果细心可能注意到，我全程没有进入超级管理员模式，只是在必要时在命令前添加<code>sudo</code>命令（<a target="_blank" rel="noopener" href="https://www.linuxcool.com/sudo">以系统管理者的身份执行指令</a>），所以命令行之前都是<code>$</code>符号，而不是超级管理员下的<code>#</code>符号。</p>
+</blockquote>
+<p><br /><br /><br /><br /><br /><br><strong>THE END.</strong><br><strong>本文完~</strong></p>
+<hr>
+<h1 id="专业名词积累"><a href="#专业名词积累" class="headerlink" title="专业名词积累"></a>专业名词积累</h1><ul>
+<li><code>OS</code>：操作系统（Operating System）。</li>
+<li><code>MKL</code>：英特尔数学核心函数库（Intel Math Kernel Library）。</li>
+<li><code>MPI</code>：消息传递接口（Moldflow Plastic Insight），是为并行任务开发的一个标准接口库，是一个提供深入制件和模具设计分析的软件包,它提供强大的分析功能、可视化功能和项目管理工具。这些工具使客户可以进行深入的分析和优化。MPI使用户可以对制件的几何形状、材料的选择、模具设计及加工参数设置进行优化以获得高质量的产品。MPI是一个库，而不是一门语言。它是一种标准或规范的代表，而不特指某一个对它的具体实现。</li>
+<li><code>MPICH</code>：消息传递接口（Message Passing Interface）。MPICH是一种最重要的MPI实现，MPICH是一个与MPI-1规范同步发展的版本，每当MPI推出新的版本，就会有相应的MPICH的实现版本。MPICH含三层结构，最上层是MPI的API，基本是点到点通信，和在点到点通信基础上构造的集群通信（Collective Communication）；中间层是ADI层（Abstract Device Interface），其中device可以简单地理解为某一种底层通信库，ADI就是对各种不同的底层通信库的不同接口的统一标准；底层是具体的底层通 信库，例如工作站机群上的p4通信库、曙光1000上的NX库、曙光3000上的BCL通信库等。</li>
+<li><code>Linpack</code>：线性系统软件包（Linear system package）。至目前为止， LINPACK 还是广泛地应用于解各种数学和工程问题。 也由于它高效率的运算， 使得其它几种数学软件例如IMSL、 MATLAB 纷纷加以引用来处理矩阵问题， 所以足见其在科学计算上有举足轻重的地位。Linpack现在在国际上已经成为最流行的用于测试高性能计算机系统浮点性能的benchmark。通过利用高性能计算机，用<strong>高斯消元法</strong>求解N元一次稠密线性代数方程组的测试，评价高性能计算机的浮点性能。</li>
+<li><code>HPL</code>：用于分布式内存计算机的高性能Linpack基准测试（High-performance Linpack Benchmark for Distributed-memory Computers），是针对现代并行计算机提出的测试方式。用户在不修改任意测试程序的基础上，可以调节问题规模大小N(矩阵大小)、使用到的CPU数目、使用各种优化方法等来执行该测试程序，以获取最佳的性能。HPL采用高斯消元法求解线性方程组。当求解问题规模为N时，浮点运算次数为(2/3 * N^3－2<em>N^2)。因此，只要给出问题规模N，测得系统计算时间T，峰值=计算量(2/3 * N^3－2</em>N^2)/计算时间T，测试结果以浮点运算每秒（Flops）给出，衡量计算机性能的一个重要指标就是计算峰值或者浮点计算峰值。HPL测试结果是TOP500排名的重要依据。在比赛中，参赛队正确安装和编译HPL包之后，通过一定的配置修改，开始运行HPL，HPL的运行方式和MPI密切相关，不同的MPI在运行方面有一定的差别。运行结束输出结果后，参赛队需要针对实际测试结果进行分析，不断修改配置，优化测试，以取得满意的结果。</li>
+<li><code>HPCG</code>：高性能共轭梯度 （High Performance Conjugate Gradient）。随着高性能应用的不断发展，其性能与HPL所测的结果（主要是系统利用率）相差较大，这主要是由于HPL包含大量稠密矩阵计算，具有良好的数据局部性，容易开发并行性和局部性，但并不能代表其他大量实际应用中常见的不易扩展和开发局部性的稀疏计算和访存模式。HPCG是求解稀疏矩阵方程组的一种迭代算法，使用局部对称Gauss—Seidel预条件子的预处理共轭梯度法，主要数据为对称正定稀疏矩阵，每一个计算循环需要调用稀疏矩阵向量乘、预条件子、向量更新和向量内积操作。覆盖了常用的计算和通信模式。HPCG类似HPL，允许使用多种优化方法调优，例如新的稀疏矩阵格式等。</li>
+</ul>
+<hr>
+<h1 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h1><p><strong>主要：</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/356705583">两小时入门MPI与并行计算（二）：MPI的安装与配置</a>-知乎 </li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42711189/article/details/116245574">MPI部署踩坑实况！！！最终成功跑通梯形面积法！！！精准全流程命令+各步骤报错解决方案！！！</a>-CSDN </li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/weidawang/p/10069583.html">mpich安装教程-魏大王敲代码</a>-博客园</li>
+<li>Linpack的安装、调试与优化-曙光认证服务器工程师DCSA(Dawning Certified Server Associate)培训课程PDF课件</li>
+<li><a target="_blank" rel="noopener" href="http://www.blogjava.net/zhyiwww/archive/2006/06/19/53786.html">Linux 中如何卸载已安装的软件(转载)</a></li>
+</ul>
+<p><strong>其他：</strong></p>
+<ul>
+<li>《超算竞赛导引》电子版（PDF第145页）</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/sishuiliunian0710/article/details/20493101">HPL环境安装、配置及初步优化方案（报告）</a>-CSDN博客</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/hanzhenbushihu/article/details/88416724">HPL与HPCG测试（一）</a>-CSDN博客</li>
+<li><a target="_blank" rel="noopener" href="https://www.bbsmax.com/A/kvJ3qy29dg/">Linpack之HPL测试</a>-bbsmax.com</li>
+<li><a target="_blank" rel="noopener" href="https://www.bbsmax.com/A/A7zgkxXlz4/">Linpack之HPCG测试</a>-bbsmax.com</li>
+<li><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/linpack/8831771?fr=aladdin">linpack百度百科</a></li>
+<li><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95%E7%A8%8B%E5%BA%8F/22398676?fr=aladdin">基准测试程序-百度百科</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/linfengfeiye/article/details/5708444">HPL测试程序安装</a>-CSDN博客</li>
+<li><a target="_blank" rel="noopener" href="http://www.51testing.com/html/92/422092-241401.html">Linpack（HPL）傻瓜式安装全过程一【MPICH的安装】</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.oschina.net/p/mpich?hmsr=aladdin1e1">MPICH 消息传递接口</a>-OSCHINA/开源软件</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">百里飞洋 Barry-Flynn</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.meta-code.top/2021/10/13/2021-18/">https://blog.meta-code.top/2021/10/13/2021-18/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.meta-code.top" target="_blank">百里飞洋</a>！</span></div><div class="post-technical-tips"><span class="post-copyright-meta">技术内容: </span><span class="post-copyright-info">若存在错误或不当之处，还望兄台不吝赐教，期待与您交流！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a><a class="post-meta__tags" href="/tags/Linpack/">Linpack</a><a class="post-meta__tags" href="/tags/MPICH/">MPICH</a><a class="post-meta__tags" href="/tags/%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97/">高性能计算</a><a class="post-meta__tags" href="/tags/%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/">并行计算</a></div><div class="post_share"><div class="social-share" data-image="/img/friends/Barry-Flynn.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/CDN/share/share.min.css" media="print" onload="this.media='all'"><script src="/CDN/share/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E5%BE%AE%E4%BF%A1WeChat%E6%89%93%E8%B5%8F%E7%A0%81.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E5%BE%AE%E4%BF%A1%E6%89%93%E8%B5%8F%EF%BC%88%E7%BA%AF%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%89.png" alt="WeChat微信打赏"/></a><div class="post-qr-code-desc">WeChat微信打赏</div></li><li class="reward-item"><a href="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E6%94%AF%E4%BB%98%E5%AE%9DAliPay%E6%89%93%E8%B5%8F%E7%A0%81.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%89%93%E8%B5%8F%EF%BC%88%E7%BA%AF%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%89.png" alt="AliPay支付宝打赏"/></a><div class="post-qr-code-desc">AliPay支付宝打赏</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/10/12/2021-17/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" onerror="onerror=null;src='/img/others/404.gif'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【计组原理】第1章 计算机系统概论</div></div></a></div><div class="next-post pull-right"><a href="/2021/10/13/2021-19/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2021/12/24/TtzHeJ.jpg" onerror="onerror=null;src='/img/others/404.gif'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【担忧】关于我过多个人信息的暴露</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/11/04/2021-32/" title="【并行计算】初步了解OpenMP并用其加速矩阵相乘"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-04</div><div class="title">【并行计算】初步了解OpenMP并用其加速矩阵相乘</div></div></a></div><div><a href="/2021/11/11/2021-37/" title="【并行计算】用OpenMP语句处理循环间的依赖关系"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-11</div><div class="title">【并行计算】用OpenMP语句处理循环间的依赖关系</div></div></a></div><div><a href="/2021/09/30/2021-10/" title="Linux操作系统使用基础丨（2）系统的运行"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-30</div><div class="title">Linux操作系统使用基础丨（2）系统的运行</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/friends/Barry-Flynn.jpg" onerror="this.onerror=null;this.src='/img/others/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">百里飞洋 Barry-Flynn</div><div class="author-info__description">星河滚烫，无问西东</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">92</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://space.bilibili.com/349963315"><i class="fas fa-play-circle"></i><span>关注我吧</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://weibo.com/6327778914" target="_blank" title="微博Weibo"><i class="fab fa-weibo"></i></a><a class="social-icon" href="https://space.bilibili.com/349963315" target="_blank" title="哔哩哔哩Bilibili"><i class="fab fa-youtube"></i></a><a class="social-icon" href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=2158469373@qq.com" target="_blank" title="邮箱Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://github.com/Barry-Flynn" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://gitee.com/Barry-Flynn" target="_blank" title="码云Gitee"><i class="fab fa-gofore"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Hey,欢迎来到我的博客小世界！<br /> 00后程序员&中二小青年 <br /> QQ学习聊天群：<b>534984250</b><br /> 才疏学浅，自说自话，<br /> 欢迎交流玩耍~<br /> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/others/咒术回战.gif" style="border-radius:0.5rem;" /></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-text">编译器的安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%B6%E8%A1%8C%E7%8E%AF%E5%A2%83-mpich-%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-text">并行环境(mpich)的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85%E5%8C%85%EF%BC%9Atar%E5%91%BD%E4%BB%A4"><span class="toc-text">解压安装包：tar命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%EF%BC%9Aconfigure%E5%91%BD%E4%BB%A4"><span class="toc-text">配置：configure命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%EF%BC%9Amake%E5%91%BD%E4%BB%A4"><span class="toc-text">编译：make命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%EF%BC%9Amake-install%E5%91%BD%E4%BB%A4"><span class="toc-text">安装：make install命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%EF%BC%9Aexport-PATH"><span class="toc-text">设置环境变量：export PATH</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%93%E4%B8%9A%E5%90%8D%E8%AF%8D%E7%A7%AF%E7%B4%AF"><span class="toc-text">专业名词积累</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E5%86%85%E5%AE%B9"><span class="toc-text">参考内容</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 百里飞洋 Barry-Flynn</div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="http://meta-code.top/"><i class="fas fa-globe-americas"></i>&nbsp;元代码</a>丨<a target="_blank" rel="noopener" href="https://weibo.com/6327778914/profile?topnav=1&wvr=6&is_all=1"><i class="fab fa-weibo"></i>&nbsp;<span>新浪微博</span></a>丨<a target="_blank" rel="noopener" href="https://space.bilibili.com/349963315"><i class="fab fa-youtube"></i>&nbsp;<span>哔哩哔哩</span></a>丨<a href="/about/"><i class="fas fa-meteor"></i>&nbsp;关于我</a><br /> <a href="/Reward-list/">赞助列表</a>丨<a href="/about-website/">网站声明</a>丨<a href="/link/">友情链接</a>丨<a href="https://blog.meta-code.top/rss2.xml">RSS订阅</a><br /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41071102000543"><span style="vertical-align:middle;"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/icon/备案图标.png" style="vertical-align:middle;">&nbsp;豫公网安备 41071102000543号</a></span><br /> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><span style="vertical-align:middle;"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/icon/ICP备案.png" style="vertical-align:middle;width:20px;height:20px;">&nbsp;豫ICP备2021034491号</a></span><br /> <span><星河滚烫，无问西东></span><br /> <br /> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/二维码/移动端访问.png" style="width:130px;height:150px;border-radius:20px;display:inline-block;margin:0 5px;"> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/二维码/学习聊天群.png" style="width:130px;height:150px;border-radius:20px;display:inline-block;margin:0 5px;"><br /></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><a class="icon-V hidden" onclick="switchNightMode()" title="浅色和深色模式转换"><svg width="25" height="25" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon"></use></svg></a><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><a class="rightMenu-item" href="javascript:window.history.back();"><i class="fa-solid fa-arrow-left"></i></a><a class="rightMenu-item" href="javascript:window.location.reload();"><i class="fa-solid fa-arrow-rotate-right"></i></a><a class="rightMenu-item" href="javascript:window.history.forward();"><i class="fa-solid fa-arrow-right"></i></a><a class="rightMenu-item" id="menu-radompage" href="javascript:window.location.href = window.location.origin;"><i class="fa-solid fa-house"></i></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-text"><a class="rightMenu-item" href="javascript:rmf.copySelect();"><i class="fa-solid fa-copy"></i><span>复制</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:rmf.switchDarkMode();"><i class="fa-solid fa-circle-half-stroke"></i><span>昼夜模式</span></a><a class="rightMenu-item" href="javascript:rmf.switchTranslate();" id="menu-translate"><i class="fa-solid fa-earth-asia"></i><span>繁简切换</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/categories/';"><i class="fa-solid fa-book"></i><span>博客分类</span></a><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/tags/';"><i class="fa-solid fa-tags"></i><span>博客标签</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/Reward-list/';"><i class="fa-solid fa-clipboard-list"></i><span>打赏赞助 ❤</span></a><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/about-website/';"><i class="fa-solid fa-envelope-open-text"></i><span>网站声明</span></a></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="/CDN/lazyload.iife.min.js"></script><script src="/CDN/snackbar/snackbar.min.js"></script><script async="async">var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').style.transition = 'opacity 3s ease 0s'
+    document.getElementById('loading-box').style.opacity = '0'
+    setTimeout(function(){
+      document.getElementById('loading-box').classList.add("loaded")
+    }, 3000);
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').style.transition = '';
+    document.getElementById('loading-box').style.opacity = '1'
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})
+setTimeout(function(){preloader.endLoading();}, 3000);</script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://hexoblog-twikoo.meta-code.top',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'https://hexoblog-twikoo.meta-code.top',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('/CDN/comments/twikoo_1.6.26.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://hexoblog-twikoo.meta-code.top',
+        region: '',
+        pageSize: 5,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('/CDN/comments/twikoo_1.6.26.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script src="/js/console.js?date=20241027"></script><canvas id="universe"></canvas><script src="/js/universe.js"></script><script src="/js/plugins/jquery-3.6.0.min.js"></script><script src="/js/rightmenu.js"></script><script src="/js/sun_moon.js" async></script><div class="aplayer no-destroy" data-id="1050282" data-server="netease" data-type="artist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" data-lrctype="0" muted></div><canvas class="fireworks" mobile="false"></canvas><script src="/CDN/effect/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="105, 171, 247" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/CDN/background_effect/canvas-nest.min.js"></script><script src="/CDN/effect/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="/CDN/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="/CDN/aplayer/APlayer.min.js"></script><script src="/CDN/aplayer/Meting.min.js"></script><script src="/CDN/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="/CDN/count/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start -->
+  <script data-pjax src="/CDN/hexo_githubcalendar.js"></script>
+  <script data-pjax>
+        function GithubCalendarConfig(){
+            var git_githubapiurl ="https://github-calendar-api.meta-code.top/api?user=Barry-Flynn";
+            var git_color =['#ebedf0', '#a2f7af', '#6ce480', '#54ad63', '#469252', '#31753c', '#1f5f2a', '#13531f', '#084111', '#032b09', '#000000'];
+            var git_user ="Barry-Flynn";
+            var parent_div_git = document.getElementById('recent-posts');
+            var git_div_html = '<div class="recent-post-item" style="width:100%;height:auto;padding:10px;"><div id="github_loading" style="width:10%;height:100%;margin:0 auto;display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg></div><div id="github_container"></div></div>';
+            if(parent_div_git && location.pathname =='/'){
+                console.log("已挂载hexo-github-calendar https://github.com/Barry-Flynn/hexo-github-calendar");
+                // parent_div_git.innerHTML=git_div_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",git_div_html) // 有报错，但不影响使用(支持pjax跳转)
+            };
+            GithubCalendar(git_githubapiurl,git_color,git_user)
+        }
+        if(document.getElementById('recent-posts')){
+            GithubCalendarConfig()
+        }
+    </script>
+    <style>#github_container{min-height:280px}@media screen and (max-width:650px) {#github_container{background-image:;min-height:0px}}</style>
+    <style></style><!-- hexo injector body_end end --></body></html>

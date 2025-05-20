@@ -1,0 +1,815 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>【Java基础】01 Java基础入门 | 百里飞洋</title><meta name="keywords" content="Java,后端,Java基础"><meta name="author" content="百里飞洋 Barry-Flynn"><meta name="copyright" content="百里飞洋 Barry-Flynn"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Java背景知识、Java快速入门、IDEA开发工具的使用、Java基础语法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Java基础】01 Java基础入门">
+<meta property="og:url" content="https://blog.meta-code.top/2022/09/05/2022-97/index.html">
+<meta property="og:site_name" content="百里飞洋">
+<meta property="og:description" content="Java背景知识、Java快速入门、IDEA开发工具的使用、Java基础语法">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2022/09/05/vTy1MR.png">
+<meta property="article:published_time" content="2022-09-05T00:19:14.000Z">
+<meta property="article:modified_time" content="2025-05-19T17:05:36.805Z">
+<meta property="article:author" content="百里飞洋 Barry-Flynn">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="后端">
+<meta property="article:tag" content="Java基础">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2022/09/05/vTy1MR.png"><link rel="shortcut icon" href="/img/icon/%E7%81%AB%E7%AE%AD.png"><link rel="canonical" href="https://blog.meta-code.top/2022/09/05/2022-97/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/CDN/fontawesome/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/CDN/snackbar/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e21f557d5683e4733d77db5ab8910d7b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":100,"position":"top","messagePrev":"「温馨提示」本文更新已经","messageNext":"天，若内容或图片失效，请留言反馈。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: 百里飞洋 Barry-Flynn","link":"链接: ","source":"来源: 百里飞洋","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#121212","bgDark":"#49b1f5","position":"bottom-right"},
+  source: {
+    jQuery: '/CDN/jquery.min.js',
+    justifiedGallery: {
+      js: '/CDN/justifiedGallery/jquery.justifiedGallery.min.js',
+      css: '/CDN/justifiedGallery/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: '/CDN/photo/jquery.fancybox.min.js',
+      css: '/CDN/photo/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【Java基础】01 Java基础入门',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-05-20 01:05:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><link rel="stylesheet" href="/css/BF-simple.css"><link rel="stylesheet" href="/css/BF-rightmenu.css"><link rel="stylesheet" href="https://s1.hdslb.com/bfs/static/jinkela/long/font/regular.css"><svg aria-hidden="true" style="position:absolute; overflow:hidden; width:0; height:0"><symbol id="icon-sun" viewBox="0 0 1024 1024"><path d="M960 512l-128 128v192h-192l-128 128-128-128H192v-192l-128-128 128-128V192h192l128-128 128 128h192v192z" fill="#FFD878" p-id="8420"></path><path d="M736 512a224 224 0 1 0-448 0 224 224 0 1 0 448 0z" fill="#FFE4A9" p-id="8421"></path><path d="M512 109.248L626.752 224H800v173.248L914.752 512 800 626.752V800h-173.248L512 914.752 397.248 800H224v-173.248L109.248 512 224 397.248V224h173.248L512 109.248M512 64l-128 128H192v192l-128 128 128 128v192h192l128 128 128-128h192v-192l128-128-128-128V192h-192l-128-128z" fill="#4D5152" p-id="8422"></path><path d="M512 320c105.888 0 192 86.112 192 192s-86.112 192-192 192-192-86.112-192-192 86.112-192 192-192m0-32a224 224 0 1 0 0 448 224 224 0 0 0 0-448z" fill="#4D5152" p-id="8423"></path></symbol><symbol id="icon-moon" viewBox="0 0 1024 1024"><path d="M611.370667 167.082667a445.013333 445.013333 0 0 1-38.4 161.834666 477.824 477.824 0 0 1-244.736 244.394667 445.141333 445.141333 0 0 1-161.109334 38.058667 85.077333 85.077333 0 0 0-65.066666 135.722666A462.08 462.08 0 1 0 747.093333 102.058667a85.077333 85.077333 0 0 0-135.722666 65.024z" fill="#FFB531" p-id="11345"></path><path d="M329.728 274.133333l35.157333-35.157333a21.333333 21.333333 0 1 0-30.165333-30.165333l-35.157333 35.157333-35.114667-35.157333a21.333333 21.333333 0 0 0-30.165333 30.165333l35.114666 35.157333-35.114666 35.157334a21.333333 21.333333 0 1 0 30.165333 30.165333l35.114667-35.157333 35.157333 35.157333a21.333333 21.333333 0 1 0 30.165333-30.165333z" fill="#030835" p-id="11346"></path></symbol></svg><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="百里飞洋" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="百里飞洋" type="application/rss+xml">
+</head><body><div id="loading-box"><div class="centered"><div class="blob-1"></div><div class="blob-2"></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/friends/Barry-Flynn.jpg" onerror="onerror=null;src='/img/others/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">92</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/Calendar/"><i class="fa-fw fa-solid fa-calendar-check"></i><span> 奋斗日历</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-icons"></i><span> 多媒体</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-headphones-alt"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 找文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 按分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 按标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 按时间</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-medal"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/Reward-list/"><i class="fa-fw fas fa-clipboard-list"></i><span> 打赏榜</span></a></li><li><a class="site-page child" href="/about-website/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 网站声明</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-user-friends"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-subway"></i><span> 开往&amp;虫洞</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><i class="fa-fw fa fa-subway"></i><span> 开往/友链接力</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://foreverblog.cn/go.html"><i class="fa-fw fab fa-stumbleupon-circle"></i><span> 虫洞/十年之约</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://zhblogs.ohyee.cc/?tab=blog_list&amp;page=1&amp;tags=&amp;search=百里飞洋"><i class="fa-fw fas fa-blog"></i><span> 中文博客导航</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s1.ax1x.com/2022/09/05/vTy1MR.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">百里飞洋</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/Calendar/"><i class="fa-fw fa-solid fa-calendar-check"></i><span> 奋斗日历</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-icons"></i><span> 多媒体</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-headphones-alt"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 找文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 按分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 按标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 按时间</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-medal"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/Reward-list/"><i class="fa-fw fas fa-clipboard-list"></i><span> 打赏榜</span></a></li><li><a class="site-page child" href="/about-website/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 网站声明</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-user-friends"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-subway"></i><span> 开往&amp;虫洞</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><i class="fa-fw fa fa-subway"></i><span> 开往/友链接力</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://foreverblog.cn/go.html"><i class="fa-fw fab fa-stumbleupon-circle"></i><span> 虫洞/十年之约</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://zhblogs.ohyee.cc/?tab=blog_list&amp;page=1&amp;tags=&amp;search=百里飞洋"><i class="fa-fw fas fa-blog"></i><span> 中文博客导航</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【Java基础】01 Java基础入门</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-05T00:19:14.000Z" title="发表于 2022-09-05 08:19:14">2022-09-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-05-19T17:05:36.805Z" title="更新于 2025-05-20 01:05:36">2025-05-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E3%80%90%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B%E3%80%91/">【本科课程】</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E3%80%90%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B%E3%80%91/%E6%99%BA%E8%83%BD%E5%BA%94%E7%94%A8%E5%AE%9E%E8%AE%AD/">智能应用实训</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【Java基础】01 Java基础入门"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Java背景知识"><a href="#Java背景知识" class="headerlink" title="Java背景知识"></a>Java背景知识</h2><ul>
+<li>Java是美国 <strong>sun 公司（Stanford University Network）</strong>在1995年推出的一门计算机<strong>高级编程语言</strong>。</li>
+<li>Java 早期称为Oak(橡树)，后期改名为Java。</li>
+<li>Java 之父：**詹姆斯·高斯林(James Gosling)**。</li>
+<li>2009年 sun公司被<strong>Oracle</strong>公司收购。</li>
+</ul>
+<h3 id="为什么用Java"><a href="#为什么用Java" class="headerlink" title="为什么用Java"></a>为什么用Java</h3><ul>
+<li>世界上最流行的编程语言之一，在国内使用最为广泛的编程语言。</li>
+<li>可移植性、安全可靠、性能较好。</li>
+<li>开发社区最完善，功能最丰富。</li>
+</ul>
+<h3 id="Java能做什么"><a href="#Java能做什么" class="headerlink" title="Java能做什么"></a>Java能做什么</h3><ul>
+<li><strong>桌面应用开发</strong>：各种税务管理软件，IDEA</li>
+<li><strong>企业级应用开发</strong>：微服务，大型互联网应用</li>
+<li><strong>移动应用开发</strong>：android，医疗设备</li>
+<li><strong>服务器系统</strong>：应用的后台</li>
+<li><strong>大数据开发</strong>：hadoop</li>
+<li><strong>游戏开发</strong>：我的世界 MineCraft</li>
+</ul>
+<h3 id="Java技术体系"><a href="#Java技术体系" class="headerlink" title="Java技术体系"></a>Java技术体系</h3><table>
+<thead>
+<tr>
+<th>技术体系</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Java SE(Java Standard Edition):标准版</strong></td>
+<td>Java技术的核心和基础</td>
+</tr>
+<tr>
+<td><strong>Java SE(Java Enterprise Edition):企业版</strong></td>
+<td>企业级应用开发的一套<strong>解决方案</strong></td>
+</tr>
+<tr>
+<td>Java ME(Java Micro Edition):小型版</td>
+<td>针对移动设备应用的<strong>解决方案</strong></td>
+</tr>
+</tbody></table>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li><p>Java是什么？<br>是一门高级编程语言。</p>
+</li>
+<li><p>Java是哪家公司研发的，现在属于哪家公司？<br>sun公司、Oracle公司。</p>
+</li>
+<li><p>Java之父是谁啊？<br>詹姆斯.高斯林</p>
+</li>
+<li><p>Java能做什么？<br>基本上什么都可以干，主要做互联网系统的开发。</p>
+</li>
+<li><p>Java有哪些技术平台啊<br>JavaSE（标准版）、JavaEE（企业版）、JavaME（小型版）</p>
+</li>
+</ul>
+<hr>
+<h2 id="Java快速入门"><a href="#Java快速入门" class="headerlink" title="Java快速入门"></a>Java快速入门</h2><h3 id="1-开发环境的准备-JDK"><a href="#1-开发环境的准备-JDK" class="headerlink" title="1. 开发环境的准备(JDK)"></a>1. 开发环境的准备(JDK)</h3><h4 id="1-如何使用Java"><a href="#1-如何使用Java" class="headerlink" title="(1) 如何使用Java"></a>(1) 如何使用Java</h4><p>Java语言的产品是 JDK（Java Development Kit ：Java开发者工具包) ，必须安装JDK才能使用</p>
+<h4 id="2-JDK产品的发展史"><a href="#2-JDK产品的发展史" class="headerlink" title="(2) JDK产品的发展史"></a>(2) JDK产品的发展史</h4><blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/09/05/v7i2As.png" alt="2022-97 (1)"></p>
+</blockquote>
+<h4 id="3-如何获取JDK"><a href="#3-如何获取JDK" class="headerlink" title="(3) 如何获取JDK"></a>(3) 如何获取JDK</h4><ul>
+<li>Oracle官网：<a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/downloads/">https://www.oracle.com/java/technologies/downloads/</a></li>
+</ul>
+<h4 id="4-如何验证JDK安装成功"><a href="#4-如何验证JDK安装成功" class="headerlink" title="(4) 如何验证JDK安装成功"></a>(4) 如何验证JDK安装成功</h4><p>在Java安装目录的<code>/bin</code>文件夹内打开cmd终端，执行<code>javac –version</code>和<code>java –version</code>命令。</p>
+<p>能正确显示版本号，即代表JDK环境搭建成功。</p>
+<blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/09/05/v7i5cT.png" alt="2022-97 (2)"></p>
+</blockquote>
+<h4 id="5-Javac-和-java介绍"><a href="#5-Javac-和-java介绍" class="headerlink" title="(5) Javac 和 java介绍"></a>(5) Javac 和 java介绍</h4><ul>
+<li>将来我们写好的Java程序都是<strong>高级语言</strong>，计算机底层是硬件不能识别这些语言。</li>
+<li>必须先通过<code>javac</code>编译工具进行翻译，然后再通过<code>java</code>执行工具执行才可以驱动机器干活。<blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/09/05/v7ZO4H.png" alt="2022-97 (3)"></p>
+</blockquote>
+</li>
+</ul>
+<h4 id="6-命令行常用命令"><a href="#6-命令行常用命令" class="headerlink" title="(6) 命令行常用命令"></a>(6) 命令行常用命令</h4><table>
+<thead>
+<tr>
+<th>常用命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>盘符:</td>
+<td>切换到某个盘，如 <code>C:</code>、<code>D:</code></td>
+</tr>
+<tr>
+<td>dir</td>
+<td>查看当前路径下的文件信息</td>
+</tr>
+<tr>
+<td>cd</td>
+<td>进入单级目录：<code>cd develop</code><br/>进入多级目录：<code>cd D:\develop\jdk1.8.0\bin</code><br/>回退到上一级目录：<code>cd ..</code><br/>回退到盘符根目录：<code>cd \</code></td>
+</tr>
+<tr>
+<td>cls</td>
+<td>清屏</td>
+</tr>
+</tbody></table>
+<h4 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h4><ul>
+<li><p>搭建java开发环境需要安装什么？去哪里下载？<br>JDK （Java Development Kit ) 开发者工具包;  Oracle官网。</p>
+</li>
+<li><p>JDK目前发展到哪里了，LTS版本有哪些，企业使用的JDK有什么特点？<br>JDK 17，JDK 8、11、17 ，很多企业还在使用JDK 8。</p>
+</li>
+<li><p>如何验证JDK是否安装成功了？<br>在命令行窗口中，输入java –version、javac –version看版本号。</p>
+</li>
+<li><p>Java开发环境最重要的2个命令是什么啊？<br>javac 编译命令、 java 执行命令。</p>
+</li>
+</ul>
+<hr>
+<h3 id="2-Java入门程序-HelloWorld"><a href="#2-Java入门程序-HelloWorld" class="headerlink" title="2. Java入门程序-HelloWorld"></a>2. Java入门程序-HelloWorld</h3><p>开发 Java 程序，需要三个步骤：<strong>编写代码，编译代码，运行代码</strong></p>
+<blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/09/05/v7eqs0.png" alt="2022-97 (4)"></p>
+</blockquote>
+<ul>
+<li>【注意事项】<ol>
+<li>第一个Java程序建议使用记事本书写。</li>
+<li>建议代码文件名全英文，首字母大写，满足驼峰模式，源代码文件的后缀必须是<code>.java </code></li>
+</ol>
+</li>
+</ul>
+<h4 id="1-编写代码"><a href="#1-编写代码" class="headerlink" title="(1) 编写代码"></a>(1) 编写代码</h4><p>创建<code>HelloWorld.java</code>文件，使用记事本打开，不要复制，手动敲入。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-编译代码"><a href="#2-编译代码" class="headerlink" title="(2) 编译代码"></a>(2) 编译代码</h4><p>如果没有配置环境变量，需要手动将<code>HelloWorld.java</code>文件放到JDK目录下的bin文件夹中打开终端运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac HelloWorld.java</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-运行代码"><a href="#3-运行代码" class="headerlink" title="(3) 运行代码"></a>(3) 运行代码</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java HelloWorld</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/09/05/vTNNcT.png" alt="2022-97 (5)"><br><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/09/05/v7mPQ1.png" alt="2022-97 (6)"></p>
+</blockquote>
+<hr>
+<h3 id="3-HelloWorld程序常见问题"><a href="#3-HelloWorld程序常见问题" class="headerlink" title="3. HelloWorld程序常见问题"></a>3. HelloWorld程序常见问题</h3><ol>
+<li>Windows的文件扩展名没有勾选，没将<code>.txt</code>后缀成功修改为<code>.java</code></li>
+<li>代码写了，但是忘记保存了</li>
+<li>文件名和类名不一致。</li>
+<li>大小写错误，单词<strong>拼写错误</strong>，存在中文符号，找不到main方法。</li>
+<li>括号不配对。</li>
+<li>编译或执行工具使用不当。</li>
+</ol>
+<blockquote>
+<p>比如我第一次写这个程序的时候，<code>String[] args</code>中间的空格差点漏掉，并且<code>println()</code>倒数第二个以为是驼峰命名法的大写字母<code>I</code>，其实却是小写字母<code>l</code>。在当初学C语言是时候，还经常把<code>main</code>写成<code>mian</code>，找半天都找不出bug。</p>
+</blockquote>
+<hr>
+<h3 id="4-补充：Java程序的执行原理"><a href="#4-补充：Java程序的执行原理" class="headerlink" title="4. 补充：Java程序的执行原理"></a>4. 补充：Java程序的执行原理</h3><ul>
+<li>计算机能认识的机器语言长什么样子？<ul>
+<li>机器语言：<code>00011100 00110101 ………</code></li>
+<li>计算机底层都是硬件电路，可以通过不通电和通电，表示0、1。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>编程语言发展历程：<br>机器语言、汇编语言、高级语言</li>
+</ul>
+<ul>
+<li>为什么学习高级编程语言？<br>更简单：使用接近人类自己的语言书写，翻译器再将其翻译成计算机能理解的机器指令。 </li>
+</ul>
+<ul>
+<li>Java程序的执行原理是什么样的？<br>不管是什么样的高级编程语言，最终都是翻译成计算机底层可以识别的机器语言。</li>
+</ul>
+<ul>
+<li>机器语言是由什么组成的啊？<br>0和1</li>
+</ul>
+<blockquote>
+<p>BUG，原意是臭虫或者虫子，现在用来指代在电脑系统或者程序中隐藏的一些问题或者漏洞。修复漏洞叫Debug</p>
+</blockquote>
+<hr>
+<h3 id="5-补充：JDK的组成、跨平台原理"><a href="#5-补充：JDK的组成、跨平台原理" class="headerlink" title="5. 补充：JDK的组成、跨平台原理"></a>5. 补充：JDK的组成、跨平台原理</h3><blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/09/05/v7m6kF.png" alt="2022-97 (7)"><br><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/09/05/v7mLpd.png" alt="2022-97 (8)"></p>
+</blockquote>
+<ul>
+<li><p>JDK有哪些组成啊？</p>
+<ol>
+<li>JVM虚拟机：真正运行Java程序的地方。</li>
+<li>核心类库：Java自己写好的一些程序,给咱们的程序调用的</li>
+<li>开发工具：javac、java、…</li>
+</ol>
+</li>
+<li><p>Java的跨平台是什么含义，Java如何实现跨平台的？</p>
+<ol>
+<li>一次编译、处处可用</li>
+<li>我们的程序只需要开发一次，就可以在各种安装了JVM的系统平台上运行。</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h3 id="6-补充：JDK安装后Path和Java-home环境变量"><a href="#6-补充：JDK安装后Path和Java-home环境变量" class="headerlink" title="6. 补充：JDK安装后Path和Java_home环境变量"></a>6. 补充：JDK安装后Path和Java_home环境变量</h3><p><strong>Path环境变量</strong>用于记住程序路径，方便在命令行窗口的任意目录启动程序。</p>
+<p>命令行窗口的任意目录可以使用javac和java。</p>
+<ul>
+<li><code>JAVA_HOME</code>：告诉操作系统JDK安装在了哪个位置（将来其他技术要通过这个环境变量找JDK）</li>
+<li>配置完<code>JAVA_HOME</code>后，配置<code>PATH</code>全局变量的时候就可以写成<code>%JAVA_HOME%\bin</code>，而不是繁琐的<code>D:\soft\java\jdk-17.0.1\bin</code>。方便后期修改或移动Java目录后调整环境变量，也就是直接去改<code>JAVA_HOME</code>就行了，无需改动<code>PATH</code></li>
+</ul>
+<p>目前较新的JDK安装时会自动配置javac、java程序的路径到Path环境变量中去 ，因此，javac、java可以直接使用。以前的老版本的JDK在安装的是没有自动配置Path环境变量的，此时必需要自己配置Path环境变量。</p>
+<p>配置了环境变量后，必须检测是否配置成功。打开命令行窗口，输入<code>javac –version</code> 及 <code>java –version</code>分别看版本</p>
+<ul>
+<li><p>什么是Path环境变量？</p>
+<ol>
+<li>Path环境变量用于配置程序的路径。</li>
+<li>方便我们在命令行窗口的任意目录启动程序。</li>
+</ol>
+</li>
+<li><p>JDK安装时，环境变量需要注意什么？</p>
+<ol>
+<li>较新版本的JDK会自动配置PATH环境变量，较老的JDK版本则不会。</li>
+<li>建议还是自己配置一下“Path”、 “JAVA_HOME”</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="IDEA开发工具的使用"><a href="#IDEA开发工具的使用" class="headerlink" title="IDEA开发工具的使用"></a>IDEA开发工具的使用</h2><h3 id="IntelliJ-IDEA概述"><a href="#IntelliJ-IDEA概述" class="headerlink" title="IntelliJ IDEA概述"></a>IntelliJ IDEA概述</h3><p>之前的开发工具：</p>
+<ul>
+<li>文本编辑工具: 记事本 、 UltraEdit 、 EditPlus 、 TextPad 、 NotePad++、sublime..</li>
+<li>存在的问题：编写代码时没有错误提醒、没有代码智能提示、需要自己进行编译、执行，功能不够强大。</li>
+</ul>
+<p>集成开发环境（ IDE, Integrated Development Environment ）</p>
+<ul>
+<li>把代码<strong>编写，编译，执行</strong>等多种功能综合到一起的开发工具，可以进行代码智能提示，错误提醒，项目管理等等。</li>
+<li>常见Java的IDE工具有：Eclipse、MyEclipse、IntelliJ IDEA、Jbuilder、NetBeans等。</li>
+</ul>
+<blockquote>
+<p>下载安装时，不要安装在含有中文的路径中。</p>
+</blockquote>
+<h3 id="IDEA-编写第一个程序"><a href="#IDEA-编写第一个程序" class="headerlink" title="IDEA 编写第一个程序"></a>IDEA 编写第一个程序</h3><blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/09/05/v7u6z9.png" alt="2022-97 (9)"></p>
+</blockquote>
+<ul>
+<li>使用步骤：<ol>
+<li>创建Project（空工程）</li>
+<li>创建Module模块</li>
+<li>创建Package包</li>
+<li>创建class 类（首字母必须大写）</li>
+<li>在类中编写代码（变量是小写字母，或者驼峰命名）</li>
+<li>完成编译运行（右键<code>Run &#39;HelloWorld.main()&#39;</code>）</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/09/06/v7Kdld.png" alt="2022-97 (10)"><br><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/09/06/v7K7kT.png" alt="2022-97 (11)"></p>
+</blockquote>
+<ul>
+<li><p>IDEA的结构都是什么样的？</p>
+<ul>
+<li><code>project</code> - <code>module</code> - <code>package</code> – <code>class</code></li>
+<li>project中可以创建多个module</li>
+<li>module中可以创建多个package</li>
+<li>package中可以创建多个class</li>
+</ul>
+</li>
+<li><p>新建都是哪些操作<br>New <code>project</code>/<code>module</code>/<code>package</code>/<code>class</code></p>
+</li>
+</ul>
+<h3 id="IDEA-主题背景色、字体设置"><a href="#IDEA-主题背景色、字体设置" class="headerlink" title="IDEA 主题背景色、字体设置"></a>IDEA 主题背景色、字体设置</h3><blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/09/06/v7KLp4.png" alt="2022-97 (12)"></p>
+</blockquote>
+<h3 id="IDEA-常用快捷键介绍"><a href="#IDEA-常用快捷键介绍" class="headerlink" title="IDEA 常用快捷键介绍"></a>IDEA 常用快捷键介绍</h3><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>main/psvm</code><br/><code>sout</code></td>
+<td>快速键入<code>public static void main(String[] args) &#123;&#125;</code><br/>快速键入<code>System.out.println();</code></td>
+</tr>
+<tr>
+<td><code>Ctrl+D</code></td>
+<td>复制当前数据到下一行</td>
+</tr>
+<tr>
+<td><code>Ctrl+Y</code></td>
+<td>删除所在行，但是建议用<code>Ctrl+X</code>（剪切）</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+L</code></td>
+<td>格式化代码</td>
+</tr>
+<tr>
+<td><code>Alt+Shift+↑</code><br/><code>Alt+Shift+↓</code></td>
+<td>将代码行上下移</td>
+</tr>
+<tr>
+<td><code>Ctrl+/</code><br/><code>Ctrl+Shift+/</code></td>
+<td>对选择代码行使用<code>//</code>进行注释<br/>将选中代码片段用注释符号<code>/**/</code>包裹</td>
+</tr>
+</tbody></table>
+<h3 id="IDEA-工程、模块常用操作"><a href="#IDEA-工程、模块常用操作" class="headerlink" title="IDEA 工程、模块常用操作"></a>IDEA 工程、模块常用操作</h3><ul>
+<li><p>删除类文件：右键<code>Delete</code></p>
+</li>
+<li><p>修改模块、类名称：右键<code>Refactor</code>=&gt;<code>Rename</code></p>
+</li>
+<li><p>导入模块：<code>File</code> &gt; <code>New</code> &gt; <code>Module from Existing Sources…</code>，选择IDEA模块文件<code>.iml</code></p>
+</li>
+<li><p>删除模块（了解）：右键<code>Remove Module</code></p>
+</li>
+<li><p>打开工程：<code>file</code>=&gt;<code>Open</code></p>
+</li>
+<li><p>关闭工程：<code>file</code>=&gt;<code>Exit</code>，或者直接右上角叉号</p>
+</li>
+</ul>
+<hr>
+<h2 id="Java基础语法"><a href="#Java基础语法" class="headerlink" title="Java基础语法"></a>Java基础语法</h2><h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>注释是写在程序中对代码进行解释说明的文字，方便自己和其他人查看，以便理解程序的。</p>
+<ul>
+<li><p>单行注释：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注释内容，只能写一行</span></span><br></pre></td></tr></table></figure></li>
+<li><p>多行注释：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">  注释内容</span></span><br><span class="line"><span class="comment">  注释内容</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></li>
+<li><p>文档注释：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 文档注释</span></span><br><span class="line"><span class="comment"> * 文档注释的内容是可以提取到一个程序说明文档中去的</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="注释不影响程序执行"><a href="#注释不影响程序执行" class="headerlink" title="注释不影响程序执行"></a>注释不影响程序执行</h4><p>注释的特点：注释不影响程序的执行，举个例子：</p>
+<ul>
+<li><p>Java源代码<code>NoteDemo.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  目标：让同学们学会使用注释</span></span><br><span class="line"><span class="comment">  这个程序就是讲解注释的使用的</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NoteDemo</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 下面是一行输出，往控制台打印信息</span></span><br><span class="line">    System.out.println(“学Java程序，很哈皮!<span class="string">&quot;);     </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    /*</span></span><br><span class="line"><span class="string">      窗前明月光</span></span><br><span class="line"><span class="string">      疑是地上霜</span></span><br><span class="line"><span class="string">      举头望明月</span></span><br><span class="line"><span class="string">      低头吃口姜</span></span><br><span class="line"><span class="string">    */</span></span><br><span class="line"><span class="string">    System.out.println(“百里飞洋&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;BarryFlynn&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>使用javac命令进行编译后<code>NoteDemo.class</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NoteDemo</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    System.out.println(“学Java程序，很哈皮!<span class="string">&quot;);     </span></span><br><span class="line"><span class="string">    System.out.println(“百里飞洋&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;BarryFlynn&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h4><table>
+<thead>
+<tr>
+<th>注释快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ctrl + /</td>
+<td>单行注释(仅对当前行)</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + /</td>
+<td>对选中的代码进行多行注释</td>
+</tr>
+</tbody></table>
+<h3 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h3><blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/09/06/vHeZlR.png" alt="2022-97 (13)"></p>
+</blockquote>
+<ul>
+<li>计算机是用来处理数据的，字面量就是告诉程序员：<strong>数据在程序中的书写格式</strong>。</li>
+<li>字符、字符串在程序中的书写格式有什么要求？<ol>
+<li>字符必须单引号围起来，有且仅能一个字符，不能为空。</li>
+<li>字符串必须用双引号围起来，可以为空。</li>
+</ol>
+</li>
+<li>几个常见的特殊值的书写格式是？<br><code>true</code>、<code>false</code>、<code>null</code>、<code>\n</code>、<code>\t</code></li>
+</ul>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><ul>
+<li><p>变量就是内存中的一块区域，用来存储一个数据的，且存储的数据可以被替换。</p>
+</li>
+<li><p><code>int age = 23;</code></p>
+</li>
+<li><p><code>数据类型 变量名称 = 初始值;</code></p>
+</li>
+<li><p>基本特点：变量中只能存一个值，变量中存的值是可以替换的。</p>
+</li>
+</ul>
+<h3 id="变量使用注意事项"><a href="#变量使用注意事项" class="headerlink" title="变量使用注意事项"></a>变量使用注意事项</h3><ul>
+<li>变量要先声明再使用</li>
+<li>变量声明后，不能存储其他类型的数据。</li>
+<li>变量的有效范围是从定义开始到“}”截止,且在同一个范围内部不能定义2个同名的变量。</li>
+<li>变量定义的时候可以没有初始值，但是使用的时候必须给初始值。</li>
+<li>变量定义有哪些注意点？<ol>
+<li>变量要先声明再使用。</li>
+<li>什么类型变量存储什么类型的数据。</li>
+<li>变量存在访问范围、同一个范围变量名不能重复。</li>
+<li>变量定义时可以没有初始化值，但是在使用时必须有初始值。</li>
+</ol>
+</li>
+</ul>
+<h3 id="关键字、标志符"><a href="#关键字、标志符" class="headerlink" title="关键字、标志符"></a>关键字、标志符</h3><h4 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h4><ul>
+<li>Java语言自己用到的一些词，有特殊作用的，我们称之为关键字。</li>
+<li> 如：public、class、byte、short、int、long、double… </li>
+<li>java用了，我们就不能用了，否则会报错！如定义：类名或者是变量名称时，就不能用这些词。</li>
+<li>注意：关键字很多，不用刻意去记。<blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/09/06/vHekY4.png" alt="2022-97 (14)"></p>
+</blockquote>
+</li>
+</ul>
+<h4 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h4><ul>
+<li>标志符就是名字。</li>
+<li>我们写程序时会起一些名字，如类名、方法名、变量名，取名时要遵守一定的规则。</li>
+</ul>
+<h4 id="标识符的要求"><a href="#标识符的要求" class="headerlink" title="标识符的要求"></a>标识符的要求</h4><ul>
+<li>基本要求：由数字、字母、下划线(_)和美元符($)等组成</li>
+<li>强制要求：<strong>不能以数字开头</strong>、不能是关键字、<strong>区分</strong>大小写</li>
+</ul>
+<h4 id="命名指导规范"><a href="#命名指导规范" class="headerlink" title="命名指导规范"></a>命名指导规范</h4><ul>
+<li><strong>变量</strong>名称：满足标识符规则，建议全英文、有意义、<strong>首字母小写</strong>，满足“驼峰模式”，例如：int studyNumber = 59。</li>
+<li><strong>类</strong>名称：满足标识符规则，建议全英文、有意义、<strong>首字母大写</strong>，满足“驼峰模式”，例如：HelloWorld.java。</li>
+</ul>
+<hr>
+<p><strong>【参考内容】</strong></p>
+<ul>
+<li>讲师：周德杰</li>
+<li>Java参考文档：<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/">https://docs.oracle.com/javase/8/docs/</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">百里飞洋 Barry-Flynn</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.meta-code.top/2022/09/05/2022-97/">https://blog.meta-code.top/2022/09/05/2022-97/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.meta-code.top" target="_blank">百里飞洋</a>！</span></div><div class="post-technical-tips"><span class="post-copyright-meta">技术内容: </span><span class="post-copyright-info">若存在错误或不当之处，还望兄台不吝赐教，期待与您交流！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java/">Java</a><a class="post-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF/">后端</a><a class="post-meta__tags" href="/tags/Java%E5%9F%BA%E7%A1%80/">Java基础</a></div><div class="post_share"><div class="social-share" data-image="https://s1.ax1x.com/2022/09/05/vTy1MR.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/CDN/share/share.min.css" media="print" onload="this.media='all'"><script src="/CDN/share/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E5%BE%AE%E4%BF%A1WeChat%E6%89%93%E8%B5%8F%E7%A0%81.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E5%BE%AE%E4%BF%A1%E6%89%93%E8%B5%8F%EF%BC%88%E7%BA%AF%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%89.png" alt="WeChat微信打赏"/></a><div class="post-qr-code-desc">WeChat微信打赏</div></li><li class="reward-item"><a href="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E6%94%AF%E4%BB%98%E5%AE%9DAliPay%E6%89%93%E8%B5%8F%E7%A0%81.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/../../../../img/%E4%BA%8C%E7%BB%B4%E7%A0%81/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%89%93%E8%B5%8F%EF%BC%88%E7%BA%AF%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%89.png" alt="AliPay支付宝打赏"/></a><div class="post-qr-code-desc">AliPay支付宝打赏</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/09/02/2022-96/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" onerror="onerror=null;src='/img/others/404.gif'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【Three.js】走进3D的奇妙世界（学习打卡05）</div></div></a></div><div class="next-post pull-right"><a href="/2022/09/05/2022-98/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/images/hello%20world.jpg" onerror="onerror=null;src='/img/others/404.gif'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【Java每日作业】Day01</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/09/07/2022-101/" title="【Java基础】03 程序流程控制"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/09/05/vTy1MR.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-07</div><div class="title">【Java基础】03 程序流程控制</div></div></a></div><div><a href="/2022/09/08/2022-104/" title="【Java基础】04 数组"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/09/05/vTy1MR.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-08</div><div class="title">【Java基础】04 数组</div></div></a></div><div><a href="/2022/09/09/2022-106/" title="【Java基础】05 方法"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s1.ax1x.com/2022/09/05/vTy1MR.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-09</div><div class="title">【Java基础】05 方法</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/friends/Barry-Flynn.jpg" onerror="this.onerror=null;this.src='/img/others/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">百里飞洋 Barry-Flynn</div><div class="author-info__description">星河滚烫，无问西东</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">198</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">92</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://space.bilibili.com/349963315"><i class="fas fa-play-circle"></i><span>关注我吧</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://weibo.com/6327778914" target="_blank" title="微博Weibo"><i class="fab fa-weibo"></i></a><a class="social-icon" href="https://space.bilibili.com/349963315" target="_blank" title="哔哩哔哩Bilibili"><i class="fab fa-youtube"></i></a><a class="social-icon" href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=2158469373@qq.com" target="_blank" title="邮箱Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://github.com/Barry-Flynn" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://gitee.com/Barry-Flynn" target="_blank" title="码云Gitee"><i class="fab fa-gofore"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Hey,欢迎来到我的博客小世界！<br /> 00后程序员&中二小青年 <br /> QQ学习聊天群：<b>534984250</b><br /> 才疏学浅，自说自话，<br /> 欢迎交流玩耍~<br /> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/others/咒术回战.gif" style="border-radius:0.5rem;" /></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86"><span class="toc-text">Java背景知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8Java"><span class="toc-text">为什么用Java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java%E8%83%BD%E5%81%9A%E4%BB%80%E4%B9%88"><span class="toc-text">Java能做什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java%E6%8A%80%E6%9C%AF%E4%BD%93%E7%B3%BB"><span class="toc-text">Java技术体系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8"><span class="toc-text">Java快速入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E5%87%86%E5%A4%87-JDK"><span class="toc-text">1. 开发环境的准备(JDK)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Java"><span class="toc-text">(1) 如何使用Java</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-JDK%E4%BA%A7%E5%93%81%E7%9A%84%E5%8F%91%E5%B1%95%E5%8F%B2"><span class="toc-text">(2) JDK产品的发展史</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96JDK"><span class="toc-text">(3) 如何获取JDK</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%A6%82%E4%BD%95%E9%AA%8C%E8%AF%81JDK%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F"><span class="toc-text">(4) 如何验证JDK安装成功</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-Javac-%E5%92%8C-java%E4%BB%8B%E7%BB%8D"><span class="toc-text">(5) Javac 和 java介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">(6) 命令行常用命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-1"><span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Java%E5%85%A5%E9%97%A8%E7%A8%8B%E5%BA%8F-HelloWorld"><span class="toc-text">2. Java入门程序-HelloWorld</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%BC%96%E5%86%99%E4%BB%A3%E7%A0%81"><span class="toc-text">(1) 编写代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%BC%96%E8%AF%91%E4%BB%A3%E7%A0%81"><span class="toc-text">(2) 编译代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E8%BF%90%E8%A1%8C%E4%BB%A3%E7%A0%81"><span class="toc-text">(3) 运行代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-HelloWorld%E7%A8%8B%E5%BA%8F%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-text">3. HelloWorld程序常见问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%A1%A5%E5%85%85%EF%BC%9AJava%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86"><span class="toc-text">4. 补充：Java程序的执行原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E8%A1%A5%E5%85%85%EF%BC%9AJDK%E7%9A%84%E7%BB%84%E6%88%90%E3%80%81%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%8E%9F%E7%90%86"><span class="toc-text">5. 补充：JDK的组成、跨平台原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E8%A1%A5%E5%85%85%EF%BC%9AJDK%E5%AE%89%E8%A3%85%E5%90%8EPath%E5%92%8CJava-home%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">6. 补充：JDK安装后Path和Java_home环境变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IDEA%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">IDEA开发工具的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IntelliJ-IDEA%E6%A6%82%E8%BF%B0"><span class="toc-text">IntelliJ IDEA概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IDEA-%E7%BC%96%E5%86%99%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F"><span class="toc-text">IDEA 编写第一个程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IDEA-%E4%B8%BB%E9%A2%98%E8%83%8C%E6%99%AF%E8%89%B2%E3%80%81%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE"><span class="toc-text">IDEA 主题背景色、字体设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IDEA-%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BB%8B%E7%BB%8D"><span class="toc-text">IDEA 常用快捷键介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IDEA-%E5%B7%A5%E7%A8%8B%E3%80%81%E6%A8%A1%E5%9D%97%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="toc-text">IDEA 工程、模块常用操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="toc-text">Java基础语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-text">注释</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A%E4%B8%8D%E5%BD%B1%E5%93%8D%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C"><span class="toc-text">注释不影响程序执行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">快捷键</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E9%9D%A2%E9%87%8F"><span class="toc-text">字面量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F"><span class="toc-text">变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">变量使用注意事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%81%E6%A0%87%E5%BF%97%E7%AC%A6"><span class="toc-text">关键字、标志符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">关键字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="toc-text">标识符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6%E7%9A%84%E8%A6%81%E6%B1%82"><span class="toc-text">标识符的要求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E6%8C%87%E5%AF%BC%E8%A7%84%E8%8C%83"><span class="toc-text">命名指导规范</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 百里飞洋 Barry-Flynn</div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="http://meta-code.top/"><i class="fas fa-globe-americas"></i>&nbsp;元代码</a>丨<a target="_blank" rel="noopener" href="https://weibo.com/6327778914/profile?topnav=1&wvr=6&is_all=1"><i class="fab fa-weibo"></i>&nbsp;<span>新浪微博</span></a>丨<a target="_blank" rel="noopener" href="https://space.bilibili.com/349963315"><i class="fab fa-youtube"></i>&nbsp;<span>哔哩哔哩</span></a>丨<a href="/about/"><i class="fas fa-meteor"></i>&nbsp;关于我</a><br /> <a href="/Reward-list/">赞助列表</a>丨<a href="/about-website/">网站声明</a>丨<a href="/link/">友情链接</a>丨<a href="https://blog.meta-code.top/rss2.xml">RSS订阅</a><br /> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41071102000543"><span style="vertical-align:middle;"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/icon/备案图标.png" style="vertical-align:middle;">&nbsp;豫公网安备 41071102000543号</a></span><br /> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><span style="vertical-align:middle;"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/icon/ICP备案.png" style="vertical-align:middle;width:20px;height:20px;">&nbsp;豫ICP备2021034491号</a></span><br /> <span><星河滚烫，无问西东></span><br /> <br /> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/二维码/移动端访问.png" style="width:130px;height:150px;border-radius:20px;display:inline-block;margin:0 5px;"> <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/二维码/学习聊天群.png" style="width:130px;height:150px;border-radius:20px;display:inline-block;margin:0 5px;"><br /></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><a class="icon-V hidden" onclick="switchNightMode()" title="浅色和深色模式转换"><svg width="25" height="25" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon"></use></svg></a><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><a class="rightMenu-item" href="javascript:window.history.back();"><i class="fa-solid fa-arrow-left"></i></a><a class="rightMenu-item" href="javascript:window.location.reload();"><i class="fa-solid fa-arrow-rotate-right"></i></a><a class="rightMenu-item" href="javascript:window.history.forward();"><i class="fa-solid fa-arrow-right"></i></a><a class="rightMenu-item" id="menu-radompage" href="javascript:window.location.href = window.location.origin;"><i class="fa-solid fa-house"></i></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-text"><a class="rightMenu-item" href="javascript:rmf.copySelect();"><i class="fa-solid fa-copy"></i><span>复制</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:rmf.switchDarkMode();"><i class="fa-solid fa-circle-half-stroke"></i><span>昼夜模式</span></a><a class="rightMenu-item" href="javascript:rmf.switchTranslate();" id="menu-translate"><i class="fa-solid fa-earth-asia"></i><span>繁简切换</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/categories/';"><i class="fa-solid fa-book"></i><span>博客分类</span></a><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/tags/';"><i class="fa-solid fa-tags"></i><span>博客标签</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/Reward-list/';"><i class="fa-solid fa-clipboard-list"></i><span>打赏赞助 ❤</span></a><a class="rightMenu-item" href="javascript:window.location.href = window.location.origin + '/about-website/';"><i class="fa-solid fa-envelope-open-text"></i><span>网站声明</span></a></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="/CDN/lazyload.iife.min.js"></script><script src="/CDN/snackbar/snackbar.min.js"></script><script async="async">var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').style.transition = 'opacity 3s ease 0s'
+    document.getElementById('loading-box').style.opacity = '0'
+    setTimeout(function(){
+      document.getElementById('loading-box').classList.add("loaded")
+    }, 3000);
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').style.transition = '';
+    document.getElementById('loading-box').style.opacity = '1'
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})
+setTimeout(function(){preloader.endLoading();}, 3000);</script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://hexoblog-twikoo.meta-code.top',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'https://hexoblog-twikoo.meta-code.top',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('/CDN/comments/twikoo_1.6.26.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://hexoblog-twikoo.meta-code.top',
+        region: '',
+        pageSize: 5,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('/CDN/comments/twikoo_1.6.26.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script src="/js/console.js?date=20241027"></script><canvas id="universe"></canvas><script src="/js/universe.js"></script><script src="/js/plugins/jquery-3.6.0.min.js"></script><script src="/js/rightmenu.js"></script><script src="/js/sun_moon.js" async></script><div class="aplayer no-destroy" data-id="1050282" data-server="netease" data-type="artist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" data-lrctype="0" muted></div><canvas class="fireworks" mobile="false"></canvas><script src="/CDN/effect/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="105, 171, 247" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/CDN/background_effect/canvas-nest.min.js"></script><script src="/CDN/effect/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="/CDN/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="/CDN/aplayer/APlayer.min.js"></script><script src="/CDN/aplayer/Meting.min.js"></script><script src="/CDN/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="/CDN/count/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start -->
+  <script data-pjax src="/CDN/hexo_githubcalendar.js"></script>
+  <script data-pjax>
+        function GithubCalendarConfig(){
+            var git_githubapiurl ="https://github-calendar-api.meta-code.top/api?user=Barry-Flynn";
+            var git_color =['#ebedf0', '#a2f7af', '#6ce480', '#54ad63', '#469252', '#31753c', '#1f5f2a', '#13531f', '#084111', '#032b09', '#000000'];
+            var git_user ="Barry-Flynn";
+            var parent_div_git = document.getElementById('recent-posts');
+            var git_div_html = '<div class="recent-post-item" style="width:100%;height:auto;padding:10px;"><div id="github_loading" style="width:10%;height:100%;margin:0 auto;display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg></div><div id="github_container"></div></div>';
+            if(parent_div_git && location.pathname =='/'){
+                console.log("已挂载hexo-github-calendar https://github.com/Barry-Flynn/hexo-github-calendar");
+                // parent_div_git.innerHTML=git_div_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",git_div_html) // 有报错，但不影响使用(支持pjax跳转)
+            };
+            GithubCalendar(git_githubapiurl,git_color,git_user)
+        }
+        if(document.getElementById('recent-posts')){
+            GithubCalendarConfig()
+        }
+    </script>
+    <style>#github_container{min-height:280px}@media screen and (max-width:650px) {#github_container{background-image:;min-height:0px}}</style>
+    <style></style><!-- hexo injector body_end end --></body></html>

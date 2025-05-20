@@ -1,0 +1,445 @@
+/* ——————————————————————————————
+文件：Hexo博客Butterfly主题魔改样式
+风格：随性风格
+作者: 百里飞洋(Barry-Flynn)
+博客：http://blog.meta-code.top
+更新：2022年6月13日
+—————————————————————————————— */
+
+
+
+
+/* ———————————————————— 全局 ———————————————————— */
+
+/* 鼠标样式 */
+html {
+    cursor: url("/img/cursor/normal.cur"),auto;
+}
+a {
+    cursor: url("/img/cursor/link.cur"),pointer;
+}
+
+/* 选中文字 */
+*::selection {
+    background: #363636;
+    color: #f7f7f7;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+    background-color: #f5f5f5;
+}
+::-webkit-scrollbar-thumb {
+    /* background-color: #2ab1ff; */
+    /* background-color: #252aff; */
+    background-color: #2a78ff;
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .4) 75%, transparent 75%, transparent);
+    border-radius: 3em;
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgb(0 0 0 / 30%);
+    box-shadow: inset 0 0 6px rgb(0 0 0 / 30%);
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+
+
+
+/* ———————————————————— Page页面 ———————————————————— */
+
+/* Page页面顶部图，设置圆角和阴影 */
+#page-header.not-home-page {
+    border-radius: 0 0 300px 300px;
+    box-shadow: 0px 10px 50px #7ac7df;
+}
+
+/* Page页面标题，设置文字阴影 */
+#page-header #site-title {
+    text-shadow: 5px 5px 10px black;
+}
+#page-header #site-subtitle {
+    text-shadow: 2px 2px 5px black;
+}
+
+/* Page页面顶部导航栏，设置阴影 */
+#nav .site-page {
+    text-shadow: 1px 1px 3px #2f2e33;
+}
+
+/* Page页面顶部导航栏的隐藏列表，设置圆角样式 */
+#nav .menus_items .menus_item .menus_item_child {
+    border-radius: 10px;
+}
+#nav .menus_items .menus_item .menus_item_child li {
+    border-radius: 10px;
+}
+
+/* 首页文章列表卡片，适当缩小 */
+#recent-posts > .recent-post-item .post_cover {
+    width: 40%;
+}
+#recent-posts > .recent-post-item >.recent-post-info {
+    width: 60%;
+}
+#recent-posts > .recent-post-item {
+    height: 15em;
+}
+#recent-posts > .recent-post-item >.recent-post-info > .article-title {
+    font-size: 1.25em;
+}
+/* 解决缩小PC端首页文章列表卡片后，移动端的宽度Bug */
+@media screen and (max-width: 768px) {
+    #recent-posts .recent-post-item .post_cover {
+        -webkit-box-ordinal-group: 1 !important;
+        -moz-box-ordinal-group: 1 !important;
+        -o-box-ordinal-group: 1 !important;
+        -ms-flex-order: 1 !important;
+        -webkit-order: 1 !important;
+        order: 1 !important;
+        width: 100%;
+        height: 230px;
+        border-radius: 8px 8px 0 0;
+    }
+    #recent-posts .recent-post-item .recent-post-info {
+        -webkit-box-ordinal-group: 2 !important;
+        -moz-box-ordinal-group: 2 !important;
+        -o-box-ordinal-group: 2 !important;
+        -ms-flex-order: 2 !important;
+        -webkit-order: 2 !important;
+        order: 2 !important;
+        padding: 1rem 1rem 1.5rem;
+        width: 100%;
+    }
+}
+
+/* 鼠标悬浮时卡片边框样式 */
+/* 侧边栏 */
+#aside-content {
+    z-index: 5;
+}
+#aside-content .card-widget {
+    /* border: 2px solid #383a3f; */
+    border: 2px solid #d4d4d4;
+    transition: all 0.6s;
+    border-radius: 30px 30px 30px 30px;
+    overflow: hidden;
+    opacity: 0.9;
+}
+#aside-content .card-widget:hover {
+    border: 2px solid #3568c7;
+    box-shadow: 0 0 15px #3568c7;
+}
+/* 帖子列表卡片 */
+#recent-posts {
+    z-index: 5;
+}
+#recent-posts > .recent-post-item {
+    /* border: 2px solid #383a3f; */
+    /* border: 2px solid #d4d4d4; */
+    border: 2px solid #66627a;
+    transition: all 0.6s;
+    /* border-radius: 50px 20px 50px 20px; */
+    border-radius: 30px;
+    overflow: hidden;
+    opacity: 0.95;
+}
+#recent-posts > .recent-post-item:hover {
+    border: 2px solid #3568c7;
+    box-shadow: 0 0 15px #3568c7;
+}
+/* Page/Post页面主体区域卡片 */
+.layout > div:first-child:not(.recent-posts) {
+    /* border: 2px solid #383a3f; */
+    /* border: 2px solid #d4d4d4; */
+    border: 2px solid #525252;
+    transition: all 0.6s;
+    z-index: 5;
+    /* opacity: 0.95; */
+}
+.layout > div:first-child:not(.recent-posts):hover {
+    border: 2px solid #3568c7;
+    box-shadow: 0 0 15px #3568c7;
+}
+
+/* 友链页面好友小方块，设为灰色虚线 */
+#article-container .flink .flink-list > .flink-list-item {
+    border: 1px dashed grey;
+}
+
+/* Page/Post页面侧边栏的索引图，设为圆角矩形（如最新文章的封面、最新评论的头像等）*/
+#aside-content .aside-list > .aside-list-item .thumbnail > img {
+    border-radius: 0.5rem;
+}
+
+/* 侧边栏作者卡片按钮样式，设置圆角*/
+#aside-content .card-info #card-info-btn {
+    border-radius: 5rem;
+}
+
+/* 页面右下角功能按钮 */
+#rightside > div > button{
+    border: 1px solid grey;
+    border-radius: 0.5rem;
+    background: black;
+}
+#rightside > div > button, #rightside > div > a{
+    border-radius: 0.5rem;
+    width: 35px;
+    height: 35px;
+}
+#to_comment {
+    border: 1px solid grey;
+}
+#rightside > div > #go-up{
+    background: #f96d6d;
+}
+
+/* 首页底部翻页条 */
+#pagination .pagination{
+    /*background: var(--card-bg);*/
+    background: linear-gradient(to right, black , var(--card-bg) , black );
+    border-radius: 12px 8px 8px 12px;
+    transition: all 0.3s;
+}
+#pagination .page-number{
+    background: #49b1f5;
+    color: white;
+    font-weight: bold;
+    border-radius: 30%;
+}
+#pagination .page-number.current{
+    background: #f96d6d;
+    color: white;
+    font-weight: bold;
+}
+
+/* 页尾 */
+#footer {
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+}
+#footer-wrap{
+    border-radius: 20px 20px 0 0;
+    /*background: linear-gradient(to bottom, #49b1f5 , black );*/
+}
+
+/* 夜间模式下背景宇宙星光 */
+#universe {  
+    display: block;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+
+
+/* ———————————————————— Post页面 ———————————————————— */
+
+/* 文章页面最上方标题 */
+#post-info .post-title {
+    font-size: 2em;
+}
+
+/* Page/Post页面中的图片，设为圆角 */
+#article-container img{
+    border-radius: 0.5rem;
+    margin-bottom: 0;
+}
+
+/* 有序/无序列表 */
+#article-container.post-content ol p, #article-container.post-content ul p {
+    margin: 0 0 0;
+}
+
+/* 高亮代码块 */
+#article-container figure.highlight {
+    margin: 0.2rem 0 0.8rem;
+}
+
+/* 目录内边距 */
+#aside-content #card-toc {
+    padding: 0.5rem 0.5rem;
+}
+
+/* 目录卡片头 */
+#aside-content .item-headline {
+    padding: 0.3rem;
+}
+
+/* 目录标题块设置易于区分的缩进和左线条 */
+#aside-content #card-toc .toc-content .toc-link {
+    padding: 0;
+}
+#aside-content #card-toc .toc-content ol.toc-child {
+    margin-left: 15px;
+    padding-left: 0px;
+    border-left: 1px solid #a89e9c;
+}
+
+/* 正在浏览的目录标题active样式 */
+#aside-content #card-toc .toc-content .toc-link.active {
+    /* border-left-color: #009d92; */
+    border-left: none;
+    /* background: #00c4b6; */
+    background: #70a1ff;
+    color: #fff;
+    border-radius: 5px;
+}
+.toc .toc-item .toc-link .toc-text {
+    padding-left: 5px;
+}
+
+/* 文章内文字行 */
+#article-container p {
+    /* margin: 0 0 0.5rem; */
+    margin: 0rem 0 0.75rem !important;
+}
+
+/* 注释文字边距 */
+#article-container blockquote p {
+    margin: 0 !important;
+}
+
+/* 彩色注释note文字边距 */
+#article-container .note p:last-child {
+    margin-bottom: 0 !important;
+}
+
+
+/* 文章版权 */
+#post .post-copyright {
+    border-radius: 8px;
+}
+
+/* 打赏按钮 */
+.post-reward .reward-button {
+    background: #d8213c;
+    color: #fff;
+    padding: 0;
+    width: 133px;
+    height: 40px;
+    line-height: 39px;
+    border-radius: 15px;
+}
+.button--animated:before {
+    background: #425aef;
+    border-radius: 15px;
+	border: 5px solid #425aef;
+	box-shadow: 0px 3px 10px #4259ef86;
+}
+
+/* 上一篇/下一篇 */
+nav#pagination.pagination-post {
+    border-radius: 25px;
+}
+
+/* 相关推荐 */
+.relatedPosts>.relatedPosts-list>div {
+    transition: .3s;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+
+
+
+/* ———————————————————— 移动端 ———————————————————— */
+
+/* 移动端隐藏侧边栏目录的头像 */
+#sidebar #sidebar-menus > .avatar-img{
+    border: 3px solid #0085ff;
+    box-shadow: 5px 5px 20px #0035ff;
+}
+/* 移动端隐藏侧边栏目录的头像下方：“文章、标签、分类”三个div块外面的大div */
+#sidebar #sidebar-menus .site-data{
+    display: flex;
+    justify-content: space-around;
+}
+/* 移动端隐藏子目录侧边栏的头像下方：“文章、标签、分类”三个div块 */
+#sidebar #sidebar-menus .site-data .data-item{
+    background: #f96d6d;
+    border-radius: 0.5rem;
+    width: 30%;
+}
+#sidebar #sidebar-menus .site-data .data-item .data-item-link .headline{
+    color: white;
+}
+#sidebar #sidebar-menus .site-data .data-item .data-item-link .length-num{
+    color: white;
+    background: #49b1f5;
+    border-radius: 0 0 0.5rem 0.5rem;
+    font-weight: bold;
+}
+/* 移动端隐藏侧边栏目录菜单项 */
+#sidebar #sidebar-menus .menus_items .site-page{
+    border-radius: 0.5rem;
+    background: linear-gradient(to right, #4b6bfa ,#8bfea8 );
+    margin-top: 0.5rem;
+    color: #141414;
+}
+
+
+
+
+/* ———————————————————— Aplayer全局吸底音乐标签 ———————————————————— */
+
+/* 播放器整体 */
+.aplayer.no-destroy.no-reload.aplayer-withlist.aplayer-fixed {
+    bottom: 25px;
+    box-shadow: 0 0 10px black;
+}
+/* 播放器主体 */
+.aplayer.no-destroy.no-reload.aplayer-withlist.aplayer-fixed .aplayer-body {
+    border-radius: 0 10px 10px 0;
+    bottom: 25px;
+    box-shadow: 0 0 10px black;
+}
+/* 展开收起按钮 */
+.aplayer.aplayer-fixed .aplayer-miniswitcher {
+    background: #cbcbcb;
+    border-radius: 0 10px 10px 0;
+}
+
+/* 设置音乐播放器默认收起、鼠标悬浮出现 */
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+    left: -66px !important;
+}
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+    left: 0 !important;
+}
+
+
+
+
+/* ———————————————————— twikoo评论区 ———————————————————— */
+/* 评论内容块 */
+#twikoo .tk-content {
+    /* background: #E8EEF6; */
+    border: 1px dashed #afafaf;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+/* 展开按钮 */
+.twikoo .tk-comments .tk-comments-container .tk-comment .tk-main .tk-expand {
+    font-weight: bold;
+    border-radius: 0 0 20px 20px;
+    /* color: #519eff; */
+    color: black;
+    background-color: #9f9f9f;
+    background: linear-gradient(to bottom, rgba(159, 159, 159, 0), rgba(159, 159, 159, 0.7) );
+}
