@@ -6,7 +6,7 @@
   <link href="https://blog.meta-code.top/atom.xml" rel="self"/>
   
   <link href="https://blog.meta-code.top/"/>
-  <updated>2025-05-19T17:05:36.812Z</updated>
+  <updated>2025-06-01T07:03:35.182Z</updated>
   <id>https://blog.meta-code.top/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>坏消息，被DDoS攻击了；好消息，只被打了2分钟。</title>
+    <link href="https://blog.meta-code.top/2025/06/01/2025-2/"/>
+    <id>https://blog.meta-code.top/2025/06/01/2025-2/</id>
+    <published>2025-06-01T03:06:48.000Z</published>
+    <updated>2025-06-01T07:03:35.182Z</updated>
+    
+    
+    <summary type="html">上午醒来一看手机，天塌了，通知栏全是腾讯云发的邮件和短信，告知我服务器被 DDoS 攻击了。</summary>
+    
+    
+    
+    
+    <category term="服务器" scheme="https://blog.meta-code.top/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="DDoS" scheme="https://blog.meta-code.top/tags/DDoS/"/>
+    
+  </entry>
   
   <entry>
     <title>【开箱验机】只花 6277 拿下 i7-14650HX/RTX4060 笔记本？机械革命 耀世16Pro 安全下车！</title>
@@ -285,25 +304,6 @@
     
     
     <category term="BFUI" scheme="https://blog.meta-code.top/tags/BFUI/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【CSS】三栏布局的几种实现方法</title>
-    <link href="https://blog.meta-code.top/2023/03/19/2023-52/"/>
-    <id>https://blog.meta-code.top/2023/03/19/2023-52/</id>
-    <published>2023-03-19T11:33:01.000Z</published>
-    <updated>2025-05-19T17:05:36.808Z</updated>
-    
-    
-    <summary type="html">关于经典三栏布局的样式实现方法</summary>
-    
-    
-    
-    
-    <category term="前端" scheme="https://blog.meta-code.top/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-    <category term="CSS" scheme="https://blog.meta-code.top/tags/CSS/"/>
     
   </entry>
   

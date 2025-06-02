@@ -15,8 +15,29 @@
     <atom:link href="https://blog.meta-code.top/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>呜呼！这里是百里飞洋（BarryFlynn）的个人博客网站主页，这里有学习的笔记，有生活的乐趣，有我独一无二的网络记忆。这是独属于我的天地！</description>
-    <pubDate>Mon, 19 May 2025 17:05:36 GMT</pubDate>
+    <pubDate>Sun, 01 Jun 2025 07:03:35 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>坏消息，被DDoS攻击了；好消息，只被打了2分钟。</title>
+      <link>https://blog.meta-code.top/2025/06/01/2025-2/</link>
+      <guid>https://blog.meta-code.top/2025/06/01/2025-2/</guid>
+      <pubDate>Sun, 01 Jun 2025 03:06:48 GMT</pubDate>
+      
+      <description>上午醒来一看手机，天塌了，通知栏全是腾讯云发的邮件和短信，告知我服务器被 DDoS 攻击了。</description>
+      
+      
+      
+      
+      
+      <category domain="https://blog.meta-code.top/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</category>
+      
+      <category domain="https://blog.meta-code.top/tags/DDoS/">DDoS</category>
+      
+      
+      <comments>https://blog.meta-code.top/2025/06/01/2025-2/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>【开箱验机】只花 6277 拿下 i7-14650HX/RTX4060 笔记本？机械革命 耀世16Pro 安全下车！</title>
@@ -315,27 +336,6 @@
       
       
       <comments>https://blog.meta-code.top/2023/03/21/2023-53/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>【CSS】三栏布局的几种实现方法</title>
-      <link>https://blog.meta-code.top/2023/03/19/2023-52/</link>
-      <guid>https://blog.meta-code.top/2023/03/19/2023-52/</guid>
-      <pubDate>Sun, 19 Mar 2023 11:33:01 GMT</pubDate>
-      
-      <description>关于经典三栏布局的样式实现方法</description>
-      
-      
-      
-      
-      
-      <category domain="https://blog.meta-code.top/tags/%E5%89%8D%E7%AB%AF/">前端</category>
-      
-      <category domain="https://blog.meta-code.top/tags/CSS/">CSS</category>
-      
-      
-      <comments>https://blog.meta-code.top/2023/03/19/2023-52/#disqus_thread</comments>
       
     </item>
     
