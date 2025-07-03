@@ -6,7 +6,7 @@
   <link href="https://blog.meta-code.top/atom.xml" rel="self"/>
   
   <link href="https://blog.meta-code.top/"/>
-  <updated>2025-06-01T07:03:35.182Z</updated>
+  <updated>2025-07-03T12:32:04.488Z</updated>
   <id>https://blog.meta-code.top/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【Art Design】一款精美的前端后台模板，出色的 Vite + TypeScript + Element Plus 的 Vue3 后台管理解决方案</title>
+    <link href="https://blog.meta-code.top/2025/07/03/2025-9/"/>
+    <id>https://blog.meta-code.top/2025/07/03/2025-9/</id>
+    <published>2025-07-03T12:15:26.000Z</published>
+    <updated>2025-07-03T12:32:04.488Z</updated>
+    
+    
+    <summary type="html">一款出色的专注于用户体验和视觉设计的使用 Vite + TypeScript + Element Plus 的 Vue3 后台管理解决方案</summary>
+    
+    
+    
+    
+    <category term="前端" scheme="https://blog.meta-code.top/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="Vue" scheme="https://blog.meta-code.top/tags/Vue/"/>
+    
+    <category term="Element-UI" scheme="https://blog.meta-code.top/tags/Element-UI/"/>
+    
+  </entry>
   
   <entry>
     <title>坏消息，被DDoS攻击了；好消息，只被打了2分钟。</title>
@@ -287,23 +308,6 @@
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>【BFUI】组件实现：Grid 栅格</title>
-    <link href="https://blog.meta-code.top/2023/03/21/2023-53/"/>
-    <id>https://blog.meta-code.top/2023/03/21/2023-53/</id>
-    <published>2023-03-21T13:30:08.000Z</published>
-    <updated>2025-05-19T17:05:36.808Z</updated>
-    
-    
-    <summary type="html">本文为 BFUI 组件库的故事，记录了关于 Grid 栅格组件的开发设计历程</summary>
-    
-    
-    
-    
-    <category term="BFUI" scheme="https://blog.meta-code.top/tags/BFUI/"/>
     
   </entry>
   
