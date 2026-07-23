@@ -15,8 +15,37 @@
     <atom:link href="https://blog.meta-code.top/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>呜呼！这里是百里飞洋（BarryFlynn）的个人博客网站主页，这里有学习的笔记，有生活的乐趣，有我独一无二的网络记忆。这是独属于我的天地！</description>
-    <pubDate>Mon, 28 Jul 2025 12:37:36 GMT</pubDate>
+    <pubDate>Thu, 23 Jul 2026 06:55:22 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>【Vibe Coding 技术分享】使用 VSCode + Claude Code + DeepSeek 打造高性价比 AI 编程环境</title>
+      <link>https://blog.meta-code.top/2026/07/21/2026-38/</link>
+      <guid>https://blog.meta-code.top/2026/07/21/2026-38/</guid>
+      <pubDate>Tue, 21 Jul 2026 00:18:38 GMT</pubDate>
+      
+      <description>本文分享了在 VS Code 中用 Claude Code + DeepSeek 打造稳定 AI 编程环境的实战经验，帮助读者快速上手 Claude Code 插件。</description>
+      
+      
+      
+      
+      
+      <category domain="https://blog.meta-code.top/tags/VS-Code/">VS Code</category>
+      
+      <category domain="https://blog.meta-code.top/tags/AI-Agent/">AI Agent</category>
+      
+      <category domain="https://blog.meta-code.top/tags/Vibe-Coding/">Vibe Coding</category>
+      
+      <category domain="https://blog.meta-code.top/tags/Claude-Code/">Claude Code</category>
+      
+      <category domain="https://blog.meta-code.top/tags/DeepSeek/">DeepSeek</category>
+      
+      <category domain="https://blog.meta-code.top/tags/CC-Switch/">CC Switch</category>
+      
+      
+      <comments>https://blog.meta-code.top/2026/07/21/2026-38/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>【Art Design】一款精美的前端后台模板，出色的 Vite + TypeScript + Element Plus 的 Vue3 后台管理解决方案</title>
@@ -323,23 +352,6 @@
       
       
       <comments>https://blog.meta-code.top/2023/04/10/2023-91/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>【蓝桥杯】第13届 Web 应用开发省赛真题解析</title>
-      <link>https://blog.meta-code.top/2023/04/09/2023-90/</link>
-      <guid>https://blog.meta-code.top/2023/04/09/2023-90/</guid>
-      <pubDate>Sun, 09 Apr 2023 07:02:52 GMT</pubDate>
-      
-      <description>第13届蓝桥杯 Web 应用开发个人赛省赛赛后真题解析</description>
-      
-      
-      
-      
-      
-      
-      <comments>https://blog.meta-code.top/2023/04/09/2023-90/#disqus_thread</comments>
       
     </item>
     

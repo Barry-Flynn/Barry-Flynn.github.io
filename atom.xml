@@ -6,7 +6,7 @@
   <link href="https://blog.meta-code.top/atom.xml" rel="self"/>
   
   <link href="https://blog.meta-code.top/"/>
-  <updated>2025-07-28T12:37:36.887Z</updated>
+  <updated>2026-07-23T06:55:22.799Z</updated>
   <id>https://blog.meta-code.top/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【Vibe Coding 技术分享】使用 VSCode + Claude Code + DeepSeek 打造高性价比 AI 编程环境</title>
+    <link href="https://blog.meta-code.top/2026/07/21/2026-38/"/>
+    <id>https://blog.meta-code.top/2026/07/21/2026-38/</id>
+    <published>2026-07-21T00:18:38.000Z</published>
+    <updated>2026-07-23T06:55:22.799Z</updated>
+    
+    
+    <summary type="html">本文分享了在 VS Code 中用 Claude Code + DeepSeek 打造稳定 AI 编程环境的实战经验，帮助读者快速上手 Claude Code 插件。</summary>
+    
+    
+    
+    
+    <category term="VS Code" scheme="https://blog.meta-code.top/tags/VS-Code/"/>
+    
+    <category term="AI Agent" scheme="https://blog.meta-code.top/tags/AI-Agent/"/>
+    
+    <category term="Vibe Coding" scheme="https://blog.meta-code.top/tags/Vibe-Coding/"/>
+    
+    <category term="Claude Code" scheme="https://blog.meta-code.top/tags/Claude-Code/"/>
+    
+    <category term="DeepSeek" scheme="https://blog.meta-code.top/tags/DeepSeek/"/>
+    
+    <category term="CC Switch" scheme="https://blog.meta-code.top/tags/CC-Switch/"/>
+    
+  </entry>
   
   <entry>
     <title>【Art Design】一款精美的前端后台模板，出色的 Vite + TypeScript + Element Plus 的 Vue3 后台管理解决方案</title>
@@ -293,21 +320,6 @@
     
     
     <category term="前端" scheme="https://blog.meta-code.top/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【蓝桥杯】第13届 Web 应用开发省赛真题解析</title>
-    <link href="https://blog.meta-code.top/2023/04/09/2023-90/"/>
-    <id>https://blog.meta-code.top/2023/04/09/2023-90/</id>
-    <published>2023-04-09T07:02:52.000Z</published>
-    <updated>2025-05-19T17:05:36.810Z</updated>
-    
-    
-    <summary type="html">第13届蓝桥杯 Web 应用开发个人赛省赛赛后真题解析</summary>
-    
-    
-    
     
   </entry>
   
